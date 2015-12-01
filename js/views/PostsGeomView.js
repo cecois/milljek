@@ -1,0 +1,94 @@
+var PostsGeomView = Backbone.View.extend({
+    el: "#postsgeom-fake",
+    template: Handlebars.templates['postsListViewTpl'],
+    events: {},
+    initialize: function() {
+        this.render()
+        this.listenTo(this.collection, 'sync', this.render)
+        return this
+    },
+    refetch: function(url){
+
+// console.log("refetch url:");
+        // console.log(url);
+
+    } //refetch
+    ,
+    extract: function() {
+            // var rawlols = this.collection.pluck("locations")
+            // can't use pluck cuz we gotta process them more specifically
+            // 
+            var lopoints = []
+            var lolines = []
+            var lopolys = []
+                // 
+            var lols = this.collection.map(function(m, i, t) {
+                var raw = m.get("locations")[0]
+                var l = raw.split(":")
+                switch (l[0]) {
+                    case 'line':
+                        var i = l[1] * plierline
+                        lolines.push(i)
+                        break;
+                    case 'poly':
+                        var i = l[1] * plierpoly
+                        lopolys.push(i)
+                        break;
+                    case 'point':
+                        var i = l[1];
+                        lopoints.push(i)
+                        break;
+                    default:
+                        i = null;
+                }
+            })
+            // console.log("lopoints:");
+            // console.log(lopoints);
+            // console.log("lolines:");
+            // console.log(lolines);
+            // console.log("lopolys:");
+            // console.log(lopolys);
+
+// var sql = new cartodb.SQL({ user: 'pugo' });
+// sql.execute("SELECT * FROM cbb_point WHERE cartodb_id IN (3,5,6)")
+
+if(lopoints.length>0){
+var prtlpoint = "point_table where cartodb_id IN ("+lopoints.join(",")+")"
+// console.log("prtlpoint:");
+// console.log(prtlpoint);
+} else {
+var prtlpoint = "point_table where cartodb_id = 00"
+}
+
+if(lolines.length>0){
+var prtlline = "line_table where cartodb_id*"+plierline+" IN ("+lolines.join(",")+")"
+// console.log("prtlline:");
+// console.log(prtlline);
+} else {
+var prtlline = "line_table where cartodb_id = 00"
+}
+if(lopolys.length>0){
+var prtlpoly = "poly_table where cartodb_id*"+plierpoly+" IN ("+lopolys.join(",")+")"
+// console.log("prtlpoly:");
+// console.log(prtlpoly);
+} else {
+var prtlpoly = "poly_table where cartodb_id = 00"
+}
+
+// var actualsql = "SELECT * FROM cbb_point WHERE cartodb_id IN (3,5,6)"
+var actualsql = "SELECT * FROM "+prtlpoint+" UNION ALL "+prtlline+" UNION ALL "+prtlpoly
+
+// console.log("actualsql:");
+// console.log(actualsql);
+
+
+
+            return this
+        } //extract
+        ,
+    render: function() {
+        this.extract()
+        $(this.el).html("at this point we should extract all locations from hrefs, subquery to cartodb (directly) and -- here's the rough part -- loop through the collx to tie each carto obj with a model ");
+        return this
+    }
+});

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>SpatialTrack</title>
+    <link rel="icon" 
+      type="image/png" 
+      href="images/ico.cbb.png">
+    
+    <script type="text/javascript" language="Javascript" src="lib/components/handlebars/handlebars.runtime.min.js"></script>
+
+    <!-- <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script> -->
+    
+
+    <link rel="stylesheet" href="lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/components/nprogress/nprogress.css">
+    
+    <link rel="stylesheet/less" type="text/css" href="css/app.less" >
+        <script src="lib/less-1.7.5.min.js" type="text/javascript"></script>
+    
+    </head>
+    <body ontouchstart="">
+        <div id="map"></div>
+        <div class="row"><div class="pull-right col-lg-12 hidden" id="activityContainer"></div></div>
+<div class="row"><div class="hidden col-lg-12" id="auditContainer"></div></div>
+      
+<div id="main" class="row col-sm-12">
+<div id="postslist-posts" class="col-sm-6 pull-left"></div>
+<div id="postsgeom-fake" class="col-sm-6 pull-right" style="background-color:black;color:white;"></div>
+
+<div id="posts-active" class="col-sm-6 pull-right" style="background-color:pink;color:gray;"></div>
+
+
+  </div>      
+           
+<script src="js/globals.js"></script>
+
+<script src="js/h-templates-compiled.js"></script>
+<script src="lib/components/jquery/jquery.min.js"></script>
+<script src="lib/components/nprogress/nprogress.js"></script>
+<script src="lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+<script type = "text/javascript" language = "Javascript" src = "lib/underscore-min.js"></script>
+<script type = "text/javascript" language = "Javascript" src = "lib/backbone-min.js"></script>
+
+
+<script type="text/javascript" language="Javascript" src="js/models/Query.js"></script>
+<script type="text/javascript" language="Javascript" src="js/models/Basemap.js"></script>
+<!-- <script type="text/javascript" language="Javascript" src="js/models/Geom.js"></script>
+<script type="text/javascript" language="Javascript" src="js/models/Geoms.js"></script> -->
+<script type="text/javascript" language="Javascript" src="js/models/Post.js"></script>
+<script type="text/javascript" language="Javascript" src="js/models/Posts.js"></script>
+
+<script type="text/javascript" language="Javascript" src="js/models/State.js"></script>
+
+
+  <script type="text/javascript" language="Javascript" src="js/views/BasemapView.js"></script>
+  <script type="text/javascript" language="Javascript" src="js/views/QueryView.js"></script>
+  <script type="text/javascript" language="Javascript" src="js/views/PostsListView.js"></script>
+  <script type="text/javascript" language="Javascript" src="js/views/PostsActiveView.js"></script>
+  <script type="text/javascript" language="Javascript" src="js/views/PostsGeomView.js"></script>
+
+<script type="text/javascript" language="Javascript" src="js/models/Audit.js"></script>
+  <script type="text/javascript" language="Javascript" src="js/views/AuditView.js"></script>
+<script type="text/javascript" language="Javascript" src="js/models/Activity.js"></script>
+  <script type="text/javascript" language="Javascript" src="js/views/ActivityView.js"></script>
+<script type="text/javascript" language="Javascript" src="js/app.js"></script>
+<script type="text/javascript" language="Javascript" src="js/routes.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+window.verbose = true;
+// window.AP = "spatial-track-ramblin-jack-elliot-the-south-coast-is-a-wild-coast";
+window.thishost = "http://localhost/spatialtrack-local";
+window.dev = true;
+window.local = true;
+window.plierpoint=1;
+window.plierpoly=9999;
+window.plierline=999;
+window.solrhost = "http://localhost:8983/solr/";
+window.queryinit = "chupacabr*";
+window.querybymap = false;

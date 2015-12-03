@@ -1,9 +1,9 @@
 #!/bin/sh
 
 
-jekyls=$(find /Users/ccmiller/git/milleriajek/_site -d -type f -iname "*.html" -not -iname "index*")
+jekyls_raw=$(find /Users/ccmiller/git/milleriajek/_site -d -type f -iname "*.html" -not -iname "index*")
 
-for j in $jekyls; do
+for j in $jekyls_raw; do
 	id=$(basename "${j}" .html)
 
 # echo "checking $j..."
@@ -28,9 +28,12 @@ for j in $jekyls; do
 
 	# echo "submitting"$id"..."
 	# echo "bodypeach:"$bodypeach
-	# curl "http://localhost:8983/solr/miljek/update/extract?literal.id="$id"&commit=true" -F "myfile=@"$j
-	curl "http://localhost:8983/solr/miljek/update/extract?literal.id="$id"&commit=true&fmap.body=body" -F "myfile=@"$j
+	curl "http://localhost:8983/solr/miljek/update/extract?literal.id="$id"&commit=true" -F "myfile=@"$j
+	# curl "http://localhost:8983/solr/miljek/update/extract?literal.id="$id"&commit=true&fmap.body=body" -F "myfile=@"$j
 	# curl "http://localhost:8983/solr/miljek/update/extract?literal.id="$id"&commit=true&literal.body="$body -F "myfile=@"$j
 	# curl "http://localhost:8983/solr/miljek/update/extract?literal.id="$id"&commit=true&literal.body=${bodypeach}" -F "myfile=@"$j
 	# curl "http://localhost:8983/solr/miljek/update/extract?literal.id="$id"&commit=true&literal.body=${bodypeach}" -F "myfile=@"$j
 done
+
+
+mv /Users/ccmiller/git/milleriajek/_site /Users/ccmiller/git/milljek/_site

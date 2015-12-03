@@ -1,7 +1,7 @@
 {{#each rows}}
 <li data-id="{{this.id}}" class="pick {{#if this.active}}active{{/if}}">
     <div class="">
-{{this.attr_dc_title}}
+{{this.title}} {{#if this.locations}}({{this.locations}}){{/if}}
         
     </div>
 </li>

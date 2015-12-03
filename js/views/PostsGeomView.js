@@ -1,9 +1,9 @@
 var PostsGeomView = Backbone.View.extend({
     el: "#postsgeom-fake",
-    template: Handlebars.templates['postsListViewTpl'],
+    // template: Handlebars.templates['postsListViewTpl'],
     events: {},
     initialize: function() {
-        this.render()
+         this.render()
         this.listenTo(this.collection, 'sync', this.render)
         return this
     },
@@ -81,14 +81,14 @@ var actualsql = "SELECT * FROM "+prtlpoint+" UNION ALL "+prtlline+" UNION ALL "+
 // console.log("actualsql:");
 // console.log(actualsql);
 
-
+appQuery.set({"cartostring":actualsql})
 
             return this
         } //extract
         ,
     render: function() {
         this.extract()
-        $(this.el).html("at this point we should extract all locations from hrefs, subquery to cartodb (directly) and -- here's the rough part -- loop through the collx to tie each carto obj with a model ");
+        $(this.el).html(appQuery.get("cartostring"));
         return this
     }
 });

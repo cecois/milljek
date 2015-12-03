@@ -1,7 +1,8 @@
 var Query = Backbone.Model.extend({
     defaults: {
-        rawstring: null,
-        solrstring: null
+        rawstring: "*",
+        solrstring: "*",
+        cartostring:null
     },
     initialize: function(options) {
         options || (options = {});

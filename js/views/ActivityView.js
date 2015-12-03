@@ -9,8 +9,8 @@ var ActivityView = Backbone.View.extend({
             parent: "#activityContainer"
         });
         this.model.bind("change", this.render, this);
-        this.listenTo(appPosts,'request',this.render)
-        this.listenTo(appPosts,'change',this.stfu)
+        // this.listenTo(appPosts,'request',this.render)
+        // this.listenTo(appPosts,'change',this.stfu)
     },
     stfu: function(delay) {
         NProgress.done()

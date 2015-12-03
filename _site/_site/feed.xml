@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Your awesome title</title>
+    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</description>
+    <link>http://yourdomain.com/</link>
+    <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 01 Dec 2015 17:34:20 -0500</pubDate>
+    <lastBuildDate>Tue, 01 Dec 2015 17:34:20 -0500</lastBuildDate>
+    <generator>Jekyll v3.0.0</generator>
+    
+      <item>
+        <title>Spatial Track: Bruce Springsteen: Queen of the Supermarket</title>
+        <description>&lt;p&gt;Springsteen apologist, here. Even still.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Poor me a drink, Theresa, in one of those glasses you dust off&lt;br /&gt;
+And I&#39;ll watch the bones in your back like the stations of the cross&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Not bad, right? But &quot;Working on a Dream&quot;?! &lt;em&gt;Working on a Dream&lt;/em&gt;. Really. You&#39;re &lt;em&gt;working on a dream&lt;/em&gt;, are you, Bruce?&lt;/p&gt;
+&lt;p&gt;
+But the title isn&#39;t the only dog on this album. It&#39;s &quot;Queen of the Supermarket,&quot; which is an ode to some hapless slob at Bruce&#39;s local Wegeman&#39;s or whatev. This one tries very hard to push some tired sophomore up into the pantheon of Springsteen characters who dream so big they actually work up to takeoff speed and ride off into salvation. But this poor teen (she&#39;s a teenager, everybody!) is very likely just some surly local yap who misbags your clementines or chit-chats with Braden the produce stocker while your leeks wilt on the scale.&lt;/p&gt;
+&lt;p&gt;Even so it&#39;s Springsteen, so if anybody could pull it off, you know? Trouble is that he starts out in the hole:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;There&#39;s a wonderful world where all you desire&lt;/p&gt;
+&lt;p&gt;	And everything you&#39;ve longed for is at your fingertips&lt;/p&gt;
+&lt;p&gt;	Where the bittersweet taste of life is at your lips&lt;/p&gt;
+&lt;p&gt;	Where aisles and aisles of dreams await you&lt;/p&gt;
+&lt;p&gt;	And the cool promise of ecstasy fills the air&lt;/p&gt;
+&lt;p&gt;	At the end of each working day she&#39;s waiting there.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;
+Hey, guess what! I don&#39;t even need to go on, do I. One stanza like that about a grocery store and we could just rap that gavel, yo. But before we go, here&#39;s an excerpt from a duet I heard he planned with that very same emette from Rumson High. Bruce goes...&lt;/p&gt;
+&lt;div class=&quot;scrippet&quot;&gt;
+&lt;p class=&quot;action&quot;&gt;swelling music, E Street-style&lt;/p&gt;
+&lt;p class=&quot;character&quot;&gt;Bruce&lt;/p&gt;
+&lt;p class=&quot;dialogue&quot;&gt;
+Guidance from the gods above &lt;br /&gt;
+At night I pray for the strength to tell her &lt;br /&gt;
+When I love I love I love I love her so &lt;br /&gt;
+Take my place in the check-out line &lt;br /&gt;
+For one moment her eyes meet mine &lt;br /&gt;
+I&#39;m lifted up, lifted up, lifted up, lifted up &lt;/p&gt;
+&lt;p&gt;Then the music gets a little choppy. Cuzzit&#39;s a young person, see.&lt;/p&gt;
+&lt;p class=&quot;action&quot;&gt;Beep. Thud. Thud. Beep. Then unaffectedly...&lt;/p&gt;
+&lt;p class=&quot;character&quot;&gt;Girl&lt;/p&gt;
+&lt;p class=&quot;dialogue&quot;&gt;
+You got your super saver card?&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;End of song. Maybe a sad trombone, maybe not.&lt;/p&gt;
+&lt;p&gt;And the bitch of it all is that it&#39;s actually called a &quot;Super &lt;em&gt;Saver&#39;s&lt;/em&gt; Card.&quot; [1. No I do not know if this is true. Plus I don&#39;t know what grocery store could possibly be this sublime, so I&#39;m just dropping the whole post on Rumson, NJ.]&lt;/p&gt;
+&lt;div class=&quot;ui360&quot;&gt;&lt;a href=&quot;&lt;?php echo get_field(audio_source);?&gt;&quot;&gt;play &quot;Queen of the Supermarket&quot;&lt;/a&gt;&lt;/div&gt;
+&lt;div style=&quot;margin-top:25px;padding-left:11px;margin-bottom:30px;&quot;&gt;&lt;a href=&quot;http://map.milleria.org/#post/&lt;?php echo $post-&gt;post_name;?&gt;&quot;&gt;&lt;img src=&quot;/assets/milleria-marker-active.png&quot; alt=&quot;&quot; width=&quot;25&quot; height=&quot;88&quot; border=&quot;0&quot; style=&quot;margin-right:19px;&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;http://map.milleria.org/#post/&lt;?php echo $post-&gt;post_name;?&gt;&quot;&gt;See it on the map&lt;/a&gt;.&lt;/div&gt;
+</description>
+        <pubDate>Sat, 18 Oct 2014 01:10:43 -0400</pubDate>
+        <link>http://yourdomain.com/spatialtrack/2014/10/18/spatial-track-bruce-springsteen-queen-of-the-supermarket.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/spatialtrack/2014/10/18/spatial-track-bruce-springsteen-queen-of-the-supermarket.html</guid>
+        
+        <category>bruce springsteen</category>
+        
+        
+        <category>SpatialTrack</category>
+        
+      </item>
+    
+      <item>
+        <title>Spatial Track: Ben Sollee: A Change is Gonna Come</title>
+        <description>&lt;p&gt;Fast and dirty Sam Cooke story?&lt;/p&gt;
+&lt;p&gt;Cooke and sketchy lady friend speed away from a party to the Hacienda Hotel in L.A. (the location for this track, by the way); lady friend claims Cooke gets handsy, so she tiptoes her way outta there with a pocketful of Cooke&#39;s wad; Cooke stops around the grounds of La Hacienda scanning the darkness for his cash-strapped former companion, frightening the hotel manager to the point that she...shoots him down and bludgeons him with a wooden implement?! Yikes?!&lt;/p&gt;
+&lt;p&gt;Of course the best detail is Cooke&#39;s missing shoe and undershirtless sports coat, but let&#39;s show some respect, maybe? I guess?&lt;/p&gt;
+&lt;p&gt;Anyway, prior to that Cooke was responsible for other crimes, including &lt;a href=&quot;http://en.wikipedia.org/wiki/Wonderful_World_(Sam_Cooke_song)&quot; title=&quot;Wonderful World (Sam Cooke song) - Wikipedia, the free encyclopedia&quot;&gt;not knowing much about history, biology, et al&lt;/a&gt;; &lt;a href=&quot;http://en.wikipedia.org/wiki/Cupid_(Sam_Cooke_song)&quot; title=&quot;Cupid (Sam Cooke song) - Wikipedia, the free encyclopedia&quot;&gt;begging Cupid for favors&lt;/a&gt;; and &lt;a href=&quot;http://en.wikipedia.org/wiki/Twistin%27_the_Night_Away&quot; title=&quot;Twistin&amp;#x27; the Night Away - Wikipedia, the free encyclopedia&quot;&gt;twistin&#39; his nights away&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;But he also put some heavy, kickass business down on tape. The heaviest? Probably &quot;A Change is Gonna Come&quot; in 1963. This is a muscular, anthemic (but surprisingly short) record that rightfully still carries a lot of the momentum of 1960s civil rights work.&lt;/p&gt;
+&lt;p&gt;&quot;Change&quot; is &lt;a href=&quot;http://www.npr.org/2014/02/01/268995033/sam-cooke-and-the-song-that-almost-scared-him&quot; title=&quot;Sam Cooke And The Song That &amp;#x27;Almost Scared Him&amp;#x27; : NPR&quot;&gt;reported to be a response, at least in part, to an incident in Shreveport, La&lt;/a&gt; where Cooke and his entourage were initially booked at a Holiday Inn but refused a room upon arrival. Looking past the fact that they even &lt;em&gt;wanted&lt;/em&gt; to stay at a Holiday Inn, which is funny, the open racial bastardry of those Holiday Innsters made Cooke, you know, pissed the fuck off. So he honked his horn and probably yelled and whatever else you do when you&#39;re denied something because of your race (I wouldn&#39;t know, I&#39;m a whitey). And all the white desk clerks and middle managers panicked, of course, and called the cops and Cooke was shuffled off to the hoosegow.&lt;/p&gt;
+&lt;p&gt;Following this event, among others, Cooke finished off this frank, curt statement about the plight of African Americans in the U.S. up to the mid 1960s. It&#39;s especially interesting because it essentially says &quot;watch the fuck out, folks,&quot; but does so within a lavish, acceptable arrangement.&lt;/p&gt;
+&lt;p&gt;I guess things &lt;em&gt;have&lt;/em&gt; changed for the better? Your average Holiday Inn desk clerk isn&#39;t likely to engage in open racial hostility at least. (Aside: but what &lt;em&gt;is&lt;/em&gt; your average Holiday Inn desk clerk likely to engage in, though? That&#39;s a hard species on which to draw a bead. They&#39;re almost always well-coifed and clean. Even prim. So you think they&#39;re okay because they behave like business students or party planners. But they&#39;re still, somehow, just...defeated. The rest of us wear our losses on our sleeves, kids. Why pretend everything is okay? If I&#39;m booking a room at a Holiday Inn I already know things could be both better and worse, so let&#39;s just tone down the gold hair and the thin beards and behave like human beings, yes?)&lt;/p&gt;
+&lt;p&gt;Anyway, it&#39;s &quot;A Change is Gonna Come,&quot; but not Sam Cooke&#39;s version with the strings and all of that bullshit. Strings ruin songs. Strings ruin songs. Most of the time, anyway, and this is one of them. Imagine how awesome this song would be if Cooke recorded it in a room full of percussionists. Just percussionists and Cooke&#39;s voice. Am I right?&lt;/p&gt;
+&lt;p&gt;Odd, then, that I would choose a version that&#39;s...&lt;em&gt;strings&lt;/em&gt;! Or &quot;string,&quot; more like it -- it&#39;s Ben Sollee doing this song with just a cello from Louisville&#39;s NuLuFest. It&#39;s pretty good, really. Nice and sparse and pretty powerful if you can handle hearing this come from a white NPR darling from Lexington, KY.&lt;/p&gt;
+&lt;div class=&quot;ui360&quot;&gt;&lt;a href=&quot;&lt;?php echo get_field(audio_source);?&gt;&quot;&gt;play &quot;A Change is Gonna Come&quot;&lt;/a&gt;&lt;/div&gt;
+&lt;div style=&quot;margin-top:25px;padding-left:11px;margin-bottom:30px;&quot;&gt;&lt;a href=&quot;http://map.milleria.org/#post/&lt;?php echo $post-&gt;post_name;?&gt;&quot;&gt;&lt;img src=&quot;/assets/milleria-marker-active.png&quot; alt=&quot;&quot; width=&quot;25&quot; height=&quot;88&quot; border=&quot;0&quot; style=&quot;margin-right:19px;&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;http://map.milleria.org/#post/&lt;?php echo $post-&gt;post_name;?&gt;&quot;&gt;See it on the map&lt;/a&gt;.&lt;/div&gt;
+&lt;p&gt;Some extra citations: &lt;/p&gt;
+&lt;p&gt;	&quot;Soul man who signed in for a violent death,&quot; &lt;em&gt;Western Daily Press&lt;/em&gt;: October 11: 2005.&lt;/p&gt;
+&lt;p&gt;	&quot;Soul Man,&quot; &lt;em&gt;The New York Times&lt;/em&gt; (Late Edition): November 20, 2005.&lt;/p&gt;
+&lt;p&gt;	&quot;Rolling on Rock&#39;s Long Road,&quot; &lt;em&gt;The Herald (Glasgow)&lt;/em&gt;: May 17, 1997.&lt;/p&gt;
+&lt;p&gt;	Capture from &quot;Sam Cooke Slain in Coast Motel: Singing Star Shot to Death in Los Angeles Incident,&quot; &lt;em&gt;New York Times&lt;/em&gt;:†1964,†December†12.&lt;/p&gt;
+&lt;p&gt;	&lt;a href=&quot;http://www.npr.org/templates/story/story.php?storyId=5014891&quot;&gt;&#39;Dream Boogie&#39;: The Life and Death of Sam Cooke&lt;/a&gt;. NPR. 2005&lt;/p&gt;
+</description>
+        <pubDate>Wed, 14 Jan 2009 03:42:15 -0500</pubDate>
+        <link>http://yourdomain.com/spatialtrack/2009/01/14/spatial-track-ben-sollee-change-gonna-come.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/spatialtrack/2009/01/14/spatial-track-ben-sollee-change-gonna-come.html</guid>
+        
+        <category>Ben Sollee</category>
+        
+        <category>civil rights</category>
+        
+        <category>los angeles</category>
+        
+        <category>Louisville</category>
+        
+        <category>murder</category>
+        
+        <category>NuLuFest</category>
+        
+        <category>Sam Cooke</category>
+        
+        
+        <category>SpatialTrack</category>
+        
+      </item>
+    
+      <item>
+        <title>Spatial Track: Nina Simone: The Ballad of Hollis Brown</title>
+        <description>&lt;p&gt;Remember that &lt;em&gt;one&lt;/em&gt; time when Bob Dylan got intentionally obfuscational and impressionist and shot a fire full of holes? Well he&#39;s not always super fun like that. In &quot;The Ballad of Hollis Brown&quot; he drops some rural on us all:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;There&#39;s seven breezes a-blowin&#39; &lt;br /&gt;
+			All around the cabin door &lt;br /&gt;
+			There&#39;s seven breezes a-blowin&#39; &lt;br /&gt;
+			All around the cabin door &lt;br /&gt;
+			Seven shots ring out &lt;br /&gt;
+			Like the ocean&#39;s pounding roar&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Ok, ok, it&#39;s easy to drop a shotgun into a stanza for some immediate backwoods cred. But to have &quot;seven breezes blowing&quot; around the door? Actually poetic, Bob. And then comes the punchline. To wit:&lt;/p&gt;
+&lt;p&gt;
+		&lt;em&gt;There&#39;s seven people dead &lt;br /&gt;
+				On a South Dakota farm &lt;br /&gt;
+				There&#39;s seven people dead &lt;br /&gt;
+				On a South Dakota farm &lt;br /&gt;
+				Somewhere in the distance &lt;br /&gt;
+				There&#39;s seven new people born&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;		...which &lt;a href=&quot;http://www.celestialmonochord.org/2007/04/hollis_brown_re.html&quot;&gt;Lyle Lofgren wrote&lt;/a&gt; &quot;is probably the coldest piece of poetry I&#39;ve ever heard.&quot; (Nevermind that &lt;em&gt;ten&lt;/em&gt; new people were probably born, but let&#39;s leave the looming spectre of overpopulation and fresh water shortages out of this.&lt;/p&gt;
+&lt;p&gt;This first appeared on &lt;em&gt;The Times They Are a-Changin&#39;&lt;/em&gt; in 1964, just after &lt;em&gt;The Freewheelin&#39; Bob Dylan&lt;/em&gt; (1963 - &quot;Blowin&#39; in the Wind&quot; and all) and I like to think of the Columbia Records exec hearing it and getting worried:&lt;/p&gt;
+&lt;div class=&quot;scrippet&quot;&gt;
+&lt;p class=&quot;character&quot;&gt;Exec&lt;/p&gt;
+&lt;p class=&quot;dialogue&quot;&gt;Bob, Bob, great stuff. &lt;em&gt;Great&lt;/em&gt; stuff. Listen, the boys and I were wondering about the seven dead. Thinking maybe -- maybe that number could come down a little.&lt;/p&gt;
+&lt;p class=&quot;action&quot;&gt;Dylan rambles on about a bunch of bullshit. Truth and whatnot&lt;/p&gt;
+&lt;p class=&quot;character&quot;&gt;Exec&lt;/p&gt;
+&lt;p class=&quot;dialogue&quot;&gt;Sure, sure, babe. I get that. We get that. It&#39;s cool. Of course. It&#39;s just...yeah, that&#39;s all cool, babe, but maybe it could go a little more like Blowin&#39;, whaddya think? Just a little more, uh, hopeful, you see?&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;So you&#39;re getting &quot;The Ballad of Hollis Brown&quot;, but guess what: it&#39;s a Nina Simone performance (from 1966&#39;s &lt;em&gt;Let it All Out&lt;/em&gt;) instead of Dylan&#39;s. Why? Because Nina Simone is a kick-ass mama. Take it up with her.&lt;/p&gt;
+&lt;p&gt;And although Lofgren and others seem convinced (and are probably right) that the origin of the song could be traced to a true crime, I&#39;m putting this one down right where it says -- rural South Dakota.&lt;/p&gt;
+&lt;div class=&quot;ui360&quot;&gt;&lt;a href=&quot;&lt;?php echo get_field(audio_source);?&gt;&quot;&gt;play &quot;The Ballad of Hollis Brown&quot;&lt;/a&gt;&lt;/div&gt;
+&lt;div style=&quot;margin-top:25px;padding-left:11px;margin-bottom:30px;&quot;&gt;&lt;a href=&quot;http://map.milleria.org/#post/&lt;?php echo $post-&gt;post_name;?&gt;&quot;&gt;&lt;img src=&quot;/assets/milleria-marker-active.png&quot; alt=&quot;&quot; width=&quot;25&quot; height=&quot;88&quot; border=&quot;0&quot; style=&quot;margin-right:19px;&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;http://map.milleria.org/#post/&lt;?php echo $post-&gt;post_name;?&gt;&quot;&gt;See it on the map&lt;/a&gt;.&lt;/div&gt;
+</description>
+        <pubDate>Sat, 18 Oct 2008 17:47:04 -0400</pubDate>
+        <link>http://yourdomain.com/spatialtrack/2008/10/18/spatial-track-nina-simone-the-ballad-of-hollis-brown.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/spatialtrack/2008/10/18/spatial-track-nina-simone-the-ballad-of-hollis-brown.html</guid>
+        
+        <category>7</category>
+        
+        <category>bob dylan</category>
+        
+        <category>lyle lofgren</category>
+        
+        <category>murder</category>
+        
+        <category>nina simone</category>
+        
+        <category>south dakota</category>
+        
+        <category>suicide</category>
+        
+        
+        <category>SpatialTrack</category>
+        
+      </item>
+    
+      <item>
+        <title>Spatial Track: Greg Brown: Eugene</title>
+        <description>&lt;p&gt;Greg, Greg. You like fishing and wandering. You like the woods. You like chatting with the dirtbags who litter the RVs that litter our national parks and the truck campers that litter our riversides. We get it. But &quot;the blandification of our whole situation&quot;? Really?! What&#39;s bland about our situation, then? That we &lt;a href=&quot;http://www.cdc.gov/hiv/basics/whatishiv.html&quot; title=&quot;CDC - What is HIV/AIDS? - HIV Basics - HIV/AIDS&quot;&gt;kinda sorta cured AIDS&lt;/a&gt;? That we have &lt;a href=&quot;http://www.apple.com/iphone/&quot; title=&quot;Apple - iPhone&quot;&gt;super powerful computers in our pockets&lt;/a&gt; that instantly connect us to the rest of the world? That we &lt;a href=&quot;http://marsrovers.jpl.nasa.gov/home/index.html&quot; title=&quot;Mars Exploration Rover Mission: Home&quot;&gt;build and send robots to Mars&lt;/a&gt; and discover a bunch of Martian shit? &lt;/p&gt;
+&lt;p&gt;You&#39;d rather we wander around telling tales to the moon, waiting for that dog to find us? Dunno, friend. You sound like a grouchy Luddite (read: confused). Why don&#39;t you take your Gibson JF45 and shove it up -- hey, that reminds me! How do you think those women who made your precious Gibson JF45 feel about all of this horrifying, normalizing, blandifying, icky progress? You think they do or don&#39;t like seeing their granddaughters grow up as bosses and executives and entrepreneurs and generally kickass ladies? RV owners, if you can imagine such a thing! Voting, and ~making their own decisions,~ and whatnot? As opposed to their own WWII-era options, which were &quot;wife,&quot; &quot;beaten wife,&quot; and &quot;Gibson JF45 maker&quot;?&lt;/p&gt;
+&lt;p&gt;But I&#39;m sure it&#39;s great up there near Eugene, yes. Very solitary, very devoid of Verizon coverage. Best of luck calling 911 about your bear attack wounds, friend. Oh, wait, are there bears in Oregon? &lt;em&gt;Google, &lt;a href=&quot;https://www.google.com/search?q=are+there+bears+in+oregon&amp;amp;oq=are+there+bears+in+oregon&amp;amp;aqs=chrome..69i57j0l5.6269j0j4&amp;amp;sourceid=chrome&amp;amp;espv=210&amp;amp;es_sm=91&amp;amp;ie=UTF-8&quot; title=&quot;are there bears in oregon - Google Search&quot;&gt;are there bears in Oregon&lt;/a&gt;?&lt;/em&gt; (See?)&lt;/p&gt;
+&lt;div class=&quot;ui360&quot;&gt;&lt;a href=&quot;&lt;?php echo get_field(audio_source);?&gt;&quot;&gt;play &quot;Eugene&quot;&lt;/a&gt;, from 2006&#39;s &lt;em&gt;The Evening Call&lt;/em&gt;&lt;/div&gt;
+&lt;div style=&quot;margin-top:25px;padding-left:11px;margin-bottom:30px;&quot;&gt;&lt;a href=&quot;http://map.milleria.org/#post/&lt;?php echo $post-&gt;post_name;?&gt;&quot;&gt;&lt;img src=&quot;/assets/milleria-marker-active.png&quot; alt=&quot;&quot; width=&quot;25&quot; height=&quot;88&quot; border=&quot;0&quot; style=&quot;margin-right:19px;&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;http://map.milleria.org/#post/&lt;?php echo $post-&gt;post_name;?&gt;&quot;&gt;See it on the map&lt;/a&gt;.&lt;/div&gt;
+</description>
+        <pubDate>Sat, 18 Oct 2008 00:27:31 -0400</pubDate>
+        <link>http://yourdomain.com/spatialtrack/2008/10/18/spatial-track-greg-brown-eugene.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/spatialtrack/2008/10/18/spatial-track-greg-brown-eugene.html</guid>
+        
+        <category>eugene</category>
+        
+        <category>greg brown</category>
+        
+        <category>luddites</category>
+        
+        <category>oregon</category>
+        
+        
+        <category>SpatialTrack</category>
+        
+      </item>
+    
+      <item>
+        <title>Spatial Track: Chuck E. Weiss: Piccolo Pete</title>
+        <description>&lt;p&gt;Chuck E. Weiss seems the ultimate Los Angelino. Full of amusing bullshit, a raconteur, untrustworthy, a little seedy, fun, but ultimately superficial and soulless? Is that fair? I&#39;m basing this charicature on Jay Leno. Fairer? But I swear it&#39;s perfectly appropriate in this track about a Ventura Boulevard antiques shop owner who disappears with his entire stock after &quot;the cigarettes made him dead.&quot;&lt;/p&gt;
+&lt;p&gt;Unless you personally have some wistful reminiscence about an unhealthy antiques peddler bottled up inside of you, just aching for a shuffling honky tonk ballad to set free, this track may not catch you in the grip.[1. &quot;The grip&quot; is slang I just made up -- just now -- to mean that tainted plain between yr 1-hole and your 2-hole, presumably a solid purchase for something real like a monster or metaphorical like an emotion.] Also, this appears to have no connection (except possibly incidentally) with The Andrews Sisters&#39; &quot;Piccolo Pete,&quot; which was an exercise in...wasting studio time and acetate (or whatever medium they etched Andrews Sisters tracks into back then).&lt;/p&gt;
+&lt;p&gt;An &lt;a href=&quot;http://articles.latimes.com/1999/aug/03/local/me-62089&quot;&gt;article in the L.A. Times&lt;/a&gt; from 1999 pretty well establishes the location of Piccolo Pete&#39;s, so that&#39;s where it goes.&lt;/p&gt;
+&lt;div class=&quot;ui360&quot;&gt;&lt;a href=&quot;&lt;?php echo get_field(audio_source);?&gt;&quot;&gt;play &quot;Piccolo Pete&quot;&lt;/a&gt;&lt;/div&gt;
+&lt;div style=&quot;margin-top:25px;padding-left:11px;margin-bottom:30px;&quot;&gt;&lt;a href=&quot;http://map.milleria.org/#post/&lt;?php echo $post-&gt;post_name;?&gt;&quot;&gt;&lt;img src=&quot;/assets/milleria-marker-active.png&quot; alt=&quot;&quot; width=&quot;25&quot; height=&quot;88&quot; border=&quot;0&quot; style=&quot;margin-right:19px;&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;http://map.milleria.org/#post/&lt;?php echo $post-&gt;post_name;?&gt;&quot;&gt;See it on the map&lt;/a&gt;.&lt;/div&gt;
+</description>
+        <pubDate>Mon, 29 Sep 2008 04:38:10 -0400</pubDate>
+        <link>http://yourdomain.com/spatialtrack/2008/09/29/spatial-track-chuck-e-weiss-piccolo-pete.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/spatialtrack/2008/09/29/spatial-track-chuck-e-weiss-piccolo-pete.html</guid>
+        
+        <category>antiques</category>
+        
+        <category>chuck e. weiss</category>
+        
+        <category>jay leno</category>
+        
+        <category>los angeles</category>
+        
+        
+        <category>SpatialTrack</category>
+        
+      </item>
+    
+      <item>
+        <title>Spatial Track: Bruce Springsteen: Nebraska</title>
+        <description>&lt;p&gt;
+So here we are already filching from entire &lt;em&gt;albums&lt;/em&gt; named after places. So soon, we&#39;re out of ideas we have to slice up entire albums just to find a track to pin down?&lt;/p&gt;
+&lt;p&gt;
+This week it&#39;s &quot;Nebraska,&quot; by Bruce Springsteen from his album &quot;Nebraska.&quot; What of it?! It&#39;s a dark tale about...about...erg, who cares? I guess some nihilistic dirtbag who -- and this is so sad -- had to &lt;em&gt;work&lt;/em&gt; for a living and resented it? Plus his dirtbag girl-doll Caril Ann Fugate, described in a very pleasing understatement by &lt;a href=&quot;http://www.trutv.com/library/crime/notorious_murders/mass/starkweather/caril_3.html&quot;&gt;TruTV as &quot;not much of a scholar&quot;?&lt;/a&gt; Them?! Why not!&lt;/p&gt;
+&lt;p&gt;I&#39;ll tell you &lt;em&gt;why&lt;/em&gt;: Nebraska holds up as a great exercise in style and career development. For The Boss. Those two wind-swept dopes don&#39;t deserve the acetate [1. I know we weren&#39;t still sticking with the acetate in 1982.] Springsteen &amp;amp; Columbia (or whatever studio) used to immortalize them, but the record signaled a shift in Springsteen from anthemic rock bombast to, well, folk bombast. Progress! Question mark.&lt;/p&gt;
+&lt;p&gt;But the choice to wind the story of those two murdery clods through various acoustic prairie-scapes was a good one, allowing Springsteen to draw out arid, dark, scary, rural Nebraska song-scenes through arid, dark, scary, rural Nebraska goings-on.&lt;/p&gt;
+&lt;p&gt;That he wanted me to somehow care about how those drawling nudniks felt about the world or their impulses and impeti is Springsteen&#39;s problem. Surprise, I &lt;em&gt;don&#39;t&lt;/em&gt;. Listening to the record itself, though, and this track, its microcosm, it&#39;s easy to find yourself lurking (innocently, ideally) in the black nights in which this terrible shit went down. And that&#39;s the point of mapping these songs after all.&lt;/p&gt;
+&lt;p&gt;So I&#39;ll attach &quot;Nebraska&quot; to 924 Belmont in Lincoln, NE (cited in &lt;a href=&quot;http://www.rockymountainnews.com/news/2008/Jan/29/reporter-remember-cold-blooded-killer-charles-star/&quot;&gt;this RockyMountainNews article&lt;/a&gt; as the location of the murder of the Fugate family). Listen to it and imagine yourself out in an Oklahoma nighttime, whatever that might do for you.&lt;/p&gt;
+&lt;div class=&quot;ui360&quot;&gt;&lt;a href=&quot;&lt;?php echo get_field(audio_source);?&gt;&quot;&gt;play &quot;Nebraska&quot;&lt;/a&gt;&lt;/div&gt;
+&lt;div style=&quot;margin-top:25px;padding-left:11px;margin-bottom:30px;&quot;&gt;&lt;a href=&quot;http://map.milleria.org/#post/&lt;?php echo $post-&gt;post_name;?&gt;&quot;&gt;&lt;img src=&quot;/assets/milleria-marker-active.png&quot; alt=&quot;&quot; width=&quot;25&quot; height=&quot;88&quot; border=&quot;0&quot; style=&quot;margin-right:19px;&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;http://map.milleria.org/#post/&lt;?php echo $post-&gt;post_name;?&gt;&quot;&gt;See it on the map&lt;/a&gt;.&lt;/div&gt;
+</description>
+        <pubDate>Mon, 15 Sep 2008 01:36:03 -0400</pubDate>
+        <link>http://yourdomain.com/spatialtrack/2008/09/15/spatial-track-bruce-springsteen-nebraska.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/spatialtrack/2008/09/15/spatial-track-bruce-springsteen-nebraska.html</guid>
+        
+        <category>bruce springsteen</category>
+        
+        <category>caril ann fugate</category>
+        
+        <category>charles starkweather</category>
+        
+        <category>columbia records</category>
+        
+        <category>oklahoma</category>
+        
+        
+        <category>SpatialTrack</category>
+        
+      </item>
+    
+      <item>
+        <title>Spatial Track: Memphis Millie &amp; Kansas Joe McCoy: When the Levee Breaks</title>
+        <description>&lt;p&gt;Omg we get it -- John Bonham recorded his break for &quot;When the Levee Breaks&quot; in a closet or something. Enough! Let&#39;s not forget they were basically grafting super talented rock skills on top of stolen blues songs, k? How hard is that, really, if you already have killer rock instincts? Come on.&lt;/p&gt;
+&lt;p&gt;But if you like levees breaking, you&#39;re going to love the very arguable &quot;original&quot; &quot;When the Levee Breaks,&quot; by Memphis Minnie and Kansas Joe McCoy. I guess Montana Mike and Spokane Sally couldn&#39;t find the studio that day. You&#39;re also going to love that Hurricane Katrina madness, I suppose, wherein the government and its contractors all responded one way, and thanks to a rising social media movement the people &lt;a href=&quot;http://gregstoll.dyndns.org/scipionus/&quot;&gt;responded differently&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Anywho, I&#39;m dropping the Memphis/Kansas &quot;Levee&quot; in Walls, Mississippi, which, according to Robert Santelli&#39;s &lt;em&gt;The Big Book of Blues&lt;/em&gt; (Penguin Books, New York, NY, 1993), was Minnie&#39;s teen-years home and informed this track more than anything else might have (including, I suppose, the flood that ransacked the poorest regions of Jimme Page&#39;s boyhood homeland. Oh, that didn&#39;t happen? Got it.)&lt;/p&gt;
+&lt;div class=&quot;ui360&quot;&gt;&lt;a href=&quot;&lt;?php echo get_field(audio_source);?&gt;&quot;&gt;play &quot;When the Levee Breaks,&quot;&lt;/a&gt; recorded by Memphis Millie and Kansas Joe McCoy.&lt;/div&gt;
+&lt;div style=&quot;margin-top:25px;padding-left:11px;margin-bottom:30px;&quot;&gt;&lt;a href=&quot;http://map.milleria.org/#post/&lt;?php echo $post-&gt;post_name;?&gt;&quot;&gt;&lt;img src=&quot;/assets/milleria-marker-active.png&quot; alt=&quot;&quot; width=&quot;25&quot; height=&quot;88&quot; border=&quot;0&quot; style=&quot;margin-right:19px;&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;http://map.milleria.org/#post/&lt;?php echo $post-&gt;post_name;?&gt;&quot;&gt;See it on the map&lt;/a&gt;.&lt;/div&gt;
+</description>
+        <pubDate>Mon, 08 Sep 2008 21:42:27 -0400</pubDate>
+        <link>http://yourdomain.com/spatialtrack/2008/09/08/spatial-track-memphis-millie-kansas-joe-mccoy-when-the-levee-breaks.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/spatialtrack/2008/09/08/spatial-track-memphis-millie-kansas-joe-mccoy-when-the-levee-breaks.html</guid>
+        
+        <category>jimmie page</category>
+        
+        <category>john bohnam</category>
+        
+        <category>kansas joe mccoy</category>
+        
+        <category>led zeppelin</category>
+        
+        <category>memphis millie</category>
+        
+        <category>mississippi</category>
+        
+        <category>robert plant</category>
+        
+        <category>walls</category>
+        
+        
+        <category>SpatialTrack</category>
+        
+      </item>
+    
+      <item>
+        <title>Spatial Track: Bill Haley: Within this Broken Heart of Mine</title>
+        <description>&lt;p&gt;You know the conceit behind these &quot;Spatial Track&quot; posts, right? The idea is to post something that is either informed or enriched by some connection to spatiality (&quot;geography&quot; to the uneducated) or is itself somehow evocative of, or at least ascribable to, some place. Hence posts that &lt;a href=&quot;http://blog.milleria.org/spatial-track-bob-miller-ohio-prison-fire-2/&quot;&gt;explicitly state their setting&lt;/a&gt; or are otherwise &lt;a href=&quot;http://blog.milleria.org/spatial-track-billie-holiday-strange-fruit/&quot;&gt;heavy from the weight of their implicit location&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;But this post is different. This recording of Bill Haley&#39;s &quot;Within this Broken Heart of Mine&quot; is so explicitly spatial that it almost shouldn&#39;t even &lt;em&gt;count&lt;/em&gt;. First of all, the song itself is entirely inconsequential, which is already trouble. But specifically the problem is that it&#39;s basically a recording of somebody giving directions. To a gig. Which is very quaint and all, but it kinda runs counter to the entire point of these posts.&lt;/p&gt;
+&lt;p&gt;How &quot;counter&quot; does it run? Not counter enough! So off we go with the long preamble to &quot;Within this Broken Heart of Mine,&quot; before which Haley asks Billy Williamson, a member of backing band The Saddlemen, to provide directions to a gig at the Twin Bars in Gloucester, NJ. And Williamson does! For...&lt;em&gt;ever&lt;/em&gt;! This bar is impossible to find, it turns out, and to imagine somebody listening to live radio in 1951, furiously scribbling several different iterations of terrible directions to a bar somewhere between Philadelphia and Gloucester, NJ, is to know exactly what was wrong with old timey types across the board.&lt;/p&gt;
+&lt;div class=&quot;ui360&quot;&gt;&lt;a href=&quot;&lt;?php echo get_field(audio_source);?&gt;&quot;&gt;play &quot;Within this Broken Heart of Mine,&quot;&lt;/a&gt; pinned to &quot;Jack&#39;s Twin Bar&quot; in Gloucester, NJ, because I knew exactly where to find it.&lt;/div&gt;
+&lt;div style=&quot;margin-top:25px;padding-left:11px;margin-bottom:30px;&quot;&gt;&lt;a href=&quot;http://map.milleria.org/#post/&lt;?php echo $post-&gt;post_name;?&gt;&quot;&gt;&lt;img src=&quot;/assets/milleria-marker-active.png&quot; alt=&quot;&quot; width=&quot;25&quot; height=&quot;88&quot; border=&quot;0&quot; style=&quot;margin-right:19px;&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;http://map.milleria.org/#post/&lt;?php echo $post-&gt;post_name;?&gt;&quot;&gt;See it on the map&lt;/a&gt;.&lt;/div&gt;
+</description>
+        <pubDate>Sat, 30 Aug 2008 15:52:43 -0400</pubDate>
+        <link>http://yourdomain.com/spatialtrack/2008/08/30/spatial-track-bill-haley-within-this-broken-heart-of-mine.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/spatialtrack/2008/08/30/spatial-track-bill-haley-within-this-broken-heart-of-mine.html</guid>
+        
+        <category>bill haley</category>
+        
+        <category>billy williamson</category>
+        
+        <category>camden</category>
+        
+        <category>directions</category>
+        
+        <category>driving</category>
+        
+        <category>gloucester</category>
+        
+        <category>new jersey</category>
+        
+        <category>pennsylvania</category>
+        
+        <category>philadelphia</category>
+        
+        <category>the comets</category>
+        
+        <category>the saddlement</category>
+        
+        
+        <category>SpatialTrack</category>
+        
+      </item>
+    
+      <item>
+        <title>Spatial Track: David Byrne: And She Was</title>
+        <description>&lt;p&gt;
+Ugh, I had to consult a reference librarian for this track. Such effort! This guy, one Don Bonsteel, was super helpful and cordial and free. And he nailed the answer for me. Bonsteel works at &lt;a href=&quot;http://www.prattlibrary.org/&quot;&gt;Enoch Pratt Free Library/State Library Resource Center&lt;/a&gt; in Baltimore, and he answered my question within a matter of hours when LexisNexis, Google, Cuil, Yahoo!, and about 50 other sources couldn&#39;t. And not for nothin&#39;? I don&#39;t live anywhere near Baltimore, have never given anything to the Enoch Pratt Free library, have arguably never given anything back to this &lt;em&gt;world&lt;/em&gt;, in fact. And yet here I am with free help from a kind librarian many hundreds of miles way. Thanks to Bonsteel and Enoch Pratt both.&lt;/p&gt;
+&lt;p&gt;And why? Because this Spatial Track post features the great David Byrne&#39;s &quot;And She Was,&quot; taken from a show at London&#39;s Union Chapel&lt;/p&gt;
+&lt;p&gt;Byrne&#39;s intro gives away the location: it&#39;s a field near the Yoo-Hoo chocolate drink factory in Baltimore. But that was the thing that was so hard to find -- the location of that fucking factory in Baltimore. According to Bonsteel (according to the 1967 Baltimore Metro Telephone Directory), the factory was at 3500 Marmenco Court. So then I&#39;m guessing at which field is features in the song itself, yes, but ultimately the location makes pretty good sense, since it&#39;s less than a mile east of Byrne&#39;s high school (Lansdowne).&lt;/p&gt;
+&lt;p&gt;So play the song and notice how easy it is to imagine yourself out in the dewy park grass, dreaming big into the light pollution of Baltimore industry. Or doing acid or whatever kids in Baltimore used to do. Yoo-hoo bombs, maybe.&lt;/p&gt;
+&lt;div class=&quot;ui360&quot;&gt;&lt;a href=&quot;&lt;?php echo get_field(audio_source);?&gt;&quot;&gt;play &quot;And She Was&quot;&lt;/a&gt;&lt;/div&gt;
+&lt;div style=&quot;margin-top:25px;padding-left:11px;margin-bottom:30px;&quot;&gt;&lt;a href=&quot;http://map.milleria.org/#post/&lt;?php echo $post-&gt;post_name;?&gt;&quot;&gt;&lt;img src=&quot;/assets/milleria-marker-active.png&quot; alt=&quot;&quot; width=&quot;25&quot; height=&quot;88&quot; border=&quot;0&quot; style=&quot;margin-right:19px;&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;http://map.milleria.org/#post/&lt;?php echo $post-&gt;post_name;?&gt;&quot;&gt;See it on the map&lt;/a&gt;.&lt;/div&gt;
+</description>
+        <pubDate>Wed, 06 Aug 2008 01:39:10 -0400</pubDate>
+        <link>http://yourdomain.com/spatialtrack/2008/08/06/spatial-track-david-byrne-and-she-was.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/spatialtrack/2008/08/06/spatial-track-david-byrne-and-she-was.html</guid>
+        
+        <category>baltimore</category>
+        
+        <category>david byrne</category>
+        
+        <category>enoch pratt free library</category>
+        
+        <category>maryland</category>
+        
+        <category>union chapel</category>
+        
+        <category>yoo-hoo</category>
+        
+        
+        <category>SpatialTrack</category>
+        
+      </item>
+    
+      <item>
+        <title>Spatial Track: Charley Patton: High Water Everywhere, Part 2</title>
+        <description>&lt;p&gt;You know what? I think you can find plenty of information about Charley Patton without my help. In particular the &quot;High Water&quot; tracks. You don&#39;t need a gloss from Whitey McPaleface from Iowa to make sense of the Father of the Delta Blues.&lt;/p&gt;
+&lt;p&gt;Or &lt;em&gt;do&lt;/em&gt; you?! Recently it was my native Iowa that was mired in high water (but for real -- major flooding statewide), so maybe I know more than you think!&lt;/p&gt;
+&lt;p&gt;I don&#39;t. This new track comes, yet again, from the &lt;em&gt;People Take Warning!&lt;/em&gt; volumes. It&#39;s &quot;High Water Everywhere, Part 2&quot; and I&#39;m placing it in &lt;a href=&quot;http://www.openstreetmap.org/?lat=35.9315&amp;lon=-89.8927&amp;zoom=12&amp;layers=M&quot;&gt;Blytheville, AR&lt;/a&gt;, even though it could feasibly be placed in any one of the locations Pattons mentions since the whole point is that there&#39;s nowhere the singer of this near-dirge could for shelter and refuge. Plus it&#39;s especially relevant to kin and brethren back in Iowa who are still digging shit -- &lt;em&gt;shit&lt;/em&gt; for real -- out of living rooms and kitchens and restaurants (ok, yes, also trailers and shanties and rusted-out Bonnevilles). But how many of those really know Charley Patton&#39;s blues? Good question, right? It&#39;s one thing to stare down dejectedly at your jute chenille border from Pier1 soaking up a cocktail of Iowa River sludge and broken bottles of shiraz; it&#39;s another to be Charley Patton in early 20th century Arkansas.&lt;/p&gt;
+&lt;p&gt;How different is it? Imagine the tune sung by an Iowan neo-flood victim this year next to Patton. They&#39;re vastly different, yes? Then &lt;em&gt;that&#39;s&lt;/em&gt; how different.&lt;/p&gt;
+&lt;div class=&quot;ui360&quot;&gt;&lt;a href=&quot;&lt;?php echo get_field(audio_source);?&gt;&quot;&gt;play &quot;High Water Everywhere, Part 2&quot;&lt;/a&gt;&lt;/div&gt;
+&lt;div style=&quot;margin-top:25px;padding-left:11px;margin-bottom:30px;&quot;&gt;&lt;a href=&quot;http://map.milleria.org/#post/&lt;?php echo $post-&gt;post_name;?&gt;&quot;&gt;&lt;img src=&quot;/assets/milleria-marker-active.png&quot; alt=&quot;&quot; width=&quot;25&quot; height=&quot;88&quot; border=&quot;0&quot; style=&quot;margin-right:19px;&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;http://map.milleria.org/#post/&lt;?php echo $post-&gt;post_name;?&gt;&quot;&gt;See it on the map&lt;/a&gt;.&lt;/div&gt;
+</description>
+        <pubDate>Mon, 28 Jul 2008 02:21:52 -0400</pubDate>
+        <link>http://yourdomain.com/spatialtrack/2008/07/28/spatial-track-charley-patton-high-water-everywhere-part-2.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/spatialtrack/2008/07/28/spatial-track-charley-patton-high-water-everywhere-part-2.html</guid>
+        
+        <category>arkansas</category>
+        
+        <category>blytheville</category>
+        
+        <category>bob dylan</category>
+        
+        <category>charley patton</category>
+        
+        <category>floods</category>
+        
+        <category>iowa</category>
+        
+        <category>Pier 1 Imports</category>
+        
+        <category>racism</category>
+        
+        
+        <category>SpatialTrack</category>
+        
+      </item>
+    
+  </channel>
+</rss>

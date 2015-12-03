@@ -25,7 +25,52 @@ Handlebars.registerHelper('debug', function(options) {
     return new Handlebars.SafeString("check console");
 });
 
+/* -------------------------------------------------- BASEMAPS -----------------------  */
+var baselayersdummified = {
+    "layers": [{
+            "name": "dummy",
+            "active": true,
+            "source": "localhost",
+            "nom": "A Real Dummy",
+            "thumb": "offline/dummy-thumb.png",
+            "mapis": "dark",
+            "definition": {
+                "maxZoom": 18,
+                "url": "offline/dummy-thumb.png",
+                "noWrap": true
+            }
+        },{
+            "name": "dummy",
+            "active": false,
+            "source": "localhost",
+            "nom": "A Real Dummy",
+            "thumb": "offline/dummy-thumb.png",
+            "mapis": "dark",
+            "definition": {
+                "maxZoom": 18,
+                "url": "offline/dummy-thumb.png",
+                "noWrap": true
+            }
+        }]
+}
 
+baselayers=baselayersdummified
+
+appBaseLayers = new BaseLayersCollection(baselayers.layers);
+// ...for which we need a menu
+// appBaseLayersMenuView = new BaseLayersMenuView({
+//     collection: appBaseLayers
+// });
+// ...and an actual map
+appBaseLayersView = new BaseLayersView({
+    collection: appBaseLayers
+});
+
+/* -------------------------------------------------- QUERY -----------------------  */
+window.appQuery = new Query();
+window.appQueryView = new QueryView({
+    model: appQuery
+});
 /* -------------------------------------------------- POSTS -----------------------  */
 window.appPosts = new PostsCollection();
 window.appPostsListView = new PostsListView({
@@ -38,11 +83,6 @@ window.appPostsGeomView = new PostsGeomView({
     collection: appPosts
 });
 
-/* -------------------------------------------------- QUERY -----------------------  */
-window.appQuery = new Query();
-window.appQueryView = new QueryView({
-    model: appQuery
-});
 
 /* -------------------------------------------------- BASEMAP -----------------------  */
 window.appBasemap = new Basemap({tileset:"mapquest"});

@@ -24,14 +24,12 @@ var PostsCollection = Backbone.Collection.extend({
         options.jsonpCallback = 'cwmccallback';
         return Backbone.sync(method, collection, options);
     },
-    parse: function(response) {
+    parse: function(resp) {
         if (verbose == true) {
-            if (verbose == true) {
                 console.log("parsing PostsCollection:")
-            }
-            console.log(response)
+            console.log(resp.response.docs)
         }
-        var docs = response.response.docs
+        var docs = resp.response.docs
         return docs
     },
     deactivate: function() {

@@ -49,7 +49,7 @@ var Route = Backbone.Router.extend({
             console.log("resetting in route, fetching posts...")
         }
             
-            appActivity.set({"message":"fetching..."})
+            // appActivity.set({"message":"fetching..."})
         appPosts.fetch()
         return this
     },

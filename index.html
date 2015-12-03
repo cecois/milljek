@@ -9,7 +9,7 @@
     <script type="text/javascript" language="Javascript" src="lib/components/handlebars/handlebars.runtime.min.js"></script>
 
     <!-- <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script> -->
-    
+    <link rel="stylesheet" href="lib/leaflet/leaflet.css" />
 
     <link rel="stylesheet" href="lib/bootstrap-3.3.5-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="lib/components/nprogress/nprogress.css">
@@ -24,7 +24,7 @@
 <div class="row"><div class="hidden col-lg-12" id="auditContainer"></div></div>
       
 <div id="main" class="row col-sm-12">
-<div id="postslist-posts" class="col-sm-6 pull-left"></div>
+<ul id="postslist-posts" class="col-sm-6 pull-left"></ul>
 <div id="postsgeom-fake" class="col-sm-6 pull-right" style="background-color:black;color:white;"></div>
 
 <div id="posts-active" class="col-sm-6 pull-right" style="background-color:pink;color:gray;"></div>
@@ -32,7 +32,8 @@
 
   </div>      
            
-<script src="js/globals.js"></script>
+<script src="js/globals.js"></script><script src="lib/leaflet/leaflet.js"></script>
+
 
 <script src="js/h-templates-compiled.js"></script>
 <script src="lib/components/jquery/jquery.min.js"></script>
@@ -43,6 +44,8 @@
 
 
 <script type="text/javascript" language="Javascript" src="js/models/Query.js"></script>
+<script type="text/javascript" language="Javascript" src="js/models/BaseLayer.js"></script>
+<script type="text/javascript" language="Javascript" src="js/models/BaseLayers.js"></script>
 <script type="text/javascript" language="Javascript" src="js/models/Basemap.js"></script>
 <!-- <script type="text/javascript" language="Javascript" src="js/models/Geom.js"></script>
 <script type="text/javascript" language="Javascript" src="js/models/Geoms.js"></script> -->
@@ -53,6 +56,7 @@
 
 
   <script type="text/javascript" language="Javascript" src="js/views/BasemapView.js"></script>
+  <script type="text/javascript" language="Javascript" src="js/views/BaseLayersView.js"></script>
   <script type="text/javascript" language="Javascript" src="js/views/QueryView.js"></script>
   <script type="text/javascript" language="Javascript" src="js/views/PostsListView.js"></script>
   <script type="text/javascript" language="Javascript" src="js/views/PostsActiveView.js"></script>

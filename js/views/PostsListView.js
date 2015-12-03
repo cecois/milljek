@@ -19,12 +19,15 @@ return this
     }//activate
     ,
     initialize: function() {
-        this.render()
+        // this.render()
         this.listenTo(this.collection,'change',this.render)
+        this.listenTo(this.collection,'add',this.render)
+        // this.listenTo(this.collection,'reset',this.render)
+        // this.collection.on('change', this.render, this);
         return this
     },
     render: function() {
-       
+
             $(this.el).html(this.template({
             count: this.collection.models.length,
             rows: this.collection.toJSON()

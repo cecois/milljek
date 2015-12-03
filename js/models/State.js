@@ -7,7 +7,7 @@ var State = Backbone.Model.extend({
     },
     initialize: function(options) {
         options || (options = {});
-        this.listenTo(appQuery, 'change', this.update)
+        this.listenTo(appQuery, 'change:rawstring', this.update)
         return this
     },
     update: function(){

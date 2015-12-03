@@ -2,6 +2,7 @@
 
 
 jekyls_raw=$(find /Users/ccmiller/git/milleriajek/_site -d -type f -iname "*.html" -not -iname "index*")
+jekyls_raw=$(find /Users/ch23936/git/milljek/_site -d -type f -iname "*.html" -not -iname "index*")
 
 for j in $jekyls_raw; do
 	id=$(basename "${j}" .html)
@@ -13,7 +14,7 @@ for j in $jekyls_raw; do
 # locsarr=$(cat $j | grep cartodb\:)
 
 # for l in $locsarr; do
-	
+
 	# echo $l|awk -F '[:]' '{print $(NF-0)}'
 	# echo $l| cut -d':' -f 2
 
@@ -23,7 +24,7 @@ for j in $jekyls_raw; do
 
 # body=$(xml sel -Q -t --value-of //body $j)
 # bodypeach=$(echo $body | php -r 'echo htmlentities($argn);')
-# 
+#
 # echo $body;
 
 	# echo "submitting"$id"..."
@@ -36,4 +37,4 @@ for j in $jekyls_raw; do
 done
 
 
-mv /Users/ccmiller/git/milleriajek/_site /Users/ccmiller/git/milljek/_site
+# mv /Users/ccmiller/git/milleriajek/_site /Users/ccmiller/git/milljek/_site

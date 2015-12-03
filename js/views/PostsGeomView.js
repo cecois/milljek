@@ -17,11 +17,11 @@ var PostsGeomView = Backbone.View.extend({
     extract: function() {
             // var rawlols = this.collection.pluck("locations")
             // can't use pluck cuz we gotta process them more specifically
-            // 
+            //
             var lopoints = []
             var lolines = []
             var lopolys = []
-                // 
+                //
             var lols = this.collection.map(function(m, i, t) {
                 var raw = m.get("locations")[0]
                 var l = raw.split(":")
@@ -77,6 +77,9 @@ var prtlpoly = "poly_table where cartodb_id = 00"
 
 // var actualsql = "SELECT * FROM cbb_point WHERE cartodb_id IN (3,5,6)"
 var actualsql = "SELECT * FROM "+prtlpoint+" UNION ALL "+prtlline+" UNION ALL "+prtlpoly
+
+// https://pugo.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT%20*%20FROM%20cbb_point%20WHERE%20cartodb_id%20IN%20%283,5,6%29
+// https://pugo.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT the_geom,cartodb_id FROM cbb_point where cartodb_id=5 UNION ALL SELECT the_geom,cartodb_id FROM cbb_line where cartodb_id=5
 
 // console.log("actualsql:");
 // console.log(actualsql);

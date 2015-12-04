@@ -84,13 +84,13 @@ var actualsql = "SELECT * FROM "+prtlpoint+" UNION ALL "+prtlline+" UNION ALL "+
 // console.log("actualsql:");
 // console.log(actualsql);
 
-appQuery.set({"cartostring":actualsql})
+// appQuery.set({"cartostring":actualsql})
 
             return this
         } //extract
         ,
     render: function() {
-        this.extract()
+        // this.extract()
         $(this.el).html(appQuery.get("cartostring"));
         return this
     }

@@ -30,8 +30,13 @@ var PostsCollection = Backbone.Collection.extend({
             console.log(resp.response.docs)
         }
         var docs = resp.response.docs
+
+// var docs_w_carto = this.extract(docs)
+
         return docs
+        // return docs_w_carto
     },
+
     deactivate: function() {
         _.every(this.models, function(d, index) {
                 d.set({

@@ -28,15 +28,33 @@ var PostsCollection = Backbone.Collection.extend({
         if (verbose == true) {
                 console.log("parsing PostsCollection:")
             console.log(resp.response.docs)
+                console.log("but now we'll extract and merge...")
         }
-        var docs = resp.response.docs
 
-// var docs_w_carto = this.extract(docs)
 
-        return docs
+
+        var hitdocs = resp.response.docs
+
+        appGeoms.set({"sources":hitdocs})
+        // var cartos = this.extract();
+
+// var docs_w_carto = this.extract(resp.response.docs)
+
+        return hitdocs
         // return docs_w_carto
-    },
+    }
+        ,
+//         zip: function(jekylldocs,cartodocs){
 
+// console.log("in zip...");
+// console.log("jekylldocs");
+// console.log(jekylldocs);
+// console.log("cartodocs");
+// console.log(cartodocs);
+
+// return this
+
+//         },
     deactivate: function() {
         _.every(this.models, function(d, index) {
                 d.set({

@@ -73,9 +73,11 @@ window.appQueryView = new QueryView({
 });
 /* -------------------------------------------------- POSTS -----------------------  */
 window.appPosts = new PostsCollection();
-// window.appPostsListView = new PostsListView({
-//     collection: appPosts
-// });
+window.appGeoms = new GeomsCollection();
+
+window.appPostsListView = new PostsListView({
+    collection: appPosts
+});
 
 window.appPostsView = new PostsView({
     collection: appPosts
@@ -84,9 +86,11 @@ window.appPostsView = new PostsView({
 window.appPostsActiveView = new PostsActiveView({
     collection: appPosts
 });
-// window.appPostsGeomView = new PostsGeomView({
-//     collection: appPosts
-// });
+
+window.appPostsGeomView = new PostsGeomView({
+    collection: appGeoms
+});
+
 
 
 /* -------------------------------------------------- BASEMAP -----------------------  */

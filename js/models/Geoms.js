@@ -4,6 +4,7 @@ var GeomsCollection = Backbone.Collection.extend({
         // IDEALLY I COULD LEAVE THIS AS STRAIGHT CALL TO CARTODB
         // return solrhost + "miljek_geom/select?json.wrf=cwmccallback&rows=999z&wt=json&q=" + encodeURIComponent(appQuery.get("solrstring"));
         // this.cartostring = "cartodb_id:(" + encodeURIComponent(arr.join(" ")) + ")"
+        return appQuery.get("carl")
     },
     initialize: function(options) {
         // this.on('sync', this.activate, this);

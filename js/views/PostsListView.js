@@ -1,4 +1,4 @@
-var PostsListView = PostsMetaView.extend({
+var PostsListView = Backbone.View.extend({
     el: "#postslist-posts",
     template: Handlebars.templates['postsListViewTpl'],
     events: {
@@ -47,7 +47,10 @@ return this
             count: this.collection.models.length,
             rows: this.collection.toJSON()
         }));
-       
+
+
+console.log("in PLV, collex:"); console.log(this.collection.models);
+
         return this
     }
 

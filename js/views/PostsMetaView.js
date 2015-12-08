@@ -89,18 +89,20 @@ var carl = "offline/cartodb-query.geojson"
 appQuery.set({"cartostring":carl})
 
 
-$.getJSON( carl, function( data ) {
-  // var items = [];
+var cartos = $.getJSON( carl, function( data ) {
+  var zipd = [];
   $.each( data, function( key, val ) {
     // items.push( "<li id='" + key + "'>" + val + "</li>" );
     // DIP INTO THIS.COLLECTION, APPLYING GEOM WHERE THE IDS MATCH
-    // 
+    zipd.push(val)
+    //
   });
- 
-  $( "<ul/>", {
-    "class": "my-new-list",
-    html: items.join( "" )
-  }).appendTo( "body" );
+
+return zipd
+  // $( "<ul/>", {
+  //   "class": "my-new-list",
+  //   html: items.join( "" )
+  // }).appendTo( "body" );
 });
 
 // window.cartos = $.getJSON(carl, {}, function(json, textStatus) {
@@ -109,21 +111,21 @@ $.getJSON( carl, function( data ) {
 //         console.log("textStatus:");console.log(textStatus);
 //         console.log("json.features:");console.log(json.features);
 //         return json.features
-        
+
 // });
 
-console.log("cartos:");
-        console.log(cartos);
+// console.log("cartos:");
+//         console.log(cartos);
 
             // return this
-            this.zip(cartos)
+            // this.zip(cartos)
         } //extract
         ,
 
         zip: function(cartos){
 
-console.log("in zip, cartos:");
-console.log(cartos);
+// console.log("in zip, cartos:");
+// console.log(cartos);
 
 
 
@@ -142,12 +144,12 @@ return this
     render: function() {
 
         // this.extract()
-        
+
         // $(this.el).html(this.template({
         //     count: this.collection.models.length,
         //     rows: this.collection.toJSON()
         // }));
-        // 
+        //
         // $("#postsgeom-fake").html("<a href='"+appQuery.get("cartostring")+"'>"+appQuery.get("cartostring")+"</a>");
         return this
     }

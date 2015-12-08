@@ -17,7 +17,7 @@ NProgress.configure({
 
 /* -------------------------------------------------- HANDLEBARS START -----------------------  */
 Handlebars.registerHelper('debug', function(options) {
-    
+
     if(verbose==true){
         console.log("debug hb:");
         console.log(this);
@@ -75,9 +75,9 @@ window.appQueryView = new QueryView({
 window.appPosts = new PostsCollection();
 // window.appGeoms = new GeomsCollection();
 
-window.appPostsMetaView = new PostsMetaView({
-    collection: appPosts
-});
+// window.appPostsMetaView = new PostsMetaView({
+//     collection: appPosts
+// });
 
 window.appPostsActiveView = new PostsActiveView({
     collection: appPosts

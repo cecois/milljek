@@ -1,10 +1,10 @@
-var PostsGeomView = PostsMetaView.extend({
+var PostsGeomView = Backbone.View.extend({
     el: "#postsgeom-fake",
     template: Handlebars.templates['postsGeomFakeViewTpl'],
     events: {},
     initialize: function() {
          this.render()
-        this.listenTo(this.collection, 'sync', this.render)
+        this.listenTo(this.collection, 'add', this.render)
         return this
     },
     refetch: function(url){

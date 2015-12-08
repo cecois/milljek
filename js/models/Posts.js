@@ -35,7 +35,7 @@ var PostsCollection = Backbone.Collection.extend({
 
         var hitdocs = resp.response.docs
 
-        appGeoms.set({"sources":hitdocs})
+        // appGeoms.set({"sources":hitdocs})
         // var cartos = this.extract();
 
 // var docs_w_carto = this.extract(resp.response.docs)

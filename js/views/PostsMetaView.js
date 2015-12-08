@@ -1,15 +1,15 @@
-var PostsView = Backbone.View.extend({
-    el: "#postslist-posts",
+var PostsMetaView = Backbone.View.extend({
+    // el: "#postslist-posts",
     // template: Handlebars.templates['postsListViewTpl'],
-    template_list: Handlebars.templates['postsListViewTpl'],
+    // template: Handlebars.templates['postsListViewTpl'],
     events: {
-        "click li": "activate",
+        // "click li": "activate",
     },
     initialize: function() {
          // this.render()
-         this.listenTo(this.collection,'change',this.render)
-        this.listenTo(this.collection,'add',this.render)
-        // this.listenTo(this.collection, 'sync', this.render)
+         // this.listenTo(this.collection,'change',this.render)
+        // this.listenTo(this.collection,'add',this.render)
+        // this.listenTo(this.collection, 'reset', this.zip)
         return this
     },
     refetch: function(url){
@@ -18,20 +18,6 @@ var PostsView = Backbone.View.extend({
         // console.log(url);
 
     } //refetch
-    ,
-    activate: function(e){
-
-e.preventDefault()
-
-var dt = $(e.currentTarget).attr("data-id")
-
-// AP=
-appState.set({"slug":dt})
-
-return this
-
-
-    }//activate
     ,
     extract: function() {
             // var rawlols = this.collection.pluck("locations")
@@ -97,32 +83,57 @@ var prtlpoly = "SELECT cartodb_id,the_geom FROM cbb_poly where cartodb_id = 00"
 // var actualsql = "SELECT * FROM cbb_point WHERE cartodb_id IN (3,5,6)"
 var actualsql = prtlpoint+" UNION ALL "+prtlline+" UNION ALL "+prtlpoly
 
-// https://pugo.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT%20*%20FROM%20cbb_point%20WHERE%20cartodb_id%20IN%20%283,5,6%29
-// https://pugo.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT the_geom,cartodb_id FROM cbb_point where cartodb_id=5 UNION ALL SELECT the_geom,cartodb_id FROM cbb_line where cartodb_id=5
-
-var carl = "https://pugo.cartodb.com/api/v2/sql?format=GeoJSON&q="+actualsql
-
-// console.log("actualsql:");
-// console.log(actualsql);
+// var carl = "https://pugo.cartodb.com/api/v2/sql?format=GeoJSON&q="+actualsql
+var carl = "offline/cartodb-query.geojson"
 
 appQuery.set({"cartostring":carl})
 
-var cartos = $.getJSON(carl, {}, function(json, textStatus) {
-        /*optional stuff to do after success */
-        
+
+$.getJSON( carl, function( data ) {
+  // var items = [];
+  $.each( data, function( key, val ) {
+    // items.push( "<li id='" + key + "'>" + val + "</li>" );
+    // DIP INTO THIS.COLLECTION, APPLYING GEOM WHERE THE IDS MATCH
+    // 
+  });
+ 
+  $( "<ul/>", {
+    "class": "my-new-list",
+    html: items.join( "" )
+  }).appendTo( "body" );
 });
+
+// window.cartos = $.getJSON(carl, {}, function(json, textStatus) {
+//         /*optional stuff to do after success */
+
+//         console.log("textStatus:");console.log(textStatus);
+//         console.log("json.features:");console.log(json.features);
+//         return json.features
+        
+// });
 
 console.log("cartos:");
         console.log(cartos);
 
-            return this
-            .merge()
+            // return this
+            this.zip(cartos)
         } //extract
         ,
 
-        merge: function(){
+        zip: function(cartos){
 
-// this.collection = _.merge
+console.log("in zip, cartos:");
+console.log(cartos);
+
+
+
+// this.collection.each(function(m, index) {
+
+//     var geom = _.findWhere(cartos, {properties.cartodb_id: 5});
+//     m.set({"geom":geom})
+// });
+
+// this.collection({cartos})
 
 return this
 .render()
@@ -132,13 +143,12 @@ return this
 
         // this.extract()
         
-        $(this.el).html(this.template_list({
-            count: this.collection.models.length,
-            rows: this.collection.toJSON()
-        }));
+        // $(this.el).html(this.template({
+        //     count: this.collection.models.length,
+        //     rows: this.collection.toJSON()
+        // }));
         // 
-        $("#postsgeom-fake").html("<a href='"+appQuery.get("cartostring")+"'>"+appQuery.get("cartostring")+"</a>"
-            );
+        // $("#postsgeom-fake").html("<a href='"+appQuery.get("cartostring")+"'>"+appQuery.get("cartostring")+"</a>");
         return this
     }
 });

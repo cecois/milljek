@@ -1,4 +1,4 @@
-var PostsListView = Backbone.View.extend({
+var PostsListView = PostsMetaView.extend({
     el: "#postslist-posts",
     template: Handlebars.templates['postsListViewTpl'],
     events: {
@@ -25,7 +25,22 @@ return this
         // this.listenTo(this.collection,'reset',this.render)
         // this.collection.on('change', this.render, this);
         return this
-    },
+    }
+    ,
+    activate: function(e){
+
+e.preventDefault()
+
+var dt = $(e.currentTarget).attr("data-id")
+
+// AP=
+appState.set({"slug":dt})
+
+return this
+
+
+    }//activate
+    ,
     render: function() {
 
             $(this.el).html(this.template({

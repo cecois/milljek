@@ -1,6 +1,6 @@
-var PostsGeomView = Backbone.View.extend({
+var PostsGeomView = PostsMetaView.extend({
     el: "#postsgeom-fake",
-    // template: Handlebars.templates['postsListViewTpl'],
+    template: Handlebars.templates['postsGeomFakeViewTpl'],
     events: {},
     initialize: function() {
          this.render()
@@ -91,7 +91,11 @@ var PostsGeomView = Backbone.View.extend({
 //         ,
     render: function() {
         // this.extract()
-        $(this.el).html(appQuery.get("carl"));
+        $(this.el).html(this.template({
+            count: this.collection.models.length,
+            rows: this.collection.toJSON()
+        }));
+        // $(this.el).html(appQuery.get("carl"));
         return this
     }
 });

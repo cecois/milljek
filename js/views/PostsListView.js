@@ -21,7 +21,7 @@ return this
     initialize: function() {
         // this.render()
         // this.listenTo(this.collection,'change',this.render)
-        // this.listenTo(this.collection,'add',this.render)
+        this.listenTo(this.collection,'add',this.render)
         // this.listenTo(this.collection,'reset',this.render)
         // this.collection.on('change', this.render, this);
         return this

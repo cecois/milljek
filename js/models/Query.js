@@ -21,9 +21,9 @@ var Query = Backbone.Model.extend({
                 console.log("empty, setting to wildcard...");
             }
             this.set({
-                    "solrstring": "locations*"
+                    "solrstring": "location*"
                 })
-                
+
         } else {
             if (verbose == true) {
                 console.log("populated, grabbing the current value, which is:");

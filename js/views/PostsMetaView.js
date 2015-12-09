@@ -28,7 +28,7 @@ var PostsMetaView = Backbone.View.extend({
             var lopolys = []
                 //
             var lols = this.collection.map(function(m, i, t) {
-                var raw = m.get("locations")[0]
+                var raw = m.get("location")[0]
                 var l = raw.split(":")
                 switch (l[0]) {
                     case 'line':
@@ -94,10 +94,10 @@ $.getJSON( carl, function( data ) {
   $.each( data, function( key, val ) {
     // items.push( "<li id='" + key + "'>" + val + "</li>" );
     // DIP INTO THIS.COLLECTION, APPLYING GEOM WHERE THE IDS MATCH
-    // 
-    // 
+    //
+    //
   });
- 
+
   $( "<ul/>", {
     "class": "my-new-list",
     html: items.join( "" )
@@ -110,7 +110,7 @@ $.getJSON( carl, function( data ) {
 //         console.log("textStatus:");console.log(textStatus);
 //         console.log("json.features:");console.log(json.features);
 //         return json.features
-        
+
 // });
 
 console.log("cartos:");
@@ -143,12 +143,12 @@ return this
     render: function() {
 
         // this.extract()
-        
+
         // $(this.el).html(this.template({
         //     count: this.collection.models.length,
         //     rows: this.collection.toJSON()
         // }));
-        // 
+        //
         // $("#postsgeom-fake").html("<a href='"+appQuery.get("cartostring")+"'>"+appQuery.get("cartostring")+"</a>");
         return this
     }

@@ -32,6 +32,8 @@ var PostsCollection = Backbone.Collection.extend({
 
 var hitdocs = resp.response.docs
 
+var hitz = _.object(hitdocs);
+
 var lopoints = []
             var lolines = []
             var lopolys = []
@@ -65,12 +67,14 @@ var prtlpoint = "SELECT cartodb_id,the_geom FROM cbb_point where cartodb_id = 00
 }
 
 if(lolines.length>0){
-var prtlline = "SELECT cartodb_id*"+plierline+",the_geom FROM cbb_line where cartodb_id IN ("+lolines.join(",")+")"
+// var prtlline = "SELECT cartodb_id*"+plierline+",the_geom FROM cbb_line where cartodb_id IN ("+lolines.join(",")+")"
+var prtlline = "SELECT cartodb_id,the_geom FROM cbb_line where cartodb_id IN ("+lolines.join(",")+")"
 } else {
 var prtlline = "SELECT cartodb_id,the_geom FROM cbb_line where cartodb_id = 00"
 }
 if(lopolys.length>0){
-var prtlpoly = "SELECT cartodb_id*"+plierpoly+",the_geom FROM cbb_poly where cartodb_id IN ("+lopolys.join(",")+")"
+// var prtlpoly = "SELECT cartodb_id*"+plierpoly+",the_geom FROM cbb_poly where cartodb_id IN ("+lopolys.join(",")+")"
+var prtlpoly = "SELECT cartodb_id,the_geom FROM cbb_poly where cartodb_id IN ("+lopolys.join(",")+")"
 } else {
 var prtlpoly = "SELECT cartodb_id,the_geom FROM cbb_poly where cartodb_id = 00"
 }
@@ -84,7 +88,7 @@ appQuery.set({"cartostring":carl})
 
 
 var cartos = $.getJSON( carl, function( data ) {
-  // var zipd = [];
+  // var tozip = [];
   $.each( data.features, function( key, val ) {
     // items.push( "<li id='" + key + "'>" + val + "</li>" );
     // DIP INTO COLLECTION, APPLYING GEOM WHERE THE IDS MATCH
@@ -92,31 +96,51 @@ var cartos = $.getJSON( carl, function( data ) {
 
 var gt = val.geometry.type
 
+var i = val.properties.cartodb_id
+
 switch (gt) {
                     case 'Point':
-                        var i = val.properties.cartodb_id
+                        // var i = val.properties.cartodb_id
+                        var d = 'point'
                         break;
                     case 'MultiLineString':
-                    var i = val.properties.cartodb_id*plierline
+                    // var i = val.properties.cartodb_id*plierline
+                    // var i = val.properties.cartodb_id
+                    var d = 'line'
                         break;
                     case 'Polygon':
-                    var i = val.properties.cartodb_id*plierpoly
+                    // var i = val.properties.cartodb_id*plierpoly
+                    // var i = val.properties.cartodb_id
+                    var d = 'poly'
                         break;
                     default:
                         i = null;
                 }
 
+var id = d+":"+i
 // var match = hitdocs.findWhere({"cartodb_id":i})
 
-console.log("shoppin id of:"); console.log(i);
-var match = $.grep(hitdocs, function(e,i){ return e.cartodb_id == i; });
+console.log("hitz:");console.log(hitz);
 
-console.log("match:"); console.log(match);
+var match = $.grep(hitdocs, function(e){ 
 
+    return e.locations[0] == id; 
+});
+
+match.the_geom = val.geometry
+// 
+match.id = "xxXXXXXXX"
+
+// console.log("pushing back match with id:");
+// console.log(match);
+// tozip.push(match)
+// console.log("match-after:"); console.log(match);
     //
   }); //each
 
 // var zipd=_.zip(data.features, hitdocs);
+// var hdz = $.merge(tozip, htdocs);
+// hdz = _.intersection(tozip,htdocs)
 
 // console.log("data.features in posts parse:"); console.log(data.features);
 // console.log("hitdocs in posts parse:"); console.log(hitdocs);
@@ -131,7 +155,8 @@ console.log("match:"); console.log(match);
 
 // var docs_w_carto = this.extract(resp.response.docs)
 
-        return hitdocs
+return hitz
+        // return hitdocs
         // return docs_w_carto
     }
         ,

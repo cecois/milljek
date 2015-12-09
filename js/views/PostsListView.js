@@ -2,7 +2,7 @@ var PostsListView = Backbone.View.extend({
     el: "#postslist-posts",
     template: Handlebars.templates['postsListViewTpl'],
     events: {
-        "click li": "activate",
+        "click li": "log",
     },
     activate: function(e){
 
@@ -27,6 +27,11 @@ return this
         return this
     }
     ,
+    log: function(e){
+        console.log(this.model);
+        return this
+    } //log
+    ,
     activate: function(e){
 
 e.preventDefault()
@@ -48,8 +53,6 @@ return this
             rows: this.collection.toJSON()
         }));
 
-
-console.log("in PLV, collex:"); console.log(this.collection.models);
 
         return this
     }

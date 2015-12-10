@@ -26,9 +26,8 @@ var PostsCollection = Backbone.Collection.extend({
         if (verbose == true) {
             console.log("parsing PostsCollection:")
         }
-        console.log(resp)
         var hitdocs = resp.response.docs
-        return hitdocs;
+        return hitdocs
 
     },
 
@@ -43,14 +42,19 @@ var PostsCollection = Backbone.Collection.extend({
         return this
     },
     activate: function() {
-            this.deactivate()
-            _.each(this.models, function(d, index) {
-                if (d.id == window.AP) {
-                    d.set({
-                        "active": true
-                    })
+            if(verbose==true){console.log("activating...")}
+
+        if(typeof AP !== 'undefined' && AP !== null){
+            if(verbose==true){console.log("AP is set, activating and deactivating in Posts...")}
+                    this.deactivate()
+                    _.each(this.models, function(d, index) {
+                        if (d.id == window.AP.slug) {
+                            d.set({
+                                "active": true
+                            })
+                        }
+                    }); //each}
                 }
-            }); //each
             return this
         } //actxivate
 });

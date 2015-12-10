@@ -1,5 +1,5 @@
 window.verbose = true;
-// window.AP = "spatial-track-ramblin-jack-elliot-the-south-coast-is-a-wild-coast";
+window.AP = {"slug":"spatial-track-paul-simon-pledging-my-lovethe-late-great-johnny-ace","geomid":"poly:2"};
 window.thishost = "http://localhost/spatialtrack-local";
 window.dev = true;
 window.local = true;
@@ -14,6 +14,24 @@ window.querybymap = false;
 markernew = {
     radius: 6,
     fillColor: "rgba(12, 22, 21, 100)",
+    color: "#000",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.6,
+};
+
+markerseen = {
+    radius: 6,
+    fillColor: "orange",
+    color: "#000",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.6,
+};
+
+markeractive = {
+    radius: 6,
+    fillColor: "yellow",
     color: "#000",
     weight: 1,
     opacity: 1,

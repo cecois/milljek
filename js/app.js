@@ -119,8 +119,8 @@ window.appActivityView = new ActivityView({
 
 function cwmccallback(r){
 	// catch-all callback can debug if we want it to
-	console.log("allback sez:");
-	console.log(r);
+	// console.log("allback sez:");
+	// console.log(r);
 }
 
 // function splitLocation(str){

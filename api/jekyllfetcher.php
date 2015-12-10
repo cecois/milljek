@@ -75,7 +75,8 @@ $mjid=$carto->properties->mjid;
 
 foreach ($solrin->response->docs as $solrd) {
 	if(isset($solrd->location) && $solrd->location==$mjid){
-		$solrd->the_geom=$carto->geometry;
+        // $solrd->the_geom=$carto->geometry;
+		$solrd->the_geom=$carto;
 		// echo "match:".$solrd->location.":::::";
 		// echo $mjid;
 	}

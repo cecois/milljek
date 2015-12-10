@@ -18,10 +18,10 @@ NProgress.configure({
 /* -------------------------------------------------- HANDLEBARS START -----------------------  */
 Handlebars.registerHelper('debug', function(options) {
 
-    if(verbose==true){
-        console.log("debug hb:");
-        console.log(this);
-    }
+    // if(verbose==true){
+    //     console.log("debug hb:");
+    //     console.log(this);
+    // }
     return new Handlebars.SafeString("check console");
 });
 
@@ -115,6 +115,7 @@ window.appActivity = new Activity({});
 window.appActivityView = new ActivityView({
     model: appActivity
 });
+
 
 function cwmccallback(r){
 	// catch-all callback can debug if we want it to

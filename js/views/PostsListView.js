@@ -33,7 +33,7 @@ e.preventDefault()
 var di = $(e.currentTarget).attr("data-id")
 
         var the = this.collection.findWhere({id:di})
-        console.log(the.toSource());
+        console.log(the);
         return this
     } //log
     ,
@@ -52,8 +52,6 @@ return this
     }//activate
     ,
     render: function() {
-
-console.log("collx at beginning of PLV render:"); console.log(this.collection.models);
 
             $(this.el).html(this.template({
             count: this.collection.models.length,

@@ -1,8 +1,12 @@
-<ul>{{#each rows}}
+<ul>
+{{#each rows}}
+{{#if this.the_geom}}
 <li data-id="{{this.id}}" class="pick {{#if this.active}}active{{/if}}">
     <div class="">
-{{this.geometry.type}}
+{{this.the_geom.type}}
 
     </div>
 </li>
-{{/each}}</ul>
+{{/if}}
+{{/each}}
+</ul>

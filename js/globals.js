@@ -9,3 +9,20 @@ window.plierline=999;
 window.solrhost = "http://localhost:8983/solr/";
 window.queryinit = "chupacabr*";
 window.querybymap = false;
+
+
+markernew = {
+    radius: 6,
+    fillColor: "rgba(12, 22, 21, 100)",
+    color: "#000",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.6,
+};
+
+linenew = {
+    fillColor: "rgba(12, 22, 21, 100)",
+    color: "rgba(16, 23, 26, 100)",
+    weight: 6,
+    opacity: .8,
+};

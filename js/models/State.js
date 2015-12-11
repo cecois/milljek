@@ -3,7 +3,8 @@ var State = Backbone.Model.extend({
         "q":null,
 "slug":null,
 "bbox":null,
-"basemap":null
+"basemap":null,
+"ap":{"slug":null,"geomid":null}
     },
     initialize: function(options) {
         options || (options = {});

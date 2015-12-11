@@ -6,6 +6,8 @@ var PostsCollection = Backbone.Collection.extend({
     },
     initialize: function(options) {
         this.on('sync', this.activate, this);
+        this.listenTo(appState, 'change:ap', this.activate)
+        this.on('change:active',this.activate,this)
         // this.on('sync', this.refetch, this);
         options || (options = {});
         return this
@@ -44,11 +46,10 @@ var PostsCollection = Backbone.Collection.extend({
     activate: function() {
             if(verbose==true){console.log("activating...")}
 
-        if(typeof AP !== 'undefined' && AP !== null){
-            if(verbose==true){console.log("AP is set, activating and deactivating in Posts...")}
+        if(typeof appState.get("ap") !== 'undefined' && appState.get("ap") !== null){
                     this.deactivate()
                     _.each(this.models, function(d, index) {
-                        if (d.id == window.AP.slug) {
+                        if (d.id == appState.get("ap").slug) {
                             d.set({
                                 "active": true
                             })

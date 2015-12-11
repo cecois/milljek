@@ -1,5 +1,5 @@
 window.verbose = true;
-window.AP = {"slug":"spatial-track-paul-simon-pledging-my-lovethe-late-great-johnny-ace","geomid":"poly:2"};
+// window.AP = {"slug":"spatial-track-paul-simon-pledging-my-lovethe-late-great-johnny-ace","geomid":"poly:2"};
 window.thishost = "http://localhost/spatialtrack-local";
 window.dev = true;
 window.local = true;
@@ -41,6 +41,13 @@ markeractive = {
 linenew = {
     fillColor: "rgba(12, 22, 21, 100)",
     color: "rgba(16, 23, 26, 100)",
+    weight: 6,
+    opacity: .8,
+};
+
+lineactive = {
+    fillColor: "yellow",
+    color: "yellow",
     weight: 6,
     opacity: .8,
 };

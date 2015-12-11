@@ -56,6 +56,15 @@ var baselayersdummified = {
 
 baselayers=baselayersdummified
 
+/* -------------------------------------------------- QUERY -----------------------  */
+window.appQuery = new Query();
+window.appQueryView = new QueryView({
+    model: appQuery
+});
+
+/* -------------------------------------------------- STATE -----------------------  */
+window.appState = new State({});
+
 appBaseLayers = new BaseLayersCollection(baselayers.layers);
 // ...for which we need a menu
 // appBaseLayersMenuView = new BaseLayersMenuView({
@@ -66,11 +75,6 @@ appBaseLayersView = new BaseLayersView({
     collection: appBaseLayers
 });
 
-/* -------------------------------------------------- QUERY -----------------------  */
-window.appQuery = new Query();
-window.appQueryView = new QueryView({
-    model: appQuery
-});
 /* -------------------------------------------------- POSTS -----------------------  */
 window.appPosts = new PostsCollection();
 // window.appGeoms = new GeomsCollection();
@@ -106,9 +110,6 @@ window.appAudit = new Audit();
 window.appAuditView = new AuditView({
     model: appAudit
 });
-
-/* -------------------------------------------------- STATE -----------------------  */
-window.appState = new State({});
 
 /* -------------------------------------------------- ACTIVITY -----------------------  */
 window.appActivity = new Activity({});

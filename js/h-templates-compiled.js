@@ -77,9 +77,11 @@ templates['postsGeomFakeViewTpl'] = template({"1":function(depth0,helpers,partia
   return buffer + "</ul>";
 },"useData":true});
 templates['postsListViewTpl'] = template({"1":function(depth0,helpers,partials,data) {
-  var stack1, lambda=this.lambda, escapeExpression=this.escapeExpression, buffer = "<li data-id=\""
+  var stack1, lambda=this.lambda, escapeExpression=this.escapeExpression, buffer = "<li data-target=\""
+    + escapeExpression(lambda((depth0 != null ? depth0.location : depth0), depth0))
+    + "\" data-id=\""
     + escapeExpression(lambda((depth0 != null ? depth0.id : depth0), depth0))
-    + "\" class=\"pick ";
+    + "\" class=\"pick";
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.active : depth0), {"name":"if","hash":{},"fn":this.program(2, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
   buffer += "\">\n    <div class=\"\">\n"
@@ -89,7 +91,7 @@ templates['postsListViewTpl'] = template({"1":function(depth0,helpers,partials,d
   if (stack1 != null) { buffer += stack1; }
   return buffer + "\n\n    </div>\n</li>\n";
 },"2":function(depth0,helpers,partials,data) {
-  return "active";
+  return " active";
   },"4":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
   return "("

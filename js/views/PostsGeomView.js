@@ -15,7 +15,7 @@ var PostsGeomView = Backbone.View.extend({
         return this
     },
     // style: function() {
-                
+
     //         var al = _.findWhere(mjItems._layers, {
     //             "options": AP.geomid
     //         })
@@ -33,7 +33,7 @@ var PostsGeomView = Backbone.View.extend({
         })
         mjItems.clearLayers();
         this.collection.each(function(hit, i) {
-                
+
                 var template_geom = Handlebars.templates['hitMarkerViewTpl']
                 var pu = template_geom(hit.toJSON());
 
@@ -74,10 +74,16 @@ var PostsGeomView = Backbone.View.extend({
                                 }
                             })
                             foot.bindPopup(pu).addTo(mjItems)
+
                         if (foot.options.seen == true) {
+                        console.log("this foot is seen so should be orange:")
+                        console.log(foot)
                             foot.setStyle(markerseen)
                         } else if (foot.options.active == true) {
+
                             foot.setStyle(markeractive)
+                            foot.options.seen = true
+
                         }
                         // foot.addTo(mjItems)
                     } else {
@@ -93,12 +99,18 @@ var PostsGeomView = Backbone.View.extend({
                             })
 
                             foot.bindPopup(pu).addTo(mjItems)
+
                         if (foot.options.seen == true) {
+                        console.log("this foot is seen so should be orange:")
+                        console.log(foot)
                             foot.setStyle(lineseen)
                         } else if (foot.options.active == true) {
+
                             console.log("the following foot's active and we should open its popup in addition to styling it bright");
                             console.log(foot);
                             foot.setStyle(lineactive)
+                            foot.options.seen = true
+
                             foot.openPopup()
                         }
                     }

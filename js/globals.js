@@ -23,7 +23,7 @@ markernew = {
 markerseen = {
     radius: 6,
     fillColor: "orange",
-    color: "#000",
+    color: "orange",
     weight: 1,
     opacity: 1,
     fillOpacity: 0.6,
@@ -48,6 +48,13 @@ linenew = {
 lineactive = {
     fillColor: "yellow",
     color: "yellow",
+    weight: 6,
+    opacity: .8,
+};
+
+lineseen = {
+    fillColor: "orange",
+    color: "orange",
     weight: 6,
     opacity: .8,
 };

@@ -84,15 +84,19 @@ templates['postsListViewTpl'] = template({"1":function(depth0,helpers,partials,d
     + "\" class=\"pick";
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.active : depth0), {"name":"if","hash":{},"fn":this.program(2, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
+  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.seen : depth0), {"name":"if","hash":{},"fn":this.program(4, data),"inverse":this.noop,"data":data});
+  if (stack1 != null) { buffer += stack1; }
   buffer += "\">\n    <div class=\"\">\n"
     + escapeExpression(lambda((depth0 != null ? depth0.title : depth0), depth0))
     + " ";
-  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.location : depth0), {"name":"if","hash":{},"fn":this.program(4, data),"inverse":this.noop,"data":data});
+  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.location : depth0), {"name":"if","hash":{},"fn":this.program(6, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
   return buffer + "\n\n    </div>\n</li>\n";
 },"2":function(depth0,helpers,partials,data) {
   return " active";
   },"4":function(depth0,helpers,partials,data) {
+  return " seen";
+  },"6":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
   return "("
     + escapeExpression(lambda((depth0 != null ? depth0.location : depth0), depth0))

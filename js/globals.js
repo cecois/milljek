@@ -11,16 +11,24 @@ window.queryinit = "chupacabr*";
 window.querybymap = false;
 
 
-markernew = {
+marker_new={
     radius: 6,
-    fillColor: "rgba(12, 22, 21, 100)",
+    fillColor: "white",
     color: "#000",
     weight: 1,
     opacity: 1,
     fillOpacity: 0.6,
 };
 
-markerseen = {
+marker_act = {
+    radius: 6,
+    fillColor: "yellow",
+    color: "#000",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.6,
+};
+marker_sen={
     radius: 6,
     fillColor: "orange",
     color: "#000",
@@ -29,25 +37,24 @@ markerseen = {
     fillOpacity: 0.6,
 };
 
-markeractive = {
-    radius: 6,
-    fillColor: "yellow",
-    color: "#000",
-    weight: 1,
-    opacity: 1,
-    fillOpacity: 0.6,
-};
 
-linenew = {
-    fillColor: "rgba(12, 22, 21, 100)",
-    color: "rgba(16, 23, 26, 100)",
+polin_new = {
+    fillColor: "white",
+    color: "white",
     weight: 6,
     opacity: .8,
 };
 
-lineactive = {
+polin_act = {
     fillColor: "yellow",
     color: "yellow",
+    weight: 6,
+    opacity: .8,
+};
+
+polin_sen = {
+    fillColor: "pink",
+    color: "pink",
     weight: 6,
     opacity: .8,
 };

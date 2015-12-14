@@ -7,7 +7,7 @@ var PostsCollection = Backbone.Collection.extend({
     initialize: function(options) {
         this.on('sync', this.activate, this);
         this.listenTo(appState, 'change:ap', this.activate)
-        this.on('change:active',this.activate,this)
+        // this.on('change:active',this.activate,this)
         // this.on('sync', this.refetch, this);
         options || (options = {});
         return this
@@ -35,11 +35,17 @@ var PostsCollection = Backbone.Collection.extend({
 
     deactivate: function() {
         _.every(this.models, function(d, index) {
+            console.log("priortodeactivating: ");
+            console.log(d);
                 d.set({
                     active: false
                 }, {
                     silent: true
                 })
+
+                console.log("afterdeactivating: ");
+            console.log(d);
+
             }) // every
         return this
     },
@@ -47,12 +53,16 @@ var PostsCollection = Backbone.Collection.extend({
             if(verbose==true){console.log("activating...")}
 
         if(typeof appState.get("ap") !== 'undefined' && appState.get("ap") !== null){
-                    this.deactivate()
+                    // this.deactivate()
                     _.each(this.models, function(d, index) {
-                        if (d.id == appState.get("ap").slug) {
-                            d.set({
-                                "active": true
+                        
+
+                        if (d.id !== appState.get("ap").slug) {
+d.set({
+                                "active": false
                             })
+                        } else {
+d.set({"active":true,"seen":true})
                         }
                     }); //each}
                 }

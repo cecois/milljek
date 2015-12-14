@@ -5,8 +5,9 @@ var PostsGeomView = Backbone.View.extend({
     initialize: function() {
         // this.render()
         // this.refetch()
-        this.listenTo(this.collection, 'add', this.render)
-        this.listenTo(this.collection, 'change', this.render)
+        // this.listenTo(this.collection, 'add', this.render)
+         this.listenTo(this.collection, 'sync', this.render)
+        this.listenTo(this.collection, 'change:active', this.render)
             // this.listenTo(this.collection, 'parse', this.refetch)
             //
             /* -------------------------------------------------- MAP CONTENT -----------------------  */
@@ -47,6 +48,7 @@ var PostsGeomView = Backbone.View.extend({
                             // "name": "the_geom.properties.name",
                             "name": the_geom.properties.name,
                             "active": hit.get("active"),
+                            "seen": hit.get("seen"),
                             "cartodb_id": the_geom.properties.cartodb_id,
                             "geom_type": geomtype,
                             "anno": the_geom.properties.anno,
@@ -59,49 +61,102 @@ var PostsGeomView = Backbone.View.extend({
                         // "geometry": $.parseJSON(the_geom.geometry)
                         "geometry": the_geom.geometry
                     };
-                    if (geomtype == "Point") {
+
+var stnew = null;
+var stact = null;
+var stsen = null;
+
+if (geomtype == "Point") {
+stnew = marker_new;
+stact = marker_act;
+stsen = marker_sen;}
+else {
+stnew = polin_new
+stact = polin_act
+stsen = polin_sen
+}
                         // var dStyle = markernew
                         var foot = L.geoJson(hitm, {
-                                seen: false,
+                                // seen: false,
+                                seen: hitm.properties.seen,
                                 active: hitm.properties.active,
                                 cartodb_id: hitm.properties.cartodb_id,
                                 name: hitm.properties.name,
                                 anno: hitm.properties.anno,
                                 geom_type: hitm.properties.geomtype,
-                                style: markernew,
+                                // style: markernew,
+                                style: stnew,
                                 pointToLayer: function(feature, latlng) {
-                                    return L.circleMarker(latlng, this.style);
+                                    if (geomtype == "Point") {
+                                        return L.circleMarker(latlng, this.style);
+                                    }
                                 }
                             })
                             foot.bindPopup(pu).addTo(mjItems)
-                        if (foot.options.seen == true) {
-                            foot.setStyle(markerseen)
-                        } else if (foot.options.active == true) {
-                            foot.setStyle(markeractive)
-                        }
-                        // foot.addTo(mjItems)
-                    } else {
-                        // var dStyle = markernew
-                        var foot = L.geoJson(hitm, {
-                                seen: false,
-                                active: hitm.properties.active,
-                                cartodb_id: hitm.properties.cartodb_id,
-                                name: hitm.properties.name,
-                                anno: hitm.properties.anno,
-                                geom_type: hitm.properties.geomtype,
-                                style: markernew
-                            })
 
-                            foot.bindPopup(pu).addTo(mjItems)
-                        if (foot.options.seen == true) {
-                            foot.setStyle(lineseen)
-                        } else if (foot.options.active == true) {
-                            console.log("the following foot's active and we should open its popup in addition to styling it bright");
-                            console.log(foot);
-                            foot.setStyle(lineactive)
-                            foot.openPopup()
-                        }
-                    }
+//                             .setStyle(function(s){
+
+//     console.log("s in setstyle");
+//     console.log(s);
+
+//     return stnew
+// })
+if (foot.options.active == true) {
+    console.log("setting to active, foot:")
+    console.log(foot);
+foot.setStyle(stact)
+// this.model.set({seen:true})
+// foot.options.seen=true
+} else {
+    if(foot.options.seen == true) {
+        console.log("setting to seen, foot:")
+    console.log(foot);
+        foot.setStyle(stsen)
+    }//seen
+}
+//                         if (foot.options.seen == true) {
+//                             foot.setStyle(stsen)
+//                         } else if (foot.options.active == true) {
+//                             // console.log("this foot's active:");
+//                             // console.log(foot);
+//                             foot.setStyle(stact)
+// console.log("foot before seen=true:");
+// console.log(foot);
+//                             console.log("foot after seen = true:");
+//                             console.log(foot);
+//                         }
+//                         
+// console.log("foot");
+// console.log(foot);
+// if (foot.options.seen == true) {
+//                             foot.setStyle(stsen)
+
+// }
+//                             foot.options.seen=true
+                        foot.addTo(mjItems)
+
+                    // } else {
+                    //     // var dStyle = markernew
+                    //     var foot = L.geoJson(hitm, {
+                    //             seen: false,
+                    //             active: hitm.properties.active,
+                    //             cartodb_id: hitm.properties.cartodb_id,
+                    //             name: hitm.properties.name,
+                    //             anno: hitm.properties.anno,
+                    //             geom_type: hitm.properties.geomtype,
+                    //             style: markernew
+                    //         })
+
+                    //         foot.bindPopup(pu).addTo(mjItems)
+                    //     if (foot.options.seen == true) {
+                    //         foot.setStyle(lineseen)
+                    //     } else if (foot.options.active == true) {
+                    //         console.log("the following foot's active and we should open its popup in addition to styling it bright");
+                    //         console.log(foot);
+                    //         foot.setStyle(lineactive)
+                    //         foot.openPopup()
+                    //     }
+                    // }
                         // foot.addTo(mjItems)
                 } //typeof the_geom
             }) //collection.each

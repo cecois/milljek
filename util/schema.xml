@@ -159,6 +159,8 @@
    <field name="links" type="string" indexed="true" stored="true" multiValued="true"/>
 
    <field name="body" type="text_general" indexed="true" stored="true" multiValued="false"/>
+   
+   <field name="lopath" type="string" indexed="false" stored="true" multiValued="false"/>
 
    <!-- <field name="a0" type="string" indexed="true" stored="true" multiValued="true"/> -->
 

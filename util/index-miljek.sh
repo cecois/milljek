@@ -1,11 +1,18 @@
 #!/bin/sh
 
 
-#jekyls_raw=$(find /Users/ccmiller/git/milleriajek/_site -d -type f -iname "*.html" -not -iname "index*")
- jekyls_raw=$(find /Users/ch23936/git/milljek/_site -d -type f -iname "*.html" -not -iname "index*")
+jekyls_raw=$(find /Users/ccmiller/git/milleriajek/_site -d -type f -iname "*.html" -not -iname "index*")
+ # jekyls_raw=$(find /Users/ch23936/git/milljek/_site -d -type f -iname "*.html" -not -iname "index*")
 
 for j in $jekyls_raw; do
 	id=$(basename "${j}" .html)
+
+# echo $j|tr "_site" " " | awk 'print {$0}'
+lopathsfx=$(echo $j | awk -F'_site' '{print $2}')
+lopathpfx="_site"
+lopath=$lopathpfx$lopathsfx
+
+# echo "abc:def" | awk -F':' '{print $1}'
 
 # echo "checking $j..."
 
@@ -29,7 +36,7 @@ for j in $jekyls_raw; do
 
 	# echo "submitting"$id"..."
 	# echo "bodypeach:"$bodypeach
-	curl "http://localhost:8983/solr/miljek/update/extract?literal.id="$id"&commit=true" -F "myfile=@"$j
+curl "http://localhost:8983/solr/miljek/update/extract?literal.id="$id"&literal.lopath="$lopath"&commit=true" -F "myfile=@"$j
 	# curl "http://localhost:8983/solr/miljek/update/extract?literal.id="$id"&commit=true&fmap.body=body" -F "myfile=@"$j
 	# curl "http://localhost:8983/solr/miljek/update/extract?literal.id="$id"&commit=true&literal.body="$body -F "myfile=@"$j
 	# curl "http://localhost:8983/solr/miljek/update/extract?literal.id="$id"&commit=true&literal.body=${bodypeach}" -F "myfile=@"$j

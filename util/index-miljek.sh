@@ -1,8 +1,8 @@
 #!/bin/sh
 
 
-jekyls_raw=$(find /Users/ccmiller/git/milleriajek/_site -d -type f -iname "*.html" -not -iname "index*")
- # jekyls_raw=$(find /Users/ch23936/git/milljek/_site -d -type f -iname "*.html" -not -iname "index*")
+# jekyls_raw=$(find /Users/ccmiller/git/milleriajek/_site -d -type f -iname "*.html" -not -iname "index*")
+ jekyls_raw=$(find /Users/ch23936/git/milljek/_site -d -type f -iname "*.html" -not -iname "index*")
 
 for j in $jekyls_raw; do
 	id=$(basename "${j}" .html)

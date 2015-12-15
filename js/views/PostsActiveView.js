@@ -3,13 +3,13 @@ var PostsActiveView = Backbone.View.extend({
     url: function() {
         return 'api/postfetcher.php?slug=' + this.collection.findWhere({
             "active": true
-        }).id
+        }).get("lopath")
     },
     template: Handlebars.templates['postsActiveViewTpl'],
     events: {},
     initialize: function() {
         this.render()
-        this.listenTo(this.collection, 'change:active', this.render)
+        this.listenTo(this.collection, 'change', this.render)
         return this
     },
     render: function() {
@@ -26,14 +26,16 @@ var PostsActiveView = Backbone.View.extend({
                 //  $(this.el).html("no active post")
                 // }
                 // 
+                var that = this;
                 var post = $.ajax({
-                    url: this.url()
+                    url: this.url(),
                         // type: 'default GET (Other values: POST)',
-                        // dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
+                        dataType: 'html'
                         // data: {param1: 'value1'},
                 }).success(function(p) {
                     console.log("success, p");
                     console.log(p);
+                $(that.el).html(p)
                     return p
                 }).done(function() {
                     console.log("done");
@@ -43,8 +45,10 @@ var PostsActiveView = Backbone.View.extend({
                     console.log("complete");
                 });
             }
+            
             if (typeof post !== 'undefined') {
-                $(this.el).html(post.responseText)
+                // $(this.el).html(post.responseText)
+                // $(this.el).html(post)
                 console.log("48:");
                 console.log(post);
             } else {

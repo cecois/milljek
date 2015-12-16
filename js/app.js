@@ -20,7 +20,7 @@ Handlebars.registerHelper('debug', function(options) {
 
     // if(verbose==true){
     //     console.log("debug hb:");
-    //     console.log(this);
+        console.log(this);
     // }
     return new Handlebars.SafeString("check console");
 });

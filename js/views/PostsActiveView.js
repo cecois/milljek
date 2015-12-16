@@ -18,14 +18,14 @@ var PostsActiveView = Backbone.View.extend({
             })
             if (typeof a !== 'undefined') {
                 var slug = a.get("id")
-                console.log("ths.url");
-                console.log(this.url());
+                // console.log("ths.url");
+                // console.log(this.url());
             }
             if (typeof a !== 'undefined' && a !== null) {
                 // $(this.el).html(this.template(a.toJSON()))} else {
                 //  $(this.el).html("no active post")
                 // }
-                // 
+                //
                 var that = this;
                 var post = $.ajax({
                     url: this.url(),
@@ -33,24 +33,24 @@ var PostsActiveView = Backbone.View.extend({
                         dataType: 'html'
                         // data: {param1: 'value1'},
                 }).success(function(p) {
-                    console.log("success, p");
-                    console.log(p);
+                    // console.log("success, p");
+                    // console.log(p);
                 $(that.el).html(p)
                     return p
                 }).done(function() {
-                    console.log("done");
+                    // console.log("done");
                 }).fail(function() {
-                    console.log("error");
+                    // console.log("error");
                 }).always(function() {
-                    console.log("complete");
+                    // console.log("complete");
                 });
             }
-            
+
             if (typeof post !== 'undefined') {
                 // $(this.el).html(post.responseText)
                 // $(this.el).html(post)
-                console.log("48:");
-                console.log(post);
+                // console.log("48:");
+                // console.log(post);
             } else {
                 $(this.el).html('no active post')
             }

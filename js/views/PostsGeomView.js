@@ -12,7 +12,7 @@ var PostsGeomView = Backbone.View.extend({
         mjItems = L.geoJson().addTo(map);
         return this
     },
-    
+
     render: function() {
         appActivity.set({
             message: "preparing map objects..."
@@ -78,21 +78,22 @@ var PostsGeomView = Backbone.View.extend({
                         //     return i.options.seen == true
                         // });
                     }) //.on
-                        
+
                     if (foot.options.active == true) {
-                        console.log("setting to active, foot:")
-                        console.log(foot);
+                        // console.log("setting to active, foot:")
+                        // console.log(foot);
                         foot.setStyle(stact)
+                        foot.openPopup()
                             // this.model.set({seen:true})
                             // foot.options.seen=true
                     } else {
                         if (foot.options.seen == true) {
-                            console.log("setting to seen, foot:")
-                            console.log(foot);
+                            // console.log("setting to seen, foot:")
+                            // console.log(foot);
                             foot.setStyle(stsen)
                         } //seen
                     }
-                    
+
                     foot.addTo(mjItems)
                 } //typeof the_geom
             }) //collection.each

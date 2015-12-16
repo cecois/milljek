@@ -6,23 +6,11 @@ templates['activityViewTpl'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main"
   if (stack1 != null) { buffer += stack1; }
   return buffer + "</span>\n  <span class=\"activity-cancel glyphicon glyphicon-remove-sign\" style=\"margin-left:10px;\"></span>";
 },"useData":true});
-templates['hitMarkerViewTpl'] = template({"1":function(depth0,helpers,partials,data) {
-  return "";
-},"3":function(depth0,helpers,partials,data) {
+templates['hitMarkerViewTpl'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var lambda=this.lambda, escapeExpression=this.escapeExpression;
-  return "    <h5>"
-    + escapeExpression(lambda((depth0 != null ? depth0.name : depth0), depth0))
-    + "</h5>\n";
-},"5":function(depth0,helpers,partials,data) {
-  return "    <h5>(no name string)</h5>\n";
-  },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  var stack1, helperMissing=helpers.helperMissing, buffer = "";
-  stack1 = ((helpers.debug || (depth0 && depth0.debug) || helperMissing).call(depth0, depth0, {"name":"debug","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data}));
-  if (stack1 != null) { buffer += stack1; }
-  buffer += "\n<div class=\" pu-copy pu-copy-marker col-sm-12\">\n";
-  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.name : depth0), {"name":"if","hash":{},"fn":this.program(3, data),"inverse":this.program(5, data),"data":data});
-  if (stack1 != null) { buffer += stack1; }
-  return buffer + "</div>";
+  return "<div class=\"\">\n    <h5>"
+    + escapeExpression(lambda((depth0 != null ? depth0.title : depth0), depth0))
+    + "</h5>\n</div>";
 },"useData":true});
 templates['postsActiveViewTpl'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var stack1, lambda=this.lambda, buffer = "    <div class=\"\">\n";

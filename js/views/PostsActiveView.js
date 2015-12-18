@@ -33,10 +33,13 @@ var PostsActiveView = Backbone.View.extend({
                         dataType: 'html'
                         // data: {param1: 'value1'},
                 }).success(function(p) {
-                    // console.log("success, p");
-                    // console.log(p);
-    $(that.el).html(p)
-       // $("#posts-active").html(p)
+
+    // $(that.el).html(p)
+    $(that.el).html(that.template({
+            title: a.get("title"),
+            guts: p
+        }));
+
                 console.log("p guts:");
                 console.log(p);
                     return p

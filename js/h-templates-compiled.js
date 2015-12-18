@@ -13,10 +13,12 @@ templates['hitMarkerViewTpl'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main
     + "</h5>\n</div>";
 },"useData":true});
 templates['postsActiveViewTpl'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  var stack1, lambda=this.lambda, buffer = "    <div class=\"\">\n";
-  stack1 = lambda((depth0 != null ? depth0.content : depth0), depth0);
+  var stack1, lambda=this.lambda, escapeExpression=this.escapeExpression, buffer = "	<h1>"
+    + escapeExpression(lambda((depth0 != null ? depth0.title : depth0), depth0))
+    + "</h1>\n\n";
+  stack1 = lambda((depth0 != null ? depth0.guts : depth0), depth0);
   if (stack1 != null) { buffer += stack1; }
-  return buffer + "\n        \n    </div>";
+  return buffer + "\n";
 },"useData":true});
 templates['postsGeomFakeViewTpl'] = template({"1":function(depth0,helpers,partials,data) {
   var stack1, buffer = "";

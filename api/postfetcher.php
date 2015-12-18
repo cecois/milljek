@@ -1,34 +1,24 @@
 <?php
-
 $slug = $_GET['slug'];
 
-$post = file_get_contents('../'.$slug);
-
-$DOM = new DOMDocument;
 libxml_use_internal_errors(true);
-   $DOM->loadHTMLFile('../'.$slug);
-
-   // var_dump($DOM);die();
-
-   //get all H1
-   // $bodies = $DOM->getElementsByTagName('body');
+$DOM = new DOMDocument;
+$DOM->loadHTML(file_get_contents('../' . $slug), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
 
 $finder = new DomXPath($DOM);
-$classname="post-content";
+$classname = "post-content";
 $nodes = $finder->query("//*[contains(@class, '$classname')]");
-
-
-   // $img = $dom->getElementsByTagName('img')->item(0);
-// echo $img->attributes->getNamedItem("src")->value;
 
 libxml_use_internal_errors(false);
 
-// foreach ($bodies as $body) {
-// 	echo $body->nodeValue, PHP_EOL;
-// }
-// 
+$innerHTML = '';
+
+/* ONLY THING THAT WORKED - GOT IT FROM http://stackoverflow.com/questions/4879946/how-to-savehtml-of-domdocument-without-html-wrapper
+*/
 foreach ($nodes as $node) {
-	echo $node->nodeValue, PHP_EOL;
+    $littledom = new DOMDocument;
+    $innerHTML.= $DOM->saveXML($node);
 }
 
+echo $innerHTML;
 ?>

@@ -35,7 +35,10 @@ var PostsActiveView = Backbone.View.extend({
                 }).success(function(p) {
                     // console.log("success, p");
                     // console.log(p);
-                $(that.el).html(p)
+    $(that.el).html(p)
+       // $("#posts-active").html(p)
+                console.log("p guts:");
+                console.log(p);
                     return p
                 }).done(function() {
                     // console.log("done");
@@ -51,7 +54,9 @@ var PostsActiveView = Backbone.View.extend({
                 // $(this.el).html(post)
                 // console.log("48:");
                 // console.log(post);
+                $(this.el).removeClass("hidden")
             } else {
+                $(this.el).addClass("hidden")
                 $(this.el).html('no active post')
             }
             return this

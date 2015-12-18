@@ -11,12 +11,11 @@ libxml_use_internal_errors(true);
    // var_dump($DOM);die();
 
    //get all H1
-   $bodies = $DOM->getElementsByTagName('body');
+   // $bodies = $DOM->getElementsByTagName('body');
 
 $finder = new DomXPath($DOM);
 $classname="post-content";
 $nodes = $finder->query("//*[contains(@class, '$classname')]");
-
 
 
    // $img = $dom->getElementsByTagName('img')->item(0);

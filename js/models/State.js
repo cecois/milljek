@@ -9,6 +9,7 @@ var State = Backbone.Model.extend({
     initialize: function(options) {
         options || (options = {});
         this.listenTo(appQuery, 'change:rawstring', this.update)
+        this.on('change', this.update, this)
         return this
     },
     update: function(){
@@ -19,10 +20,12 @@ appRoute.navigate(this.pullurl())
     ,
     pullurl: function() {
 
+var aslug = appState.get("ap").slug
 
-var state = thishost+"/#"+appQuery.get("solrstring")+"/"+window.AP+"/"+null+"/pencil"
+var state = 
+//thishost+"/#"+
+appQuery.get("solrstring")+"/"+aslug+"/"+map.getBounds().toBBoxString()+"/pencil"
 
-console.log("state:");console.log(state);
 return state
 
 

@@ -30,7 +30,16 @@ var Route = Backbone.Router.extend({
                 })
             }
                         if (typeof slug !== 'undefined' && slug !== null) {
-                appState.set({"slug":slug},{silent:true})
+
+            // var the = appPosts.findWhere({
+            //     id: slug
+            // })
+
+
+                appState.set({ap:
+                {"slug":slug}
+            },{silent:true})
+            
             }
             // we do query last bc other incomings might inform it
             if (typeof q !== 'undefined' && q !== null) {

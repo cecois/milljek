@@ -118,6 +118,12 @@ window.appActivityView = new ActivityView({
 });
 
 
+map.on('moveend',function(){
+
+appState.update()
+
+}); //on
+
 function cwmccallback(r){
 	// catch-all callback can debug if we want it to
 	// console.log("allback sez:");
@@ -145,3 +151,17 @@ function cwmccallback(r){
 // return id
 
 // }
+// 
+/* -------------------------------------------------- READY -----------------------  */
+
+$(document).keydown(function(e) {
+    if (e.keyCode == 17) {
+
+console.log("should toggle");
+
+$("#postslist-posts").toggleClass("collapsed")
+$("#posts-active").toggleClass("collapsed")
+
+
+    }
+});

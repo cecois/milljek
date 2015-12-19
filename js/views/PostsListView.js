@@ -5,16 +5,16 @@ var PostsListView = Backbone.View.extend({
         "click li": "log",
         "click li": "activate",
     },
-    activate: function(e) {
-            e.preventDefault()
-            var dt = $(e.currentTarget).attr("data-id")
-                // AP=
-            appState.set({
-                "slug": dt
-            })
-            return this
-        } //activate
-        ,
+    // activate: function(e) {
+    //         e.preventDefault()
+    //         var dt = $(e.currentTarget).attr("data-id")
+    //             // AP=
+    //         appState.set({
+    //             "slug": dt
+    //         })
+    //         return this
+    //     } //activate
+    //     ,
     initialize: function() {
         // this.render()
         this.listenTo(this.collection, 'add', this.render)

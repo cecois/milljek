@@ -39,9 +39,6 @@ var PostsActiveView = Backbone.View.extend({
             title: a.get("title"),
             guts: p
         }));
-
-                console.log("p guts:");
-                console.log(p);
                     return p
                 }).done(function() {
                     // console.log("done");

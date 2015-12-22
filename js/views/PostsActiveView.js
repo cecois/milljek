@@ -47,18 +47,21 @@ var PostsActiveView = Backbone.View.extend({
                 }).always(function() {
                     // console.log("complete");
                 });
+            } else {
+                // $(this.el).addClass("hidden")
+                $(this.el).html('NO ACXTIVE POST')
             }
 
-            if (typeof post !== 'undefined') {
-                // $(this.el).html(post.responseText)
-                // $(this.el).html(post)
-                // console.log("48:");
-                // console.log(post);
-                $(this.el).removeClass("hidden")
-            } else {
-                $(this.el).addClass("hidden")
-                $(this.el).html('no active post')
-            }
+            // if (typeof post !== 'undefined') {
+            //     // $(this.el).html(post.responseText)
+            //     // $(this.el).html(post)
+            //     // console.log("48:");
+            //     // console.log(post);
+            //     $(this.el).removeClass("hidden")
+            // } else {
+            //     // $(this.el).addClass("hidden")
+            //     $(this.el).html('NO ACXTIVE POST')
+            // }
             return this
         } //render
 });

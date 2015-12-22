@@ -124,6 +124,24 @@ appState.update()
 
 }); //on
 
+/* -------------------------------------------------- FLOATERS -----------------------  */
+
+function puFactory(p){
+    /* -------
+    this receives one-time fires of popup events and completely wipes their guts, replacing them with...well, the same thing cept it's all bound up in Backbone goodness
+    ---- */
+
+    // first grab the pu's container node
+    var nel = p.popup._contentNode
+
+    // and since the p obj has been affixed with the original leaflet object's model ("model") we just pass it along like so
+// but also we affix the leaflet id of the feature so we can close this mofo later (among other ops maybe)
+    var pm = new Popup(p.model).set({leafletid:p.layer._leaflet_id});
+    var pv = new PopupView({model:pm,el: nel})
+    console.log("pv:"); console.log(pv);
+
+}
+
 function cwmccallback(r){
 	// catch-all callback can debug if we want it to
 	// console.log("allback sez:");
@@ -151,7 +169,7 @@ function cwmccallback(r){
 // return id
 
 // }
-// 
+//
 /* -------------------------------------------------- READY -----------------------  */
 $(document).ready(function() {
     $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
@@ -170,7 +188,7 @@ $(document).keydown(function(e) {
 console.log("should toggle");
 
 $("#postslist-posts").toggleClass("collapsed")
-$("#posts-active").toggleClass("collapsed")
+$("#active-container").toggleClass("collapsed")
 
 
     }

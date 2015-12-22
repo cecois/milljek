@@ -20,7 +20,14 @@ var PostsGeomView = Backbone.View.extend({
         mjItems.clearLayers();
         this.collection.each(function(hit, i) {
                 var template_geom = Handlebars.templates['hitMarkerViewTpl']
+
+// console.log("hit@22:"); console.log(hit);
+
                 var pu = template_geom(hit.toJSON());
+// var pm = new Popup(this.model)
+// .set({leafletid:p.layer._leaflet_id});
+    // var pv = new PopupView({model:pm})
+
                 if (typeof hit.get("the_geom") !== 'undefined') {
                     var the_geom = hit.get("the_geom")
                     var geomtype = the_geom.geometry.type
@@ -30,6 +37,7 @@ var PostsGeomView = Backbone.View.extend({
                         "properties": {
                             // "name": "the_geom.properties.name",
                             "name": the_geom.properties.name,
+                            "slug": hit.get("id"),
                             "active": hit.get("active"),
                             "seen": hit.get("seen"),
                             "cartodb_id": the_geom.properties.cartodb_id,
@@ -73,11 +81,30 @@ var PostsGeomView = Backbone.View.extend({
                             }
                         }
                     })
+                    // foot.bindPopup(pu).addTo(mjItems).on("click", function(m) {
                     foot.bindPopup(pu).addTo(mjItems).on("click", function(m) {
+
+                    // console.log("m@84:"); console.log(m);
                         // var stale = _.find(cbbItems._layers, function(i) {
                         //     return i.options.seen == true
                         // });
-                    }) //.on
+                    }).on("popupopen", function(p) {
+                        /* --------------------------------------------------
+                        ok what dafuk is going on here? Well in order to use native Backbone stuff *within* the popup we needed to be able inject a model-view couple into its guts - i.e. we want the guts of this popup to be the $el of a BB view. The way to do that is to throw the popupopen event to an external popup factory that *we* write - just so happens to be a BB view generator based on the "model" we also pass as part of the object. See that piece where we add an attribute to p? p.model = hitm.properties is us passing along this (this!) model to the popup factory. Kinda. You know what i mean.
+                        -----------------------  */
+                        // var pu = template_geom(hit.toJSON()); OG
+// console.log("p@91:"); console.log(p);
+p.model = hitm.properties
+
+var nel = p.popup._contentNode
+var pm = new Popup(p.model)
+.set({leafletid:p.layer._leaflet_id});
+    var pv = new PopupView({model:pm,el: nel})
+
+
+                    })
+                    //on popup
+
 
                     if (foot.options.active == true) {
                         // console.log("setting to active, foot:")

@@ -22,7 +22,7 @@
     </head>
     <body ontouchstart="">
         <div id="map"></div>
-
+<!--
         <div id="tools" class="row col-lg-12">
         <div id="tools-nav" class="col-sm-6 pull-left">
 <ul class="list-inline col-sm-12">
@@ -32,77 +32,72 @@
 <li class="col-sm-3">About</li>
 </ul>
         </div>
+
+</div>  ./ #tools -->
+
+
 <!-- <div class="hidden col-lg-12" id="auditContainer"></div> -->
-<div class="pull-right col-sm-6 hidden" id="activityContainer"></div>
-</div> <!-- ./ #tools -->
-
-
 
 <!-- <div id="main" class="row col-sm-12"> -->
   <div class="row col-sm-3"><ul id="postslist-posts" class="col-sm-12 pull-left"></ul></div>
 <!-- <div id="postsgeom-fake" class="col-sm-6 pull-right" style="background-color:black;color:white;"></div> -->
 <!--<div class="col-sm-3" style="height:1px;"></div>  ./  -->
 
-<div class="container">
+<div id="active-container" class="container col-lg-6 pull-right">
   <div class="row">
-        <div class="col-lg-5 col-md-5 col-sm-8 col-xs-9 bhoechie-tab-container">
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
+  <div class="pull-right col-sm-12 hidden" id="activityContainer"></div>
+        <div class="col-lg-12 bhoechie-tab-container pull-right">
+            <div class="col-lg-2 bhoechie-tab-menu">
               <div class="list-group">
                 <a href="#" class="list-group-item active text-center">
-                  <h4 class="glyphicon glyphicon-plane"></h4><br/>Flight
+                  <h4 class="glyphicon glyphicon-plane"></h4><br/>Active
                 </a>
                 <a href="#" class="list-group-item text-center">
-                  <h4 class="glyphicon glyphicon-road"></h4><br/>Train
+                  <h4 class="glyphicon glyphicon-road"></h4><br/>About
                 </a>
                 <a href="#" class="list-group-item text-center">
-                  <h4 class="glyphicon glyphicon-home"></h4><br/>Hotel
-                </a>
-                <a href="#" class="list-group-item text-center">
-                  <h4 class="glyphicon glyphicon-cutlery"></h4><br/>Restaurant
-                </a>
-                <a href="#" class="list-group-item text-center">
-                  <h4 class="glyphicon glyphicon-credit-card"></h4><br/>Credit Card
+                  <h4 class="glyphicon glyphicon-home"></h4><br/>Contact
                 </a>
               </div>
             </div>
             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
                 <!-- flight section -->
                 <div class="bhoechie-tab-content active">
-                    <center>
-                      <h1 class="glyphicon glyphicon-plane" style="font-size:14em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                      <h3 style="margin-top: 0;color:#55518a">Flight Reservation</h3>
-                    </center>
+                    <!-- <center> -->
+                      <!-- <h1 class="glyphicon glyphicon-plane" style="font-size:14em;color:#55518a"></h1>
+                      <h2 style="margin-top: 0;color:#55518a">Coming Soon</h2>
+                      <h3 style="margin-top: 0;color:#55518a">ACTIVE POST</h3> -->
+                      <div id="posts-active" class="col-sm-12 pull-right" style="">NO ACTIVE POST</div>
+                    <!-- </center> -->
                 </div>
                 <!-- train section -->
                 <div class="bhoechie-tab-content">
                     <center>
                       <h1 class="glyphicon glyphicon-road" style="font-size:12em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
+                      <h2 style="margin-top: 0;color:#55518a">Coming Soon</h2>
                       <h3 style="margin-top: 0;color:#55518a">Train Reservation</h3>
                     </center>
                 </div>
-    
+
                 <!-- hotel search -->
                 <div class="bhoechie-tab-content">
                     <center>
                       <h1 class="glyphicon glyphicon-home" style="font-size:12em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
+                      <h2 style="margin-top: 0;color:#55518a">Coming Soon</h2>
                       <h3 style="margin-top: 0;color:#55518a">Hotel Directory</h3>
                     </center>
                 </div>
                 <div class="bhoechie-tab-content">
                     <center>
                       <h1 class="glyphicon glyphicon-cutlery" style="font-size:12em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
+                      <h2 style="margin-top: 0;color:#55518a">Coming Soon</h2>
                       <h3 style="margin-top: 0;color:#55518a">Restaurant Diirectory</h3>
-                      <div id="posts-active" class="col-sm-6 pull-right hidden" style=""></div>
                     </center>
                 </div>
                 <div class="bhoechie-tab-content">
                     <center>
                       <h1 class="glyphicon glyphicon-credit-card" style="font-size:12em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
+                      <h2 style="margin-top: 0;color:#55518a">Coming Soon</h2>
                       <h3 style="margin-top: 0;color:#55518a">Credit Card</h3>
                     </center>
                 </div>
@@ -133,6 +128,7 @@
 <script type="text/javascript" language="Javascript" src="js/models/Geoms.js"></script> -->
 
 <script type="text/javascript" language="Javascript" src="js/models/State.js"></script>
+<script type="text/javascript" language="Javascript" src="js/models/Popup.js"></script>
 <script type="text/javascript" language="Javascript" src="js/models/Post.js"></script>
 <script type="text/javascript" language="Javascript" src="js/models/Posts.js"></script>
 
@@ -141,6 +137,7 @@
   <script type="text/javascript" language="Javascript" src="js/views/QueryView.js"></script>
   <!-- <script type="text/javascript" language="Javascript" src="js/views/PostsMetaView.js"></script> -->
   <script type="text/javascript" language="Javascript" src="js/views/PostsListView.js"></script>
+  <script type="text/javascript" language="Javascript" src="js/views/PopupView.js"></script>
   <script type="text/javascript" language="Javascript" src="js/views/PostsGeomView.js"></script>
   <script type="text/javascript" language="Javascript" src="js/views/PostsActiveView.js"></script>
   <!-- <script type="text/javascript" language="Javascript" src="js/views/PostsGeomView.js"></script> -->

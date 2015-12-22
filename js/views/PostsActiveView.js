@@ -9,7 +9,7 @@ var PostsActiveView = Backbone.View.extend({
     events: {},
     initialize: function() {
         this.render()
-        this.listenTo(this.collection, 'change', this.render)
+        this.listenTo(this.collection, 'change:active', this.render)
         return this
     },
     render: function() {

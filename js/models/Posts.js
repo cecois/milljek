@@ -60,7 +60,7 @@ var PostsCollection = Backbone.Collection.extend({
                         if (d.id !== appState.get("ap").slug) {
 d.set({
                                 "active": false
-                            })
+                            },{silent:true})
                         } else {
 d.set({"active":true,"seen":true})
                         }

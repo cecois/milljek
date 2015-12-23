@@ -82,13 +82,10 @@ var PostsGeomView = Backbone.View.extend({
                         }
                     })
                     // foot.bindPopup(pu).addTo(mjItems).on("click", function(m) {
-                    foot.bindPopup(pu).addTo(mjItems).on("click", function(m) {
-
-                    // console.log("m@84:"); console.log(m);
-                        // var stale = _.find(cbbItems._layers, function(i) {
-                        //     return i.options.seen == true
-                        // });
-                    }).on("popupopen", function(p) {
+                    foot.bindPopup(pu).addTo(mjItems)
+                    // .on("click", function(m) {
+                    // })
+                    .on("popupopen", function(p) {
                         /* --------------------------------------------------
                         ok what dafuk is going on here? Well in order to use native Backbone stuff *within* the popup we needed to be able inject a model-view couple into its guts - i.e. we want the guts of this popup to be the $el of a BB view. The way to do that is to throw the popupopen event to an external popup factory that *we* write - just so happens to be a BB view generator based on the "model" we also pass as part of the object. See that piece where we add an attribute to p? p.model = hitm.properties is us passing along this (this!) model to the popup factory. Kinda. You know what i mean.
                         -----------------------  */

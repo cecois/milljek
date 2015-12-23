@@ -3,7 +3,8 @@ var PostsListView = Backbone.View.extend({
     template: Handlebars.templates['postsListViewTpl'],
     events: {
         "click li": "log",
-        "click li": "activate",
+        "click li": "activate"
+        // "click #search-container .btn": "query",
     },
     // activate: function(e) {
     //         e.preventDefault()
@@ -15,6 +16,14 @@ var PostsListView = Backbone.View.extend({
     //         return this
     //     } //activate
     //     ,
+    query: function(q){
+
+
+            var q = q
+console.log("q:"); console.log(q);
+return this
+
+    },
     initialize: function() {
         // this.render()
         this.listenTo(this.collection, 'add', this.render)

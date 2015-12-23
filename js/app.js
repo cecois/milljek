@@ -180,6 +180,19 @@ $(document).ready(function() {
         $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
         $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
     });
+
+$("#search-container btn").on('click', null, function(event) {
+    event.preventDefault();
+
+var q = $("#search-container > input").val()
+console.log("q:")
+console.log(q)
+appPostsListView.query(q)
+
+});
+
+
+
 });
 
 $(document).keydown(function(e) {
@@ -187,7 +200,8 @@ $(document).keydown(function(e) {
 
 console.log("should toggle");
 
-$("#postslist-posts").toggleClass("collapsed")
+// $("#postslist-posts").toggleClass("collapsed")
+$("#postslist-container").toggleClass("collapsed")
 $("#active-container").toggleClass("collapsed")
 
 

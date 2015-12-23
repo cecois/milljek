@@ -39,7 +39,18 @@
 <!-- <div class="hidden col-lg-12" id="auditContainer"></div> -->
 
 <!-- <div id="main" class="row col-sm-12"> -->
-  <div class="row col-sm-3"><ul id="postslist-posts" class="col-sm-12 pull-left"></ul></div>
+  <div id="postslist-container" class="row col-sm-4">
+<div class="row search-wrapper">
+  <div class="col-lg-10 col-sm-offset-1">
+    <div class="input-group" id="search-container">
+      <input type="text" class="form-control" placeholder="query posts...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+  <ul id="postslist-posts" class="col-sm-12 pull-left"></ul></div>
 <!-- <div id="postsgeom-fake" class="col-sm-6 pull-right" style="background-color:black;color:white;"></div> -->
 <!--<div class="col-sm-3" style="height:1px;"></div>  ./  -->
 
@@ -49,7 +60,8 @@
         <div class="col-lg-12 bhoechie-tab-container pull-right">
             <div class="col-lg-2 bhoechie-tab-menu">
               <div class="list-group">
-                <a href="#" class="list-group-item active text-center">
+                <!-- <a href="#" class="list-group-item active text-center" style="background-color:pink;background-image:url('http://cdn.discogs.com/5dncUsBwE0sANQsxtwGc-b-MJGw=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb()/discogs-images/R-1128261-1272124773.jpeg.jpg')"> -->
+                <a href="#" class="list-group-item active text-center" style="background-color:pink;background-image:url('offline/dummy-thumb.png')">
                   <h4 class="glyphicon glyphicon-plane"></h4><br/>Active
                 </a>
                 <a href="#" class="list-group-item text-center">
@@ -58,9 +70,9 @@
                 <a href="#" class="list-group-item text-center">
                   <h4 class="glyphicon glyphicon-home"></h4><br/>Contact
                 </a>
-                <a href="#" class="list-group-item text-center">
+                <!-- <a href="#" class="list-group-item text-center">
                   <h4 class="glyphicon glyphicon-home"></h4><br/>Audio
-                </a>
+                </a> -->
               </div>
             </div>
             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">

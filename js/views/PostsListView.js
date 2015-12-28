@@ -21,6 +21,7 @@ var PostsListView = Backbone.View.extend({
 
             var q = q
 console.log("q:"); console.log(q);
+appQuery.set({"rawstring":q})
 return this
 
     },

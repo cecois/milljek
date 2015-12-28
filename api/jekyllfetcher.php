@@ -5,8 +5,14 @@
 // $pr=array("response"=>$p);
 // echo "callback(".json_encode($pr).");";
 
+if(isset($_GET['solrstring'])){
+$solrstring = $_GET['solrstring'];} else {
+    $solrstring= "*";
+}
 
-$sarl = "http://localhost:8983/solr/miljek/select?rows=999&wt=json&q=*";
+
+
+$sarl = "http://localhost:8983/solr/miljek/select?rows=999&wt=json&q=".$solrstring;
 
 
 $solrin = json_decode(file_get_contents($sarl));

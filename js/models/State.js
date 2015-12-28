@@ -8,12 +8,13 @@ var State = Backbone.Model.extend({
     },
     initialize: function(options) {
         options || (options = {});
-        this.listenTo(appQuery, 'change:rawstring', this.update)
+        // this.listenTo(appQuery, 'change:rawstring', this.update)
+        this.listenTo(appQuery, 'change:solrstring', this.update)
         this.on('change', this.update, this)
         return this
     },
     update: function(){
-
+console.log("updating in State...");
 appRoute.navigate(this.pullurl())
 
     } //update

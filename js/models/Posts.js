@@ -2,7 +2,7 @@ var PostsCollection = Backbone.Collection.extend({
     model: Post,
     url: function() {
         // return solrhost + "miljek/select?json.wrf=cwmccallback&rows=999&wt=json&q=" + encodeURIComponent(appQuery.get("solrstring"));
-        return "api/jekyllfetcher.php?cb=cwmccallback"
+        return "api/jekyllfetcher.php?cb=cwmccallback&solrstring="+appState.get("q")
     },
     initialize: function(options) {
         this.on('sync', this.activate, this);

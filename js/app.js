@@ -181,19 +181,16 @@ $(document).ready(function() {
         $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
     });
 
-$("#search-container btn").on('click', null, function(event) {
-    event.preventDefault();
+$( "#search-container .btn" ).click(function() {
 
 var q = $("#search-container > input").val()
-console.log("q:")
-console.log(q)
 appPostsListView.query(q)
 
-});
+}); //search-container btn click
 
 
 
-});
+}); //ready
 
 $(document).keydown(function(e) {
     if (e.keyCode == 17) {

@@ -47,8 +47,16 @@ var PostsActiveView = Backbone.View.extend({
                 }).always(function() {
                     // console.log("complete");
                 });
+
+var img = "offline/jackets/"+a.get("id")+".jpg"
+// background-image:url('offline/dummy-thumb.png')
+$("#active-a").css("background-image","url('"+img+"')")
+
+// background-image:url('offline/dummy-thumb.png')
+
             } else {
                 // $(this.el).addClass("hidden")
+$("#active-a").css("background-image","none")
                 $(this.el).html('NO ACXTIVE POST')
             }
 

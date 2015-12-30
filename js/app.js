@@ -120,7 +120,7 @@ window.appActivityView = new ActivityView({
 
 map.on('moveend',function(){
 
-appState.test_mapmoveend()
+appState.set({bbox:map.getBounds().toBBoxString()})
 
 }); //on
 
@@ -181,14 +181,14 @@ $(document).ready(function() {
         $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
     });
 
-$( "#search-container .btn" ).click(function() {
+// $( "#search-container .btn" ).click(function() {
 
-var q = $("#search-container > input").val()
-// appPostsListView.query(q)
+// var q = $("#search-container > input").val()
+// // appPostsListView.query(q)
 
-appQuery.set({"rawstring":q})
+// appQuery.set({"rawstring":q})
 
-}); //search-container btn click
+// }); //search-container btn click
 
 
 
@@ -197,12 +197,12 @@ appQuery.set({"rawstring":q})
 $(document).keydown(function(e) {
     if (e.keyCode == 17) {
 
-console.log("should toggle");
 
 // $("#postslist-posts").toggleClass("collapsed")
 $("#postslist-container").toggleClass("collapsed")
 $("#active-container").toggleClass("collapsed")
 
+$('body').find('[data-toggle="tooltip"]').tooltip('hide');
 
     }
 });

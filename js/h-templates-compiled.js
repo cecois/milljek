@@ -90,4 +90,10 @@ templates['postsListViewTpl'] = template({"1":function(depth0,helpers,partials,d
   if (stack1 != null) { return stack1; }
   else { return ''; }
   },"useData":true});
+templates['queryViewTpl'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+  var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+  return "<input type=\"text\" data-placement=\"top\" data-toggle=\"tooltip\" title=\"query the fulltext of all posts\" class=\"form-control\" placeholder=\""
+    + escapeExpression(((helper = (helper = helpers.solrstring || (depth0 != null ? depth0.solrstring : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"solrstring","hash":{},"data":data}) : helper)))
+    + "\">\n      <span class=\"input-group-btn\">\n        <button id=\"bt-search-search\" class=\"btn btn-default\" type=\"button\"><span class=\"glyphicon glyphicon-search\"/></button>\n        <button title=\"reset query/show all\" data-toggle=\"tooltip\" id=\"bt-search-reset\" class=\"btn btn-default\" type=\"button\"><span class=\"glyphicon glyphicon-remove\"/></button>\n      </span>";
+},"useData":true});
 })();

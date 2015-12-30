@@ -55,7 +55,7 @@ var PostsCollection = Backbone.Collection.extend({
         if(typeof appState.get("ap") !== 'undefined' && appState.get("ap") !== null){
                     // this.deactivate()
                     _.each(this.models, function(d, index) {
-                        
+
 
                         if (d.id !== appState.get("ap").slug) {
 d.set({

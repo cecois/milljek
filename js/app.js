@@ -120,7 +120,7 @@ window.appActivityView = new ActivityView({
 
 map.on('moveend',function(){
 
-appState.update()
+appState.test_mapmoveend()
 
 }); //on
 
@@ -184,7 +184,9 @@ $(document).ready(function() {
 $( "#search-container .btn" ).click(function() {
 
 var q = $("#search-container > input").val()
-appPostsListView.query(q)
+// appPostsListView.query(q)
+
+appQuery.set({"rawstring":q})
 
 }); //search-container btn click
 

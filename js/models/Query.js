@@ -2,7 +2,8 @@ var Query = Backbone.Model.extend({
     defaults: {
         rawstring: "*",
         solrstring: "*",
-        cartostring:null
+        cartostring:null,
+        message:"search posts' fulltext"
     },
     initialize: function(options) {
         options || (options = {});

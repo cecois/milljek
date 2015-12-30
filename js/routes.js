@@ -5,8 +5,7 @@ var Route = Backbone.Router.extend({
         "debug/:q/:slug/:bbox/:basemap(/)": "audit"
             // "search/lll:hash": "searchWithHashed",
     },
-    initialize: function() {}
-    ,
+    initialize: function() {},
     default: function(q, slug, bbox, basemap) {
             if (verbose == true) {
                 console.log("running default route");
@@ -29,27 +28,33 @@ var Route = Backbone.Router.extend({
                     "tileset": basemap
                 })
             }
-                        if (typeof slug !== 'undefined' && slug !== null) {
-
-            // var the = appPosts.findWhere({
-            //     id: slug
-            // })
-
-
-                appState.set({ap:
-                {"slug":slug}
-            },{silent:true})
-            
-            }
-            // we do query last bc other incomings might inform it
+            if (typeof slug !== 'undefined' && slug !== null) {
+                // var the = appPosts.findWhere({
+                //     id: slug
+                // })
+                appState.set({
+                    ap: {
+                        "slug": slug
+                    }
+                }, {
+                    silent: true
+                })
+            } else {
+// we do query last bc other incomings might inform it
+// ...like the slug - the slug preempts a query
             if (typeof q !== 'undefined' && q !== null) {
                 appQuery.set({
                     "rawstring": q
                 })
             }
-            appState.set({"basemap":basemap,"q":appQuery.get("solrstring"),
+            } //else slug
+            appState.set({
+                "basemap": basemap,
+                "q": appQuery.get("solrstring"),
                 // "bbox":map.getBbox().toString()
-            },{silent:true})
+            }, {
+                silent: true
+            })
             return this.reset()
         } // end default
         ,
@@ -57,12 +62,11 @@ var Route = Backbone.Router.extend({
         if (verbose == true) {
             console.log("resetting in route, fetching posts...")
         }
-            
-            // appActivity.set({"message":"fetching..."})
+        // appActivity.set({"message":"fetching..."})
         appPosts.fetch()
         return this
     },
-    audit: function(q, slug,bbox, basemap) {
+    audit: function(q, slug, bbox, basemap) {
         console.log("running audit route");
         console.log("q:");
         console.log(q);

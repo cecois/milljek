@@ -6,7 +6,7 @@ var PostsCollection = Backbone.Collection.extend({
     },
     initialize: function(options) {
         this.on('sync', this.activate, this);
-        this.listenTo(appState, 'change:ap', this.activate)
+        this.listenTo(appState, 'change', this.activate)
         // this.on('change:active',this.activate,this)
         // this.on('sync', this.refetch, this);
         options || (options = {});

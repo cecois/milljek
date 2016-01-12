@@ -49,30 +49,31 @@ $locstringa = explode(":", $locstring);
 
 if (count(array_unique($lopoints)) > 0) {
             //$prtlpoint = "SELECT cartodb_id,the_geom FROM cbb_point where cartodb_id IN (".implode(",",array_unique($lopoints)).")";
-            $prtlpoint = "SELECT CONCAT('point:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno,created_at,updated_at FROM cbb_point where cartodb_id IN (".implode(",",array_unique($lopoints)).")";
+            $prtlpoint = "SELECT CONCAT('point:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno,created,updated FROM spatialtrack_point where cartodb_id IN (".implode(",",array_unique($lopoints)).")";
         } else {
-            $prtlpoint = "SELECT CONCAT('point:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno,created_at,updated_at FROM cbb_point where cartodb_id = 00";
+            $prtlpoint = "SELECT CONCAT('point:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno,created,updated FROM spatialtrack_point where cartodb_id = 00";
         }
         if (count(array_unique($lolines)) > 0) {
-            //$prtlline = "SELECT cartodb_id,the_geom,name,anno,created_at,updated_at FROM cbb_line where cartodb_id IN (".implode(",",array_unique($lolines)).")";
-            $prtlline = "SELECT CONCAT('line:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno,created_at,updated_at FROM cbb_line where cartodb_id IN (".implode(",",array_unique($lolines)).")";
+            //$prtlline = "SELECT cartodb_id,the_geom,name,anno,created,updated FROM spatialtrack_line where cartodb_id IN (".implode(",",array_unique($lolines)).")";
+            $prtlline = "SELECT CONCAT('line:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno,created,updated FROM spatialtrack_line where cartodb_id IN (".implode(",",array_unique($lolines)).")";
         } else {
-            $prtlline = "SELECT CONCAT('line:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno,created_at,updated_at FROM cbb_line where cartodb_id = 00";
+            $prtlline = "SELECT CONCAT('line:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno,created,updated FROM spatialtrack_line where cartodb_id = 00";
         }
         if (count(array_unique($lopolys)) > 0) {
-            //$prtlpoly = "SELECT cartodb_id,the_geom,name,anno,created_at,updated_at FROM cbb_poly where cartodb_id IN (".implode(",",array_unique($lopolys)).")";
-            $prtlpoly = "SELECT CONCAT('poly:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno,created_at,updated_at FROM cbb_poly where cartodb_id IN (".implode(",",array_unique($lopolys)).")";
+            //$prtlpoly = "SELECT cartodb_id,the_geom,name,anno,created,updated FROM spatialtrack_poly where cartodb_id IN (".implode(",",array_unique($lopolys)).")";
+            $prtlpoly = "SELECT CONCAT('poly:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno,created,updated FROM spatialtrack_poly where cartodb_id IN (".implode(",",array_unique($lopolys)).")";
         } else {
-            $prtlpoly = "SELECT CONCAT('poly:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno,created_at,updated_at FROM cbb_poly where cartodb_id = 00";
+            $prtlpoly = "SELECT CONCAT('poly:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno,created,updated FROM spatialtrack_poly where cartodb_id = 00";
         }
 
 $actualsql = $prtlpoint." UNION ALL ".$prtlline." UNION ALL ".$prtlpoly;
+
         $carl = "../offline/cartodb-query.geojson";
-//         $carl = "https://pugo.cartodb.com/api/v2/sql?format=GeoJSON&q=".$actualsql;
-// echo $carl;
-//         die();
+        // $carl = "https://cecmcgee.cartodb.com/api/v2/sql?format=GeoJSON&q=".$actualsql;
+
 
 $carton = json_decode(file_get_contents($carl));
+
 
 foreach ($carton->features as $carto) {
 

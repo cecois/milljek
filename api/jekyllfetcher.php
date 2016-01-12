@@ -11,6 +11,8 @@ $solrstring = $_GET['solrstring'];} else {
 }
 
 
+$offline=true;
+
 
 $sarl = "http://localhost:8983/solr/miljek/select?rows=999&wt=json&q=".$solrstring;
 
@@ -68,11 +70,24 @@ if (count(array_unique($lopoints)) > 0) {
 
 $actualsql = $prtlpoint." UNION ALL ".$prtlline." UNION ALL ".$prtlpoly;
 
-        $carl = "../offline/cartodb-query.geojson";
-        // $carl = "https://cecmcgee.cartodb.com/api/v2/sql?format=GeoJSON&q=".$actualsql;
-
-
+if ($offline == true) {
+ $carl = "../offline/cartodb-query.geojson";
 $carton = json_decode(file_get_contents($carl));
+} else {
+
+
+        $carl = "https://cecmcgee.cartodb.com/api/v2/sql?format=GeoJSON&q=".$actualsql;
+
+// $url = "http://google.com/";
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $carl);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+$carlton = curl_exec($ch);
+curl_close($ch);
+
+$carton = json_decode($carlton);
+
+} //offline
 
 
 foreach ($carton->features as $carto) {

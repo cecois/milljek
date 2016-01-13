@@ -5,34 +5,36 @@ var PostsActiveView = Backbone.View.extend({
             "active": true
         }).get("lopath")
     },
-        events: {
+    events: {
         "click .bt-post-zoomto": "zoomto",
     },
     template: Handlebars.templates['postsActiveViewTpl'],
     // events: {},
     initialize: function() {
-        this.render()
+        // this.render()
         this.listenTo(this.collection, 'change:active', this.render)
-        return this
+        return this.render();
     },
-    zoomto: function(){
-
-var a = this.collection.findWhere({
+    zoomto: function() {
+        var a = this.collection.findWhere({
                 "active": true
             })
-
-// map.panInsideBounds(a.get("zoomto"));
-map.fitBounds(a.get("zoomto"));
-
-return this
-
+            // map.panInsideBounds(a.get("zoomto"));
+        map.fitBounds(a.get("zoomto"));
+        return this
     },
-    rewire: function(){
-$(this.el).find('[data-toggle="tooltip"]').tooltip({container:'body'})
-// $(this.el).find("input").click(function(event) {
-// $(this.el).find('[data-toggle="tooltip"]').tooltip('hide')
-// });
-return this
+    rewire: function() {
+        console.log("target tt el")
+console.log($(this.el).find('[data-toggle="tooltip"]'))
+        console.log("...exttant?")
+
+        $(this.el).find('.bt-post-zoomto').tooltip({
+                container: 'body'
+            })
+            // $(this.el).find("input").click(function(event) {
+            // $(this.el).find('[data-toggle="tooltip"]').tooltip('hide')
+            // });
+        return this
     },
     render: function() {
             var a = this.collection.findWhere({
@@ -40,8 +42,8 @@ return this
             })
             if (typeof a !== 'undefined') {
                 var slug = a.get("id")
-                // console.log("ths.url");
-                // console.log(this.url());
+                    // console.log("ths.url");
+                    // console.log(this.url());
             }
             if (typeof a !== 'undefined' && a !== null) {
                 // $(this.el).html(this.template(a.toJSON()))} else {
@@ -51,16 +53,15 @@ return this
                 var that = this;
                 var post = $.ajax({
                     url: this.url(),
-                        // type: 'default GET (Other values: POST)',
-                        dataType: 'html'
+                    // type: 'default GET (Other values: POST)',
+                    dataType: 'html'
                         // data: {param1: 'value1'},
                 }).success(function(p) {
-
-    // $(that.el).html(p)
-    $(that.el).html(that.template({
-            title: a.get("title"),
-            guts: p
-        }));
+                    // $(that.el).html(p)
+                    $(that.el).html(that.template({
+                        title: a.get("title"),
+                        guts: p
+                    }));
                     return p
                 }).done(function() {
                     // console.log("done");
@@ -69,19 +70,15 @@ return this
                 }).always(function() {
                     // console.log("complete");
                 });
-
-var img = "offline/jackets/"+a.get("id")+".jpg"
-// background-image:url('offline/dummy-thumb.png')
-$("#active-a").css("background-image","url('"+img+"')")
-
-// background-image:url('offline/dummy-thumb.png')
-
+                var img = "offline/jackets/" + a.get("id") + ".jpg"
+                    // background-image:url('offline/dummy-thumb.png')
+                $("#active-a").css("background-image", "url('" + img + "')")
+                    // background-image:url('offline/dummy-thumb.png')
             } else {
                 // $(this.el).addClass("hidden")
-$("#active-a").css("background-image","none")
+                $("#active-a").css("background-image", "none")
                 $(this.el).html('NO ACXTIVE POST')
             }
-
             // if (typeof post !== 'undefined') {
             //     // $(this.el).html(post.responseText)
             //     // $(this.el).html(post)
@@ -92,7 +89,6 @@ $("#active-a").css("background-image","none")
             //     // $(this.el).addClass("hidden")
             //     $(this.el).html('NO ACXTIVE POST')
             // }
-            return this
-            .rewire()
+            return this.rewire()
         } //render
 });

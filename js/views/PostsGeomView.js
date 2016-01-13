@@ -96,6 +96,10 @@ p.model = hitm.properties
 var nel = p.popup._contentNode
 var pm = new Popup(p.model)
 .set({leafletid:p.layer._leaflet_id});
+
+// also register that id w/ the parent model
+hit.set({"zoomto":p.layer.getBounds()})
+
     var pv = new PopupView({model:pm,el: nel})
 
 

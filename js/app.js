@@ -11,9 +11,9 @@ window.thedomain="bitmap-lbones.rhcloud.com"
 
 // agent="mobile"
 
-NProgress.configure({
-    parent: '#main'
-});
+// NProgress.configure({
+//     parent: '#postslist-container'
+// });
 
 /* -------------------------------------------------- HANDLEBARS START -----------------------  */
 Handlebars.registerHelper('debug', function(options) {

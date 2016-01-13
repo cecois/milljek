@@ -48,7 +48,11 @@ $locstringa = explode(":", $locstring);
 
 } //foreach solrin
 
-
+if ($offline == true) {
+ $carl = "../offline/cartodb-query.geojson";
+$carton = json_decode(file_get_contents($carl));
+} else {
+    
 if (count(array_unique($lopoints)) > 0) {
             //$prtlpoint = "SELECT cartodb_id,the_geom FROM cbb_point where cartodb_id IN (".implode(",",array_unique($lopoints)).")";
             $prtlpoint = "SELECT CONCAT('point:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno,created,updated FROM spatialtrack_point where cartodb_id IN (".implode(",",array_unique($lopoints)).")";
@@ -70,13 +74,13 @@ if (count(array_unique($lopoints)) > 0) {
 
 $actualsql = $prtlpoint." UNION ALL ".$prtlline." UNION ALL ".$prtlpoly;
 
-if ($offline == true) {
- $carl = "../offline/cartodb-query.geojson";
-$carton = json_decode(file_get_contents($carl));
-} else {
 
 
-        $carl = "https://cecmcgee.cartodb.com/api/v2/sql?format=GeoJSON&q=".$actualsql;
+
+        $carl = "https://cecmcgee.cartodb.com/api/v2/sql?format=GeoJSON&q=".urlencode($actualsql);
+
+        // echo $carl;die();
+
 
 // $url = "http://google.com/";
 $ch = curl_init();
@@ -85,10 +89,12 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $carlton = curl_exec($ch);
 curl_close($ch);
 
+// var_dump($carlton);die();
 $carton = json_decode($carlton);
 
 } //offline
 
+// var_dump($carton);die();
 
 foreach ($carton->features as $carto) {
 

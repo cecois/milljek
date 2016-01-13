@@ -5,12 +5,34 @@ var PostsActiveView = Backbone.View.extend({
             "active": true
         }).get("lopath")
     },
+        events: {
+        "click .bt-post-zoomto": "zoomto",
+    },
     template: Handlebars.templates['postsActiveViewTpl'],
-    events: {},
+    // events: {},
     initialize: function() {
         this.render()
         this.listenTo(this.collection, 'change:active', this.render)
         return this
+    },
+    zoomto: function(){
+
+var a = this.collection.findWhere({
+                "active": true
+            })
+
+// map.panInsideBounds(a.get("zoomto"));
+map.fitBounds(a.get("zoomto"));
+
+return this
+
+    },
+    rewire: function(){
+$(this.el).find('[data-toggle="tooltip"]').tooltip({container:'body'})
+// $(this.el).find("input").click(function(event) {
+// $(this.el).find('[data-toggle="tooltip"]').tooltip('hide')
+// });
+return this
     },
     render: function() {
             var a = this.collection.findWhere({
@@ -71,5 +93,6 @@ $("#active-a").css("background-image","none")
             //     $(this.el).html('NO ACXTIVE POST')
             // }
             return this
+            .rewire()
         } //render
 });

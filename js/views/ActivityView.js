@@ -6,7 +6,8 @@ var ActivityView = Backbone.View.extend({
     },
     initialize: function() {
         NProgress.configure({
-            parent: "#activityContainer"
+            // parent: "#postslist-container"
+            parent: "#search-container"
         });
         this.model.bind("change", this.render, this);
         // this.listenTo(appPosts,'request',this.render)

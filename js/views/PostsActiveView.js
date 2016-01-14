@@ -13,7 +13,7 @@ var PostsActiveView = Backbone.View.extend({
     initialize: function() {
         // this.render()
         this.listenTo(this.collection, 'change:active', this.render)
-        return this.render();
+        // return this.render().rewire();
     },
     zoomto: function() {
         var a = this.collection.findWhere({
@@ -24,16 +24,16 @@ var PostsActiveView = Backbone.View.extend({
         return this
     },
     rewire: function() {
-        console.log("target tt el")
-console.log($(this.el).find('[data-toggle="tooltip"]'))
-        console.log("...exttant?")
 
-        $(this.el).find('.bt-post-zoomto').tooltip({
+        $(".bt-post-zoomto").tooltip({
+                position:'top',
+                trigger:'hover',
                 container: 'body'
             })
             // $(this.el).find("input").click(function(event) {
             // $(this.el).find('[data-toggle="tooltip"]').tooltip('hide')
             // });
+            $(this.el).html('rewird!')
         return this
     },
     render: function() {
@@ -89,6 +89,6 @@ console.log($(this.el).find('[data-toggle="tooltip"]'))
             //     // $(this.el).addClass("hidden")
             //     $(this.el).html('NO ACXTIVE POST')
             // }
-            return this.rewire()
+            return this
         } //render
 });

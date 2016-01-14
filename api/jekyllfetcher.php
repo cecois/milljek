@@ -11,7 +11,7 @@ $solrstring = $_GET['solrstring'];} else {
 }
 
 
-$offline=true;
+$offline=false;
 
 
 $sarl = "http://localhost:8983/solr/miljek/select?rows=999&wt=json&q=".$solrstring;
@@ -52,7 +52,7 @@ if ($offline == true) {
  $carl = "../offline/cartodb-query.geojson";
 $carton = json_decode(file_get_contents($carl));
 } else {
-    
+
 if (count(array_unique($lopoints)) > 0) {
             //$prtlpoint = "SELECT cartodb_id,the_geom FROM cbb_point where cartodb_id IN (".implode(",",array_unique($lopoints)).")";
             $prtlpoint = "SELECT CONCAT('point:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno,created,updated FROM spatialtrack_point where cartodb_id IN (".implode(",",array_unique($lopoints)).")";

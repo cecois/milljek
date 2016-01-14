@@ -33,7 +33,6 @@ var PostsActiveView = Backbone.View.extend({
             // $(this.el).find("input").click(function(event) {
             // $(this.el).find('[data-toggle="tooltip"]').tooltip('hide')
             // });
-            $(this.el).html('rewird!')
         return this
     },
     render: function() {
@@ -90,5 +89,6 @@ var PostsActiveView = Backbone.View.extend({
             //     $(this.el).html('NO ACXTIVE POST')
             // }
             return this
+            .rewire()
         } //render
 });

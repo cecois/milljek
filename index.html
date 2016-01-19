@@ -60,11 +60,11 @@
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bhoechie-tab-container">
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
               <div class="list-group">
-                <a href="#" class="list-group-item text-center">
+                <a href="#" class="list-group-item active text-center">
                   <h4 class="glyphicon glyphicon-road"></h4><br/>About
                 </a>
 
-                <a id="active-a" href="#" class="list-group-item active text-center" style="background-size: 100%;background-repeat:no-repeat;font-weight:800;">
+                <a id="active-a" href="#" class="list-group-item text-center" style="background-size: 100%;background-repeat:no-repeat;font-weight:800;">
                   <br/>Active
                 </a>
 
@@ -84,7 +84,7 @@
                       <h2 style="margin-top: 0;color:#16a085">About This</h2>
                       <p>
 
-There isn't much to this, friends. It's a map of blog posts about music about places. Easy. It's built with Backbone.js, Leaflet.js, Twitter Bootstrap, and some other trendy stuff (the source blog, as it were, is a Jekyll instance) on an OpenShift instance.
+There isn't much to this, friends. It's a map of blog posts about music about places. Easy. It's built with <a href="http://backbonejs.org/">Backbone.js</a>, <a href="http://leafletjs.com/">Leaflet.js</a>, <a href="http://getbootstrap.com/">Twitter Bootstrap</a>, and some other trendy stuff - the source blog, as it were, is a <a href="https://jekyllrb.com/">Jekyll</a> instance that gets indexed in <a href="http://lucene.apache.org/solr/">Solr</a> and served out on an <a href="https://www.openshift.com/">OpenShift</a> instance but not before it's twisted up on-the-fly with spatial content kept at <a href="cartodb.com">CartoDB</a>.
                       </p>
 
 <p>Told you.</p>
@@ -92,7 +92,7 @@ There isn't much to this, friends. It's a map of blog posts about music about pl
                     </center>
                 </div>
                 <!-- train section -->
-                <div class="bhoechie-tab-content">
+                <div class="bhoechie-tab-content" id="bhoechie-active-container">
                     <!-- <center> -->
                       <!-- <h1 class="glyphicon glyphicon-plane" style="font-size:14em;color:#55518a"></h1>
                       <h2 style="margin-top: 0;color:#55518a">Coming Soon</h2>
@@ -113,7 +113,7 @@ There isn't much to this, friends. It's a map of blog posts about music about pl
                     <center>
                       <h1 class="glyphicon glyphicon-cutlery" style="font-size:12em;color:#16a085"></h1>
                       <h2 style="margin-top: 0;color:#16a085">Tips</h2>
-                      
+
 <ul>
 <li>Search or browse textually at left.</li>
 <li>Alternatively, show every post and just browse the map.</li>
@@ -122,7 +122,7 @@ There isn't much to this, friends. It's a map of blog posts about music about pl
 
                     </center>
                 </div>
-                
+
                 <div class="bhoechie-tab-content">
                     <center>
                       SPOTIFY EMBED?

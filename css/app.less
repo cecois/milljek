@@ -6,12 +6,32 @@
 @secondarycolor-trans: rgba(0,0,0,.5);
 @highlightcolor-trans: rgba(240,240,240,.5);
 
+/*@titlecopy: #D752DE;*/
+@titlecopy: #C868CF;
+
 @anno: gray;
 
 @hovercolor: brown;
 
+.stroke-gray{
+  text-shadow: @anno 0px 0px 1px,   @anno 0px 0px 1px,   @anno 0px 0px 1px,
+             @anno 0px 0px 1px,   @anno 0px 0px 1px,   @anno 0px 0px 1px;
+-webkit-font-smoothing: antialiased;
+}
+
 body{
     font-family: 'Roboto', sans-serif;
+}
+
+h1,h2{
+  /*color: @titlecopy;*/
+  color:white;
+  .stroke-gray;
+
+}
+
+h3,h4,h5{
+  color:@titlecopy;
 }
 
 .lyrics{
@@ -140,6 +160,7 @@ padding:0px;
 /* --------------------------------------- TITLES/HEADERS -------------- */
 
 #title-container{
+  font-family: 'FjallaOne', sans-serif;
   z-index: 10;
   background-color: #ffffff;
   padding: 0 !important;
@@ -162,13 +183,14 @@ padding:0px;
 
 .st-title{
   font-size: 3em;
-  color:red;
+  color:@titlecopy;
   float:left;
 
 }
 .st-title-sub{
   font-size:1.8em;
-  color:yellow;
+  color:@titlecopy;
+  line-height: 2.5em;
 }
 
 }

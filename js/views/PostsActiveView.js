@@ -34,6 +34,16 @@ var PostsActiveView = Backbone.View.extend({
             // $(this.el).find('[data-toggle="tooltip"]').tooltip('hide')
             // });
         return this
+        .show()
+    },
+    show: function(){
+
+        $(".bhoechie-tab-content").removeClass("active");
+$(".list-group-item").removeClass("active")
+
+$("#bhoechie-active-container").addClass("active");
+$("#active-a").addClass("active")
+
     },
     render: function() {
             var a = this.collection.findWhere({
@@ -72,6 +82,9 @@ var PostsActiveView = Backbone.View.extend({
                 var img = "offline/jackets/" + a.get("id") + ".jpg"
                     // background-image:url('offline/dummy-thumb.png')
                 $("#active-a").css("background-image", "url('" + img + "')")
+
+
+
                     // background-image:url('offline/dummy-thumb.png')
             } else {
                 // $(this.el).addClass("hidden")

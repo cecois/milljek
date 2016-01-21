@@ -2,25 +2,31 @@
 
 @primarycolor: white;
 @primarycolor-trans: rgba(255,255,255,.6);
-@secondarycolor: black;
+@secondarycolor: #94948B;
 @secondarycolor-trans: rgba(0,0,0,.5);
 @highlightcolor-trans: rgba(240,240,240,.5);
 
 /*@titlecopy: #D752DE;*/
-@titlecopy: #C868CF;
+@titlecopy: #FED4F6;
+
 
 @anno: gray;
+@bodycopy: #ABABA1;
 
-@hovercolor: brown;
+@hovercolor: @titlecopy;
 
 .stroke-gray{
-  text-shadow: @anno 0px 0px 1px,   @anno 0px 0px 1px,   @anno 0px 0px 1px,
-             @anno 0px 0px 1px,   @anno 0px 0px 1px,   @anno 0px 0px 1px;
+  text-shadow: @bodycopy 0px 0px 1px,   @bodycopy 0px 0px 1px,   @bodycopy 0px 0px 1px,
+             @bodycopy 0px 0px 1px,   @bodycopy 0px 0px 1px,   @bodycopy 0px 0px 1px;
 -webkit-font-smoothing: antialiased;
 }
 
 body{
     font-family: 'Roboto', sans-serif;
+
+    a{
+      color:@titlecopy;
+    }
 }
 
 h1,h2{
@@ -31,7 +37,21 @@ h1,h2{
 }
 
 h3,h4,h5{
+  // color:@titlecopy;
+  color:@bodycopy;
+}
+
+.st-title{
+  font-size: 3em;
   color:@titlecopy;
+  .stroke-gray;
+
+}
+.st-title-sub{
+  font-size:1.8em;
+  padding-left:10px;
+  color:@titlecopy;
+  line-height: 2.5em;
 }
 
 .lyrics{
@@ -132,10 +152,18 @@ li.active.seen{
 #search-container{
   margin-top:33px;
 padding:0px;
+color: @bodycopy;
 }
 
 .search-wrapper{
   margin-bottom:22px;
+
+  #bt-search-search{
+    color:@bodycopy;
+  }
+  #bt-search-reset{
+    color:@bodycopy;
+  }
 }
 
 } // postslists-posts
@@ -160,6 +188,7 @@ padding:0px;
 /* --------------------------------------- TITLES/HEADERS -------------- */
 
 #title-container{
+  text-align: center;
   font-family: 'FjallaOne', sans-serif;
   z-index: 10;
   background-color: #ffffff;
@@ -181,17 +210,7 @@ padding:0px;
   padding-left:33px;
 }
 
-.st-title{
-  font-size: 3em;
-  color:@titlecopy;
-  float:left;
 
-}
-.st-title-sub{
-  font-size:1.8em;
-  color:@titlecopy;
-  line-height: 2.5em;
-}
 
 }
 
@@ -254,51 +273,52 @@ color:"#a9d9d1";
 
 #activityContainer {
   margin:0;
+  background-color:@primarycolor;
   // padding-left:44px;
   // padding-right:44px;
     -webkit-animation: pusate 1s infinite alternate;
     -moz-animation: pusate 1s infinite alternate;
     -animation: pusate 1s infinite alternate;
-    text-shadow: 0 0 8px #ccc;
+    text-shadow: 0 0 8px red;
 }
 @-webkit-keyframes pusate {
-    from { box-shadow: 0 0 10px @secondarycolor-trans; }
-    to { box-shadow: 0 0 20px @primarycolor-trans; }
+    from { box-shadow: 0 0 10px purple; }
+    to { box-shadow: 0 0 20px yellow; }
 }
 @-moz-keyframes pusate {
-    from { box-shadow: 0 0 10px @secondarycolor-trans; }
-    to { box-shadow: 0 0 20px @primarycolor-trans; }
+    from { box-shadow: 0 0 10px purple; }
+    to { box-shadow: 0 0 20px yellow; }
 }
 @keyframes pusate {
-    from { box-shadow: 0 0 10px @secondarycolor-trans; }
-    to { box-shadow: 0 0 20px @primarycolor-trans; }
+    from { box-shadow: 0 0 10px purple; }
+    to { box-shadow: 0 0 20px yellow; }
 }
 
 
 /* --------------------------------------- NPROGRESS OVERRIDES -------------- */
 
-#nprogress .spinner{
-  top:5px;
-}
-#nprogress .spinner-icon {
-    height:20px;
-    width:20px;
-    border-width:1px;
-    border-color: @primarycolor transparent transparent @primarycolor-trans;
-}
+// #nprogress .spinner{
+//   top:5px;
+// }
+// #nprogress .spinner-icon {
+//     height:20px;
+//     width:20px;
+//     border-width:1px;
+//     border-color: @titlecopy transparent transparent @primarycolor-trans;
+// }
 
-#nprogress {
-  .bar {
-  background: @primarycolor;
+// #nprogress {
+//   .bar {
+//   background: @titlecopy;
 
-  position: fixed;
-  z-index: 1031;
-  top: 0;
-  left: 0;
+//   position: fixed;
+//   z-index: 1031;
+//   top: 0;
+//   left: 0;
 
-  width: 100%;
-  height: 2px;
-}}
+//   width: 100%;
+//   height: 12px;
+// }}
 /* --------------------------------------- FANCY SUBNAV TABS -------------- */
 
 

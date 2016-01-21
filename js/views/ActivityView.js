@@ -7,7 +7,8 @@ var ActivityView = Backbone.View.extend({
     initialize: function() {
         NProgress.configure({
             // parent: "#postslist-container"
-            parent: "#search-container"
+            // parent: "#search-container"
+            parent: "#activityContainer"
         });
         this.model.bind("change", this.render, this);
         // this.listenTo(appPosts,'request',this.render)
@@ -30,8 +31,8 @@ var ActivityView = Backbone.View.extend({
         if (verbose == true) {
             console.log("rendering activityview")
         }
-        NProgress.start();
         $(this.el).removeClass("hidden")
+        NProgress.start();
         $(this.el).html(this.template(this.model.toJSON()))
         return this
     }

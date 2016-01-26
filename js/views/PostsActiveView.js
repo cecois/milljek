@@ -6,7 +6,7 @@ var PostsActiveView = Backbone.View.extend({
         }).get("lopath")
     },
     events: {
-        "click .bt-post-zoomto": "zoomto",
+        // "click .bt-post-zoomto": "zoomto",
     },
     template: Handlebars.templates['postsActiveViewTpl'],
     // events: {},
@@ -33,6 +33,12 @@ var PostsActiveView = Backbone.View.extend({
             // $(this.el).find("input").click(function(event) {
             // $(this.el).find('[data-toggle="tooltip"]').tooltip('hide')
             // });
+            var that=this
+        $(".bt-post-zoomto").click(function(e){
+            e.preventDefault()
+            that.zoomto()
+        })
+            // 
         return this
         .show()
     },
@@ -83,13 +89,16 @@ $("#active-a").addClass("active")
                     // background-image:url('offline/dummy-thumb.png')
                 $("#active-a").css("background-image", "url('" + img + "')")
 
-
+$(".bt-post-bank").removeClass("inactive")
 
                     // background-image:url('offline/dummy-thumb.png')
+            return this.rewire()
             } else {
                 // $(this.el).addClass("hidden")
                 $("#active-a").css("background-image", "none")
+$(".bt-post-bank").addClass("inactive")
                 $(this.el).html('NO ACXTIVE POST')
+            return this
             }
             // if (typeof post !== 'undefined') {
             //     // $(this.el).html(post.responseText)
@@ -101,7 +110,5 @@ $("#active-a").addClass("active")
             //     // $(this.el).addClass("hidden")
             //     $(this.el).html('NO ACXTIVE POST')
             // }
-            return this
-            .rewire()
         } //render
 });

@@ -152,7 +152,7 @@ li {
 
 .pu-slug-trigger{
   cursor:pointer;
-  color:pink;
+  // color:pink;
   &:hover{
     color:@hovercolor;
   }
@@ -242,12 +242,24 @@ color: @bodycopy;
 /* --------------------------------------- ACTIVE POST -------------- */
 
 .bt-post-bank{
+  padding-top:12px;
   color: @titlecopy;
-.bt-post-zoomto{
+  font-size:2em;
   cursor:pointer;
-}
+  list-style: none;
+&:hover{color:@anno;}
+// .bt-post-zoomto{
+// }
 margin-bottom:22px;
+
+.bt-post-bank-item{
+  margin-right:6px;
 }
+}
+
+.bt-post-bank.inactive{
+  display:none;
+  color:@anno;cursor:default;}
 
 /* --------------------------------------- ACTIVITY -------------- */
 
@@ -381,7 +393,7 @@ div.bhoechie-tab-menu div.list-group>a{
 }
 div.bhoechie-tab-menu div.list-group>a .glyphicon,
 div.bhoechie-tab-menu div.list-group>a .fa {
-  color: @secondarycolor;
+  color: #DDDDCE;
 }
 div.bhoechie-tab-menu div.list-group>a:first-child{
   border-top-right-radius: 0;
@@ -439,7 +451,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 
 .leaflet-popup-content{
   h5{
-    color:pink;
+    color:@titlecopy;
   }
   .pu-copy{
     padding-bottom: 20px;

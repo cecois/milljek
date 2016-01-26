@@ -7,7 +7,7 @@ window.plierpoint=1;
 window.plierpoly=9999;
 window.plierline=999;
 window.solrhost = "http://localhost:8983/solr/";
-window.queryinit = "chupacabr*";
+window.queryinit = "*";
 window.querybymap = false;
 
 
@@ -22,7 +22,7 @@ marker_new={
 
 marker_act = {
     radius: 6,
-    fillColor: "yellow",
+    fillColor: "#244556",
     color: "#000",
     weight: 1,
     opacity: 1,
@@ -30,7 +30,7 @@ marker_act = {
 };
 marker_sen={
     radius: 6,
-    fillColor: "orange",
+    fillColor: "gray",
     color: "#000",
     weight: 1,
     opacity: 1,
@@ -46,15 +46,15 @@ polin_new = {
 };
 
 polin_act = {
-    fillColor: "yellow",
-    color: "yellow",
+    fillColor: "#244556",
+    color: "#000",
     weight: 6,
     opacity: .8,
 };
 
 polin_sen = {
-    fillColor: "pink",
-    color: "pink",
+    fillColor: "gray",
+    color: "#000",
     weight: 6,
     opacity: .8,
 };

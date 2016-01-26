@@ -32,7 +32,7 @@ templates['hitMarkerViewTpl'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main
 templates['postsActiveViewTpl'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var stack1, lambda=this.lambda, escapeExpression=this.escapeExpression, buffer = "	<h3>"
     + escapeExpression(lambda((depth0 != null ? depth0.title : depth0), depth0))
-    + "</h3>\n\n<div class=\"bt-post-bank\">\n	<span class=\"bt-post-zoomto glyphicon glyphicon-magnet\" title=\"zoom straight to this post's location\"></span>\n</div>\n";
+    + "</h3>\n\n<!-- <div class=\"bt-post-bank\">\n	<span class=\"bt-post-zoomto glyphicon glyphicon-magnet\" title=\"zoom straight to this post's location\"></span>\n</div> -->\n";
   stack1 = lambda((depth0 != null ? depth0.guts : depth0), depth0);
   if (stack1 != null) { buffer += stack1; }
   return buffer + "\n";

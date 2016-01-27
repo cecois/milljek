@@ -11,7 +11,7 @@ var PostsActiveView = Backbone.View.extend({
     template: Handlebars.templates['postsActiveViewTpl'],
     // events: {},
     initialize: function() {
-        // this.render()
+        this.render()
         this.listenTo(this.collection, 'change:active', this.render)
         // return this.render().rewire();
     },
@@ -50,6 +50,45 @@ $(".list-group-item").removeClass("active")
 $("#bhoechie-active-container").addClass("active");
 $("#active-a").addClass("active")
 
+var img = document.createElement('img');
+// var img = $("#active-post-jacket-tmp")
+var a = appPosts.findWhere({
+                "active": true
+            })
+var iu = "offline/jackets/"+a.get("id")+".jpg"
+img.setAttribute('src', iu)
+
+img.addEventListener('load', function() {
+    var vibrant = new Vibrant(img);
+    var swatches = vibrant.swatches()
+
+// $("body").css("color",swatches.Vibrant.getHex());
+// console.log("swatches.Vibrant:");console.log(swatches.Vibrant.getHex());
+    $(".active-colorbar-0").css("background-color",swatches.Vibrant.getHex())
+            $(".active-colorbar-1").css("background-color",swatches.Muted.getHex())
+            $(".active-colorbar-2").css("background-color",swatches.DarkVibrant.getHex())
+            $(".active-colorbar-3").css("background-color",swatches.DarkMuted.getHex())
+
+$("#posts-active > h3").css("color",swatches.DarkVibrant.getHex())
+    // for (var swatch in swatches)
+    //     if (swatches.hasOwnProperty(swatch) && swatches[swatch])
+
+            
+
+    //         console.log(swatch, swatches[swatch].getHex())
+
+    /*
+     * Results into:
+     * Vibrant #7a4426
+     * Muted #7b9eae
+     * DarkVibrant #348945
+     * DarkMuted #141414
+     * LightVibrant #f3ccb4
+     */
+});
+
+return this
+
     },
     render: function() {
             var a = this.collection.findWhere({
@@ -75,6 +114,7 @@ $("#active-a").addClass("active")
                     // $(that.el).html(p)
                     $(that.el).html(that.template({
                         title: a.get("title"),
+                        id:a.get("id"),
                         guts: p
                     }));
                     return p
@@ -85,9 +125,11 @@ $("#active-a").addClass("active")
                 }).always(function() {
                     // console.log("complete");
                 });
-                var img = "offline/jackets/" + a.get("id") + ".jpg"
-                    // background-image:url('offline/dummy-thumb.png')
-                $("#active-a").css("background-image", "url('" + img + "')")
+                // var img = "offline/jackets/" + a.get("id") + ".jpg"
+                //     // background-image:url('offline/dummy-thumb.png')
+                // $("#active-a").css("background-image", "url('" + img + "')")
+// var iu = "offline/jackets/"+a.get("id")+".jpg"
+                // 
 
 $(".bt-post-bank").removeClass("inactive")
 

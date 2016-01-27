@@ -247,13 +247,14 @@ color: @bodycopy;
   font-size:2em;
   cursor:pointer;
   list-style: none;
-&:hover{color:@anno;}
+
 // .bt-post-zoomto{
 // }
 margin-bottom:22px;
 
 .bt-post-bank-item{
   margin-right:6px;
+  &:hover{color:@anno;}
 }
 }
 
@@ -390,6 +391,15 @@ div.bhoechie-tab-menu div.list-group{
 }
 div.bhoechie-tab-menu div.list-group>a{
   margin-bottom: 0;
+
+  .active-colorbar{
+    height:6px;
+    list-style: none;
+    .active-colorbar-item{
+      height:inherit;
+    }
+// background-color:pink;
+  }
 }
 div.bhoechie-tab-menu div.list-group>a .glyphicon,
 div.bhoechie-tab-menu div.list-group>a .fa {

@@ -25,14 +25,18 @@ var PostsActiveView = Backbone.View.extend({
     },
     rewire: function() {
 
-        $(".bt-post-zoomto").tooltip({
+        // $(".bt-post-zoomto").tooltip({
+        //         position:'top',
+        //         trigger:'hover',
+        //         container: 'body'
+        //     })
+
+$(".bt-post-bank li").tooltip({
                 position:'top',
                 trigger:'hover',
                 container: 'body'
             })
-            // $(this.el).find("input").click(function(event) {
-            // $(this.el).find('[data-toggle="tooltip"]').tooltip('hide')
-            // });
+            
             var that=this
         $(".bt-post-zoomto").click(function(e){
             e.preventDefault()

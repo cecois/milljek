@@ -36,13 +36,13 @@ $(".bt-post-bank li").tooltip({
                 trigger:'hover',
                 container: 'body'
             })
-            
+
             var that=this
         $(".bt-post-zoomto").click(function(e){
             e.preventDefault()
             that.zoomto()
         })
-            // 
+            //
         return this
         .show()
     },
@@ -66,18 +66,20 @@ img.addEventListener('load', function() {
     var vibrant = new Vibrant(img);
     var swatches = vibrant.swatches()
 
-// $("body").css("color",swatches.Vibrant.getHex());
-// console.log("swatches.Vibrant:");console.log(swatches.Vibrant.getHex());
+// there's a pointless color bar that we fill w/ post jacket swatches
     $(".active-colorbar-0").css("background-color",swatches.Vibrant.getHex())
             $(".active-colorbar-1").css("background-color",swatches.Muted.getHex())
             $(".active-colorbar-2").css("background-color",swatches.DarkVibrant.getHex())
             $(".active-colorbar-3").css("background-color",swatches.DarkMuted.getHex())
 
+// color the buttons, too
+            $(".bt-post-bank-item").css("color",swatches.Muted.getHex());
+
 $("#posts-active > h3").css("color",swatches.DarkVibrant.getHex())
     // for (var swatch in swatches)
     //     if (swatches.hasOwnProperty(swatch) && swatches[swatch])
 
-            
+
 
     //         console.log(swatch, swatches[swatch].getHex())
 
@@ -133,7 +135,7 @@ return this
                 //     // background-image:url('offline/dummy-thumb.png')
                 // $("#active-a").css("background-image", "url('" + img + "')")
 // var iu = "offline/jackets/"+a.get("id")+".jpg"
-                // 
+                //
 
 $(".bt-post-bank").removeClass("inactive")
 

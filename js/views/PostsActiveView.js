@@ -60,6 +60,9 @@ var a = appPosts.findWhere({
                 "active": true
             })
 var iu = "offline/jackets/"+a.get("id")+".jpg"
+
+$("#active-post-jacket-tmp").attr("src",iu)
+
 img.setAttribute('src', iu)
 
 img.addEventListener('load', function() {

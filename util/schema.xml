@@ -105,6 +105,11 @@
       and back compatibility is not guaranteed.  Names with both leading and
       trailing underscores (e.g. _version_) are reserved.
    -->
+<fieldType name="commatags" class="solr.TextField">
+      <analyzer>
+        <tokenizer class="solr.PatternTokenizerFactory" pattern=",\s*" />
+      </analyzer>
+</fieldType>
 
    <!-- If you remove this field, you must _also_ disable the update log in solrconfig.xml
       or Solr won't start. _version_ and update log are required for SolrCloud
@@ -145,12 +150,14 @@
        "resourcename": From SolrCell request param resource.name
    -->
    <field name="title" type="text_general" indexed="true" stored="true" multiValued="true"/>
-   <field name="subject" type="text_general" indexed="true" stored="true"/>
+   <field name="subject" type="text_general" indexed="true" stored="true" multiValued="true"/>
    <field name="description" type="text_general" indexed="true" stored="true"/>
    <field name="comments" type="text_general" indexed="true" stored="true"/>
    <field name="author" type="text_general" indexed="true" stored="true"/>
    <field name="keywords" type="text_general" indexed="true" stored="true"/>
-   <field name="category" type="text_general" indexed="true" stored="true"/>
+   <field name="category" type="text_general" indexed="true" stored="true" multiValued="true"/>
+<field name="tags" type="commatags" indexed="true" stored="true"/>
+   <!-- <field name="tag" type="text_general" indexed="true" stored="true" multiValued="true"/> -->
    <field name="resourcename" type="text_general" indexed="true" stored="true"/>
    <field name="url" type="text_general" indexed="true" stored="true"/>
    <field name="content_type" type="string" indexed="true" stored="true" multiValued="true"/>
@@ -159,8 +166,8 @@
    <field name="links" type="string" indexed="true" stored="true" multiValued="true"/>
 
    <field name="body" type="text_general" indexed="true" stored="true" multiValued="false"/>
-   
-   <field name="lopath" type="string" indexed="false" stored="true" multiValued="false"/>
+
+<field name="lopath" type="string" indexed="false" stored="true" multiValued="false"/>
 
    <!-- <field name="a0" type="string" indexed="true" stored="true" multiValued="true"/> -->
 
@@ -172,7 +179,7 @@
       </analyzer>
 </fieldType> -->
 
-<field name="location" type="string" indexed="true" stored="true" multiValued="false" />
+<!-- <field name="location" type="string" indexed="true" stored="true" multiValued="false" /> -->
 
 
 

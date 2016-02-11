@@ -25,19 +25,19 @@ $jsone=json_decode(file_get_contents('/tmp/json.json'));
 if(!isset($jsone->table)){
 switch ($jsone->type) {
 	case 'Polygon':
-		$table = "spatialtrack_poly";
+		$table = "eolapp_poly";
 		break;
 			case 'MultiPolygon':
-		$table = "spatialtrack_poly";
+		$table = "eolapp_poly";
 		break;
 		case 'LineString':
-		$table = "spatialtrack_line";
+		$table = "eolapp_line";
 		break;
 			case 'MultiLineString':
-		$table = "spatialtrack_line";
+		$table = "eolapp_line";
 		break;
 			case 'Point':
-		$table = "spatialtrack_point";
+		$table = "eolapp_point";
 		break;
 	
 	default:

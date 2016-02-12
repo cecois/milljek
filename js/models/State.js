@@ -2,6 +2,8 @@ var State = Backbone.Model.extend({
     defaults: {
         "q": null,
         "slug": null,
+        "panestate":1, // or 0 for collapsed
+        "tab":"about", // prefix this with menu-a for use
         "bbox": null,
         "basemap": null,
         "ap": {

@@ -52,7 +52,7 @@ $(".bt-post-bank li").tooltip({
 $(".list-group-item").removeClass("active")
 
 $("#bhoechie-active-container").addClass("active");
-$("#active-a").addClass("active")
+$("#menu-a-active").addClass("active")
 
 var img = document.createElement('img');
 // var img = $("#active-post-jacket-tmp")
@@ -136,7 +136,7 @@ return this
                 });
                 // var img = "offline/jackets/" + a.get("id") + ".jpg"
                 //     // background-image:url('offline/dummy-thumb.png')
-                // $("#active-a").css("background-image", "url('" + img + "')")
+                // $("#menu-a-active").css("background-image", "url('" + img + "')")
 // var iu = "offline/jackets/"+a.get("id")+".jpg"
                 //
 
@@ -146,7 +146,7 @@ $(".bt-post-bank").removeClass("inactive")
             return this.rewire()
             } else {
                 // $(this.el).addClass("hidden")
-                $("#active-a").css("background-image", "none")
+                $("#menu-a-active").css("background-image", "none")
 $(".bt-post-bank").addClass("inactive")
                 $(this.el).html('NO ACXTIVE POST')
             return this

@@ -11,10 +11,10 @@ $solrstring = $_GET['solrstring'];} else {
 }
 
 
-$offline=true;
+$offline=false;
 
 
-$sarl = "http://localhost:8983/solr/miljek/select?rows=999&wt=json&q=".$solrstring;
+$sarl = "http://localhost:8983/solr/eoljek/select?rows=999&wt=json&q=".$solrstring;
 
 
 $solrin = json_decode(file_get_contents($sarl));
@@ -55,21 +55,21 @@ $carton = json_decode(file_get_contents($carl));
 
 if (count(array_unique($lopoints)) > 0) {
             //$prtlpoint = "SELECT cartodb_id,the_geom FROM cbb_point where cartodb_id IN (".implode(",",array_unique($lopoints)).")";
-            $prtlpoint = "SELECT CONCAT('point:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno FROM spatialtrack_point where cartodb_id IN (".implode(",",array_unique($lopoints)).")";
+            $prtlpoint = "SELECT CONCAT('point:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno FROM eolapp_point where cartodb_id IN (".implode(",",array_unique($lopoints)).")";
         } else {
-            $prtlpoint = "SELECT CONCAT('point:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno FROM spatialtrack_point where cartodb_id = 00";
+            $prtlpoint = "SELECT CONCAT('point:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno FROM eolapp_point where cartodb_id = 00";
         }
         if (count(array_unique($lolines)) > 0) {
-            //$prtlline = "SELECT cartodb_id,the_geom,name,anno FROM spatialtrack_line where cartodb_id IN (".implode(",",array_unique($lolines)).")";
-            $prtlline = "SELECT CONCAT('line:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno FROM spatialtrack_line where cartodb_id IN (".implode(",",array_unique($lolines)).")";
+            //$prtlline = "SELECT cartodb_id,the_geom,name,anno FROM eolapp_line where cartodb_id IN (".implode(",",array_unique($lolines)).")";
+            $prtlline = "SELECT CONCAT('line:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno FROM eolapp_line where cartodb_id IN (".implode(",",array_unique($lolines)).")";
         } else {
-            $prtlline = "SELECT CONCAT('line:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno FROM spatialtrack_line where cartodb_id = 00";
+            $prtlline = "SELECT CONCAT('line:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno FROM eolapp_line where cartodb_id = 00";
         }
         if (count(array_unique($lopolys)) > 0) {
-            //$prtlpoly = "SELECT cartodb_id,the_geom,name,anno FROM spatialtrack_poly where cartodb_id IN (".implode(",",array_unique($lopolys)).")";
-            $prtlpoly = "SELECT CONCAT('poly:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno FROM spatialtrack_poly where cartodb_id IN (".implode(",",array_unique($lopolys)).")";
+            //$prtlpoly = "SELECT cartodb_id,the_geom,name,anno FROM eolapp_poly where cartodb_id IN (".implode(",",array_unique($lopolys)).")";
+            $prtlpoly = "SELECT CONCAT('poly:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno FROM eolapp_poly where cartodb_id IN (".implode(",",array_unique($lopolys)).")";
         } else {
-            $prtlpoly = "SELECT CONCAT('poly:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno FROM spatialtrack_poly where cartodb_id = 00";
+            $prtlpoly = "SELECT CONCAT('poly:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno FROM eolapp_poly where cartodb_id = 00";
         }
 
 $actualsql = $prtlpoint." UNION ALL ".$prtlline." UNION ALL ".$prtlpoly;

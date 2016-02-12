@@ -9,7 +9,7 @@ categories:
 - cv
 - cv2
 location:
-- poly:13
+- poly:2
 tags:
 - test1,test2
 meta:

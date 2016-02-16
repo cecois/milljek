@@ -47,38 +47,53 @@ $(".bt-post-bank li").tooltip({
         .show()
     },
     show: function(){
-
-        $(".bhoechie-tab-content").removeClass("active");
-$(".list-group-item").removeClass("active")
-
-$("#bhoechie-active-container").addClass("active");
-$("#menu-a-active").addClass("active")
-
-var img = document.createElement('img');
-// var img = $("#active-post-jacket-tmp")
+        // first get the active post
 var a = appPosts.findWhere({
                 "active": true
             })
-var iu = "offline/jackets/"+a.get("id")+".jpg"
 
-$("#active-post-jacket-tmp").attr("src",iu)
+// get the two data from active item that will highlight it on the page:
+var asub = a.get("subject")[0]
+var aid = a.get("id");
 
-img.setAttribute('src', iu)
+// hide previous
+$(".bhoechie-tab-content").removeClass("active");
+$(".list-group-item").removeClass("active")
 
-img.addEventListener('load', function() {
-    var vibrant = new Vibrant(img);
-    var swatches = vibrant.swatches()
+
+// activate the tab container that matches the subject of the active post
+$("#"+asub+"-container").addClass("active");
+
+// scrollto the specific position of the active post
+$('html,body').animate({
+    scrollTop: $('#'+aid).offset().top
+}, 1000);
+
+// $("#menu-a-active").addClass("active")
+
+// var img = document.createElement('img');
+// var img = $("#active-post-jacket-tmp")
+
+// var iu = "offline/jackets/"+a.get("id")+".jpg"
+
+// $("#active-post-jacket-tmp").attr("src",iu)
+
+// img.setAttribute('src', iu)
+
+// img.addEventListener('load', function() {
+//     var vibrant = new Vibrant(img);
+//     var swatches = vibrant.swatches()
 
 // there's a pointless color bar that we fill w/ post jacket swatches
-    $(".active-colorbar-0").css("background-color",swatches.Vibrant.getHex())
-            $(".active-colorbar-1").css("background-color",swatches.Muted.getHex())
-            $(".active-colorbar-2").css("background-color",swatches.DarkVibrant.getHex())
-            $(".active-colorbar-3").css("background-color",swatches.DarkMuted.getHex())
+    // $(".active-colorbar-0").css("background-color",swatches.Vibrant.getHex())
+    //         $(".active-colorbar-1").css("background-color",swatches.Muted.getHex())
+    //         $(".active-colorbar-2").css("background-color",swatches.DarkVibrant.getHex())
+    //         $(".active-colorbar-3").css("background-color",swatches.DarkMuted.getHex())
 
 // color the buttons, too
-            $(".bt-post-bank-item").css("color",swatches.Muted.getHex());
+            // $(".bt-post-bank-item").css("color",swatches.Muted.getHex());
 
-$("#posts-active > h3").css("color",swatches.DarkVibrant.getHex())
+// $("#posts-active > h3").css("color",swatches.DarkVibrant.getHex())
     // for (var swatch in swatches)
     //     if (swatches.hasOwnProperty(swatch) && swatches[swatch])
 
@@ -94,7 +109,7 @@ $("#posts-active > h3").css("color",swatches.DarkVibrant.getHex())
      * DarkMuted #141414
      * LightVibrant #f3ccb4
      */
-});
+// });
 
 return this
 

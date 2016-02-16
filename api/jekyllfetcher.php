@@ -10,6 +10,12 @@ $solrstring = $_GET['solrstring'];} else {
     $solrstring= "*";
 }
 
+// spatialgo is a killer of sorts - if set to "false" (string) it will just echo out the solr query without merging with a cartodb call also
+if(isset($_GET['spatialgo'])){
+$spatialgo = $_GET['spatialgo'];} else {
+    $spatialgo='true';
+}
+
 
 $offline=false;
 
@@ -17,14 +23,58 @@ $offline=false;
 $sarl = "http://localhost:8983/solr/eoljek/select?rows=999&wt=json&q=".$solrstring;
 
 
-$solrin = json_decode(file_get_contents($sarl));
+$solrin = json_decode(file_get_contents($sarl),true);
+
+
+if($spatialgo=='false'){
+
+// $myArray = array('item1', 'item2hidden', 'item3', 'item4', 'item5hidden');
+
+// echo json_encode($solrin);die();
+
+$acv=array();
+$aabout=array();
+
+foreach ($solrin['response']['docs'] as $doc) {
+
+switch ($doc['subject'][0]) {
+    case 'about':
+        $aabout[]=$doc;
+        break;
+            case 'cv':
+        $acv[]=$doc;
+        break;
+    
+    default:
+        # code...
+        break;
+}
+
+    // echo "suect:".$doc['subject'][0]."<br/><br/><br/>";
+}
+// die();
+
+// $acv = array_filter($solrin['response']['docs'], function($v) { return $v['subject'][0] === 'cv'; });
+// $aabout = array_diff($solrin, $acv);
+
+$solrindivid['about']=$aabout;
+$solrindivid['cv']=$acv;
+
+    // echo "cwmccallback(".json_encode($solrin).")";
+    echo "cwmccallback(".json_encode($solrindivid).")";
+    die();
+}
+
+// $solrindejsond = json_decode($solrin);
+// LAZINESS!
+$solrindejsond = $solrin;
 
 $lopoints = array();
         $lolines = array();
         $lopolys = array();
 
 
-foreach ($solrin->response->docs as $solr) {
+foreach ($solrindejsond->response->docs as $solr) {
 
 $locstring = isset($solr->location) ? $solr->location : "none";
 
@@ -99,7 +149,7 @@ foreach ($carton->features as $carto) {
 
 $mjid=$carto->properties->mjid;
 
-foreach ($solrin->response->docs as $solrd) {
+foreach ($solrindejsond->response->docs as $solrd) {
 	if(isset($solrd->location) && $solrd->location==$mjid){
         // $solrd->the_geom=$carto->geometry;
 		$solrd->the_geom=$carto;
@@ -110,7 +160,7 @@ foreach ($solrin->response->docs as $solrd) {
 
 }
 
-echo "cwmccallback(".json_encode($solrin).")";
+echo "cwmccallback(".json_encode($solrindejsond).")";
 
 
 

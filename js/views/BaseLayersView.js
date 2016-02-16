@@ -6,7 +6,7 @@ var BaseLayersView = Backbone.View.extend({
         // "click .mnuThumbnail":"process",
         // "click a":"killtt",
         // "click a":"rewire"
-        // "change": "render"
+        "change": "render"
     },
     // className : "mnuThumbnails",
     initialize: function() {

@@ -1,17 +1,14 @@
 ---
 layout: post
-title: 'TEST POST - EOL APPL'
-date: 2016-02-04 02:18:42.000000000 -04:00
+title: 'About - Test Post'
+date: 2016-02-12 02:18:42.000000000 -04:00
 type: post
 published: true
 status: publish
-categories:
+category:
 - cv
-- cv2
-location:
-- poly:2
 tags:
-- test1,test2
+- dummytag1,dummytag2
 meta:
 author:
   display_name: CCM
@@ -19,4 +16,6 @@ author:
   last_name: Miller
 ---
 
-### Test Heading
+### Zup
+
+Hi i'm sleepy already.

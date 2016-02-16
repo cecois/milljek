@@ -1,6 +1,6 @@
 var Route = Backbone.Router.extend({
     routes: {
-        "(:q)(/:slug)(/:bbox)(/:basemap)(/)": "default",
+        "(:q)(/:slug)(/:bbox)(/:panestate)(/:agob)(/:basemap)(/)": "default",
         // "slug:slug(/:bbox)(/:basemap)(/)": "post",
         "debug/:q/:slug/:bbox/:basemap(/)": "audit"
             // "search/lll:hash": "searchWithHashed",
@@ -18,16 +18,44 @@ var Route = Backbone.Router.extend({
                 console.log("basemap:");
                 console.log(basemap);
             }
+
             if (typeof bbox !== 'undefined' && bbox !== null) {
                 appBasemap.set({
                     "bbox": bbox
                 })
-            }
+            } 
+            // else {
+            //     appState.set({
+            //         "bbox": map.getBounds().toBBoxString()
+            //     })
+            // }
+
             if (typeof basemap !== 'undefined' && basemap !== null) {
-                appBasemap.set({
-                    "tileset": basemap
-                })
+
+var tl = appBaseLayers.findWhere({name:basemap})
+tl.set({active:true})
+
+            } else {
+var tl = appBaseLayers.findWhere({name:"dummy"})
+tl.set({active:true})
             }
+
+if(typeof panestate !== 'undefined' && panestate != null){
+    appState.set({
+        "panestate":panestate
+    })
+} else {
+    appState.set({
+        "panestate":1
+    })
+}
+
+if(typeof agob !== 'undefined' && agob != null){
+    appState.set({
+        "agob":agob
+    })
+}
+
             if (typeof slug !== 'undefined' && slug !== null) {
                 // var the = appPosts.findWhere({
                 //     id: slug
@@ -64,6 +92,7 @@ var Route = Backbone.Router.extend({
         }
         // appActivity.set({"message":"fetching..."})
         appPosts.fetch()
+        appContents.fetch()
         return this
     },
     audit: function(q, slug, bbox, basemap) {

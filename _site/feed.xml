@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Part-Time Developer Application: EOL</title>
+    <description>&quot;Application for part-time developer at Encyclopedia of Life&quot;
+</description>
+    <link>http://eol.milleria.org/</link>
+    <atom:link href="http://eol.milleria.org/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 16 Feb 2016 06:17:28 -0500</pubDate>
+    <lastBuildDate>Tue, 16 Feb 2016 06:17:28 -0500</lastBuildDate>
+    <generator>Jekyll v3.0.0</generator>
+    
+      <item>
+        <title>About - Test Post</title>
+        <description>&lt;h3 id=&quot;zup&quot;&gt;Zup&lt;/h3&gt;
+
+&lt;p&gt;Hi i’m sleepy already.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 12 Feb 2016 01:18:42 -0500</pubDate>
+        <link>http://eol.milleria.org/cv/2016/02/12/about-test-post.html</link>
+        <guid isPermaLink="true">http://eol.milleria.org/cv/2016/02/12/about-test-post.html</guid>
+        
+        <category>dummytag1,dummytag2</category>
+        
+        
+        <category>cv</category>
+        
+      </item>
+    
+      <item>
+        <title>About - Why Part-Time?</title>
+        <description>&lt;h3 id=&quot;im-set&quot;&gt;I’m Set&lt;/h3&gt;
+
+&lt;p&gt;My work at MIT Lincoln Laboratory is fun and fulfilling, both personally and professionally. I work with a very talented core personnel who are very dedicated to providing excellent service to the research wing of the Lab.&lt;/p&gt;
+
+&lt;p&gt;My work at MITLL is insular and private. Security is aggressive and thorough there and the web apps and APIs I develop are therefore tightly-sequestered and cordoned off. I also commute to Lexington, Mass three times a week. Sometimes more. I take the T! The trip takes about two hours each way. As such, I have grown certain that I could be using my commute (and free time) to contribute to a quality project that is public and open - a good cause.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 12 Feb 2016 01:18:42 -0500</pubDate>
+        <link>http://eol.milleria.org/about/2016/02/12/about-cover-letter-gloss.html</link>
+        <guid isPermaLink="true">http://eol.milleria.org/about/2016/02/12/about-cover-letter-gloss.html</guid>
+        
+        <category>commute,mitll</category>
+        
+        
+        <category>about</category>
+        
+      </item>
+    
+  </channel>
+</rss>

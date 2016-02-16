@@ -6,6 +6,38 @@ templates['activityViewTpl'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main"
   if (stack1 != null) { buffer += stack1; }
   return buffer + "</span>\n  <span class=\"activity-cancel glyphicon glyphicon-remove-sign\" style=\"margin-left:10px;\"></span>";
 },"useData":true});
+templates['contentsSubViewTpl'] = template({"1":function(depth0,helpers,partials,data) {
+  var stack1, lambda=this.lambda, escapeExpression=this.escapeExpression, buffer = "<li data-target=\""
+    + escapeExpression(lambda((depth0 != null ? depth0.location : depth0), depth0))
+    + "\" data-id=\""
+    + escapeExpression(lambda((depth0 != null ? depth0.id : depth0), depth0))
+    + "\" class=\"pick";
+  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.active : depth0), {"name":"if","hash":{},"fn":this.program(2, data),"inverse":this.noop,"data":data});
+  if (stack1 != null) { buffer += stack1; }
+  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.seen : depth0), {"name":"if","hash":{},"fn":this.program(4, data),"inverse":this.noop,"data":data});
+  if (stack1 != null) { buffer += stack1; }
+  buffer += "\">\n    <div class=\"\">\n"
+    + escapeExpression(lambda((depth0 != null ? depth0.title : depth0), depth0))
+    + " ";
+  stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.location : depth0), {"name":"if","hash":{},"fn":this.program(6, data),"inverse":this.noop,"data":data});
+  if (stack1 != null) { buffer += stack1; }
+  return buffer + "\n\n    </div>\n</li>\n";
+},"2":function(depth0,helpers,partials,data) {
+  return " active";
+  },"4":function(depth0,helpers,partials,data) {
+  return " seen";
+  },"6":function(depth0,helpers,partials,data) {
+  var lambda=this.lambda, escapeExpression=this.escapeExpression;
+  return "("
+    + escapeExpression(lambda((depth0 != null ? depth0.location : depth0), depth0))
+    + ")";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = escapeExpression(((helper = (helper = helpers.count || (depth0 != null ? depth0.count : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"count","hash":{},"data":data}) : helper)))
+    + "\n\n";
+  stack1 = helpers.each.call(depth0, (depth0 != null ? depth0.rows : depth0), {"name":"each","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
+  if (stack1 != null) { buffer += stack1; }
+  return buffer;
+},"useData":true});
 templates['hitBackboneViewTpl'] = template({"1":function(depth0,helpers,partials,data) {
   var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "    <h5>"
@@ -94,7 +126,7 @@ templates['postsListViewTpl'] = template({"1":function(depth0,helpers,partials,d
   },"useData":true});
 templates['queryViewTpl'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
-  return "<input type=\"text\" data-placement=\"top\" data-toggle=\"tooltip\" title=\"query the fulltext of all posts\" class=\"form-control\" placeholder=\""
+  return "<input type=\"text\" data-placement=\"top\" class=\"form-control\" placeholder=\""
     + escapeExpression(((helper = (helper = helpers.solrstring || (depth0 != null ? depth0.solrstring : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"solrstring","hash":{},"data":data}) : helper)))
     + "\">\n      <span class=\"input-group-btn\">\n        <button id=\"bt-search-search\" class=\"btn btn-default\" type=\"button\"><span class=\"glyphicon glyphicon-search\"/></button>\n        <button title=\"reset query/show all\" data-toggle=\"tooltip\" id=\"bt-search-reset\" class=\"btn btn-default\" type=\"button\"><span class=\"glyphicon glyphicon-remove\"/></button>\n      </span>";
 },"useData":true});

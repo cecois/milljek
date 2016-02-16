@@ -14,7 +14,10 @@
 
 /*@titlecopy: #A5D2DD;  powd blue */
 
-@titlecopy: #244556; /* navy */
+@eolyellow: #C7E048;
+@eolprimary: #2B3640;
+
+@titlecopy: @eolprimary; /* eol navy */
 
 
 @anno: #ABABA1;
@@ -22,11 +25,18 @@
 
 @alink: #919191;
 
-@hovercolor: black;
+// @hovercolor: black;
+@hovercolor: @eolprimary;
 
 .stroke-gray{
   text-shadow: @bodycopy 0px 0px 1px,   @bodycopy 0px 0px 1px,   @bodycopy 0px 0px 1px,
              @bodycopy 0px 0px 1px,   @bodycopy 0px 0px 1px,   @bodycopy 0px 0px 1px;
+-webkit-font-smoothing: antialiased;
+}
+
+.stroke-eol{
+  text-shadow: @eolyellow 0px 0px 1px,   @eolyellow 0px 0px 1px,   @eolyellow 0px 0px 1px,
+             @eolyellow 0px 0px 1px,   @eolyellow 0px 0px 1px,   @eolyellow 0px 0px 1px;
 -webkit-font-smoothing: antialiased;
 }
 
@@ -94,7 +104,8 @@ h1,h2{
   /*color: @titlecopy;*/
   // font-family: 'PT Sans Narrow', sans-serif;
   color:white;
-  .stroke-gray;
+  // .stroke-gray;
+  .stroke-eol;
 
 }
 
@@ -117,18 +128,11 @@ h3,h4,h5{
   line-height: 2.5em;
 }
 
-.lyrics{
-  font-style: italic;
-  margin-top:20px;
-  margin-bottom:30px;
-padding: 25px;
-width: 90%;
-margin-left: 5%;
-  font-style: italic;
-  color:@anno;
-  background-color:@highlightcolor-trans;
-  border-radius:2px;
+#search-explainer{
+  padding-left:75px;
+  padding-right:75px;
 }
+
 /*#tools{
   background-color: @primarycolor;
   height:40px;
@@ -269,7 +273,9 @@ margin-bottom:22px;
   &:hover{
     // color:@hovercolor;
     // color:white;
-    .stroke-gray;
+    // .stroke-gray;
+    .stroke-eol
+
   }
 }
 }
@@ -480,7 +486,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     border-top-right-radius: 0px;
 }
 
-#menu-a-active{
+#active-a{
   padding-left:0;
   padding-top:0;
   padding-right:0;

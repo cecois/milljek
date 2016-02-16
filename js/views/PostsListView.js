@@ -20,7 +20,7 @@ var PostsListView = Backbone.View.extend({
 
 
             var q = q
-console.log("q:"); console.log(q);
+// console.log("q:"); console.log(q);
 appQuery.set({"rawstring":q})
 return this
 
@@ -50,9 +50,14 @@ return this
             var dg = $(e.currentTarget).attr("data-target")
             // var dg = ???
                 // AP=
+
             appState.set({ap:
                 {"slug":ds,"geomid":dg}
             })
+
+console.log("ds:");console.log(ds);
+console.log("dg:");console.log(dg);
+
             return this
         } //activate
         ,

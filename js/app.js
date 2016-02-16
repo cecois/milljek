@@ -26,6 +26,41 @@ Handlebars.registerHelper('debug', function(options) {
 });
 
 /* -------------------------------------------------- BASEMAPS -----------------------  */
+
+var baselayersmobile = {
+    "layers": [{
+            "name": "mapquest",
+            "active": false,
+            "source": "mapquest",
+            "nom": "MapQuest OSM",
+            // "thumb": "http://otile1.mqcdn.com/tiles/1.0.0/osm/3/4/2.png",
+            "thumb": "offline/mapquest.jpg",
+            "mapis": "light",
+            "definition": {
+                "subdomains": ["otile1", "otile2", "otile3", "otile4"],
+                "maxZoom": 18,
+                "url": "http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png",
+                "noWrap": true
+            }
+        }, {
+            "name": "dummy",
+            "active": true,
+            "source": "localhost",
+            "nom": "A Real Dummy",
+            "thumb": "offline/dummy-thumb.png",
+            // "thumb": "file:///Users/ccmiller/Sites/mstroke/src/images/2877247_jkms-25-888-g002.png",
+            "mapis": "dark",
+            "definition": {
+                // "subdomains": ["a", "b", "c"],
+                "maxZoom": 18,
+                "url": "offline/dummy-thumb.png",
+                // "url": "https://{s}.tiles.mapbox.com/v4/duncangraham.552f58b0/{z}/{x}/{y}@2x.png?access_token=pk.eyJ1IjoiZHVuY2FuZ3JhaGFtIiwiYSI6IlJJcWdFczQifQ.9HUpTV1es8IjaGAf_s64VQ",
+                "noWrap": true
+            }
+}
+    ]
+}
+
 var baselayersdummified = {
     "layers": [{
             "name": "dummy",
@@ -54,7 +89,17 @@ var baselayersdummified = {
         }]
 }
 
-baselayers=baselayersdummified
+baselayers=baselayersmobile
+
+
+
+/* -------------------------------------------------- BASEMAP -----------------------  */
+window.appBasemap = new Basemap(
+    // {tileset:"mapquest"}
+    );
+window.appBasemapView = new BasemapView({
+    model: appBasemap
+});
 
 /* -------------------------------------------------- QUERY -----------------------  */
 window.appQuery = new Query();
@@ -62,8 +107,6 @@ window.appQueryView = new QueryView({
     model: appQuery
 });
 
-/* -------------------------------------------------- STATE -----------------------  */
-window.appState = new State({});
 
 appBaseLayers = new BaseLayersCollection(baselayers.layers);
 // ...for which we need a menu
@@ -75,13 +118,36 @@ appBaseLayersView = new BaseLayersView({
     collection: appBaseLayers
 });
 
+
+/* -------------------------------------------------- STATE -----------------------  */
+window.appState = new State({});
+
 /* -------------------------------------------------- POSTS -----------------------  */
 window.appPosts = new PostsCollection();
-// window.appGeoms = new GeomsCollection();
 
-// window.appPostsMetaView = new PostsMetaView({
-//     collection: appPosts
-// });
+
+/* -------------------------------------------------- Contents -----------------------  */
+window.appContentsAbout = new ContentsCollection();
+window.appContentsCV = new ContentsCollection();
+window.appContents = new ContentsCollection();
+
+
+window.appContentsMasterView = new ContentsMasterView({
+    collection: appContents
+});
+window.appContentsAboutView = new ContentsMasterView({
+    collection: appContentsAbout,
+    el:"#about-container"
+    // ,
+    // template: Handlebars.templates['AboutViewTpl']
+});
+
+window.appContentsCVView = new ContentsMasterView({
+    collection: appContentsCV,
+    el:"#cv-container"
+    // ,
+    // template: Handlebars.templates['AboutViewTpl']
+});
 
 window.appPostsActiveView = new PostsActiveView({
     collection: appPosts
@@ -98,12 +164,6 @@ window.appPostsGeomView = new PostsGeomView({
 
 
 
-
-/* -------------------------------------------------- BASEMAP -----------------------  */
-window.appBasemap = new Basemap({tileset:"mapquest"});
-window.appBasemapView = new BasemapView({
-    model: appBasemap
-});
 
 /* -------------------------------------------------- AUDIT -----------------------  */
 window.appAudit = new Audit();
@@ -179,6 +239,8 @@ $(document).ready(function() {
         var index = $(this).index();
         $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
         $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+
+
     });
 
 // $( "#search-container .btn" ).click(function() {
@@ -191,7 +253,6 @@ $(document).ready(function() {
 // }); //search-container btn click
 
 
-
 }); //ready
 
 $(document).keydown(function(e) {
@@ -201,6 +262,12 @@ $(document).keydown(function(e) {
 // $("#postslist-posts").toggleClass("collapsed")
 $("#postslist-container").toggleClass("collapsed")
 $("#active-container").toggleClass("collapsed")
+
+if(appState.get("panestate")==1){
+    appState.set({"panestate":0})
+} else {
+    appState.set({"panestate":1})
+}
 
 $('body').find('[data-toggle="tooltip"]').tooltip('hide');
 

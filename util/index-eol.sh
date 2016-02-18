@@ -9,7 +9,7 @@ for j in $jekyls_raw; do
 
 # echo $j|tr "_site" " " | awk 'print {$0}'
 lopathsfx=$(echo $j | awk -F'_site' '{print $2}')
-lopathpfx="_site"
+lopathpfx="eoljek/_site"
 lopath=$lopathpfx$lopathsfx
 
 # echo "abc:def" | awk -F':' '{print $1}'
@@ -45,4 +45,4 @@ done
 
 
 # mv /Users/ccmiller/git/milleriajek/_site /Users/ccmiller/git/milljek/_site
-rsync -r /Users/ccmiller/git/eolapp/eoljek/_site/ /Users/ccmiller/git/eolapp/_site
+# rsync -r /Users/ccmiller/git/eolapp/eoljek/_site/ /Users/ccmiller/git/eolapp/_site

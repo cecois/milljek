@@ -20,7 +20,7 @@ $spatialgo = $_GET['spatialgo'];} else {
 $offline=false;
 
 
-$sarl = "http://localhost:8983/solr/eoljek/select?rows=999&wt=json&q=".$solrstring;
+$sarl = "http://localhost:8983/solr/eoljek/select?rows=999&wt=json&sort=order%20asc&q=".$solrstring;
 
 
 $solrin = json_decode(file_get_contents($sarl),true);
@@ -36,6 +36,13 @@ $acv=array();
 $aabout=array();
 
 foreach ($solrin['response']['docs'] as $doc) {
+
+$lopath = '../'.$doc['lopath'];
+    
+
+    $html = file_get_contents($lopath);
+
+ $doc['html']=$html;
 
 switch ($doc['subject'][0]) {
     case 'about':
@@ -67,6 +74,7 @@ $solrindivid['cv']=$acv;
 
 // $solrindejsond = json_decode($solrin);
 // LAZINESS!
+
 $solrindejsond = $solrin;
 
 $lopoints = array();

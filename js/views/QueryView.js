@@ -17,7 +17,6 @@ return this
     },
     query: function(){
 
-console.log("in query event from QVIEW")
 appQuery.set({"rawstring":$(this.el).find("input").val()})
 // $( "#search-container .btn" ).click(function() {
 

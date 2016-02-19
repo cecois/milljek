@@ -1,8 +1,5 @@
+<ul>
 {{#each rows}}
-<li data-target="{{this.location}}" data-id="{{this.id}}" class="pick{{#if this.active}} active{{/if}}">
-    <h2 class="">
-{{this.title}}
-    </h2>
-    {{{this.html}}}
-</li>
+<li data-id="{{this.id}}" class="section"><h2 class="">{{this.title}}</h2><div class="section-html">{{{this.html}}}</div></li>
 {{/each}}
+</ul>

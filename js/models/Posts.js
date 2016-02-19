@@ -51,7 +51,7 @@ var PostsCollection = Backbone.Collection.extend({
         return this
     },
     activate: function() {
-            if(verbose==true){console.log("activating...")}
+            if(verbose==true){console.log("activating Posts...")}
 
         if(typeof appState.get("ap") !== 'undefined' && appState.get("ap") !== null){
                     // this.deactivate()

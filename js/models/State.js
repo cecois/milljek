@@ -6,10 +6,11 @@ var State = Backbone.Model.extend({
         "tab": "about", // prefix this with menu-a for use
         "bbox": null,
         "basemap": null,
-        "ap": {
-            "slug": null,
-            "geomid": null
-        }
+        "geom":null
+        // "ap": {
+        //     "slug": null,
+        //     "geomid": null
+        // }
     },
     initialize: function(options) {
         options || (options = {});
@@ -22,15 +23,6 @@ var State = Backbone.Model.extend({
             this.on('change:panestate', this.update_m, this),
             this.on('change', this.update, this)
         return this
-    },
-    test_appquerysolrstring: function() {
-        console.log("State: appQuery.solrstring changed - url should change AND followed");
-    },
-    test_mapmoveend: function() {
-        console.log("State: map moved - url should change");
-    },
-    test_thisapchange: function() {
-        console.log("State: appstate ap changed - url should change AND followed");
     },
     update_m: function() {
         appRoute.navigate(this.pullurl())
@@ -45,16 +37,16 @@ var State = Backbone.Model.extend({
         })
         return this
     }, //update_b
-    update_q: function() {
-        this.set({
-            q: appQuery.get("solrstring"),
-            ap: {
-                "slug": null,
-                "geomid": null
-            }
-        });
-        return this
-    },
+    // update_q: function() {
+    //     this.set({
+    //         // q: appQuery.get("solrstring"),
+    //         ap: {
+    //             "slug": null,
+    //             "geomid": null
+    //         }
+    //     });
+    //     return this
+    // },
     update: function() {
             console.log("State: updating in State...");
             appRoute.navigate(this.pullurl(), {
@@ -63,7 +55,8 @@ var State = Backbone.Model.extend({
         } //update
         ,
     pullurl: function() {
-        var aslug = this.get("ap").slug
+        // var aslug = this.get("ap").slug
+        var aslug = this.get("slug")
         var abbox = this.get("bbox")
         var apanestate = this.get("panestate")
         var aagob = this.get("agob")
@@ -71,7 +64,8 @@ var State = Backbone.Model.extend({
         var abase = this.get("basemap")
         var state =
             //thishost+"/#"+
-            appQuery.get("solrstring") + "/" + apane + "/" + aslug + "/" + abbox + "/" + apanestate + "/" + aagob + "/" + abase
+            // appQuery.get("solrstring") + "/" + apane + "/" + aslug + "/" + abbox + "/" + apanestate + "/" + aagob + "/" + abase
+            "#"+ aslug + "/" + abbox + "/" + apanestate + "/" + aagob + "/" + abase
         return state
     }
 });

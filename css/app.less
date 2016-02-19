@@ -22,11 +22,14 @@
 
 @anno: #ABABA1;
 @bodycopy: #ABABA1;
+@bodycopy-light: #D5D4D5;
 
 @alink: #919191;
 
 // @hovercolor: black;
 @hovercolor: @eolprimary;
+
+@font-main: 'FjallaOne', sans-serif;
 
 .stroke-gray{
   text-shadow: @bodycopy 0px 0px 1px,   @bodycopy 0px 0px 1px,   @bodycopy 0px 0px 1px,
@@ -45,10 +48,13 @@
 
 #footer{
   height:12px;
-  background-color:black;
-  color:white;
+  background-color:@bodycopy-light;
+  color:@bodycopy;
   text-align:center;
   font-size:.8em;
+  position:fixed;
+  padding:3px 7px;
+  bottom:7px;
 }
 
 #title-container{
@@ -92,7 +98,7 @@ body{
     /*font-family: 'Old Standard TT', serif;*/
     /*font-family: 'PT Serif', serif;*/
     /*font-family: 'Roboto', sans-serif;*/
-  font-family: 'FjallaOne', sans-serif;
+  font-family: @font-main;
   color:@bodycopy;
 
     a{
@@ -182,11 +188,13 @@ li {
 } //posts-active
 
 #active-container.collapsed{
-    right:-700px;
+    right:-850px;
   } //collapsed
 
 /*#postslist-posts{*/
 #postslist-container{
+
+  top:90px;
 
   #postslist-posts{
     padding:32px;
@@ -472,9 +480,28 @@ div.bhoechie-tab-content{
   padding-top: 50px;
   padding-bottom: 50px;
 
-ul{
-  list-style: none;
-  
+li.section{
+list-style: none;
+margin-bottom:35px;
+} //segment
+
+.post-content{
+    h4{
+      margin-top:25px;
+      padding-left:12px;
+      font-weight:800;
+    }
+  h5{padding-left:20px;
+    font-weight:400;
+  }
+  pre{padding-left:25px;
+    background-color:inherit;
+    border:none;
+    color:inherit;
+    code{
+        color:@bodycopy-light;
+        font-family: @font-main;}
+  }
 }
 
 }

@@ -9,10 +9,10 @@ var ContentsSubView = Backbone.View.extend({
     },
     render: function() {
 
-$(this.el).html(this.template({
-            count: this.collection.models.length,
-            rows: this.collection.toJSON()
-        }));
+// $(this.el).html(this.template({
+//             count: this.collection.models.length,
+//             rows: this.collection.toJSON()
+//         }));
 
         return this
     }

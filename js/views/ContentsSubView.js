@@ -7,6 +7,7 @@ var ContentsSubView = Backbone.View.extend({
         this.listenTo(this.collection, 'change', this.render)
         return this
     },
+
     render: function() {
 
 // $(this.el).html(this.template({

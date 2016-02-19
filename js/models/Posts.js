@@ -2,12 +2,13 @@ var PostsCollection = Backbone.Collection.extend({
     model: Post,
     url: function() {
         // return solrhost + "miljek/select?json.wrf=cwmccallback&rows=999&wt=json&q=" + encodeURIComponent(appQuery.get("solrstring"));
-        return "api/jekyllfetcher.php?cb=cwmccallback&solrstring="+appState.get("q")
+        return "api/jekyllfetcher.php?cb=cwmccallback&solrstring="
+        // +appState.get("q")
         // return solrhost + "eoljek/select?json.wrf=cwmccallback&rows=999&wt=json&q=" + encodeURIComponent(appQuery.get("solrstring"));
     },
     initialize: function(options) {
         this.on('sync', this.activate, this);
-        this.listenTo(appState, 'change', this.activate)
+        // this.listenTo(appState, 'change', this.activate)
         // this.on('change:active',this.activate,this)
         // this.on('sync', this.refetch, this);
         options || (options = {});
@@ -53,20 +54,20 @@ var PostsCollection = Backbone.Collection.extend({
     activate: function() {
             if(verbose==true){console.log("activating Posts...")}
 
-        if(typeof appState.get("ap") !== 'undefined' && appState.get("ap") !== null){
-                    // this.deactivate()
-                    _.each(this.models, function(d, index) {
+//         if(typeof appState.get("ap") !== 'undefined' && appState.get("ap") !== null){
+//                     // this.deactivate()
+//                     _.each(this.models, function(d, index) {
 
 
-                        if (d.id !== appState.get("ap").slug) {
-d.set({
-                                "active": false
-                            },{silent:true})
-                        } else {
-d.set({"active":true,"seen":true})
-                        }
-                    }); //each}
-                }
+//                         if (d.id !== appState.get("ap").slug) {
+// d.set({
+//                                 "active": false
+//                             },{silent:true})
+//                         } else {
+// d.set({"active":true,"seen":true})
+//                         }
+//                     }); //each}
+//                 }
             return this
         } //actxivate
 });

@@ -120,7 +120,7 @@ appBaseLayersView = new BaseLayersView({
 
 
 /* -------------------------------------------------- STATE -----------------------  */
-window.appState = new State({});
+// window.appState = new State({});
 
 /* -------------------------------------------------- POSTS -----------------------  */
 window.appPosts = new PostsCollection();
@@ -177,10 +177,12 @@ window.appActivityView = new ActivityView({
     model: appActivity
 });
 
+// appPosts.fetch()
+appContents.fetch()
 
 map.on('moveend',function(){
 
-appState.set({bbox:map.getBounds().toBBoxString()})
+// appState.set({bbox:map.getBounds().toBBoxString()})
 
 }); //on
 

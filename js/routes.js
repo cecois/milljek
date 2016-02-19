@@ -7,7 +7,26 @@ var Route = Backbone.Router.extend({
             // "search/lll:hash": "searchWithHashed",
     },
     initialize: function() {},
-    default_queryless: function(slug, bbox, panestate, agob, basemap) {
+    default: function(slug, bbox, panestate, agob, basemap) {
+if (verbose == true) {
+            console.log("running default_queryless route");
+            console.log("slug:");console.log(slug);
+            console.log("bbox:");console.log(bbox);
+            console.log("panestate:");console.log(panestate);
+            console.log("agob:");console.log(agob);
+            console.log("basemap:");console.log(basemap);
+        }
+
+
+            // if slug, set activePost to slug, it should ONLY activat the right pane, scrollto the right div
+            // if bbox, set map bounds to same
+            // if panestate, set collapsed state on panes
+            // if agob, set activeGeom to this (it will pull the geom from the corresponding post), geomview will zoomto
+            // if basemap, set baselayers collection to active for this, basemapview will update from listento
+
+
+    }, //default
+    default_querylessOG: function(slug, bbox, panestate, agob, basemap) {
         if (verbose == true) {
             console.log("running default_queryless route");
             console.log("slug:");console.log(slug);
@@ -74,7 +93,7 @@ var Route = Backbone.Router.extend({
         } // if slug
         return this.reset()
     }, // end default
-    default: function(q, slug, bbox, basemap) {
+    defaultOG: function(q, slug, bbox, basemap) {
             if (verbose == true) {
                 console.log("running default route");
                 console.log("q:");
@@ -147,8 +166,8 @@ var Route = Backbone.Router.extend({
             console.log("resetting in route, fetching posts...")
         }
         // appActivity.set({"message":"fetching..."})
-        appPosts.fetch()
-        appContents.fetch()
+        // appPosts.fetch()
+        // appContents.fetch()
         return this
     },
     audit: function(q, slug, bbox, basemap) {

@@ -8,6 +8,19 @@ var ContentsMasterView = Backbone.View.extend({
         this.listenTo(this.collection, 'change', this.render)
         return this
     },
+        activate:function(slug){
+// a proxy activator: helps decide in which actual collection the slug will activate a model
+
+// because jekyll dashes its slugs, we know the first index is the cateogry
+var a = slug.split("-")[0]
+
+if(a=="about"){
+    appContentsAbout.activate(slug)
+}
+
+return this
+
+    },
     render: function() {
 
 $(this.el).html(this.template({

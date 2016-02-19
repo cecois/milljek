@@ -41,11 +41,31 @@ var ContentsCollection = Backbone.Collection.extend({
         return this
 
     },
+    activate: function(slug){
+
+console.log("slug in Contents (about?):");console.log(slug);
+console.log(this);
+
+this.invoke('set', {
+            "active": false
+        }, {
+            silent: true
+        });
+
+        var at = this.findWhere({id:slug})
+        at.set({active:true})
+
+        console.log("at:");console.log(at);
+
+return this
+
+    }, //activate
     parse: function(resp) {
         // if (verbose == true) {
         //     console.log("about in ContentsCollection:")
         //     console.log(resp.cv)
         // }
+        
         var hitdocs = resp
         return this.divide(hitdocs)
 

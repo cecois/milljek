@@ -26,7 +26,7 @@ if (verbose == true) {
 
 
     }, //default
-    default_querylessOG: function(slug, bbox, panestate, agob, basemap) {
+    default_queryless: function(slug, bbox, panestate, agob, basemap) {
         if (verbose == true) {
             console.log("running default_queryless route");
             console.log("slug:");console.log(slug);
@@ -91,7 +91,9 @@ if (verbose == true) {
                 silent: true
             })
         } // if slug
-        return this.reset()
+
+        return this
+        // .fetch()
     }, // end default
     defaultOG: function(q, slug, bbox, basemap) {
             if (verbose == true) {

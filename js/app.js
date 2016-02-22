@@ -7,7 +7,7 @@ window.agent = "desktop";
 }
 
 // window.thedomain="trainertothestarsseekingstars.org"
-window.thedomain="bitmap-lbones.rhcloud.com"
+window.thedomain="eolapp-lbones.rhcloud.com"
 
 // agent="mobile"
 
@@ -120,49 +120,81 @@ appBaseLayersView = new BaseLayersView({
 
 
 /* -------------------------------------------------- STATE -----------------------  */
-// window.appState = new State({});
+window.appState = new State({});
 
 /* -------------------------------------------------- POSTS -----------------------  */
 window.appPosts = new PostsCollection();
 
 
 /* -------------------------------------------------- Contents -----------------------  */
-window.appContentsAbout = new ContentsCollection();
-window.appContentsCV = new ContentsCollection();
-window.appContents = new ContentsCollection();
+// window.appContentsAbout = new ContentsCollection();
+// window.appContentsCV = new ContentsCollection();
+// window.appContents = new ContentsCollection();
+
+// window.appContentsAbout = new ContentsCollection([]);
+
+// window.appContentsMasterView = new ContentsMasterView({
+//     collection: appContents
+// });
+
+// window.appContentsAboutView = new ContentsView({
+//     collection: appContents,
+//     el:"#about-container",
+//     cfilter:"about"
+// });
 
 
-window.appContentsMasterView = new ContentsMasterView({
-    collection: appContents
-});
-window.appContentsAboutView = new ContentsMasterView({
-    collection: appContentsAbout,
-    el:"#about-container"
+// window.appContentsCVView = new ContentsMasterView({
+    // collection: appContentsCV,
+    // el:"#cv-container"
     // ,
     // template: Handlebars.templates['AboutViewTpl']
-});
-
-window.appContentsCVView = new ContentsMasterView({
-    collection: appContentsCV,
-    el:"#cv-container"
-    // ,
-    // template: Handlebars.templates['AboutViewTpl']
-});
-
-window.appPostsActiveView = new PostsActiveView({
-    collection: appPosts
-});
-
-window.appPostsListView = new PostsListView({
-    collection: appPosts
-});
+// });
 
 
-window.appPostsGeomView = new PostsGeomView({
-    collection: appPosts
-});
+
+// window.appPostsActiveView = new PostsActiveView({
+//     collection: appPosts
+// });
+
+// window.appPostsListView = new PostsListView({
+//     collection: appPosts
+// });
 
 
+// window.appPostsGeomView = new PostsGeomView({
+//     collection: appPosts
+// });
+
+window.metaContent = new Content();
+window.appContentsAbout = new ContentsCollection([],{cf:"about"});
+window.appContentsCV = new ContentsCollection([],{cf:"cv"});
+
+window.appContentsAboutView = new ContentsAboutView({collection:appContentsAbout})
+window.appContentsCVView = new ContentsCVView({collection:appContentsCV})
+
+appContentsAbout.fetch({
+            success: function() {
+                appContentsAboutView.render()
+            }
+            ,
+            error: function(collection, response, options){
+                console.log(response);
+                appContentsAboutView.render()
+
+            }
+        })
+ appContentsCV.fetch({
+            success: function() {
+                appContentsCVView.render()
+                
+            },
+            error: function(collection, response, options){
+                console.log(response);
+                appCBBContentsCVView.render_error()
+
+            }
+        })
 
 
 /* -------------------------------------------------- AUDIT -----------------------  */
@@ -177,12 +209,10 @@ window.appActivityView = new ActivityView({
     model: appActivity
 });
 
-// appPosts.fetch()
-appContents.fetch()
 
 map.on('moveend',function(){
 
-// appState.set({bbox:map.getBounds().toBBoxString()})
+appState.set({bbox:map.getBounds().toBBoxString()})
 
 }); //on
 

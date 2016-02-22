@@ -34,6 +34,7 @@ if($spatialgo=='false'){
 
 $acv=array();
 $aabout=array();
+$sorlindivid=array();
 
 foreach ($solrin['response']['docs'] as $doc) {
 
@@ -44,28 +45,24 @@ $lopath = '../'.$doc['lopath'];
 
  $doc['html']=$html;
 
-switch ($doc['subject'][0]) {
-    case 'about':
-        $aabout[]=$doc;
-        break;
-            case 'cv':
-        $acv[]=$doc;
-        break;
+// switch ($doc['subject'][0]) {
+//     case 'about':
+//         $aabout[]=$doc;
+//         break;
+//             case 'cv':
+//         $acv[]=$doc;
+//         break;
     
-    default:
-        # code...
-        break;
-}
-
+//     default:
+//         # code...
+//         break;
+// }
+$solrindivid[]=$doc;
     // echo "suect:".$doc['subject'][0]."<br/><br/><br/>";
 }
-// die();
 
-// $acv = array_filter($solrin['response']['docs'], function($v) { return $v['subject'][0] === 'cv'; });
-// $aabout = array_diff($solrin, $acv);
-
-$solrindivid['about']=$aabout;
-$solrindivid['cv']=$acv;
+// $solrindivid['about']=$aabout;
+// $solrindivid['cv']=$acv;
 
     // echo "cwmccallback(".json_encode($solrin).")";
     echo "cwmccallback(".json_encode($solrindivid).")";

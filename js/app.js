@@ -170,31 +170,31 @@ window.metaContent = new Content();
 window.appContentsAbout = new ContentsCollection([],{cf:"about"});
 window.appContentsCV = new ContentsCollection([],{cf:"cv"});
 
-window.appContentsAboutView = new ContentsAboutView({collection:appContentsAbout})
-window.appContentsCVView = new ContentsCVView({collection:appContentsCV})
 
-appContentsAbout.fetch({
-            success: function() {
-                appContentsAboutView.render()
-            }
-            ,
-            error: function(collection, response, options){
-                console.log(response);
-                appContentsAboutView.render()
 
-            }
-        })
- appContentsCV.fetch({
-            success: function() {
-                appContentsCVView.render()
+// appContentsAbout.fetch({
+//             success: function() {
+//                 appContentsAboutView.render()
+//             }
+//             ,
+//             error: function(collection, response, options){
+//                 // console.log(response);
+//                 appContentsAboutView.render()
+
+//             }
+//         });
+
+//  appContentsCV.fetch({
+//             success: function() {
+//                 appContentsCVView.render()
                 
-            },
-            error: function(collection, response, options){
-                console.log(response);
-                appCBBContentsCVView.render_error()
+//             },
+//             error: function(collection, response, options){
+//                 // console.log(response);
+//                 appCBBContentsCVView.render_error()
 
-            }
-        })
+//             }
+//         })
 
 
 /* -------------------------------------------------- AUDIT -----------------------  */
@@ -266,14 +266,15 @@ function cwmccallback(r){
 $(document).ready(function() {
     $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
         e.preventDefault();
+        console.log("e.currentTarget:");console.log(e.currentTarget);
         $(this).siblings('a.active').removeClass("active");
+
         $(this).addClass("active");
         var index = $(this).index();
         $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
         $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
-
-
-    });
+}
+); //click
 
 // $( "#search-container .btn" ).click(function() {
 

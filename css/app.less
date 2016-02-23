@@ -44,6 +44,7 @@
 }
 
 
+
 /* --------------------------------------- TITLES/HEADERS -------------- */
 
 #footer{
@@ -86,6 +87,13 @@ font-variant: small-caps;
   padding-left:33px;
   padding:10px;
 
+   ::selection {
+  background: @eolyellow; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: @eolyellow; /* Gecko Browsers */
+}
+
 }
 
 
@@ -100,6 +108,13 @@ body{
     /*font-family: 'Roboto', sans-serif;*/
   font-family: @font-main;
   color:@bodycopy;
+
+  ::selection {
+  background: @eolprimary; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: @eolprimary; /* Gecko Browsers */
+}
 
     a{
       color:@alink;

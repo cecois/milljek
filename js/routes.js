@@ -1,13 +1,13 @@
 var Route = Backbone.Router.extend({
     routes: {
         // "(:q)(/:slug)(/:bbox)(/:panestate)(/:agob)(/:basemap)(/)": "default",
-        "(:slug)(/:bbox)(/:panestate)(/:agob)(/:basemap)(/)": "default_queryless",
+        "(:slug)(/:bbox)(/:tab)(/:panestate)(/:agob)(/:basemap)(/)": "default_queryless",
         // "slug:slug(/:bbox)(/:basemap)(/)": "post",
         "debug/:q/:slug/:bbox/:basemap(/)": "audit"
             // "search/lll:hash": "searchWithHashed",
     },
     initialize: function() {},
-    default: function(slug, bbox, panestate, agob, basemap) {
+    default: function(slug, bbox, tab, panestate, agob, basemap) {
 if (verbose == true) {
             console.log("running default_queryless route");
             console.log("slug:");console.log(slug);
@@ -76,6 +76,16 @@ if (verbose == true) {
                 "panestate": 1
             })
         }
+
+                if (typeof tab !== 'undefined' && tab != null) {
+            appState.set({
+                "tab": tab
+            })
+        } else {
+            appState.set({
+                "tab": "about"
+            })
+        }
         if (typeof agob !== 'undefined' && agob != null) {
             appState.set({
                 "agob": agob
@@ -91,6 +101,55 @@ if (verbose == true) {
                 silent: true
             })
         } // if slug
+
+ // appContentsCV.fetch({
+ //            success: function() {
+ //                appContentsCVView.render()
+                
+ //            },
+ //            error: function(collection, response, options){
+ //                // console.log(response);
+ //                appCBBContentsCVView.render_error()
+
+ //            }
+ //        })        
+appContentsAbout.fetch({
+            success: function() {
+                if(typeof appContentsAboutView == 'undefined'){
+
+                    window.appContentsAboutView = new ContentsAboutView({collection:appContentsAbout})
+                // appContentsAboutView.render()
+
+                }
+            }
+            ,
+            error: function(collection, response, options){
+
+
+                $("#about-container").html("AboutView failed to fetch and/or render. Refresh?")
+
+            }
+        });
+
+// appContentsCV.fetch({
+//             success: function() {
+//                 if(typeof appContentsCVView !== 'undefined'){
+
+//                 appContentsCVView.render()
+
+//                 } else {
+//                     // oh, then create it
+//                     window.appContentsCVView = new ContentsCVView({collection:appContentsCV})
+//                 }
+//             }
+//             ,
+//             error: function(collection, response, options){
+//                 appContentsCVView.render_error()
+
+//             }
+//         });
+
+
 
         return this
         // .fetch()

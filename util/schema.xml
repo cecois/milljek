@@ -163,6 +163,7 @@
    <field name="content_type" type="string" indexed="true" stored="true" multiValued="true"/>
    <field name="last_modified" type="date" indexed="true" stored="true"/>
    <field name="published" type="date" indexed="true" stored="true"/>
+   <field name="order" type="int" indexed="true" stored="true"/>
    <field name="links" type="string" indexed="true" stored="true" multiValued="true"/>
 
    <field name="body" type="text_general" indexed="true" stored="true" multiValued="false"/>
@@ -179,7 +180,7 @@
       </analyzer>
 </fieldType> -->
 
-<!-- <field name="location" type="string" indexed="true" stored="true" multiValued="false" /> -->
+<field name="location" type="string" indexed="true" stored="true" multiValued="false" />
 
 
 

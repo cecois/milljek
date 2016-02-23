@@ -16,11 +16,12 @@ var State = Backbone.Model.extend({
         options || (options = {});
         // this.listenTo(appQuery, 'change:rawstring', this.update)
         // this.listenTo(appQuery, 'change:solrstring', this.test_appquerysolrstring)
-        this.listenTo(appQuery, 'change:solrstring', this.update_q)
+        // this.listenTo(appQuery, 'change:solrstring', this.update_q)
         this.listenTo(appBaseLayers, 'change', this.update_b),
+        // this.listenTo($("div.bhoechie-tab-menu>div.list-group>a"), 'click', this.update_t),
             // this.on('change:ap', this.test_thisapchange, this)
-            this.on('change:bbox', this.update_m, this),
-            this.on('change:panestate', this.update_m, this),
+            // this.on('change:bbox', this.update, this),
+            // this.on('change:panestate', this.update, this),
             this.on('change', this.update, this)
         return this
     },
@@ -37,6 +38,26 @@ var State = Backbone.Model.extend({
         })
         return this
     }, //update_b
+    update_t: function() {
+        
+// $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
+        // e.preventDefault();
+        // console.log("e:");console.log(e);
+        // $(e).siblings('a.active').removeClass("active");
+
+        // $(this).addClass("active");
+        // var index = $(this).index();
+        // $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
+        // $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+
+
+var tabstring = "yoyoyo";
+
+        this.set({
+            tab: tabstring
+        })
+        return this
+    }, //update_b
     // update_q: function() {
     //     this.set({
     //         // q: appQuery.get("solrstring"),
@@ -48,7 +69,6 @@ var State = Backbone.Model.extend({
     //     return this
     // },
     update: function() {
-            console.log("State: updating in State...");
             appRoute.navigate(this.pullurl(), {
                 trigger: true
             })
@@ -62,10 +82,11 @@ var State = Backbone.Model.extend({
         var aagob = this.get("agob")
         var apane = this.get("pane")
         var abase = this.get("basemap")
+        var atab = this.get("tab")
         var state =
             //thishost+"/#"+
             // appQuery.get("solrstring") + "/" + apane + "/" + aslug + "/" + abbox + "/" + apanestate + "/" + aagob + "/" + abase
-            "#"+ aslug + "/" + abbox + "/" + apanestate + "/" + aagob + "/" + abase
+            "#"+ aslug + "/" + abbox + "/" + atab +"/" + apanestate + "/" + aagob + "/" + abase
         return state
     }
 });

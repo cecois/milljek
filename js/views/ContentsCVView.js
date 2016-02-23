@@ -1,6 +1,6 @@
 var ContentsCVView = Backbone.View.extend({
     el: $("#cv-container"),
-    template: Handlebars.templates['contentsSubViewTpl'],
+    template: Handlebars.templates['contentsCVViewTpl'],
     events: {},
     initialize: function(options) {
 
@@ -27,23 +27,12 @@ return this
     },
     render: function() {
 
-// $(this.el).html("31");
-// return this
-// }
-
-console.log("el in render:");console.log(this.el);
-
-if(this.collection.length>0){
-// $(this.el).html(this.template({
-//             count: this.collection.models.length,
-//             rows: this.collection.toJSON()
-// }));
-$(this.el).html("collectionlength:"+this.collection.length);
+$(this.el).html(this.template({
+            count: this.collection.models.length,
+            rows: this.collection.toJSON()
+}));
         // return this
-} else {
-$(this.el).html("collectionlength:"+this.collection.length);
     // return this.render_error()
-}
 return this
     },
     render_error: function() {

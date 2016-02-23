@@ -15,26 +15,26 @@ var ContentsCollection = Backbone.Collection.extend({
     },
     sync: function(method, collection, options) {
         if (verbose == true) {
-            console.log("syncing ContentsCollection")
+            console.log("syncing ContentsCollection using filter:"+this.options.cf)
         }
         options.dataType = "jsonp";
         options.jsonpCallback = 'cwmccallback';
         return Backbone.sync(method, collection, options);
     },
-    activate: function(slug) {
-        this.invoke('set', {
-            "active": false
-        }, {
-            silent: true
-        });
-        var at = this.findWhere({
-            id: slug
-        })
-        at.set({
-            active: true
-        })
-        return this
-    }, //activate
+    // activate: function(slug) {
+    //     this.invoke('set', {
+    //         "active": false
+    //     }, {
+    //         silent: true
+    //     });
+    //     var at = this.findWhere({
+    //         id: slug
+    //     })
+    //     at.set({
+    //         active: true
+    //     })
+    //     return this
+    // }, //activate
     parse: function(resp) {
         var hitdocs = resp
         return hitdocs

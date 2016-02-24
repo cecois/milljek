@@ -167,6 +167,9 @@ window.appPosts = new PostsCollection();
 // });
 
 window.metaContent = new Content();
+window.metaContents = new ContentsCollection();
+
+
 window.appContentsAbout = new ContentsCollection([],{cf:"about"});
 window.appContentsCV = new ContentsCollection([],{cf:"cv"});
 
@@ -266,7 +269,12 @@ function cwmccallback(r){
 $(document).ready(function() {
     $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
         e.preventDefault();
-        console.log("e.currentTarget:");console.log(e.currentTarget);
+
+var tid = $(e.currentTarget).attr('id').split("-")[2]
+appState.set({tab:tid})
+
+console.log("tid:");console.log(tid);
+
         $(this).siblings('a.active').removeClass("active");
 
         $(this).addClass("active");

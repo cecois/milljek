@@ -26,7 +26,7 @@ if (verbose == true) {
 
 
     }, //default
-    default_queryless: function(slug, bbox, panestate, agob, basemap) {
+    default_queryless: function(slug, bbox, tab, panestate, agob, basemap) {
         if (verbose == true) {
             console.log("running default_queryless route");
             console.log("slug:");console.log(slug);
@@ -67,7 +67,7 @@ if (verbose == true) {
                 silent: true
             })
         }
-        if (typeof panestate !== 'undefined' && panestate != null) {
+        if (typeof panestate !== 'undefined' && panestate !== null) {
             appState.set({
                 "panestate": panestate
             })
@@ -77,30 +77,46 @@ if (verbose == true) {
             })
         }
 
-                if (typeof tab !== 'undefined' && tab != null) {
-            appState.set({
-                "tab": tab
-            })
-        } else {
-            appState.set({
-                "tab": "about"
-            })
-        }
-        if (typeof agob !== 'undefined' && agob != null) {
+
+
+        if (typeof agob !== 'undefined' && agob !== null) {
             appState.set({
                 "agob": agob
             })
         }
-        if (typeof slug !== 'undefined' && slug !== null) {
-            // var the = appPosts.findWhere({
-            //     id: slug
-            // })
+
+
+// we're gonna let slug trump tab unless we find that's unexpected behavior
+        if (typeof slug !== 'undefined' && slug !== null && slug !== "null") {
+
+tab = slug.split("-")[0]
+
             appState.set({
                 "slug": slug
-            }, {
-                silent: true
             })
+
         } // if slug
+
+
+        if (typeof tab !== 'undefined' && tab !==null && tab !=="null") {
+
+// this is duplicative - better to do it w/ a view or something, but itsa #returnto for now
+
+var sel = "#menu-a-"+tab
+
+$(".bhoechie-tab-menu > .list-group > a").removeClass("active")
+
+        $(sel).addClass("active");
+        var index = $(sel).index();
+        $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
+        $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+
+            appState.set({
+                "tab": tab
+            })
+        }
+
+
 
  // appContentsCV.fetch({
  //            success: function() {
@@ -119,7 +135,13 @@ appContentsAbout.fetch({
 
                     window.appContentsAboutView = new ContentsAboutView({collection:appContentsAbout})
                 // appContentsAboutView.render()
-
+                var slu = appState.get("slug")
+                if(typeof slu !== 'undefined' && slu!==null && slu!=="null"){
+                    var az = appContentsAbout.findWhere({id:slu})
+                    az.set({active:true})
+                }
+                // 
+                
                 }
             }
             ,
@@ -191,7 +213,7 @@ appContentsAbout.fetch({
                     active: true
                 })
             }
-            if (typeof panestate !== 'undefined' && panestate != null) {
+            if (typeof panestate !== 'undefined' && panestate !== null) {
                 appState.set({
                     "panestate": panestate
                 })
@@ -200,7 +222,7 @@ appContentsAbout.fetch({
                     "panestate": 1
                 })
             }
-            if (typeof agob !== 'undefined' && agob != null) {
+            if (typeof agob !== 'undefined' && agob !== null) {
                 appState.set({
                     "agob": agob
                 })

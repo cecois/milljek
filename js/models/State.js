@@ -22,7 +22,13 @@ var State = Backbone.Model.extend({
             // this.on('change:ap', this.test_thisapchange, this)
             // this.on('change:bbox', this.update, this),
             // this.on('change:panestate', this.update, this),
-            this.on('change', this.update, this)
+            this.on('change:slug', this.update_s, this),
+            this.on('change', this.nonny, this)
+        return this
+    },
+    nonny: function(){
+        console.log("url would be:");
+        console.log(this.pullurl());
         return this
     },
     update_m: function() {
@@ -38,24 +44,8 @@ var State = Backbone.Model.extend({
         })
         return this
     }, //update_b
-    update_t: function() {
-        
-// $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
-        // e.preventDefault();
-        // console.log("e:");console.log(e);
-        // $(e).siblings('a.active').removeClass("active");
+update_s: function() {
 
-        // $(this).addClass("active");
-        // var index = $(this).index();
-        // $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
-        // $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
-
-
-var tabstring = "yoyoyo";
-
-        this.set({
-            tab: tabstring
-        })
         return this
     }, //update_b
     // update_q: function() {

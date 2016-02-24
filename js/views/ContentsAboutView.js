@@ -3,40 +3,45 @@ var ContentsAboutView = Backbone.View.extend({
     template: Handlebars.templates['contentsAboutViewTpl'],
     events: {},
     initialize: function(options) {
-
-this.options = options;
-// this.el=$("#"+this.options.cf+"-container");
-
+        this.options = options;
+        // this.el=$("#"+this.options.cf+"-container");
         this.render()
-        // this.listenTo(this.collection, 'sync', this.render)
+            // this.listenTo(this.collection, 'sync', this.render)
         this.listenTo(this.collection, 'change', this.render)
         return this
     },
-        activate:function(slug){
-// a proxy activator: helps decide in which actual collection the slug will activate a model
-
-// because jekyll dashes its slugs, we know the first index is the cateogry
-// var a = slug.split("-")[0]
-
-// if(a=="about"){
-//     appContentsAbout.activate(slug)
-// }
-
-return this
-
+    // activate:function(){
+    // a proxy activator: helps decide in which actual collection the slug will activate a model
+    // var a = appState.get("slug")
+    // if(a=="about"){
+    //     appContentsAbout.activate(slug)
+    // }
+    // return this
+    //     },
+    scroll: function(az) {
+        var azid = az.get("id")
+            // $(selector).scrollTop(position)
+        $('body,html').animate({
+            scrollTop: $('[data-id="' + azid + '"]').offset().top
+        }, 500);
+        return this
     },
     render: function() {
-
-$(this.el).html(this.template({
+        var az = this.collection.findWhere({
+            active: true
+        })
+        $(this.el).html("1uvMySlugsIsActive!" + this.template({
             count: this.collection.models.length,
             rows: this.collection.toJSON()
-}));
-return this
+        }));
+        if (typeof az !== 'undefined') {
+            return this.scroll(az)
+        } else {
+            return this
+        }
     },
     render_error: function() {
-
-$(this.el).html("this view errored out");
-
+        $(this.el).html("this view errored out");
         return this
     }
 });

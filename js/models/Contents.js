@@ -5,7 +5,7 @@ var ContentsCollection = Backbone.Collection.extend({
         // options || (options = {});
         // this.cfilter = options.cfilter
         // this.on('sync', this.activate, this);
-        // this.listenTo(appState, 'change', this.activate)
+        // this.listenTo(appState, 'change:slug', this.activate)
             // this.on('sync', this.refetch, this);
         return this
     },
@@ -21,14 +21,32 @@ var ContentsCollection = Backbone.Collection.extend({
         options.jsonpCallback = 'cwmccallback';
         return Backbone.sync(method, collection, options);
     },
-    // activate: function(slug) {
+//     activate: function(){
+
+// var slug = appState.get("slug")
+// if(typeof slug !== 'undefined' && slug !== null && slug !== 'null' ){
+
+// var respa = this.findWhere({id:appState.get("slug")})
+// respa.set({active:true})
+
+// }
+
+//         return this
+//     },
+    // activate: function() {
+
+    //     var ass = appState.get("slug")
+
+    //     console.log("ass:");console.log(ass);
+    //     console.log("this:");console.log(this);
+
     //     this.invoke('set', {
     //         "active": false
     //     }, {
     //         silent: true
     //     });
     //     var at = this.findWhere({
-    //         id: slug
+    //         id: ass
     //     })
     //     at.set({
     //         active: true
@@ -36,6 +54,11 @@ var ContentsCollection = Backbone.Collection.extend({
     //     return this
     // }, //activate
     parse: function(resp) {
+
+// var respa = _.findWhere(resp,{id:appState.get("slug")})
+// respa.set({active:true})
+
+//         var hitdocs = respa
         var hitdocs = resp
         return hitdocs
     }

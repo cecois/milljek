@@ -6,8 +6,14 @@ window.agent = "mobile";
 window.agent = "desktop";
 }
 
+window.offline="true"
+
 // window.thedomain="trainertothestarsseekingstars.org"
 window.thedomain="eolapp-lbones.rhcloud.com"
+
+window.gpre_point="g."
+window.gpre_poly="gD"
+window.gpre_point="g|"
 
 // agent="mobile"
 
@@ -123,7 +129,14 @@ appBaseLayersView = new BaseLayersView({
 window.appState = new State({});
 
 /* -------------------------------------------------- POSTS -----------------------  */
-window.appPosts = new PostsCollection();
+// window.appPosts = new PostsCollection();
+
+/* -------------------------------------------------- GEOMS -----------------------  */
+window.appGeoms = new GeomsCollection();
+window.appGeomsView = new GeomsView({
+    collection: appGeoms
+});
+
 
 
 /* -------------------------------------------------- Contents -----------------------  */
@@ -272,8 +285,6 @@ $(document).ready(function() {
 
 var tid = $(e.currentTarget).attr('id').split("-")[2]
 appState.set({tab:tid})
-
-console.log("tid:");console.log(tid);
 
         $(this).siblings('a.active').removeClass("active");
 

@@ -6,7 +6,8 @@ var State = Backbone.Model.extend({
         "tab": "about", // prefix this with menu-a for use
         "bbox": null,
         "basemap": null,
-        "geom":null
+        "geom":null,
+        "CDBstring":null
         // "ap": {
         //     "slug": null,
         //     "geomid": null
@@ -21,12 +22,22 @@ var State = Backbone.Model.extend({
         // this.listenTo($("div.bhoechie-tab-menu>div.list-group>a"), 'click', this.update_t),
             // this.on('change:ap', this.test_thisapchange, this)
             // this.on('change:bbox', this.update, this),
-            // this.on('change:panestate', this.update, this),
-            this.on('change:slug', this.update_s, this),
-            this.on('change', this.nonny, this)
+            this.on('change:geom', this.nonny, this),
+            this.on('change:panestate', this.update, this),
+            this.on('change:tab', this.update, this),
+            this.on('change:slug', this.update, this)
+            // this.on('change', this.nonny, this)
         return this
     },
     nonny: function(){
+        console.log("geom:");console.log(this.get("geom"));
+
+if(this.get("geom").indexOf(",")>0){
+    console.log("geom is arr");
+} else {
+    console.log("geom is singular");
+}
+
         console.log("url would be:");
         console.log(this.pullurl());
         return this

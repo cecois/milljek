@@ -4,7 +4,12 @@ var GeomsCollection = Backbone.Collection.extend({
         // IDEALLY I COULD LEAVE THIS AS STRAIGHT CALL TO CARTODB
         // return solrhost + "miljek_geom/select?json.wrf=cwmccallback&rows=999z&wt=json&q=" + encodeURIComponent(appQuery.get("solrstring"));
         // this.cartostring = "cartodb_id:(" + encodeURIComponent(arr.join(" ")) + ")"
-        return appQuery.get("carl")
+        if (window.offline=="true"){
+            return "offline/cartodb-query.geojson";
+            } else {
+                return "https://cecmcgee.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT+CONCAT('point:'||cartodb_id)+AS+eolid,cartodb_id,the_geom,name,anno+FROM+eolapp_point+where+cartodb_id+=+3+UNION+ALL+SELECT+CONCAT('line:'||cartodb_id)+AS+eolid,cartodb_id,the_geom,name,anno+FROM+eolapp_line+where+cartodb_id+=1+UNION+ALL+SELECT+CONCAT('poly:'||cartodb_id)+AS+eolid,cartodb_id,the_geom,name,anno+FROM+eolapp_poly+where+cartodb_id+=17"
+            }
+        // return appQuery.get("carl")
     },
     initialize: function(options) {
         // this.on('sync', this.activate, this);
@@ -27,15 +32,18 @@ var GeomsCollection = Backbone.Collection.extend({
     //     options.jsonpCallback = 'cwmccallback';
     //     return Backbone.sync(method, collection, options);
     // },
-    // parse: function(response) {
-    //     if (verbose == true) {
-    //         if (verbose == true) {
-    //             console.log("parsing GeomsCollection:")
-    //         }
-    //     }
-    //     var docs = response.response.docs
-    //     return docs
-    // },
+    parse: function(response) {
+        
+
+        if (verbose == true) {
+            if (verbose == true) {
+                console.log("parsing Geoms:")
+            }
+        }
+        var feats = response.features
+
+        return feats
+    },
     // deactivate: function() {
     //     _.every(this.models, function(d, index) {
     //             d.set({

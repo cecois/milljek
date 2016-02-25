@@ -1,19 +1,19 @@
 var Route = Backbone.Router.extend({
     routes: {
         // "(:q)(/:slug)(/:bbox)(/:panestate)(/:agob)(/:basemap)(/)": "default",
-        "(:slug)(/:bbox)(/:tab)(/:panestate)(/:agob)(/:basemap)(/)": "default_queryless",
+        "(:slug)(/:bbox)(/:tab)(/:panestate)(/:agobs)(/:basemap)(/)": "default_queryless",
         // "slug:slug(/:bbox)(/:basemap)(/)": "post",
         "debug/:q/:slug/:bbox/:basemap(/)": "audit"
             // "search/lll:hash": "searchWithHashed",
     },
     initialize: function() {},
-    default: function(slug, bbox, tab, panestate, agob, basemap) {
+    default: function(slug, bbox, tab, panestate, agobs, basemap) {
 if (verbose == true) {
             console.log("running default_queryless route");
             console.log("slug:");console.log(slug);
             console.log("bbox:");console.log(bbox);
             console.log("panestate:");console.log(panestate);
-            console.log("agob:");console.log(agob);
+            console.log("agobs:");console.log(agobs);
             console.log("basemap:");console.log(basemap);
         }
 
@@ -21,19 +21,19 @@ if (verbose == true) {
             // if slug, set activePost to slug, it should ONLY activat the right pane, scrollto the right div
             // if bbox, set map bounds to same
             // if panestate, set collapsed state on panes
-            // if agob, set activeGeom to this (it will pull the geom from the corresponding post), geomview will zoomto
+            // if agobs, set activeGeom to this (it will pull the geom from the corresponding post), geomview will zoomto
             // if basemap, set baselayers collection to active for this, basemapview will update from listento
 
 
     }, //default
-    default_queryless: function(slug, bbox, tab, panestate, agob, basemap) {
+    default_queryless: function(slug, bbox, tab, panestate, agobs, basemap) {
         if (verbose == true) {
             console.log("running default_queryless route");
-            console.log("slug:");console.log(slug);
-            console.log("bbox:");console.log(bbox);
-            console.log("panestate:");console.log(panestate);
-            console.log("agob:");console.log(agob);
-            console.log("basemap:");console.log(basemap);
+            // console.log("slug:");console.log(slug);
+            // console.log("bbox:");console.log(bbox);
+            // console.log("panestate:");console.log(panestate);
+            // console.log("agobs:");console.log(agobs);
+            // console.log("basemap:");console.log(basemap);
         }
         if (typeof bbox !== 'undefined' && bbox !== null) {
             appBasemap.set({
@@ -79,9 +79,9 @@ if (verbose == true) {
 
 
 
-        if (typeof agob !== 'undefined' && agob !== null) {
+        if (typeof agobs !== 'undefined' && agobs !== null) {
             appState.set({
-                "agob": agob
+                "agobs": agobs
             })
         }
 
@@ -153,6 +153,24 @@ appContentsAbout.fetch({
             }
         });
 
+appGeoms.fetch({
+            success: function(a,b) {
+                
+                console.log("appgeoms success - a,b:");
+                console.log(a);
+                console.log(b);
+                
+            }
+            ,
+            error: function(collection, response, options){
+
+console.log("Geoms error:g");
+                console.log(response);
+
+            }
+        });
+
+
 // appContentsCV.fetch({
 //             success: function() {
 //                 if(typeof appContentsCVView !== 'undefined'){
@@ -222,9 +240,9 @@ appContentsAbout.fetch({
                     "panestate": 1
                 })
             }
-            if (typeof agob !== 'undefined' && agob !== null) {
+            if (typeof agobs !== 'undefined' && agobs !== null) {
                 appState.set({
-                    "agob": agob
+                    "agobs": agobs
                 })
             }
             if (typeof slug !== 'undefined' && slug !== null) {

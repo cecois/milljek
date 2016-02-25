@@ -30,7 +30,7 @@ var ContentsAboutView = Backbone.View.extend({
         var az = this.collection.findWhere({
             active: true
         })
-        $(this.el).html("1uvMySlugsIsActive!" + this.template({
+        $(this.el).html(this.template({
             count: this.collection.models.length,
             rows: this.collection.toJSON()
         }));

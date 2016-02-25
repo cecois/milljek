@@ -134,7 +134,7 @@ $actualsql = $prtlpoint." UNION ALL ".$prtlline." UNION ALL ".$prtlpoly;
 
         $carl = "https://cecmcgee.cartodb.com/api/v2/sql?format=GeoJSON&q=".urlencode($actualsql);
 
-        // echo $carl;die();
+        echo $carl;die();
 
 
 $ch = curl_init();

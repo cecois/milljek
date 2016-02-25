@@ -10,128 +10,122 @@ var GeomsView = Backbone.View.extend({
         /* -------------------------------------------------- MAP CONTENT -----------------------  */
         // a group for all of the post-specific geoms
         eolItems = L.geoJson().addTo(map);
+        // this.render()
         return this
+    },
+    asgeojson: function(){
+
+var cg = {type:"FeatureCollection",features:[]};
+this.collection.each(function(hit, i) {
+
+console.log("hit:"); console.log(hit);
+
+                    var the_geom = hit.get("geometry")
+                    var the_props = hit.get("properties")
+
+                    var geomtype = the_geom.type
+
+                        // here we reconstruct the geoJSON for map display
+                    var recon = {
+                        "type": "Feature",
+                        "properties": {
+                            "name": the_props.name,
+
+                            "geom_type": geomtype,
+                            "anno": the_props.anno,
+
+                        },
+                        "geometry": the_geom
+                    };
+
+                    // var foot = L.geoJson(recon, {
+                    //     // seen: false,
+                    //     name: recon.properties.name,
+                    //     anno: recon.properties.anno,
+                    //     geom_type: recon.properties.geomtype,
+                    //     // style: markernew,
+
+                    // })
+
+console.log("recon:")
+console.log(recon)
+
+                    cg.features.push(recon)
+
+            }) //collection.each
+console.log("cg:"); console.log(cg);
+return cg
     },
     render: function() {
         eolItems.clearLayers();
-        this.collection.each(function(hit, i) {
 
-console.log("hit:");
-console.log(hit);
-                // var template_geom = Handlebars.templates['hitMarkerViewTpl']
-                    // console.log("hit@22:"); console.log(hit);
-                // var pu = template_geom(hit.toJSON());
 
-                
-                // var pm = new Popup(this.model)
-                // .set({leafletid:p.layer._leaflet_id});
-                // var pv = new PopupView({model:pm})
-                if (typeof hit.get("geometry") !== 'undefined') {
+var campus = {
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "popupContent": "18th & California Light Rail Stop"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-104.98999178409576, 39.74683938093904]
+            }
+        },{
+            "type": "Feature",
+            "properties": {
+                "popupContent": "20th & Welton Light Rail Stop"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-104.98689115047453, 39.747924136466565]
+            }
+        }
+    ]
+};
 
-// var hgeometry = hit.get("geometry")
-// var hproperties = hit.get("properties")
+console.log("campus:"); console.log(campus);
+console.log("models as geojson:"); console.log(this.asgeojson());
 
-                    // var the_geom = hit.get("geometry")
-// var geometry_type = hgeometry.type
-// var hitm = hit
+var notcampus = this.asgeojson();
 
-// console.log("hitm:");console.log(hitm);
-                        // here we kinda reconstruct the post for map display
-                    // var hitm = {
-                    //     "type": "Feature",
-                    //     "properties": {
-                    //         // "name": "the_geom.properties.name",
-                    //         "name": the_geom.properties.name,
-                    //         "slug": hit.get("id"),
-                    //         "active": hit.get("active"),
-                    //         "seen": hit.get("seen"),
-                    //         "cartodb_id": the_geom.properties.cartodb_id,
-                    //         "geom_type": geometry_type,
-                    //         "anno": the_geom.properties.anno,
-                    //         // "anno": "the_geom.properties.anno",
-                    //         "created_at": the_geom.properties.created_at,
-                    //         // "created_at": "the_geom.properties.created_at",
-                    //         "updated_at": the_geom.properties.updated_at
-                    //             // "updated_at": "the_geom.properties.updated_at"
-                    //     },
-                    //     // "geometry": $.parseJSON(the_geom.geometry)
-                    //     "geometry": the_geom.geometry
-                    // };
-                    var stnew = null;
-                    var stact = null;
-                    var stsen = null;
-                    if (hit.get("Type") == "Point") {
-                        stnew = marker_new;
-                        stact = marker_act;
-                        stsen = marker_sen;
-                    } else {
-                        stnew = polin_new
-                        stact = polin_act
-                        stsen = polin_sen
-                    }
-                    // var dStyle = markernew
-                    var foot = L.geoJson(hit, {
-                            // seen: false,
-                            // seen: hproperties.seen,
-                            // active: hproperties.active,
-                            // cartodb_id: hitm.properties.cartodb_id,
-                            // name: hitm.properties.name,
-                            // anno: hitm.properties.anno,
-                            // geom_type: hitm.properties.geometry_type,
-                            // style: markernew,
-                            style: stnew,
-                            pointToLayer: function(feature, latlng) {
-                                if (geometry_type == "Point") {
-                                    return L.circleMarker(latlng, this.style);
-                                }
-                            }
-                        })
-                        // foot.bindPopup(pu).addTo(eolItems).on("click", function(m) {
-                    foot.bindPopup(pu).addTo(eolItems)
-                        // .on("click", function(m) {
-                        // })
-                        .on("popupopen", function(p) {
-                            /* --------------------------------------------------
-                            ok what dafuk is going on here? Well in order to use native Backbone stuff *within* the popup we needed to be able inject a model-view couple into its guts - i.e. we want the guts of this popup to be the $el of a BB view. The way to do that is to throw the popupopen event to an external popup factory that *we* write - just so happens to be a BB view generator based on the "model" we also pass as part of the object. See that piece where we add an attribute to p? p.model = hitm.properties is us passing along this (this!) model to the popup factory. Kinda. You know what i mean.
-                            -----------------------  */
-                            // var pu = template_geom(hit.toJSON()); OG
-                            // console.log("p@91:"); console.log(p);
-                            // p.model = hproperties
-                            // var nel = p.popup._contentNode
-                            // var pm = new Popup(p.model).set({
-                            //     leafletid: p.layer._leaflet_id
-                            // });
-                            // also register that id w/ the parent model
-                            // hit.set({
-                            //     "zoomto": p.layer.getBounds()
-                            // })
-                            // var pv = new PopupView({
-                            //     model: pm,
-                            //     el: nel
-                            // })
-                        })
-                        //on popup
-                    if (foot.options.active == true) {
-                        // console.log("setting to active, foot:")
-                        // console.log(foot);
-                        foot.setStyle(stact)
-                        foot.openPopup()
-                            // this.model.set({seen:true})
-                            // foot.options.seen=true
-                    } else {
-                        if (foot.options.seen == true) {
-                            // console.log("setting to seen, foot:")
-                            // console.log(foot);
-                            foot.setStyle(stsen)
-                        } //seen
-                    }
-                    foot.addTo(eolItems)
-                } //typeof the_geom
-            }) //collection.each
-        // $(this.el).html(this.template({
-        //     count: this.collection.models.length,
-        //     rows: this.collection.toJSON()
-        // }));
+        function onEachFeature(feature, layer) {
+
+
+            var popupContent = "<p>I'm' " +
+                    feature.properties.name;
+
+            if (feature.properties && feature.properties.popupContent) {
+                popupContent += feature.properties.popupContent;
+            }
+
+            layer.bindPopup(popupContent);
+        }
+
+
+        L.geoJson(notcampus, {
+
+            style: function (feature) {
+                return feature.properties && feature.properties.style;
+            },
+
+            onEachFeature: onEachFeature,
+
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, {
+                    radius: 8,
+                    fillColor: "#ff7800",
+                    color: "#000",
+                    weight: 1,
+                    opacity: 1,
+                    fillOpacity: 0.8
+                });
+            }
+        }).addTo(eolItems);
+
+        map.fitBounds(eolItems.getBounds())
+
         // appActivityView.stfu()
         return this
             // .style()

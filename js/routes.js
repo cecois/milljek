@@ -121,14 +121,14 @@ $(".bhoechie-tab-menu > .list-group > a").removeClass("active")
  // appContentsCV.fetch({
  //            success: function() {
  //                appContentsCVView.render()
-                
+
  //            },
  //            error: function(collection, response, options){
  //                // console.log(response);
  //                appCBBContentsCVView.render_error()
 
  //            }
- //        })        
+ //        })
 appContentsAbout.fetch({
             success: function() {
                 if(typeof appContentsAboutView == 'undefined'){
@@ -140,8 +140,8 @@ appContentsAbout.fetch({
                     var az = appContentsAbout.findWhere({id:slu})
                     az.set({active:true})
                 }
-                // 
-                
+                //
+
                 }
             }
             ,
@@ -155,11 +155,11 @@ appContentsAbout.fetch({
 
 appGeoms.fetch({
             success: function(a,b) {
-                
-                console.log("appgeoms success - a,b:");
-                console.log(a);
-                console.log(b);
-                
+
+                // console.log("appgeoms success - a,b:");
+                // console.log(a);
+                // console.log(b);
+
             }
             ,
             error: function(collection, response, options){

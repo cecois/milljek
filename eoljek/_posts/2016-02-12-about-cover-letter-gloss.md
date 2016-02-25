@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'About - Why Part-Time?'
+title: 'About - WPT?'
 date: 2016-02-12 02:18:42.000000000 -04:00
 type: post
 published: true

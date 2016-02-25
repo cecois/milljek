@@ -18,7 +18,6 @@ var GeomsView = Backbone.View.extend({
 var cg = {type:"FeatureCollection",features:[]};
 this.collection.each(function(hit, i) {
 
-console.log("hit:"); console.log(hit);
 
                     var the_geom = hit.get("geometry")
                     var the_props = hit.get("properties")
@@ -47,46 +46,15 @@ console.log("hit:"); console.log(hit);
 
                     // })
 
-console.log("recon:")
-console.log(recon)
 
                     cg.features.push(recon)
 
             }) //collection.each
-console.log("cg:"); console.log(cg);
 return cg
     },
     render: function() {
         eolItems.clearLayers();
 
-
-var campus = {
-    "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "properties": {
-                "popupContent": "18th & California Light Rail Stop"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [-104.98999178409576, 39.74683938093904]
-            }
-        },{
-            "type": "Feature",
-            "properties": {
-                "popupContent": "20th & Welton Light Rail Stop"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [-104.98689115047453, 39.747924136466565]
-            }
-        }
-    ]
-};
-
-console.log("campus:"); console.log(campus);
-console.log("models as geojson:"); console.log(this.asgeojson());
 
 var notcampus = this.asgeojson();
 

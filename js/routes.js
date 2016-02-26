@@ -29,11 +29,6 @@ if (verbose == true) {
     default_queryless: function(slug, bbox, tab, panestate, agobs, basemap) {
         if (verbose == true) {
             console.log("running default_queryless route");
-            // console.log("slug:");console.log(slug);
-            // console.log("bbox:");console.log(bbox);
-            // console.log("panestate:");console.log(panestate);
-            // console.log("agobs:");console.log(agobs);
-            // console.log("basemap:");console.log(basemap);
         }
         if (typeof bbox !== 'undefined' && bbox !== null) {
             appBasemap.set({
@@ -80,9 +75,16 @@ if (verbose == true) {
 
 
         if (typeof agobs !== 'undefined' && agobs !== null) {
-            appState.set({
-                "agobs": agobs
-            })
+
+// if incoming agobs has commas in it, it's a delimited array of geo references
+if(agobs.indexOf(",")>=0){
+    appState.set({"agobs":agobs.split(",")})
+} else {
+    // or it's just one - either way agobs in appstate is an array - even if it's just one
+appState.set({"agobs": [agobs]})
+}
+
+            
         }
 
 

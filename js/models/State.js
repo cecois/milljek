@@ -6,8 +6,7 @@ var State = Backbone.Model.extend({
         "tab": "about", // prefix this with menu-a for use
         "bbox": null,
         "basemap": null,
-        "geom":null,
-        "CDBstring":null
+        "agobs":[]
         // "ap": {
         //     "slug": null,
         //     "geomid": null
@@ -22,7 +21,6 @@ var State = Backbone.Model.extend({
         // this.listenTo($("div.bhoechie-tab-menu>div.list-group>a"), 'click', this.update_t),
             // this.on('change:ap', this.test_thisapchange, this)
             // this.on('change:bbox', this.update, this),
-            this.on('change:geom', this.nonny, this),
             this.on('change:panestate', this.update, this),
             this.on('change:tab', this.update, this),
             this.on('change:slug', this.update, this)
@@ -30,14 +28,6 @@ var State = Backbone.Model.extend({
         return this
     },
     nonny: function(){
-        console.log("geom:");console.log(this.get("geom"));
-
-if(this.get("geom").indexOf(",")>0){
-    console.log("geom is arr");
-} else {
-    console.log("geom is singular");
-}
-
         console.log("url would be:");
         console.log(this.pullurl());
         return this
@@ -75,19 +65,24 @@ update_s: function() {
             })
         } //update
         ,
+        pullagobstring: function(){
+
+       return this.get("agobs").join(",")
+
+        },
     pullurl: function() {
         // var aslug = this.get("ap").slug
         var aslug = this.get("slug")
         var abbox = this.get("bbox")
         var apanestate = this.get("panestate")
-        var aagob = this.get("agob")
+        var aagobs = this.pullagobstring()
         var apane = this.get("pane")
         var abase = this.get("basemap")
         var atab = this.get("tab")
         var state =
             //thishost+"/#"+
             // appQuery.get("solrstring") + "/" + apane + "/" + aslug + "/" + abbox + "/" + apanestate + "/" + aagob + "/" + abase
-            "#"+ aslug + "/" + abbox + "/" + atab +"/" + apanestate + "/" + aagob + "/" + abase
+            "#"+ aslug + "/" + abbox + "/" + atab +"/" + apanestate + "/" + aagobs + "/" + abase
         return state
     }
 });

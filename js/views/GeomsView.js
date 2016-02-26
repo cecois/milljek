@@ -18,9 +18,17 @@ var GeomsView = Backbone.View.extend({
 var cg = {type:"FeatureCollection",features:[]};
 this.collection.each(function(hit, i) {
 
-
                     var the_geom = hit.get("geometry")
                     var the_props = hit.get("properties")
+                    var eolidreal = the_props.mjid
+
+                    var eolid = pullEOLID(eolidreal);
+                    var active = (eolid == appState.get("agob"))
+
+                    console.log("active:");
+                    console.log(active);
+
+                    // var eolidreal= the_props.geomtype+":"
 
                     var geomtype = the_geom.type
 
@@ -29,7 +37,7 @@ this.collection.each(function(hit, i) {
                         "type": "Feature",
                         "properties": {
                             "name": the_props.name,
-
+"eolid":eolid,
                             "geom_type": geomtype,
                             "anno": the_props.anno,
 

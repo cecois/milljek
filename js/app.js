@@ -10,12 +10,7 @@ window.thedomain = "eolapp-lbones.rhcloud.com"
 window.gpre_point = "g."
 window.gpre_poly = "gD"
 window.gpre_line = "g|"
-window.gseens = [
-        "g.20",
-        "gD888",
-        "g|3",
-        "g|12"
-    ]
+window.gseens = ["g.20", "gD888", "g|3", "g|12"]
     // agent="mobile"
     // NProgress.configure({
     //     parent: '#postslist-container'
@@ -37,6 +32,203 @@ function pullEOLID(idin) {
     }
     return id
 }
+/* -------------------------------------------------- MAP STYLES -----------------------  */
+function pullEOLStyle(gtype, gstate) {
+    /**
+        in here we nudge the style definitions a little bc it's not always a 1:1 match between 
+        geomtype and the name of the style applies (e.g. linestring vs. multilinestring 
+        or the fact that polys get line styles, too)
+    **/
+    var fill = "#384754";
+    var filla = "#C7E048";
+    var fillb = "#50667A";
+    var bord = "#C7E048";
+    var borda = "#384754";
+    switch (gtype.toLowerCase()) {
+        case 'point':
+            if (gstate == "seen") {
+                var style = {
+                    radius: 8,
+                    fillColor: fill,
+                    color: fillb,
+                    weight: 1,
+                    opacity: .6,
+                    fillOpacity: 0.2,
+                };
+            } else if (gstate == "active") {
+                var style = {
+                    radius: 18,
+                    fillColor: filla,
+                    color: borda,
+                    weight: 1,
+                    opacity: 1,
+                    fillOpacity: 0.8,
+                };
+            } else {
+                var style = {
+                    radius: 8,
+                    fillColor: fill,
+                    color: fillb,
+                    weight: 1,
+                    opacity: 1,
+                    fillOpacity: 0.8,
+                };
+            }
+            break;
+        case 'poly':
+            if (gstate == "seen") {
+                var style = {
+                    fillColor: fill,
+                    color: fillb,
+                    weight: 6,
+                    opacity: .2,
+                };
+            } else if (gstate == "active") {
+                var style = {
+                    fillColor: filla,
+                    color: borda,
+                    weight: 8,
+                    opacity: 1,
+                };
+            } else {
+                var style = {
+                    fillColor: fill,
+                    color: fillb,
+                    weight: 6,
+                    opacity: .8,
+                };
+            }
+            break;
+        case 'multipolygon':
+            if (gstate == "seen") {
+                var style = {
+                    fillColor: fill,
+                    color: fillb,
+                    weight: 6,
+                    opacity: .2,
+                };
+            } else if (gstate == "active") {
+                var style = {
+                    fillColor: filla,
+                    color: borda,
+                    weight: 8,
+                    opacity: 1,
+                };
+            } else {
+                var style = {
+                    fillColor: fill,
+                    color: fillb,
+                    weight: 6,
+                    opacity: .8,
+                };
+            }
+            break;
+        case 'polygon':
+            if (gstate == "seen") {
+                var style = {
+                    fillColor: fill,
+                    color: fillb,
+                    weight: 6,
+                    opacity: .2,
+                };
+            } else if (gstate == "active") {
+                var style = {
+                    fillColor: filla,
+                    color: borda,
+                    weight: 8,
+                    opacity: 1,
+                };
+            } else {
+                var style = {
+                    fillColor: fill,
+                    color: fillb,
+                    weight: 6,
+                    opacity: .8,
+                };
+            }
+            break;
+        case 'line':
+            if (gstate == "seen") {
+                var style = {
+                    fillColor: fill,
+                    color: fillb,
+                    weight: 6,
+                    opacity: .2,
+                };
+            } else if (gstate == "active") {
+                var style = {
+                    fillColor: filla,
+                    color: borda,
+                    weight: 8,
+                    opacity: 1,
+                };
+            } else {
+                var style = {
+                    fillColor: fill,
+                    color: fillb,
+                    weight: 6,
+                    opacity: .8,
+                };
+            }
+            break;
+        case 'multilinestring':
+            if (gstate == "seen") {
+                var style = {
+                    fillColor: fill,
+                    color: fillb,
+                    weight: 6,
+                    opacity: .2,
+                };
+            } else if (gstate == "active") {
+                var style = {
+                    fillColor: filla,
+                    color: borda,
+                    weight: 8,
+                    opacity: 1,
+                };
+            } else {
+                var style = {
+                    fillColor: fill,
+                    color: fillb,
+                    weight: 6,
+                    opacity: .8,
+                };
+            }
+            break;
+        case 'linestring':
+            if (gstate == "seen") {
+                var style = {
+                    fillColor: fill,
+                    color: fillb,
+                    weight: 6,
+                    opacity: .2,
+                };
+            } else if (gstate == "active") {
+                var style = {
+                    fillColor: filla,
+                    color: borda,
+                    weight: 8,
+                    opacity: 1,
+                };
+            } else {
+                var style = {
+                    fillColor: fill,
+                    color: bord,
+                    weight: 6,
+                    opacity: .8,
+                };
+            }
+            break;
+        default:
+            var style = {
+                fillColor: "gray",
+                color: "gray",
+                weight: 3,
+                opacity: .3
+            };
+    }
+    return style
+}
 /* -------------------------------------------------- HANDLEBARS START -----------------------  */
 Handlebars.registerHelper('debug', function(options) {
     // if(verbose==true){
@@ -46,7 +238,7 @@ Handlebars.registerHelper('debug', function(options) {
     return new Handlebars.SafeString("check console");
 });
 /* -------------------------------------------------- BASEMAPS -----------------------  */
-var baselayersmobile = {
+var baselayers = {
     "layers": [{
         "name": "mapquest",
         "active": false,
@@ -63,11 +255,10 @@ var baselayersmobile = {
         }
     }, {
         "name": "dummy",
-        "active": true,
+        "active": false,
         "source": "localhost",
         "nom": "A Real Dummy",
         "thumb": "offline/dummy-thumb.png",
-        // "thumb": "file:///Users/ccmiller/Sites/mstroke/src/images/2877247_jkms-25-888-g002.png",
         "mapis": "dark",
         "definition": {
             // "subdomains": ["a", "b", "c"],
@@ -76,36 +267,26 @@ var baselayersmobile = {
             // "url": "https://{s}.tiles.mapbox.com/v4/duncangraham.552f58b0/{z}/{x}/{y}@2x.png?access_token=pk.eyJ1IjoiZHVuY2FuZ3JhaGFtIiwiYSI6IlJJcWdFczQifQ.9HUpTV1es8IjaGAf_s64VQ",
             "noWrap": true
         }
-    }]
-}
-var baselayersdummified = {
-    "layers": [{
-        "name": "dummy",
-        "active": true,
-        "source": "localhost",
-        "nom": "A Real Dummy",
-        "thumb": "offline/dummy-thumb.png",
-        "mapis": "dark",
-        "definition": {
-            "maxZoom": 18,
-            "url": "offline/dummy-thumb.png",
-            "noWrap": true
+    },
+    {
+            "name": "pencil",
+            "active": true,
+            "source": "mapbox",
+            "nom": "Aj Ashton's Pencil Map",
+            "thumb": "offline/mapbox-mario.png",
+            "mapis": "dark",
+            "definition": {
+                "subdomains": ["a", "b", "c"],
+                "maxZoom": 18,
+                "url": "https://{s}.tiles.mapbox.com/v4/aj.03e9e12d/{z}/{x}/{y}@2x.png?access_token=pk.eyJ1IjoiYWoiLCJhIjoiY2lrZW1pczJzMDA1d3VybTJha216azVtdSJ9.vJBkGAq6CvN9vt0IwakQ-A",
+                // "url": "https://{s}.tiles.mapbox.com/v4/duncangraham.552f58b0/{z}/{x}/{y}@2x.png?access_token=pk.eyJ1IjoiZHVuY2FuZ3JhaGFtIiwiYSI6IlJJcWdFczQifQ.9HUpTV1es8IjaGAf_s64VQ",
+                "noWrap": true
+            }
         }
-    }, {
-        "name": "dummy",
-        "active": false,
-        "source": "localhost",
-        "nom": "A Real Dummy",
-        "thumb": "offline/dummy-thumb.png",
-        "mapis": "dark",
-        "definition": {
-            "maxZoom": 18,
-            "url": "offline/dummy-thumb.png",
-            "noWrap": true
-        }
-    }]
+    ]
 }
-baselayers = baselayersmobile
+
+// baselayers = baselayersmobile
     /* -------------------------------------------------- BASEMAP -----------------------  */
 window.appBasemap = new Basemap(
     // {tileset:"mapquest"}
@@ -262,6 +443,14 @@ $(document).ready(function() {
         $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
         $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
     }); //click
+
+
+if(appState.get("panestate")=="down"){
+            $("#postslist-container").addClass("collapsed")
+        $("#active-container").addClass("collapsed")
+$('body').find('[data-toggle="tooltip"]').tooltip('hide');
+}
+
     // $( "#search-container .btn" ).click(function() {
     // var q = $("#search-container > input").val()
     // // appPostsListView.query(q)
@@ -273,13 +462,13 @@ $(document).keydown(function(e) {
         // $("#postslist-posts").toggleClass("collapsed")
         $("#postslist-container").toggleClass("collapsed")
         $("#active-container").toggleClass("collapsed")
-        if (appState.get("panestate") == 1) {
+        if (appState.get("panestate") == "down") {
             appState.set({
-                "panestate": 0
+                "panestate": "out"
             })
         } else {
             appState.set({
-                "panestate": 1
+                "panestate": "down"
             })
         }
         $('body').find('[data-toggle="tooltip"]').tooltip('hide');

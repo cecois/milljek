@@ -59,29 +59,26 @@ return this
     // },
     parse: function(response) {
         
-
-        if (verbose == true) {
-            if (verbose == true) {
-                console.log("parsing Geoms:")
-            }
-        }
+        console.log("parse of geoms");
 
 var feats = _.each(response.features,function(f,i) {
 
 // we are iterating through the features, checking to see if each one is a member of the agobs array (active map objects) we store in State
 // we want the "active" attribute to be on-board so that this collection can get/set it and so that any derived views can check it
 // 
-
-console.log("pulleolid value:");
-console.log(pullEOLID(f.properties.mjid))
-console.log("appstategetagobs:");
-console.log(appState.get("agobs"))
+// while we're here, we also check if it's been seen already according to the registry in appState
 
        if(_.indexOf(appState.get("agobs"), pullEOLID(f.properties.mjid))>=0){
         if(verbose==true){console.log("this one is in appstate's arr, setting to active")}
         f.properties.active=1
        } else {
         f.properties.active=0
+       }
+
+              if(_.indexOf(appState.get("gobseens"), pullEOLID(f.properties.mjid))>=0){
+        f.properties.seen=1
+       } else {
+        f.properties.seen=0
        }
     
 });

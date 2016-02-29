@@ -21,7 +21,8 @@ var ContentsAboutView = Backbone.View.extend({
     scroll: function(az) {
         var azid = az.get("id")
             // $(selector).scrollTop(position)
-        $('body,html').animate({
+        // $('body,html').animate({
+        $('#active-container').animate({
             scrollTop: $('[data-id="' + azid + '"]').offset().top
         }, 500);
         return this
@@ -39,6 +40,8 @@ var ContentsAboutView = Backbone.View.extend({
         } else {
             return this
         }
+
+
     },
     render_error: function() {
         $(this.el).html("this view errored out");

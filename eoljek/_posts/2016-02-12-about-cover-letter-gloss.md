@@ -21,7 +21,7 @@ author:
 
 I currently have a very rewarding and compelling full-time position at MIT Lincoln Laboratory (literally - I have won awards there). Prior to that I had a rewarding and successful full-time gig at Purdue University (literally - I won awards there and was granted tenure).
 
-My work at MIT Lincoln Laboratory is fun and fulfilling, both personally and professionally. I work with a very talented core personnel who are very dedicated to providing excellent service to the research wing of the Lab. My work there is generally to build web applications, APIs, and the sinews within and between various web-facing library systems (as well as the systems themselves) that wrangle a diverse and sprawling technological environment into a cogent, core set of library servies to the Lab community. 
+My work at MIT Lincoln Laboratory is fun and fulfilling, both personally and professionally. I work with a very talented core personnel who are very dedicated to providing excellent service to the research wing of the Lab. My work there is generally to build web applications, APIs, and the sinews within and between various web-facing library systems (as well as some of the systems themselves) that wrangle a diverse and sprawling technological environment into a cogent, core set of library servies to the Lab community. 
 
 ### ...But Ambitious
 

@@ -50,7 +50,7 @@ if (verbose == true) {
             })
         } else {
             var tl = appBaseLayers.findWhere({
-                name: "dummy"
+                name: "pencil"
             })
             tl.set({
                     active: true
@@ -63,14 +63,16 @@ if (verbose == true) {
             })
         }
         if (typeof panestate !== 'undefined' && panestate !== null) {
+
             appState.set({
                 "panestate": panestate
-            })
-        } else {
-            appState.set({
-                "panestate": 1
-            })
-        }
+            },{silent:true})
+        } 
+        // else {
+        //     appState.set({
+        //         "panestate": 1
+        //     })
+        // }
 
 
 
@@ -78,10 +80,10 @@ if (verbose == true) {
 
 // if incoming agobs has commas in it, it's a delimited array of geo references
 if(agobs.indexOf(",")>=0){
-    appState.set({"agobs":agobs.split(",")})
+    appState.set({"agobs":agobs.split(",")},{silent:true})
 } else {
     // or it's just one - either way agobs in appstate is an array - even if it's just one
-appState.set({"agobs": [agobs]})
+appState.set({"agobs": [agobs]},{silent:true})
 }
 
             
@@ -95,7 +97,7 @@ tab = slug.split("-")[0]
 
             appState.set({
                 "slug": slug
-            })
+            },{silent:true})
 
         } // if slug
 
@@ -115,7 +117,7 @@ $(".bhoechie-tab-menu > .list-group > a").removeClass("active")
 
             appState.set({
                 "tab": tab
-            })
+            },{silent:true})
         }
 
 
@@ -157,8 +159,8 @@ appContentsAbout.fetch({
 
 appGeoms.fetch({
             success: function(a,b) {
-
-                // console.log("appgeoms success - a,b:");
+console.log("geoms success:");
+                // console.log("appgeoms success");
                 // console.log(a);
                 // console.log(b);
 
@@ -236,23 +238,21 @@ console.log("Geoms error:g");
             if (typeof panestate !== 'undefined' && panestate !== null) {
                 appState.set({
                     "panestate": panestate
-                })
+                },{silent:true})
             } else {
                 appState.set({
                     "panestate": 1
-                })
+                },{silent:true})
             }
             if (typeof agobs !== 'undefined' && agobs !== null) {
                 appState.set({
                     "agobs": agobs
-                })
+                },{silent:true})
             }
             if (typeof slug !== 'undefined' && slug !== null) {
                 appState.set({
-                    ap: {
                         "slug": slug
-                    }
-                })
+                },{silent:true})
             }
             appState.set({
                 "basemap": basemap,

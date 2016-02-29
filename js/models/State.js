@@ -22,14 +22,17 @@ var State = Backbone.Model.extend({
         // this.listenTo(appQuery, 'change:solrstring', this.update_q)
         this.listenTo(appBaseLayers, 'change', this.update_b),
         // this.listenTo($("div.bhoechie-tab-menu>div.list-group>a"), 'click', this.update_t),
-            // this.on('change:ap', this.test_thisapchange, this)
+
             this.on('change:bbox', this.update, this),
             this.on('change:panestate', this.update, this),
             this.on('change:tab', this.update, this),
             this.on('change:slug', this.update, this),
             this.on('change:agobs', this.update, this),
+            this.on('change:agob', this.update_gob, this),
             this.on('change:gobseen', this.update, this)
-            // this.on('change', this.nonny, this)
+
+
+
         return this
     },
     gobsdebug: function(){
@@ -60,24 +63,23 @@ var State = Backbone.Model.extend({
         })
         return this
     }, //update_b
-update_s: function() {
 
-        return this
-    }, //update_b
-    // update_q: function() {
-    //     this.set({
-    //         // q: appQuery.get("solrstring"),
-    //         ap: {
-    //             "slug": null,
-    //             "geomid": null
-    //         }
-    //     });
-    //     return this
-    // },
     update: function() {
             appRoute.navigate(this.pullurl(), {
                 // trigger: true
             })
+        } //update
+        ,
+    update_gob: function() {
+this.get("agobs").push(appState.get("agob"))
+
+ appRoute.navigate(this.pullurl(), {trigger: true});
+
+// appState.get("agobs").push(appState.get("agob"))
+// dunno man - #returnto - this wznt firing on its own
+                // appState.update()
+                return this
+
         } //update
         ,
         pullagobstring: function(){

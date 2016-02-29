@@ -65,6 +65,7 @@ var GeomsView = Backbone.View.extend({
         var e = _.each(eolItems.getLayers(), function(fx) {
             var ex = _.each(fx.getLayers(), function(fxe) {
                 if (fxe.feature.properties.active == 1) {
+
                     fxe.openPopup()
                 }
                 return fxe.feature.properties.active == 1;

@@ -7,16 +7,15 @@ var ContentsCollection = Backbone.Collection.extend({
         // this.on('sync', this.activate, this);
         // this.listenTo(appState, 'change:slug', this.activate)
             // this.on('sync', this.refetch, this);
+            // 
         return this
     },
     url: function() {
-        // return solrhost + "eoljek/select?json.wrf=cwmccallback&rows=999&wt=json&q=*";
-        return "api/jekyllfetcher.php?cb=cwmccallback&spatialgo=false&solrstring=subject:" + this.options.cf
+        return solrhost + "cvjek/select?json.wrf=cwmccallback&rows=999&wt=json&q="+this.options.cf;
+        // return "api/jekyllfetcher.php?cb=cwmccallback&spatialgo=false&solrstring=subject:" + this.options.cf
     },
     sync: function(method, collection, options) {
-        if (verbose == true) {
-            console.log("syncing ContentsCollection using filter:"+this.options.cf)
-        }
+        
         options.dataType = "jsonp";
         options.jsonpCallback = 'cwmccallback';
         return Backbone.sync(method, collection, options);
@@ -55,11 +54,14 @@ var ContentsCollection = Backbone.Collection.extend({
     // }, //activate
     parse: function(resp) {
 
-// var respa = _.findWhere(resp,{id:appState.get("slug")})
+// var respa = _.findWhere(resp.response.docs,{id:appState.get("slug")})
+
+// console.log("resp:");console.log(resp.response.docs);
+// console.log("respa:");console.log(respa);
 // respa.set({active:true})
 
-//         var hitdocs = respa
-        var hitdocs = resp
-        return hitdocs
+        // var hitdocs = resp.response.docs
+        // var hitdocs = resp
+        return resp.response.docs
     }
 });

@@ -1,10 +1,5 @@
 <?php
 
-// $p=file_get_contents('http://localhost:4000/spatialtrack/2008/09/29/spatial-track-chuck-e-weiss-piccolo-pete.html');
-
-// $pr=array("response"=>$p);
-// echo "callback(".json_encode($pr).");";
-
 if(isset($_GET['solrstring'])){
 $solrstring = $_GET['solrstring'];} else {
     $solrstring= "*";
@@ -20,7 +15,8 @@ $spatialgo = $_GET['spatialgo'];} else {
 $offline=false;
 
 
-$sarl = "http://localhost:8983/solr/eoljek/select?rows=999&wt=json&sort=order%20asc&q=".$solrstring;
+// $sarl = "http://localhost:8983/solr/cvjek/select?rows=999&wt=json&sort=order%20asc&q=".$solrstring;
+$sarl = "http://solr-lbones.rhcloud.com/cvjek/select?rows=999&wt=json&sort=order%20asc&q=".$solrstring;
 
 
 $solrin = json_decode(file_get_contents($sarl),true);
@@ -127,9 +123,9 @@ if (count(array_unique($lopoints)) > 0) {
             $prtlpoly = "SELECT CONCAT('poly:'||cartodb_id) AS mjid,cartodb_id,the_geom,name,anno FROM eolapp_poly where cartodb_id = 00";
         }
 
-$actualsql = $prtlpoint." UNION ALL ".$prtlline." UNION ALL ".$prtlpoly;
+// $actualsql = $prtlpoint." UNION ALL ".$prtlline." UNION ALL ".$prtlpoly;
 
-
+echo $actualsql;die();
 
 
         $carl = "https://cecmcgee.cartodb.com/api/v2/sql?format=GeoJSON&q=".urlencode($actualsql);

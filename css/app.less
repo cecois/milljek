@@ -24,7 +24,9 @@
 @bodycopy: #ABABA1;
 @bodycopy-light: #D5D4D5;
 
+
 @alink: #919191;
+@seen:#919191;
 
 // @hovercolor: black;
 @hovercolor: @eolprimary;
@@ -102,6 +104,14 @@ font-variant: small-caps;
 }
 
 body{
+  .copy-trigger{color: @eolprimary;cursor:pointer;
+    &:hover{color:@eolyellow;}
+  }
+
+  .copy-trigger.seen{
+  color:  @seen;
+}
+
     /*font-family: 'Roboto', sans-serif;*/
     /*font-family: 'Gentium Book Basic', serif;*/
     /*font-family: 'Old Standard TT', serif;*/
@@ -118,7 +128,8 @@ body{
 }
 
     a{
-      color:@alink;
+      // color:@alink;
+      color:@eolprimary;
     }
 }
 
@@ -502,7 +513,7 @@ div.bhoechie-tab-content{
 
 li.section{
 list-style: none;
-margin-bottom:35px;
+margin-bottom:95px;
 } //segment
 
 .post-content{

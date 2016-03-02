@@ -4,7 +4,7 @@ var PostsCollection = Backbone.Collection.extend({
         // return solrhost + "miljek/select?json.wrf=cwmccallback&rows=999&wt=json&q=" + encodeURIComponent(appQuery.get("solrstring"));
         return "api/jekyllfetcher.php?cb=cwmccallback&solrstring="
         // +appState.get("q")
-        // return solrhost + "eoljek/select?json.wrf=cwmccallback&rows=999&wt=json&q=" + encodeURIComponent(appQuery.get("solrstring"));
+        // return solrhost + "cvjek/select?json.wrf=cwmccallback&rows=999&wt=json&q=" + encodeURIComponent(appQuery.get("solrstring"));
     },
     initialize: function(options) {
         this.on('sync', this.activate, this);

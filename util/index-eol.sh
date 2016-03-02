@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-jekyls_raw=$(find /Users/ccmiller/git/eolapp/eoljek/_site -d -type f -iname "*.html" -not -iname "index*")
+jekyls_raw=$(find /Users/ccmiller/git/cvjek/eoljek/_site -d -type f -iname "*.html" -not -iname "index*")
  # jekyls_raw=$(find /Users/ch23936/git/milljek/_site -d -type f -iname "*.html" -not -iname "index*")
 
 for j in $jekyls_raw; do
@@ -45,4 +45,4 @@ done
 
 
 # mv /Users/ccmiller/git/milleriajek/_site /Users/ccmiller/git/milljek/_site
-# rsync -r /Users/ccmiller/git/eolapp/eoljek/_site/ /Users/ccmiller/git/eolapp/_site
+# rsync -r /Users/ccmiller/git/cvjek/eoljek/_site/ /Users/ccmiller/git/cvjek/_site

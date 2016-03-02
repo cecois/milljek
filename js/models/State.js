@@ -1,10 +1,10 @@
 var State = Backbone.Model.extend({
     defaults: {
         "q": null,
-        "slug": null,
+        "slug": "about-cover-letter-gloss",
         // "panestate": 1, // or 0 for collapsed
         "panestate": "out", // or 0 for collapsed
-        "tab": "about", // prefix this with menu-a for use
+        // "tab": "about", // prefix this with menu-a for use
         "bbox": null,
         "basemap": null,
         "agobs":[],
@@ -23,24 +23,43 @@ var State = Backbone.Model.extend({
         this.listenTo(appBaseLayers, 'change', this.update_b),
         // this.listenTo($("div.bhoechie-tab-menu>div.list-group>a"), 'click', this.update_t),
 
-            this.on('change:bbox', this.update, this),
-            this.on('change:panestate', this.update, this),
-            this.on('change:tab', this.update, this),
-            this.on('change:slug', this.update, this),
-            this.on('change:agobs', this.update, this),
-            this.on('change:agob', this.update_gob, this),
-            this.on('change:gobseen', this.update, this)
+// set the slug from default
+this.upSlug()
+
+            // this.on('change:bbox', this.update, this),
+            // this.on('change:panestate', this.update, this),
+            // this.on('change:tab', this.update, this),
+            this.on('change:slug', this.upSlug, this),
+            this.on('change:agobs', this.upGobs, this)
+            // this.on('change:agob', this.upGob, this),
+            // this.on('change:gobseen', this.update, this)
 
 
 
         return this
     },
-    gobsdebug: function(){
+    upSlug: function(){
 
-        console.log("agobs");
-        console.log(this.get("agobs"));
-        console.log("gobseens");
-        console.log(this.get("gobseens"));
+// when a slug comes in or is set, we parse it for the major category so in display we can show that stuff's pane
+// this used to be a routing param but basically pointless there, trumped by the slug every time
+this.set({tab:this.get("slug").split("-")[0]})
+        // appRoute.navigate(this.pullurl(), {trigger: false});
+
+        return this
+
+    },
+    upGobs: function(){
+
+// if agobs is an array, we can really only have one be THE active one
+// we could let users pass this in (or web app logic) but for now we'll just choose...kinda randomly
+        this.set({agob:_.last(this.get("agobs"))})
+
+        return this
+
+    },
+    update_tab: function(){
+
+        appRoute.navigate(this.pullurl(), {trigger: true});
 
         return this
 
@@ -70,10 +89,10 @@ var State = Backbone.Model.extend({
             })
         } //update
         ,
-    update_gob: function() {
+    upGob: function() {
 this.get("agobs").push(appState.get("agob"))
 
- appRoute.navigate(this.pullurl(), {trigger: true});
+ // appRoute.navigate(this.pullurl(), {trigger: true});
 
 // appState.get("agobs").push(appState.get("agob"))
 // dunno man - #returnto - this wznt firing on its own
@@ -82,7 +101,7 @@ this.get("agobs").push(appState.get("agob"))
 
         } //update
         ,
-        pullagobstring: function(){
+        getAgobString: function(){
 
 
 var str = this.get("agobs")
@@ -103,7 +122,7 @@ if(str.length==1){
         var aslug = this.get("slug")
         var abbox = this.get("bbox")
         var apanestate = this.get("panestate")
-        var agobs = this.pullagobstring()
+        var agobs = this.getAgobString()
         var apane = this.get("pane")
         var abase = this.get("basemap")
         var atab = this.get("tab")

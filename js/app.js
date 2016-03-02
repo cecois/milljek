@@ -5,8 +5,9 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     window.agent = "desktop";
 }
 window.offline = "true"
+window.solrhost = "http://localhost:8983/solr/"
     // window.thedomain="trainertothestarsseekingstars.org"
-window.thedomain = "eolapp-lbones.rhcloud.com"
+// window.thedomain = "eolapp-lbones.rhcloud.com"
 window.gpre_point = "g."
 window.gpre_poly = "gD"
 window.gpre_line = "g|"
@@ -32,6 +33,35 @@ function pullEOLID(idin) {
     }
     return id
 }
+
+/* -------------------------------------------------- IN-COPY TRIGGER -----------------------  */
+
+function copyTriggerTrigger(trtyp,trdat){
+
+switch (trtyp) {
+        case 'gob':
+            appState.set({"agob":trdat})
+            break;
+        case 'slug':
+            appState.set({"slug":trdat})
+// rough biz here #returnto
+// if(trdat.split("-")[0]=="about"){
+//     var az = appContentsAbout.findWhere({id: trdat})
+//     appState.set({tab:trdat.split("-")[0]})
+//     // appContentsAboutView.scroll(az)
+// } else if(trdat.split("-")[0]=="cv"){
+//     var az = appContentsCV.findWhere({id: trdat})
+//     appState.set({tab:trdat.split("-")[0]})
+//     // appContentsCVView.scroll(az)
+// }
+
+            break;
+        default:
+            console.log("no case observed");
+    }
+
+}
+
 /* -------------------------------------------------- MAP STYLES -----------------------  */
 function pullEOLStyle(gtype, gstate) {
     /**
@@ -255,7 +285,7 @@ var baselayers = {
         }
     }, {
         "name": "dummy",
-        "active": false,
+        "active": true,
         "source": "localhost",
         "nom": "A Real Dummy",
         "thumb": "offline/dummy-thumb.png",
@@ -270,7 +300,7 @@ var baselayers = {
     },
     {
             "name": "pencil",
-            "active": true,
+            "active": false,
             "source": "mapbox",
             "nom": "Aj Ashton's Pencil Map",
             "thumb": "offline/mapbox-mario.png",
@@ -300,10 +330,6 @@ window.appQueryView = new QueryView({
     model: appQuery
 });
 appBaseLayers = new BaseLayersCollection(baselayers.layers);
-// ...for which we need a menu
-// appBaseLayersMenuView = new BaseLayersMenuView({
-//     collection: appBaseLayers
-// });
 // ...and an actual map
 appBaseLayersView = new BaseLayersView({
     collection: appBaseLayers
@@ -345,14 +371,24 @@ window.appGeomsView = new GeomsView({
 // window.appPostsGeomView = new PostsGeomView({
 //     collection: appPosts
 // });
-window.metaContent = new Content();
-window.metaContents = new ContentsCollection();
-window.appContentsAbout = new ContentsCollection([], {
-    cf: "about"
+// window.metaContent = new Content();
+// window.metaContents = new ContentsCollection();
+window.appContents = new ContentsCollection([], {
+    cf: "*"
 });
-window.appContentsCV = new ContentsCollection([], {
-    cf: "cv"
+
+window.AboutView = new ContentsView({
+    collection: appContents,
+    cf:"about"
 });
+
+// 
+// window.appContentsAbout = new ContentsCollection([], {
+//     cf: "about"
+// });
+// window.appContentsCV = new ContentsCollection([], {
+//     cf: "cv"
+// });
 // appContentsAbout.fetch({
 //             success: function() {
 //                 appContentsAboutView.render()

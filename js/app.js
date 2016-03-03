@@ -324,11 +324,12 @@ window.appBasemap = new Basemap(
 window.appBasemapView = new BasemapView({
     model: appBasemap
 });
-/* -------------------------------------------------- QUERY -----------------------  */
+/* -------------------------------------------------- QUERY -----------------------  
 window.appQuery = new Query();
 window.appQueryView = new QueryView({
     model: appQuery
 });
+*/
 appBaseLayers = new BaseLayersCollection(baselayers.layers);
 // ...and an actual map
 appBaseLayersView = new BaseLayersView({
@@ -373,12 +374,28 @@ window.appGeomsView = new GeomsView({
 // });
 // window.metaContent = new Content();
 // window.metaContents = new ContentsCollection();
-window.appContents = new ContentsCollection([], {
-    cf: "*"
+// window.MetaContents = new MetaContentsCollection([]
+//     , {
+//     // cf: "*"
+// }
+// );
+
+
+window.cxabout = new SubContentsCollection([], {
+    cf: "about"
 });
 
-window.AboutView = new ContentsView({
-    collection: appContents,
+window.cxcv = new SubContentsCollection([], {
+    cf: "cv"
+});
+
+
+window.cxMetaContents = new ContentsCollection([], {
+    // cf: "about"
+});
+
+window.vabout = new ContentsView({
+    collection: cxabout,
     cf:"about"
 });
 
@@ -465,6 +482,26 @@ function cwmccallback(r) {
 // return id
 // }
 //
+
+$(document).keydown(function(e) {
+    if (e.keyCode == 17) {
+        // $("#postslist-posts").toggleClass("collapsed")
+        $("#postslist-container").toggleClass("collapsed")
+        $("#active-container").toggleClass("collapsed")
+        if (appState.get("panestate") == "down") {
+            appState.set({
+                "panestate": "out"
+            })
+        } else {
+            appState.set({
+                "panestate": "down"
+            })
+        }
+        $('body').find('[data-toggle="tooltip"]').tooltip('hide');
+    }
+});
+
+
 /* -------------------------------------------------- READY -----------------------  */
 $(document).ready(function() {
     $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
@@ -487,26 +524,7 @@ if(appState.get("panestate")=="down"){
 $('body').find('[data-toggle="tooltip"]').tooltip('hide');
 }
 
-    // $( "#search-container .btn" ).click(function() {
-    // var q = $("#search-container > input").val()
-    // // appPostsListView.query(q)
-    // appQuery.set({"rawstring":q})
-    // }); //search-container btn click
+cxMetaContents.fetch()
+appGeoms.fetch();
+
 }); //ready
-$(document).keydown(function(e) {
-    if (e.keyCode == 17) {
-        // $("#postslist-posts").toggleClass("collapsed")
-        $("#postslist-container").toggleClass("collapsed")
-        $("#active-container").toggleClass("collapsed")
-        if (appState.get("panestate") == "down") {
-            appState.set({
-                "panestate": "out"
-            })
-        } else {
-            appState.set({
-                "panestate": "down"
-            })
-        }
-        $('body').find('[data-toggle="tooltip"]').tooltip('hide');
-    }
-});

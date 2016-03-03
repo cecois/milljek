@@ -1,4 +1,4 @@
-var ContentsCollection = Backbone.Collection.extend({
+var SubContentsCollection = Backbone.Collection.extend({
     initialize: function(models, options) {
         this.options = options;
         // options || (options = {});
@@ -10,38 +10,10 @@ var ContentsCollection = Backbone.Collection.extend({
             // 
         return this
     },
-    model: function(attrs, options) {
-        // console.log("in model func, attrs:");console.log(attrs.subject[0]);
-        // var docs = attrs.response.docs
-        // console.log("in model func, options:");console.log(options);
-        // return new Models
-        // 
-        attrs.id==appState.get("slug") ? attrs.active=1 : attrs.active=0;
-        
-    switch(attrs.subject[0]) {
-      case "about":
-      var mod = new Content(attrs, options);
-      cxabout.push(mod)
-        return mod;
-      case "cv":
-      var mod = new Content(attrs, options);
-      cxcv.push(mod)
-        return mod;
-      default:
-        return null;
-    }
-  },
     url: function() {
-        return solrhost + "cvjek/select?json.wrf=cwmccallback&rows=999&wt=json&q=*";
+        return solrhost + "cvjek/select?json.wrf=cwmccallback&rows=999&wt=json&q="+this.options.cf;
         // return ""
         // return "api/jekyllfetcher.php?cb=cwmccallback&spatialgo=false&solrstring=subject:" + this.options.cf
-    },
-    sync: function(method, collection, options) {
-        console.log("in sync: of Contents");
-        
-        options.dataType = "jsonp";
-        options.jsonpCallback = 'cwmccallback';
-        return Backbone.sync(method, collection, options);
     },
 //     activate: function(){
 
@@ -76,7 +48,7 @@ var ContentsCollection = Backbone.Collection.extend({
     //     return this
     // }, //activate
     parse: function(resp) {
-        console.log("in parse: of Contents");
+        console.log("in parse: of SubContents");
 
 // var respa = _.findWhere(resp.response.docs,{id:appState.get("slug")})
 // var resp = this.collection.models
@@ -87,6 +59,6 @@ var ContentsCollection = Backbone.Collection.extend({
 
         // var hitdocs = resp.response.docs
         // var hitdocs = resp
-        return resp.response.docs
+        return resp
     }
 });

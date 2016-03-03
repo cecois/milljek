@@ -57,7 +57,8 @@ var Route = Backbone.Router.extend({
             })
         } // if slug
         
-        appContents.fetch()
+        // appContents.fetch()
+        
 
         //        yes, we're cascading these. so what!
         // appContentsAbout.fetch({
@@ -105,18 +106,7 @@ var Route = Backbone.Router.extend({
                         
 
 
-        appGeoms.fetch({
-            success: function(a, b) {
-                // console.log("geoms success:");
-                // console.log("appgeoms success");
-                // console.log(a);
-                // console.log(b);
-            },
-            error: function(collection, response, options) {
-                console.log("Geoms error:g");
-                console.log(response);
-            }
-        });
+        
         // appContentsCV.fetch({
         //             success: function() {
         //                 if(typeof appContentsCVView !== 'undefined'){

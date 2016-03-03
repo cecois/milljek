@@ -9,9 +9,21 @@ var ContentsAboutView = Backbone.View.extend({
         this.options = options;
         // this.el=$("#"+this.options.cf+"-container");
         this.render()
-            // this.listenTo(this.collection, 'sync', this.render)
-        this.listenTo(this.collection, 'change', this.render)
+            this.listenTo(this.collection, 'sync', this.dbsync)
+        this.listenTo(this.collection, 'change', this.dbchange)
         return this
+    },
+    dbsync: function(){
+
+        console.log("in dbsync of CAV");
+        return this
+
+    },
+    dbchange: function(){
+
+        console.log("in dbchange of CAV");
+        return this
+
     },
     wirescroll: function(azid) {
 
@@ -52,6 +64,8 @@ var ContentsAboutView = Backbone.View.extend({
         var az = this.collection.findWhere({
             active: true
         })
+
+        console.log("this.collection:");console.log(this.collection);
 
         $(this.el).html(this.template({
             count: this.collection.models.length,

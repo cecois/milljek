@@ -1,1 +1,0 @@
-var Geom = Backbone.Model.extend({});

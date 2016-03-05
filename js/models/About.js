@@ -1,1 +1,0 @@
-var About = Backbone.Model.extend({});

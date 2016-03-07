@@ -1,0 +1,59 @@
+<footer class="site-footer">
+
+  <div class="wrapper">
+
+ favico: html by Arthur Shlain from the Noun Project
+
+<!--     <h2 class="footer-heading">{{ site.title }}</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>{{ site.title }}</li>
+          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          {% if site.github_username %}
+          <li>
+            {% include icon-github.html username=site.github_username %}
+          </li>
+          {% endif %}
+
+          {% if site.twitter_username %}
+          <li>
+            {% include icon-twitter.html username=site.twitter_username %}
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>{{ site.description }}</p>
+      </div>
+    </div> -->
+
+  </div>
+
+</footer>
+
+<!-- ........................................................................................... LIB -->
+
+<script src="{{ "/scripts/components/jquery/jquery.min.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/scripts/components/handlebars/handlebars.runtime.min.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/scripts/lib/cartodb.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/scripts/lib/less-1.7.5.min.js" | prepend: site.baseurl }}"></script>
+<script src="{{"/scripts/lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"| prepend: site.baseurl }}"></script>
+<script src ="{{"/scripts/lib/underscore-min.js"| prepend: site.baseurl }}"></script>
+<script src ="{{"/scripts/lib/backbone-min.js"| prepend: site.baseurl }}"></script>
+
+<!-- ........................................................................................... BB -->
+<script src="{{ "/scripts/H-templates-compiled.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/scripts/Models.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/scripts/Collections.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/scripts/Views.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/scripts/App.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/scripts/Routes.js" | prepend: site.baseurl }}"></script>
+

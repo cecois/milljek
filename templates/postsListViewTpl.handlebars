@@ -1,0 +1,9 @@
+{{#count}}
+{{#each rows}}
+<li data-target="{{this.location}}" data-id="{{this.id}}" class="pick{{#if this.active}} active{{/if}}{{#if this.seen}} seen{{/if}}">
+    <div class="">
+{{this.title}} {{#if this.location}}({{this.location}}){{/if}}
+
+    </div>
+</li>
+{{/each}}

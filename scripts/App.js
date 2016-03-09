@@ -26,5 +26,8 @@ if(verbose==true){console.log("appjs in da house");}
 var appState = new State({});
 
 var posts = {{posts | strip_newlines}}
-cxPosts = new PostsCollection(posts, {});
-vPostsView = new PostsView(cxPosts, {});
+
+var cxPosts = new PostsCollection(posts, {});
+var vPostsView = new PostsView({
+    collection: cxPosts
+});

@@ -1,50 +1,39 @@
 var PostsView = Backbone.View.extend({
-    el: "#post-list",
+    el: ".post-list",
     template: Handlebars.templates['postsListViewTpl'],
     events: {
-        "click li": "log",
+        // "click li": "log",
         "click li": "activate"
     },
-    query: function(q){
-
-
-            var q = q
-appQuery.set({"rawstring":q})
-return this
-
-    },
     initialize: function() {
+        this.listenTo(this.collection, 'change:active', this.render);
         return this
     },
     log: function(e) {
-            e.preventDefault()
-            var di = $(e.currentTarget).attr("data-id")
-            var the = this.collection.findWhere({
-                id: di
-            })
-            console.log(the);
-            return this
+        if(verbose==true){ console.log("in log of PV, e.target:"); console.log($(e.currentTarget)); }
+        e.preventDefault()
+        var di = $(e.currentTarget).attr("data-id")
+
+        return this
         } //log
         ,
-    activate: function(e) {
+        activate: function(e) {
             e.preventDefault()
+
+
             var ds = $(e.currentTarget).attr("data-id")
             var dg = $(e.currentTarget).attr("data-target")
-            // var dg = ???
-                // AP=
 
-            appState.set({ap:
-                {"slug":ds,"geomid":dg}
-            })
+            appState.set({"slug":ds})
 
             return this
         } //activate
         ,
-    render: function() {
-        $(this.el).html(this.template({
-            count: this.collection.models.length,
-            rows: this.collection.toJSON()
-        }));
-        return this
-    }
-});
+        render: function() {
+            $(this.el).html(this.template({
+                count: this.collection.models.length,
+                rows: this.collection.toJSON()
+            }));
+            return this
+        }
+    });

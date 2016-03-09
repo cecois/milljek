@@ -5,8 +5,8 @@ var Route = Backbone.Router.extend({
     },
     initialize: function() {
         if(verbose==true){console.log("initing Route");}
-        this.report()
-        this.listenTo(appState, 'change', this.report)
+        // this.report()
+        // this.listenTo(appState, 'change', this.report)
     },
     report: function(){
 
@@ -16,7 +16,8 @@ console.log(appState.get("slug"));
     },
     default: function(slug, panestate, agobs, bbox){
         
-        if (typeof slug !== 'undefined' && slug !== null && slug !== "null") {appState.set({"slug": slug})} // if slug
+        // if (typeof slug !== 'undefined' && slug !== null && slug !== "null") {appState.set({"slug": slug})} // if slug
+        if (typeof slug !== 'undefined' && slug !== null && slug !== "null") {cxPosts.activate(slug)} // if slug
         
         return this
     }, // end default

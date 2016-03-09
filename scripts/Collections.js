@@ -6,36 +6,39 @@ var PostsCollection = Backbone.Collection.extend({
     initialize: function(options) {
         // this.on('change', this.activate, this);
         options || (options = {});
-        // this.activate();
+        this.activate(appState.get("slug"));
         return this
     },
     deactivate: function() {
+
+        if (verbose == true) {
+            console.log("DEactivating Posts...")
+        }
+
         _.every(this.models, function(d, index) {
-                d.set({
-                    active: false
-                }, {
-                    silent: true
-                })
-
-            console.log(d);
-
+            d.set({
+                active: false
+            }, {
+                silent: true
+            })
             }) // every
         return this
     },
-    activate: function() {
-
-var act = appState.get("slug")
-
-            if(verbose==true){console.log("activating Posts with "+act)}
-
-if(typeof this.collection.findWhere() !== 'undefined'){
-var ive = this.collection.findWhere({slug:act})
-}
-
-if(typeof ive !== 'undefined'){
-ive.set({active:true})}
-console.log("ive:");console.log(ive);
-
+    activate: function(slug) {
+        this.deactivate()
+        var act = slug
+        if (verbose == true) {
+            console.log("activating Posts with: " + act)
+        }
+            // this.each(function(m){
+            //     console.log("m:");
+            //     console.log(m.get("slug"));
+            // })
+            var ive = this.findWhere({
+                slug: act
+            }).set({
+                active: true
+            })
             return this
         } //actxivate
-});
+    });

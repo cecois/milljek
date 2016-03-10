@@ -27,7 +27,8 @@ var State = Backbone.Model.extend({
         this.set({
             tab: this.get("slug").split("-")[0]
         })
-        if(verbose==true){ console.log("up_slug");}
+        if(verbose==true){ console.log("up_slug, manually activating cxp...");}
+        cxPosts.activate(this.get("slug"))
         appRoute.navigate(this.pullurl());
         return this
     },

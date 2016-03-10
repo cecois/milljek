@@ -32,13 +32,21 @@ var PostsCollection = Backbone.Collection.extend({
             console.log("activating Posts with: " + act)
         }
 
-        _.each(this.models,function(m){
+        _.every(this.models),function(m){
 
-            if(m.get("slug")!==appState.get("slug"))
-                {m.set({active:false},{silent:true});}
-            else {m.set({active:true});}
+            m.set({active:false},{silent:true})
 
- }); //each
+        }
+
+        _.findWhere
+
+ //        _.each(this.models,function(m){
+
+ //            if(m.get("slug")!==appState.get("slug"))
+ //                {m.set({active:false},{silent:true});}
+
+
+ // }); //each
 
         // var ive = this.findWhere({
         //     slug: act

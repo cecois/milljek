@@ -6,7 +6,8 @@ var PostsView = Backbone.View.extend({
         "click li": "activate"
     },
     initialize: function() {
-        this.listenTo(this.collection, 'change:active', this.render);
+        // this.render()
+        this.listenTo(this.collection, 'change', this.render);
         return this
     },
     log: function(e) {
@@ -30,6 +31,7 @@ var PostsView = Backbone.View.extend({
         } //activate
         ,
         render: function() {
+            if(verbose==true){ console.log("rendering PV");}
             $(this.el).html(this.template({
                 count: this.collection.models.length,
                 rows: this.collection.toJSON()

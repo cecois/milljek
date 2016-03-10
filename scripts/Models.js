@@ -1,7 +1,8 @@
 var State = Backbone.Model.extend({
     defaults: {
         "q": null,
-        "slug": "about-cover-letter-gloss",
+        // "slug": "about-cover-letter-gloss",
+        "slug": "im-this-first-thing",
         // "panestate": 1, // or 0 for collapsed
         "panestate": "out", // or 0 for collapsed
         // "tab": "about", // prefix this with menu-a for use
@@ -13,21 +14,21 @@ var State = Backbone.Model.extend({
     },
     initialize: function(options) {
         options || (options = {});
+        if(verbose==true){ console.log("initing State");}
         //         this.listenTo(appBaseLayers, 'change', this.update_b),
-        // this.upSlug()
-        this.on('change:slug', this.upSlug, this)
+        // this.up_slug()
+        this.on('change:slug', this.up_slug, this)
         //             this.on('change:agobs', this.upGobs, this)
         return this
     },
-    upSlug: function() {
+    up_slug: function() {
         // when a slug comes in or is set, we parse it for the major category so in display we can show that stuff's pane
         // this used to be a routing param but basically pointless there, trumped by the slug every time
-        // this.set({
-        //     tab: this.get("slug").split("-")[0]
-        // })
-
-        // console.log("upslug this:");console.log(this);
-        appRoute.navigate(this.pullurl(), {trigger: false});
+        this.set({
+            tab: this.get("slug").split("-")[0]
+        })
+        if(verbose==true){ console.log("up_slug");}
+        appRoute.navigate(this.pullurl());
         return this
     },
     upGobs: function() {

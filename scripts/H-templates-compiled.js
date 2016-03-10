@@ -7,7 +7,7 @@ templates['postsListViewTpl'] = template({"1":function(depth0,helpers,partials,d
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.active : depth0), {"name":"if","hash":{},"fn":this.program(2, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
   return buffer + "\">\n	"
-    + escapeExpression(lambda((depth0 != null ? depth0.title : depth0), depth0))
+    + escapeExpression(lambda((depth0 != null ? depth0.slug : depth0), depth0))
     + "\n</li>\n";
 },"2":function(depth0,helpers,partials,data) {
   return "active";

@@ -4,9 +4,10 @@ var PostsCollection = Backbone.Collection.extend({
         return "api/jekyllfetcher.php?cb=cwmccallback&solrstring="
     },
     initialize: function(options) {
+        if(verbose==true){ console.log("initing PostsCollection");}
         // this.on('change', this.activate, this);
         options || (options = {});
-        this.activate(appState.get("slug"));
+        // this.activate(appState.get("slug"));
         return this
     },
     deactivate: function() {
@@ -25,20 +26,25 @@ var PostsCollection = Backbone.Collection.extend({
         return this
     },
     activate: function(slug) {
-        this.deactivate()
+        // this.deactivate()
         var act = slug
         if (verbose == true) {
             console.log("activating Posts with: " + act)
         }
-            // this.each(function(m){
-            //     console.log("m:");
-            //     console.log(m.get("slug"));
-            // })
-            var ive = this.findWhere({
-                slug: act
-            }).set({
-                active: true
-            })
-            return this
+
+        _.each(this.models,function(m){
+
+            if(m.get("slug")!==appState.get("slug"))
+                {m.set({active:false},{silent:true});}
+            else {m.set({active:true});}
+
+ }); //each
+
+        // var ive = this.findWhere({
+        //     slug: act
+        // }).set({
+        //     active: true
+        // })
+        return this
         } //actxivate
     });

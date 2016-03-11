@@ -10,13 +10,13 @@ var PostsCollection = Backbone.Collection.extend({
         // this.activate(appState.get("slug"));
         return this
     },
-    deactivate: function() {
+    activate: function() {
 
         if (verbose == true) {
             console.log("DEactivating Posts...")
         }
 
-        _.every(this.models, function(d, index) {
+        this.each(function(d, index) {
             d.set({
                 active: false
             }, {
@@ -24,21 +24,25 @@ var PostsCollection = Backbone.Collection.extend({
             })
             }) // every
         return this
+        .actually()
     },
-    activate: function(slug) {
-        // this.deactivate()
+    actually: function(slug) {
         var act = slug
         if (verbose == true) {
             console.log("activating Posts with: " + act)
         }
 
-        _.every(this.models),function(m){
+        // _.every(this.models),function(m){
 
-            m.set({active:false},{silent:true})
+        //     if(verbose==true){ console.log("setting (silently) to false:");console.log(m.get("slug"))}
+        //     m.set({active:false},{silent:true})
 
-        }
+        // }
 
-        _.findWhere
+        // var tat = cxPosts.findWhere({slug:"im-this-first-thing"})
+        var tat = this.findWhere({slug:appState.get("slug")})
+        if(verbose==true){ console.log("setting (loudly) to true:");console.log(tat.get("slug"))}
+        tat.set({active:true})
 
  //        _.each(this.models,function(m){
 

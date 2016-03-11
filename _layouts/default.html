@@ -1,22 +1,129 @@
 <!DOCTYPE html>
 <html>
 
-  {% include head.html %}
+{% include head.html %}
 
-  <body ontouchstart="">
-            <div id="map">
+<body ontouchstart="">
+  <div id="map">
+  </div>
+
+  {% include header.html %}
+
+  <div id="active-container" class="container col-lg-8 pull-right">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bhoechie-tab-container">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
+          <div class="list-group">
+            <a id="menu-a-about" href="#" class="list-group-item active text-center">
+              <br/>
+              About
+            </a>
+            <a href="#" id="menu-a-cv" class="list-group-item text-center">
+              <br/>
+              CV<br/>(Awards, Even!)
+            </a>
+            <a href="#" id="menu-a-minutiae" class="list-group-item text-center">
+              <br/>
+              Minutiae
+            </a>
+          </div>
+          <ul class="bt-post-bank inactive col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <li>
+              <img id="active-post-jacket-tmp" class="" src="" alt="" width="150px" height="150px" border="0" />
+            </li>
+            <li class="bt-post-bank-item bt-post-zoomto glyphicon glyphicon-magnet" title="zoom straight to this post's location">
+            </li>
+            <li class="bt-post-bank-item bt-post-share glyphicon glyphicon-share" title="tweet this out for some reason">
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
+          <!-- tab copy -->
+          <div id="about-container" class="bhoechie-tab-content active">
+            <ul class="post-list">
+              <li><center>
+                <h2>
+                  About
+                </h2>
+                <p>
+                  loading...
+                </p>
+                
+              </center></li></ul>
             </div>
+            <div id="cv-container" class="bhoechie-tab-content">
+              <center>
+                <h2 >
+                  CV
+                </h2>
+                loading...
+              </center>
+            </div>
+            <!-- #minutiae-container -->
+            <div id="tips-container" class="bhoechie-tab-content">
+              <center>
+                <h2 >
+                  Tips
+                </h2>
+                <ul style="text-align:left;">
 
-    {% include header.html %}
+                  <li>As you move through the content, the url will always update. The state of the page will be reconstructed exactly for whomever loads it with that exacty url.</li>
+                  <li>
+                    At any point, press the
+                    <code>
+                      control
+                    </code>
+                    key to collapse the page elements that obscure the map.
+                  </li>
 
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
+                </ul>
+              </center>
+            </div>
+            <!-- #minutiae-container -->
+            <div id="minutiae-container" class="bhoechie-tab-content">
+              <center>
+                This is built with
+                <a href="http://backbonejs.org/">
+                  Backbone.js
+                </a>
+                ,
+                <a href="http://leafletjs.com/">
+                  Leaflet.js
+                </a>
+                ,
+                <a href="http://getbootstrap.com/">
+                  Twitter Bootstrap
+                </a>
+                , and some other trendy stuff - the source blog, as it were, is a
+                <a href="https://jekyllrb.com/">
+                  Jekyll
+                </a>
+                instance that gets indexed in
+                <a href="http://lucene.apache.org/solr/">
+                  Solr
+                </a>
+                and served out on an
+                <a href="https://www.openshift.com/">
+                  OpenShift
+                </a>
+                instance but not before it's twisted up on-the-fly with spatial content kept at
+                <a href="cartodb.com">
+                  CartoDB
+                </a>
+                .
+                <br/>
+                <br/>
+
+              </center>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
 
     {% include footer.html %}
 
   </body>
 
-</html>
+  </html>

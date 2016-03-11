@@ -84,7 +84,8 @@ var State = Backbone.Model.extend({
             var apane = this.get("pane")
             var abase = this.get("basemap")
             var atab = this.get("tab")
-            var state = "#" + aslug + "/" + abbox + "/" + atab + "/" + apanestate + "/" + agobs
+            // var state = "#" + aslug + "/" + abbox + "/" + atab + "/" + apanestate + "/" + agobs
+            var state = "#" + aslug
             return state
         }
     });

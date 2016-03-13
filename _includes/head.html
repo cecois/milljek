@@ -3,18 +3,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{{if page.jekyll_var}}{{page.jekyll_var}}{{endif%}}
+  {{if page.jekyll_var}}{{page.jekyll_var}}{{endif%}}
 
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
   
+  <link rel="icon" 
+  type="image/png" 
+  href="{{ "/images/noun_176247_cc.png" | prepend: site.baseurl }}" />
   
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
-<link rel="stylesheet" href="{{ "/css/lib/leaflet/leaflet.css" | prepend: site.baseurl }}" />
-<link rel="stylesheet" href="{{ "/css/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css" | prepend: site.baseurl }}"/>
-<link rel="stylesheet/less" type="text/css" href="{{ "/css/app.less" | prepend: site.baseurl }}" />
+  <link rel="stylesheet" href="{{ "/css/lib/leaflet/leaflet.css" | prepend: site.baseurl }}" />
+  <link rel="stylesheet" href="{{ "/css/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css" | prepend: site.baseurl }}"/>
+  <link rel="stylesheet/less" type="text/css" href="{{ "/css/app.less" | prepend: site.baseurl }}" />
 
   <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">

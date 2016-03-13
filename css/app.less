@@ -41,17 +41,6 @@
 
 /* --------------------------------------- TITLES/HEADERS -------------- */
 
-#footer{
-  height:12px;
-  background-color:@bodycopy-light;
-  color:@bodycopy;
-  text-align:center;
-  font-size:.8em;
-  position:fixed;
-  padding:3px 7px;
-  bottom:7px;
-}
-
 body{
   .copy-trigger{color: @eolprimary;cursor:pointer;
     &:hover{color:@eolyellow;}
@@ -109,6 +98,49 @@ h3,h4,h5{
   // .stroke-eol;
 }
 
+#title-container{
+
+  text-align: center;
+  /*font-family: 'Open Sans', sans-serif;*/
+  /*font-family: 'Lato', sans-serif;*/
+  /*font-family: 'PT Mono', ;*/
+  /*font-family: 'Open Sans', sans-serif;*/
+  font-family: 'PT Sans Narrow', sans-serif;
+  z-index: 10;
+  font-weight:800;
+  font-variant: small-caps;
+  background-color: #ffffff;
+  padding: 0 !important;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  border:1px solid #ddd;
+  // margin-top: 20px;
+  /*margin-left: 50px; OG */
+  margin-left: 0px;
+  -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  -moz-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  background-clip: padding-box;
+  opacity: 0.97;
+  filter: alpha(opacity=97);
+
+  #title-copy{
+    padding-left:33px;
+    padding:10px;
+
+    ::selection {
+      background: @eolyellow; /* WebKit/Blink Browsers */
+    }
+    ::-moz-selection {
+      background: @eolyellow; /* Gecko Browsers */
+    }
+
+  }
+
+
+
+}
+
 
 /* --------------------------------------- POST-LIST -------------- */
 .post-list{
@@ -135,6 +167,20 @@ h3,h4,h5{
     bottom: 0;
     left: 0;
     z-index:-10;
+  }
+
+  /* --------------------------------------- TITLES/HEADERS -------------- */
+
+  #footer{
+    height:12px;
+    // background-color:@bodycopy-light;
+    color:@bodycopy;
+    text-align:left;
+    font-size:.7em;
+    position:fixed;
+    // padding:3px 7px;
+    bottom:0;
+    border:none;
   }
 
   /* --------------------------------------- FANCY SUBNAV TABS -------------- */

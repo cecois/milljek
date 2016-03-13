@@ -3,7 +3,6 @@ layout: post
 title:  "About to Jekyll"
 date:   2016-03-04 22:56:00 -0500
 categories: dummycat
-=======
 date:   2016-03-04 10:11:43 -0500
 categories: jekyll update
 ---

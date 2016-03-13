@@ -17,7 +17,7 @@ url: "http://localhost" # the base hostname & protocol for your site
 twitter_username: null
 github_username:  null
 markdown: kramdown
-=======
+# =======
 # Site settings
 title: akdnla
 tag_text: akdnla

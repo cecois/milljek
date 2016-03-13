@@ -12,11 +12,11 @@ if(verbose==true){console.log("appjs in da house");}
 [
 {% for post in site.posts %}
 {
-"title"    : "{{ post.title }}",
-"url"      : "{{ post.url }}",
-"slug"      : "{{ post.slug }}",
-"date"     : "{{ post.date | date: "%B %d, %Y" }}",
-"content"  : "{{ post.content | escape }}"
+	"title"    : "{{ post.title }}",
+	"url"      : "{{ post.url }}",
+	"slug"      : "{{ post.slug }}",
+	"date"     : "{{ post.date | date: "%B %d, %Y" }}",
+	"content"  : "{{ post.content | escape }}"
 } {% if forloop.last %}{% else %},{% endif %}
 {% endfor %}
 ]
@@ -26,5 +26,38 @@ if(verbose==true){console.log("appjs in da house");}
 var appState = new State({});
 
 var posts = {{posts | strip_newlines}}
-cxPosts = new PostsCollection(posts, {});
-vPostsView = new PostsView(cxPosts, {});
+
+var cxPosts = new PostsCollection(posts, {});
+var vPostsView = new PostsView({
+	collection: cxPosts
+});
+var vPostsMenu = new PostsMenuView({
+	collection: cxPosts
+});
+
+/* -------------------------------------------------- HANDLEBARS START -----------------------  */
+Handlebars.registerHelper('debug', function(options) {
+	console.log("this in HB debug:");
+	console.log(this);
+	
+	return new Handlebars.SafeString("check console");
+});
+
+/* -------------------------------------------------- READY -----------------------  */
+$(document).ready(function() {
+	// $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
+	// 	e.preventDefault();
+	// 	var tid = $(e.currentTarget).attr('id').split("-")[2]
+	// 	$(this).siblings('a.active').removeClass("active");
+	// 	$(this).addClass("active");
+	// 	var index = $(this).index();
+	// 	$("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
+	// 	$("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+ //    }); //click
+
+
+// if(appState.get("panestate")=="down"){
+//             $("#postslist-container").addClass("collapsed")
+//         $("#active-container").addClass("collapsed")
+// $('body').find('[data-toggle="tooltip"]').tooltip('hide');
+});

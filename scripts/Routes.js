@@ -1,8 +1,8 @@
 var Route = Backbone.Router.extend({
   routes: {
         // "(:slug)(/:panestate)(/:agobs)(/:bbox)(/)": "default",
-        "(:slug)(/)": "default",
-        "_site/(:cat)(/:year)(/:month)(/:day)(/:file)": "passthru",
+        "(:slug)(/:panestate)(/)": "default",
+        // "_site/(:cat)(/:year)(/:month)(/:day)(/:file)": "passthru",
       },
       initialize: function() {
         if(verbose==true){console.log("initing Route");}
@@ -15,29 +15,10 @@ var Route = Backbone.Router.extend({
         console.log(appState.get("slug"));
 
       },
-      passthru: function(cat,year,month,day,file){
+      
+      default: function(slug, panestate, agobs, bbox){
 
-        console.log("cat:");
-        console.log(cat);
-        console.log("year:");
-        console.log(year);
-        console.log("month:");
-        console.log(month);
-        console.log("day:");
-        console.log(day);
-        console.log("file:");
-        console.log(file);
-
-// i'm not proud of this
-// $("body").load(cat+"/"+year+"/"+month+"/"+day+"/"+file)
-
-// return this
-return cat+"/"+year+"/"+month+"/"+day+"/"+file
-
-},
-default: function(slug, panestate, agobs, bbox){
-
-  if(verbose==true){console.log("default in route:");}
+        if(verbose==true){console.log("default in route:");}
 
          /**
           * if there's an incoming slug and it's not the same that state has (i.e. it's not what state SET for itself...

@@ -39,7 +39,7 @@ var vPostsMenu = new PostsMenuView({
 Handlebars.registerHelper('debug', function(options) {
 	console.log("this in HB debug:");
 	console.log(this);
-	
+
 	return new Handlebars.SafeString("check console");
 });
 
@@ -55,9 +55,15 @@ $(document).ready(function() {
 	// 	$("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
  //    }); //click
 
+ $(document).keydown(function(e){
+ 	if(e.keyCode == 17){
+ 		console.log("key up")
+ 	}
+ })
 
 // if(appState.get("panestate")=="down"){
 //             $("#postslist-container").addClass("collapsed")
 //         $("#active-container").addClass("collapsed")
 // $('body').find('[data-toggle="tooltip"]').tooltip('hide');
+
 });

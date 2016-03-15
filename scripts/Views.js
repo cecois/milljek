@@ -84,8 +84,6 @@ var PostsView = Backbone.View.extend({
 
             var fpath = ap.get("url").substr(1, ap.get("url").length);
 
-            console.log("ap itself:");console.log(ap);
-            console.log("path:");console.log(fpath);
             // 
             // $(this.el).html(this.template(ap.toJSON()))
             $(this.el).html(

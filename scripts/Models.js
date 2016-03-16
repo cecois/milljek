@@ -17,7 +17,10 @@ var State = Backbone.Model.extend({
         if(verbose==true){ console.log("initing State");}
         //         this.listenTo(appBaseLayers, 'change', this.update_b),
         // this.up_slug()
-        this.on('change:slug', this.up_slug, this)
+        this.on('change:slug', this.update, this)
+        this.on('change:panestate', this.update, this)
+        this.on('change:bbox', this.update, this)
+        this.on('change:agobs', this.up_gobs, this)
         //             this.on('change:agobs', this.upGobs, this)
         return this
     },
@@ -32,7 +35,7 @@ var State = Backbone.Model.extend({
         appRoute.navigate(this.pullurl());
         return this
     },
-    upGobs: function() {
+    up_gobs: function() {
         // if agobs is an array, we can really only have one be THE active one
         // we could let users pass this in (or web app logic) but for now we'll just choose...kinda randomly
         this.set({
@@ -56,9 +59,9 @@ var State = Backbone.Model.extend({
         return this
     }, //update_b
     update: function() {
-        appRoute.navigate(this.pullurl(), {
-                // trigger: true
-            })
+        if(verbose==true){console.log("update in appState")}
+            appRoute.navigate(this.pullurl());
+        return this
         } //update
         ,
         upGob: function() {
@@ -68,13 +71,12 @@ var State = Backbone.Model.extend({
         ,
         getAgobString: function() {
             var str = this.get("agobs")
-            if (str.length == 1) {
-                return str
-            } else if (str.length == 0) {
-                return ''
+            if (str.length == 0 || typeof str == 'undefined') {
+                return "null"
             } else {
                 return str.join(",")
             }
+            return str
         },
         pullurl: function() {
             var aslug = this.get("slug")
@@ -85,19 +87,95 @@ var State = Backbone.Model.extend({
             var abase = this.get("basemap")
             var atab = this.get("tab")
             // var state = "#" + aslug + "/" + abbox + "/" + atab + "/" + apanestate + "/" + agobs
-            var state = "#" + aslug
+            var state = "#" + aslug+"/"+apanestate+ "/" + agobs+"/"+abbox
             return state
         }
     });
 
-        var Post = Backbone.Model.extend({
+var BaseLayer = Backbone.Model.extend({
 
+    defaults:{
+        active:false
+    },
+    initialize:function(){
 
-            url: function() {
-                return "api/jekyllfetcher.php"
-            },
-            initialize: function(options) {
-                options || (options = {});
-                return this
+    }
+});
+
+var BaseLayersCollection = Backbone.Collection.extend({
+    model: BaseLayer,
+    url:function(){
+        return null
+    },
+    initialize: function(options) {
+        options || (options = {});
+    }
+
+});
+var Geom = Backbone.Model.extend({});
+var GeomsCollection = Backbone.Collection.extend({
+    model: Geom,
+    url: function() {
+        return "assets/offline/cartodb-query.geojson";
+    },
+    initialize: function(options) {
+
+        options || (options = {});
+        return this
+    },
+    activate: function(){
+
+        this.deactivate()
+
+        var ags = appState.get("agobs")
+
+        return this
+
+    },
+    deactivate: function() {
+        if (verbose == true) {
+            console.log("deactivating all geoms...");
+        }
+        // i don't know about this silent thing - could bite later
+        this.invoke('set', {
+            "active": false
+        }, {
+            silent: true
+        });
+        return this
+    },
+
+    parse: function(response) {
+
+        var feats = _.each(response.features,function(f,i) {
+
+            if(_.indexOf(appState.get("agobs"), pullEOLID(f.properties.mjid))>=0){
+                if(verbose==true){console.log("this one is in appstate's arr, setting to active")}
+                    f.properties.active=1
+            } else {
+                f.properties.active=0
             }
+
+            if(_.indexOf(appState.get("gobseens"), pullEOLID(f.properties.mjid))>=0){
+                f.properties.seen=1
+            } else {
+                f.properties.seen=0
+            }
+
+        });
+
+        return feats
+    },
+});
+
+var Post = Backbone.Model.extend({
+
+
+    url: function() {
+        return "api/jekyllfetcher.php"
+    },
+    initialize: function(options) {
+        options || (options = {});
+        return this
+    }
 }); //Post

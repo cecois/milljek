@@ -1,7 +1,7 @@
 var Route = Backbone.Router.extend({
   routes: {
         // "(:slug)(/:panestate)(/:agobs)(/:bbox)(/)": "default",
-        "(:slug)(/:panestate)(/)": "default",
+        "(:slug)(/:panestate)(/:agobs)(/:bbox)(/)": "default",
         // "_site/(:cat)(/:year)(/:month)(/:day)(/:file)": "passthru",
       },
       initialize: function() {
@@ -9,14 +9,8 @@ var Route = Backbone.Router.extend({
         // this.report()
         // this.listenTo(appState, 'change', this.report)
       },
-      report: function(){
-
-        if(verbose==true){console.log("reporting from route:");}
-        console.log(appState.get("slug"));
-
-      },
-      
       default: function(slug, panestate, agobs, bbox){
+
 
         if(verbose==true){console.log("default in route:");}
 
@@ -25,24 +19,31 @@ var Route = Backbone.Router.extend({
           * ...we use that - setting it in Posts and State, but silently for the latter so that it doesn't trigger another route call
           * 
           */
-          
-          console.log("as slug:");
-          console.log(appState.get("slug"));
-
-          console.log("incoming slug:");
-          console.log(slug);
 
           if (typeof slug !== 'undefined' && slug !== null && slug !== "null" && appState.get("slug")!==slug) {
 
             appState.set({slug:slug},{silent:true})
           } 
-        // else if(typeof appState.changedAttributes().slug == 'undefined'){
-            // or the situation might be we *don't* have an incoming slug, in which case we still need to activate a post
-            // any other slug state will have been handled by State or the page (both)
-            // if(verbose==true){console.log("no incoming slug, and State.slug is unchanged...");}
-            // cxPosts.activate(appState.get("slug"))
-        // }
-        cxPosts.activate(slug)
+
+          if (typeof panestate !== 'undefined' && panestate !== null && panestate !== "null") {
+
+            appState.set({panestate:panestate})
+          }
+
+          if (typeof agobs !== 'undefined' && agobs !== null && agobs !== "null") {
+
+            appState.set({agobs:agobs})
+          } 
+
+          if (typeof bbox !== 'undefined' && bbox !== null && bbox !== "null") {
+
+            if(bbox !== appState.get("bbox")){
+              appState.set({bbox:bbox})
+              map.fitBounds(leafletize_Bbox(bbox))
+            }
+          } 
+
+          cxPosts.activate(slug)
         // if slug
 
         return this

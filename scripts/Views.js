@@ -208,6 +208,7 @@ var GeomsView = Backbone.View.extend({
         },
         pop: function() {
             var e = _.each(eolItems.getLayers(), function(fx) {
+                console.log("this fx is :");console.log(fx);
                 var ex = _.each(fx.getLayers(), function(fxe) {
                     if (fxe.feature.properties.active == 1) {
                         map.fitBounds(fxe.getBounds());
@@ -222,59 +223,68 @@ var GeomsView = Backbone.View.extend({
         render: function() {
             eolItems.clearLayers();
             var notcampus = this.asgeojson();
+            // var notcampus = this.collection.models;
 
             function onEachFeature(feature, layer) {
             // only one at a time - Leaflet rule, so we can just let this clobber whatever came before
-            if (feature.properties.active == 1) {
-                appState.set({
-                    "agob": layer._leaflet_id
-                }, {
-                    silent: true
-                })
-            }
+            // if (feature.properties.active == 1) {
+            //     console.log("layer leaflet id in oneachfeature of render:");console.log(layer);
+            //     appState.set({
+            //         "agob": layer._leaflet_id
+            //     })
+            // }
             var popupContent = feature.properties.name + " (" + feature.properties.eolid + ")";
             if (feature.properties && feature.properties.popupContent) {
                 popupContent += feature.properties.popupContent;
             }
             layer.bindPopup(popupContent).on("popupclose", function(p) {
                 // report to appState that the thing has been seen - permanent for the session
-                appState.get("gobseens").push(p.target.feature.properties.eolid)
-                p.target.setStyle(pullEOLStyle(p.target.feature.geometry.type.toLowerCase(), "seen"))
-                    // also shuffle it behind - jic there's another one nearby that obstructs when zoomed out
-                    p.target.bringToBack()
-                    var newgobs = _.reject(appState.get("agobs"), function(gob) {
-                        return gob == p.target.feature.properties.eolid;
-                    });
-                    appState.set({
-                        "agobs": newgobs
-                    })
-                })
+                var gbseens = appState.get("gobseens")
+                gbseens.push(p.target.feature.properties.eolid)
+                appState.set({gobseens:_.unique(gbseens)})
+                appState.set({agob:null})
+                // p.target.setStyle(pullEOLStyle(p.target.feature.geometry.type.toLowerCase(), "seen"))
+                //     // also shuffle it behind - jic there's another one nearby that obstructs when zoomed out
+                //     p.target.bringToBack()
+                //     var newgobs = _.reject(appState.get("agobs"), function(gob) {
+                //         return gob == p.target.feature.properties.eolid;
+                //     });
+                //     appState.set({
+                //         "agobs": newgobs,
+                //         "agob":null
+                //     })
+            })
+
+            console.log("how about here - access to active?");
+            console.log(layer);
+
         }
         L.geoJson(notcampus, {
             style: function(feature) {
                 return feature.properties && feature.properties.style;
             },
             onEachFeature: onEachFeature,
-            pointToLayer: function(feature, latlng) {
-                return L.circleMarker(latlng, {
-                    radius: 8,
-                    fillColor: "#ff7800",
-                    color: "#000",
-                    weight: 1,
-                    opacity: 1,
-                    fillOpacity: 0.8
-                });
-            }
+            // pointToLayer: function(feature, latlng) {
+            //     return L.circleMarker(latlng, {
+            //         radius: 8,
+            //         fillColor: "#ff7800",
+            //         color: "#000",
+            //         weight: 1,
+            //         opacity: 1,
+            //         fillOpacity: 0.8
+            //     });
+            // }
         }).addTo(eolItems).on("click", function(m) {
             m.layer.setStyle(pullEOLStyle(m.layer.feature.geometry.type.toLowerCase(), "active"))
                     // report to appState that the thing is currently active - undone upon blur
-                    appState.get("agobs").push(m.layer.feature.properties.eolid)
+                    
+                    appState.set({agob:m.layer.feature.properties.eolid})
 
 // dunno man - #returnto - this wznt firing on its own
-appState.update()
+// appState.update()
             }) //.on
         map.fitBounds(eolItems.getBounds())
             // appActivityView.stfu()
-            return this.pop()
+            // return this.pop()
         }
     });

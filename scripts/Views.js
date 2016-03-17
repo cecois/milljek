@@ -145,7 +145,7 @@ var PostsView = Backbone.View.extend({
 
             var fpath = ap.get("url").substr(1, ap.get("url").length);
 
-            // 
+            //
             // $(this.el).html(this.template(ap.toJSON()))
             $(this.el).html(
                 _.unescape(ap.get("content"))
@@ -172,7 +172,8 @@ var GeomsView = Backbone.View.extend({
             cg = []
             this.collection.each(function(hit, i) {
 
-                ,
+                console.log("hit in each of collection in asgeojson:")
+                console.log(hit)
 
                 var the_geom = hit.get("geometry")
                 var the_props = hit.get("properties")

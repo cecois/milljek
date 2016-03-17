@@ -171,6 +171,9 @@ var GeomsView = Backbone.View.extend({
         asgeojson: function() {
             cg = []
             this.collection.each(function(hit, i) {
+
+                ,
+
                 var the_geom = hit.get("geometry")
                 var the_props = hit.get("properties")
                 var eolidreal = the_props.mjid
@@ -222,8 +225,8 @@ var GeomsView = Backbone.View.extend({
         },
         render: function() {
             eolItems.clearLayers();
-            var notcampus = this.asgeojson();
-            // var notcampus = this.collection.models;
+            var notcampusasg = this.asgeojson();
+
 
             function onEachFeature(feature, layer) {
             // only one at a time - Leaflet rule, so we can just let this clobber whatever came before
@@ -233,16 +236,16 @@ var GeomsView = Backbone.View.extend({
             //         "agob": layer._leaflet_id
             //     })
             // }
-            var popupContent = feature.properties.name + " (" + feature.properties.eolid + ")";
-            if (feature.properties && feature.properties.popupContent) {
-                popupContent += feature.properties.popupContent;
-            }
-            layer.bindPopup(popupContent).on("popupclose", function(p) {
-                // report to appState that the thing has been seen - permanent for the session
-                var gbseens = appState.get("gobseens")
-                gbseens.push(p.target.feature.properties.eolid)
-                appState.set({gobseens:_.unique(gbseens)})
-                appState.set({agob:null})
+            // var popupContent = feature.properties.name + " (" + feature.properties.eolid + ")";
+            // if (feature.properties && feature.properties.popupContent) {
+            //     popupContent += feature.properties.popupContent;
+            // }
+            // layer.bindPopup(popupContent).on("popupclose", function(p) {
+            //     // report to appState that the thing has been seen - permanent for the session
+            //     var gbseens = appState.get("gobseens")
+            //     gbseens.push(p.target.feature.properties.eolid)
+            //     appState.set({gobseens:_.unique(gbseens)})
+            //     appState.set({agob:null})
                 // p.target.setStyle(pullEOLStyle(p.target.feature.geometry.type.toLowerCase(), "seen"))
                 //     // also shuffle it behind - jic there's another one nearby that obstructs when zoomed out
                 //     p.target.bringToBack()
@@ -253,17 +256,22 @@ var GeomsView = Backbone.View.extend({
                 //         "agobs": newgobs,
                 //         "agob":null
                 //     })
-            })
+            // })
 
-            console.log("how about here - access to active?");
-            console.log(layer);
+        //     console.log("how about here - access to active?");
+        //     console.log(layer);
 
-        }
-        L.geoJson(notcampus, {
-            style: function(feature) {
-                return feature.properties && feature.properties.style;
+        } //oneachfeature
+        L.geoJson(notcampusasg, {
+            // style: function(feature) {
+            //     return feature.properties && feature.properties.style;
+            // },
+            style: function(){
+
+                return pullEOLStyle("poly", "new")
+
             },
-            onEachFeature: onEachFeature,
+            // onEachFeature: onEachFeature,
             // pointToLayer: function(feature, latlng) {
             //     return L.circleMarker(latlng, {
             //         radius: 8,
@@ -274,15 +282,12 @@ var GeomsView = Backbone.View.extend({
             //         fillOpacity: 0.8
             //     });
             // }
-        }).addTo(eolItems).on("click", function(m) {
-            m.layer.setStyle(pullEOLStyle(m.layer.feature.geometry.type.toLowerCase(), "active"))
-                    // report to appState that the thing is currently active - undone upon blur
-                    
-                    appState.set({agob:m.layer.feature.properties.eolid})
-
-// dunno man - #returnto - this wznt firing on its own
-// appState.update()
-            }) //.on
+        }).addTo(eolItems)
+        // .on("click", function(m) {
+        //     m.layer.setStyle(pullEOLStyle(m.layer.feature.geometry.type.toLowerCase(), "active"))
+        //             // report to appState that the thing is currently active - undone upon blur
+        //             appState.set({agob:m.layer.feature.properties.eolid})
+        //     }) //.on
         map.fitBounds(eolItems.getBounds())
             // appActivityView.stfu()
             // return this.pop()

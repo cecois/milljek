@@ -29,7 +29,8 @@ var State = Backbone.Model.extend({
         this.on('change:slug', this.update, this)
         this.on('change:panestate', this.update, this)
         this.on('change:bbox', this.update, this)
-        this.on('change:agob', this.up_gobs, this)
+        // this.on('change:agob', this.up_gobs, this)
+        this.on('change:agobs', this.up_gobs, this)
         //             this.on('change:agobs', this.upGobs, this)
         return this
     },
@@ -45,6 +46,49 @@ var State = Backbone.Model.extend({
         return this
     },
     up_gobs: function() {
+
+        var agobs = this.get("agobs")
+        
+        // if agobs is an array, we can really only have one be THE active one
+        // we could let users pass this in (or web app logic) but for now we'll just choose...kinda randomly
+        
+        if(agobs.indexOf(",")>-1){
+            var agobsa = agobs.split(",")
+            this.set({agob:agobsa[0]})
+        } else {
+            // it's just one coming in, so that's agob
+            this.set({agobs})
+        }
+
+        console.info("now the ag* sitch in state:")
+        console.log("agobs");
+        console.log(this.get("agobs"));
+        console.log("agob");
+        console.log(this.get("agob"));
+
+        // if(this.get("agobs").length<2){
+        //     this.set({agobs:[this.get("agob")]})
+        // } else {
+
+        //     var agbs = this.get("agobs")
+
+        //     console.log("agbs type:");
+        //     console.log(typeof agbs);
+        //     if(typeof agbs == 'object'){
+        //         agbs.push(this.get("agob"))
+
+        //         this.set({agobs:_.uniq(agbs)})
+        //     } else {
+        //         this.set({agobs:this.get("agob")})
+        //     }
+
+        // }
+
+        return this
+        .update()
+
+    },
+    up_gobsAGOB: function() {
         console.log("up_gobs fire ona change to agobs?");
         // if agobs is an array, we can really only have one be THE active one
         // we could let users pass this in (or web app logic) but for now we'll just choose...kinda randomly

@@ -33,8 +33,7 @@ var Route = Backbone.Router.extend({
           if (typeof agobs !== 'undefined' && agobs !== null && agobs !== "null") {
 
             appState.set({agobs:agobs})
-            console.log("after set of agobs in route, agobs:");
-            console.log(appState.get("agobs"));
+
           } 
 
           if (typeof bbox !== 'undefined' && bbox !== null && bbox !== "null") {

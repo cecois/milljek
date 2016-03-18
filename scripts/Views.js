@@ -172,40 +172,47 @@ var GeomsView = Backbone.View.extend({
             cg = []
             this.collection.each(function(hit, i) {
 
-                console.log("hit in each of collection in asgeojson:")
-                console.log(hit)
-
                 var the_geom = hit.get("geometry")
                 var the_props = hit.get("properties")
-                var eolidreal = the_props.mjid
-                var eolactive = the_props.active
-                var eolseen = the_props.seen
-                var eolid = pullEOLID(eolidreal);
+                // var eolidreal = the_props.mjid
+                var cvjekid = the_props.cvjek;
+                // var isinagobs = the_props.active
+                the_props.active = _.indexOf(appState.get("agobs").split(","),cvjekid)>-1 ? 1 : 0;
+                if(appState.get("gobseens") && appState.get("gobseens").length>0){the_props.seen = _.indexOf(appState.get("gobseens").split(","),cvjekid)>-1 ? 1 : 0;}else{the_props.seen=0};
+                the_props.exalted = appState.get("agob")==cvjekid ? 1 : 0;
+
+                // var isagob = the_props.active
+                // var eolseen = the_props.seen
+                // var eolid = pullEOLID(eolidreal);
                 var geomtype = the_geom.type
                     // default
-                    var eolstyle = pullEOLStyle(geomtype, "new")
+                    // var eolstyle = pullEOLStyle(geomtype, "new")
                     // if we've seen this one, style it so
-                    if (eolseen == 1) {
-                        eolstyle = pullEOLStyle(geomtype, "seen")
-                    }
+                    // if (eolseen == 1) {
+                    //     eolstyle = pullEOLStyle(geomtype, "seen")
+                    // }
                 // but this will always be trumped by active
-                if (eolactive == 1) {
-                    eolstyle = pullEOLStyle(geomtype, "active")
-                }
+                // if (isagob == 1) {
+                //     eolstyle = pullEOLStyle(geomtype, "active")
+                // }
                 // here we reconstruct the geoJSON for map display
                 var recon = {
                     "type": "Feature",
                     "properties": {
                         "name": the_props.name,
-                        "eolid": eolid,
-                        "active": eolactive,
-                        "seen": eolseen,
+                        "cvjekid": cvjekid,
+                        "active":the_props.active,
+                        "seen":the_props.seen,
+                        "exalted":the_props.exalted,
+                        // "active": isagob,
+                        // "seen": eolseen,
                         "geom_type": geomtype,
                         "anno": the_props.anno,
-                        "style": eolstyle
+                        "style": pullCVJEKStyle(geomtype,the_props.active,the_props.seen)
                     },
                     "geometry": the_geom
                 };
+                console.log("recon:");console.log(recon);
                 cg.push(recon)
             }) //collection.each
             return cg
@@ -226,7 +233,8 @@ var GeomsView = Backbone.View.extend({
         },
         render: function() {
             eolItems.clearLayers();
-            var notcampusasg = this.asgeojson();
+            // var notcampus = this.collection.models;
+            var notcampus = this.asgeojson();
 
 
             function onEachFeature(feature, layer) {
@@ -263,15 +271,15 @@ var GeomsView = Backbone.View.extend({
         //     console.log(layer);
 
         } //oneachfeature
-        L.geoJson(notcampusasg, {
+        L.geoJson(notcampus, {
             // style: function(feature) {
             //     return feature.properties && feature.properties.style;
             // },
-            style: function(){
+            // style: function(){
 
-                return pullEOLStyle("poly", "new")
+            //     return pullEOLStyle("line", "new")
 
-            },
+            // },
             // onEachFeature: onEachFeature,
             // pointToLayer: function(feature, latlng) {
             //     return L.circleMarker(latlng, {

@@ -31,291 +31,415 @@ var appState = new State({});
 /* -------------------------------------------------- MAP STUFF -----------------------  */
 
 /* -------------- MAP STYLES -----------------------  */
-function pullEOLStyle(gtype, gstate) {
-    /**
+
+function pullCVJEKStyle(gtype,active,seen){
+  /**
         in here we nudge the style definitions a little bc it's not always a 1:1 match between 
         geomtype and the name of the style applies (e.g. linestring vs. multilinestring 
         or the fact that polys get line styles, too)
         **/
-        var fill = "#384754";
-        var filla = "#C7E048";
-        var fillb = "#50667A";
-        var bord = "#C7E048";
-        var borda = "#384754";
-        switch (gtype.toLowerCase()) {
-        	case 'point':
-        	if (gstate == "seen") {
-        		var style = {
-        			radius: 8,
-        			fillColor: fill,
-        			color: fillb,
-        			weight: 1,
-        			opacity: .6,
-        			fillOpacity: 0.2,
-        		};
-        	} else if (gstate == "active") {
-        		var style = {
-        			radius: 18,
-        			fillColor: filla,
-        			color: borda,
-        			weight: 1,
-        			opacity: 1,
-        			fillOpacity: 0.8,
-        		};
-        	} else {
-        		var style = {
-        			radius: 8,
-        			fillColor: fill,
-        			color: fillb,
-        			weight: 1,
-        			opacity: 1,
-        			fillOpacity: 0.8,
-        		};
-        	}
-        	break;
-        	case 'poly':
-        	if (gstate == "seen") {
-        		var style = {
-        			fillColor: fill,
-        			color: fillb,
-        			weight: 6,
-        			opacity: .2,
-        		};
-        	} else if (gstate == "active") {
-        		var style = {
-        			fillColor: filla,
-        			color: borda,
-        			weight: 8,
-        			opacity: 1,
-        		};
-        	} else {
-        		var style = {
-        			fillColor: fill,
-        			color: fillb,
-        			weight: 6,
-        			opacity: .8,
-        		};
-        	}
-        	break;
-        	case 'multipolygon':
-        	if (gstate == "seen") {
-        		var style = {
-        			fillColor: fill,
-        			color: fillb,
-        			weight: 6,
-        			opacity: .2,
-        		};
-        	} else if (gstate == "active") {
-        		var style = {
-        			fillColor: filla,
-        			color: borda,
-        			weight: 8,
-        			opacity: 1,
-        		};
-        	} else {
-        		var style = {
-        			fillColor: fill,
-        			color: fillb,
-        			weight: 6,
-        			opacity: .8,
-        		};
-        	}
-        	break;
-        	case 'polygon':
-        	if (gstate == "seen") {
-        		var style = {
-        			fillColor: fill,
-        			color: fillb,
-        			weight: 6,
-        			opacity: .2,
-        		};
-        	} else if (gstate == "active") {
-        		var style = {
-        			fillColor: filla,
-        			color: borda,
-        			weight: 8,
-        			opacity: 1,
-        		};
-        	} else {
-        		var style = {
-        			fillColor: fill,
-        			color: fillb,
-        			weight: 6,
-        			opacity: .8,
-        		};
-        	}
-        	break;
-        	case 'line':
-        	if (gstate == "seen") {
-        		var style = {
-        			fillColor: fill,
-        			color: fillb,
-        			weight: 6,
-        			opacity: .2,
-        		};
-        	} else if (gstate == "active") {
-        		var style = {
-        			fillColor: filla,
-        			color: borda,
-        			weight: 8,
-        			opacity: 1,
-        		};
-        	} else {
-        		var style = {
-        			fillColor: fill,
-        			color: fillb,
-        			weight: 6,
-        			opacity: .8,
-        		};
-        	}
-        	break;
-        	case 'multilinestring':
-        	if (gstate == "seen") {
-        		var style = {
-        			fillColor: fill,
-        			color: fillb,
-        			weight: 6,
-        			opacity: .2,
-        		};
-        	} else if (gstate == "active") {
-        		var style = {
-        			fillColor: filla,
-        			color: borda,
-        			weight: 8,
-        			opacity: 1,
-        		};
-        	} else {
-        		var style = {
-        			fillColor: fill,
-        			color: fillb,
-        			weight: 6,
-        			opacity: .8,
-        		};
-        	}
-        	break;
-        	case 'linestring':
-        	if (gstate == "seen") {
-        		var style = {
-        			fillColor: fill,
-        			color: fillb,
-        			weight: 6,
-        			opacity: .2,
-        		};
-        	} else if (gstate == "active") {
-        		var style = {
-        			fillColor: filla,
-        			color: borda,
-        			weight: 8,
-        			opacity: 1,
-        		};
-        	} else {
-        		var style = {
-        			fillColor: fill,
-        			color: bord,
-        			weight: 6,
-        			opacity: .8,
-        		};
-        	}
-        	break;
-        	default:
-        	var style = {
-        		fillColor: "gray",
-        		color: "gray",
-        		weight: 3,
-        		opacity: .3
-        	};
-        }
-        return style
-    }
 
-    /* ---------- BASELAYERS ------------ */
+// first let's normalize for beauty:
+if(gtype.toLowerCase()=='point'){var gtypa=gtype.toLowerCase()}
+	if(gtype.toLowerCase()=='poly'){var gtypa=gtype.toLowerCase();}
+if(gtype.toLowerCase()=='multipolygon'){var gtypa='poly';}
+if(gtype.toLowerCase()=='polygon'){var gtypa='poly';}
+if(gtype.toLowerCase()=='line'){var gtypa=gtype.toLowerCase();}
+if(gtype.toLowerCase()=='multilinestring'){var gtypa='line';}
+if(gtype.toLowerCase()=='linestring'){var gtypa='line';}
 
-    var baselayers = {
-    	"layers": [{
-    		"name": "mapquest",
-    		"active": false,
-    		"source": "mapquest",
-    		"nom": "MapQuest OSM",
-    		"thumb": "http://otile1.mqcdn.com/tiles/1.0.0/osm/3/4/2.png",
-    		"mapis": "light",
-    		"definition": {
-    			"subdomains": ["otile1", "otile2", "otile3", "otile4"],
-    			"maxZoom": 18,
-    			"url": "http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png",
-    			"noWrap": true
-    		}
-    	}, {
-    		"name": "dummy",
-    		"active": true,
-    		"source": "localhost",
-    		"nom": "A Real Dummy",
-    		"thumb": "assets/offline/dummy-thumb.png",
-    		"mapis": "dark",
-    		"definition": {
-    			"maxZoom": 18,
-    			"url": "assets/offline/dummy-thumb.png",
-    			"noWrap": true
-    		}
-    	}
+// 
 
-    	]
-    }
+console.log("in pull:");
 
-    var mapBaseLayers = new BaseLayersCollection(baselayers.layers);
-    var mapBaseView = new BaseLayersView({
-    	collection: mapBaseLayers
-    });
+console.log("gtypa:")
+console.log(gtypa);
+console.log("active:")
+console.log(active);
+console.log("seen:")
+console.log(seen);
+
+var fill = "#384754";
+var filla = "#C7E048";
+var fillb = "#50667A";
+var bord = "#C7E048";
+var borda = "#384754";
+switch (gtypa) {
+	case 'point':
+	if (seen==1) {
+		var style = {
+			radius: 8,
+			fillColor: fill,
+			color: fillb,
+			weight: 1,
+			opacity: .6,
+			fillOpacity: 0.2,
+		};
+	} else if (active==1) {
+		var style = {
+			radius: 18,
+			fillColor: filla,
+			color: borda,
+			weight: 1,
+			opacity: 1,
+			fillOpacity: 0.8,
+		};
+	} else {
+		var style = {
+			radius: 8,
+			fillColor: fill,
+			color: fillb,
+			weight: 1,
+			opacity: 1,
+			fillOpacity: 0.8,
+		};
+	}
+	break;
+	case 'poly':
+	if (seen==1) {
+		var style = {
+			fillColor: fill,
+			color: fillb,
+			weight: 6,
+			opacity: .2,
+		};
+	} else if (active==1) {
+		var style = {
+			fillColor: filla,
+			color: borda,
+			weight: 8,
+			opacity: 1,
+		};
+	} else {
+		var style = {
+			fillColor: fill,
+			color: fillb,
+			weight: 6,
+			opacity: .8,
+		};
+	}
+	break;
+	case 'line':
+	if (seen==1) {
+		var style = {
+			fillColor: fill,
+			color: fillb,
+			weight: 6,
+			opacity: .2,
+		};
+	} else if (active==1) {
+		var style = {
+			fillColor: filla,
+			color: borda,
+			weight: 8,
+			opacity: 1,
+		};
+	} else {
+		var style = {
+			fillColor: fill,
+			color: fillb,
+			weight: 6,
+			opacity: .8,
+		};
+	}
+	break;
+	default:
+	var style = {
+		fillColor: "gray",
+		color: "gray",
+		weight: 3,
+		opacity: .3
+	};
+}
+return style
+
+}
+
+// function pullEOLStyle(gtype, gstate) {
+//     /**
+//         in here we nudge the style definitions a little bc it's not always a 1:1 match between 
+//         geomtype and the name of the style applies (e.g. linestring vs. multilinestring 
+//         or the fact that polys get line styles, too)
+//         **/
+//         var fill = "#384754";
+//         var filla = "#C7E048";
+//         var fillb = "#50667A";
+//         var bord = "#C7E048";
+//         var borda = "#384754";
+//         switch (gtype.toLowerCase()) {
+//         	case 'point':
+//         	if (gstate == "seen") {
+//         		var style = {
+//         			radius: 8,
+//         			fillColor: fill,
+//         			color: fillb,
+//         			weight: 1,
+//         			opacity: .6,
+//         			fillOpacity: 0.2,
+//         		};
+//         	} else if (gstate == "active") {
+//         		var style = {
+//         			radius: 18,
+//         			fillColor: filla,
+//         			color: borda,
+//         			weight: 1,
+//         			opacity: 1,
+//         			fillOpacity: 0.8,
+//         		};
+//         	} else {
+//         		var style = {
+//         			radius: 8,
+//         			fillColor: fill,
+//         			color: fillb,
+//         			weight: 1,
+//         			opacity: 1,
+//         			fillOpacity: 0.8,
+//         		};
+//         	}
+//         	break;
+//         	case 'poly':
+//         	if (gstate == "seen") {
+//         		var style = {
+//         			fillColor: fill,
+//         			color: fillb,
+//         			weight: 6,
+//         			opacity: .2,
+//         		};
+//         	} else if (gstate == "active") {
+//         		var style = {
+//         			fillColor: filla,
+//         			color: borda,
+//         			weight: 8,
+//         			opacity: 1,
+//         		};
+//         	} else {
+//         		var style = {
+//         			fillColor: fill,
+//         			color: fillb,
+//         			weight: 6,
+//         			opacity: .8,
+//         		};
+//         	}
+//         	break;
+//         	case 'multipolygon':
+//         	if (gstate == "seen") {
+//         		var style = {
+//         			fillColor: fill,
+//         			color: fillb,
+//         			weight: 6,
+//         			opacity: .2,
+//         		};
+//         	} else if (gstate == "active") {
+//         		var style = {
+//         			fillColor: filla,
+//         			color: borda,
+//         			weight: 8,
+//         			opacity: 1,
+//         		};
+//         	} else {
+//         		var style = {
+//         			fillColor: fill,
+//         			color: fillb,
+//         			weight: 6,
+//         			opacity: .8,
+//         		};
+//         	}
+//         	break;
+//         	case 'polygon':
+//         	if (gstate == "seen") {
+//         		var style = {
+//         			fillColor: fill,
+//         			color: fillb,
+//         			weight: 6,
+//         			opacity: .2,
+//         		};
+//         	} else if (gstate == "active") {
+//         		var style = {
+//         			fillColor: filla,
+//         			color: borda,
+//         			weight: 8,
+//         			opacity: 1,
+//         		};
+//         	} else {
+//         		var style = {
+//         			fillColor: fill,
+//         			color: fillb,
+//         			weight: 6,
+//         			opacity: .8,
+//         		};
+//         	}
+//         	break;
+//         	case 'line':
+//         	if (gstate == "seen") {
+//         		var style = {
+//         			fillColor: fill,
+//         			color: fillb,
+//         			weight: 6,
+//         			opacity: .2,
+//         		};
+//         	} else if (gstate == "active") {
+//         		var style = {
+//         			fillColor: filla,
+//         			color: borda,
+//         			weight: 8,
+//         			opacity: 1,
+//         		};
+//         	} else {
+//         		var style = {
+//         			fillColor: fill,
+//         			color: fillb,
+//         			weight: 6,
+//         			opacity: .8,
+//         		};
+//         	}
+//         	break;
+//         	case 'multilinestring':
+//         	if (gstate == "seen") {
+//         		var style = {
+//         			fillColor: fill,
+//         			color: fillb,
+//         			weight: 6,
+//         			opacity: .2,
+//         		};
+//         	} else if (gstate == "active") {
+//         		var style = {
+//         			fillColor: filla,
+//         			color: borda,
+//         			weight: 8,
+//         			opacity: 1,
+//         		};
+//         	} else {
+//         		var style = {
+//         			fillColor: fill,
+//         			color: fillb,
+//         			weight: 6,
+//         			opacity: .8,
+//         		};
+//         	}
+//         	break;
+//         	case 'linestring':
+//         	if (gstate == "seen") {
+//         		var style = {
+//         			fillColor: fill,
+//         			color: fillb,
+//         			weight: 6,
+//         			opacity: .2,
+//         		};
+//         	} else if (gstate == "active") {
+//         		var style = {
+//         			fillColor: filla,
+//         			color: borda,
+//         			weight: 8,
+//         			opacity: 1,
+//         		};
+//         	} else {
+//         		var style = {
+//         			fillColor: fill,
+//         			color: bord,
+//         			weight: 6,
+//         			opacity: .8,
+//         		};
+//         	}
+//         	break;
+//         	default:
+//         	var style = {
+//         		fillColor: "gray",
+//         		color: "gray",
+//         		weight: 3,
+//         		opacity: .3
+//         	};
+//         }
+//         return style
+//     }
+
+/* ---------- BASELAYERS ------------ */
+
+var baselayers = {
+	"layers": [{
+		"name": "mapquest",
+		"active": false,
+		"source": "mapquest",
+		"nom": "MapQuest OSM",
+		"thumb": "http://otile1.mqcdn.com/tiles/1.0.0/osm/3/4/2.png",
+		"mapis": "light",
+		"definition": {
+			"subdomains": ["otile1", "otile2", "otile3", "otile4"],
+			"maxZoom": 18,
+			"url": "http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png",
+			"noWrap": true
+		}
+	}, {
+		"name": "dummy",
+		"active": true,
+		"source": "localhost",
+		"nom": "A Real Dummy",
+		"thumb": "assets/offline/dummy-thumb.png",
+		"mapis": "dark",
+		"definition": {
+			"maxZoom": 18,
+			"url": "assets/offline/dummy-thumb.png",
+			"noWrap": true
+		}
+	}
+
+	]
+}
+
+var mapBaseLayers = new BaseLayersCollection(baselayers.layers);
+var mapBaseView = new BaseLayersView({
+	collection: mapBaseLayers
+});
 
 
-    /* -------------------------------------------------- POSTS -----------------------  */
-    var posts = {{posts | strip_newlines}}
+/* -------------------------------------------------- POSTS -----------------------  */
+var posts = {{posts | strip_newlines}}
 
-    var cxPosts = new PostsCollection(posts, {});
-    var vPostsView = new PostsView({
-    	collection: cxPosts
-    });
-    var vPostsMenu = new PostsMenuView({
-    	collection: cxPosts
-    });
+var cxPosts = new PostsCollection(posts, {});
+var vPostsView = new PostsView({
+	collection: cxPosts
+});
+var vPostsMenu = new PostsMenuView({
+	collection: cxPosts
+});
 
-    /* -------------------------------------------------- GEOMS -----------------------  */
+/* -------------------------------------------------- GEOMS -----------------------  */
 
-    var mapGeoms = new GeomsCollection();
-    var mapGeomsView = new GeomsView({
-    	collection: mapGeoms
-    });
-    mapGeoms.fetch()
+var mapGeoms = new GeomsCollection();
+var mapGeomsView = new GeomsView({
+	collection: mapGeoms
+});
+mapGeoms.fetch()
 
-    /* -------------------------------------------------- HANDLEBARS START -----------------------  */
-    Handlebars.registerHelper('debug', function(options) {
-    	console.log("this in HB debug:");
-    	console.log(this);
+/* -------------------------------------------------- HANDLEBARS START -----------------------  */
+Handlebars.registerHelper('debug', function(options) {
+	console.log("this in HB debug:");
+	console.log(this);
 
-    	return new Handlebars.SafeString("check console");
-    });
+	return new Handlebars.SafeString("check console");
+});
 
-    /* -------------------------------------------------- FUNCS -----------------------  */
+/* -------------------------------------------------- FUNCS -----------------------  */
 
-    function pullEOLID(idin) {
-    	var idina = idin.split(":")
-    	switch (idina[0]) {
-    		case 'line':
-    		var id = gpre_line + idina[1]
-    		break;
-    		case 'poly':
-    		var id = gpre_poly + idina[1]
-    		break;
-    		case 'point':
-    		var id = gpre_point + idina[1]
-    		break;
-    		default:
-    		var id = null
-    	}
-    	return id
-    }
+function pullEOLID(idin) {
+	var idina = idin.split(":")
+	switch (idina[0]) {
+		case 'line':
+		var id = gpre_line + idina[1]
+		break;
+		case 'poly':
+		var id = gpre_poly + idina[1]
+		break;
+		case 'point':
+		var id = gpre_point + idina[1]
+		break;
+		default:
+		var id = null
+	}
+	return id
+}
 
 
-    function leafletize_Bbox(bboxstring){
+function leafletize_Bbox(bboxstring){
 	// what we could do in here is add some validation, fix the syntax for ppl who don't send form West,South,East,North but get with it yo!
 	var ba = bboxstring.split(",")
 	return [

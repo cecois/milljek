@@ -60,11 +60,6 @@ var State = Backbone.Model.extend({
             this.set({agobs})
         }
 
-        console.info("now the ag* sitch in state:")
-        console.log("agobs");
-        console.log(this.get("agobs"));
-        console.log("agob");
-        console.log(this.get("agob"));
 
         // if(this.get("agobs").length<2){
         //     this.set({agobs:[this.get("agob")]})

@@ -61,14 +61,15 @@ var GeomsCollection = Backbone.Collection.extend({
             // }
             // 
             // start w/ none active
-            f.properties.active=0
-            f.properties.cvjekid=pullEOLID(f.properties.mjid);
+// f.properties.active=0
+// f.properties.cvjekid=pullEOLID(f.properties.mjid);
 
             // and translate to our vernacular
 
         });
 
-        return feats
+        // return feats
+        return response.features
     },
 });
 

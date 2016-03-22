@@ -1,14 +1,15 @@
 var Route = Backbone.Router.extend({
   routes: {
         // "(:slug)(/:panestate)(/:agobs)(/:bbox)(/)": "default",
-        "(:slug)(/:panestate)(/:agobs)(/:bbox)(/)": "default",
+        // "(:slug)(/:panestate)(/:agobs)(/:bbox)(/)": "default",
+        "(:slug)(/:panestate)(/:agob)(/:bbox)(/)": "default",
         // "_site/(:cat)(/:year)(/:month)(/:day)(/:file)": "passthru",
       },
       initialize: function() {
         // this.report()
         // this.listenTo(appState, 'change', this.report)
       },
-      default: function(slug, panestate, agobs, bbox){
+      default: function(slug, panestate, agob, bbox){
 
 
 
@@ -28,9 +29,14 @@ var Route = Backbone.Router.extend({
             appState.set({panestate:panestate})
           }
 
-          if (typeof agobs !== 'undefined' && agobs !== null && agobs !== "null") {
+          if (typeof agob !== 'undefined' && agob !== null && agob !== "null") {
 
-            appState.set({agobs:agobs})
+            if(agob.indexOf(",")>-1){
+              var ag = agob.split(",")[0]
+            } else {
+              var ag=agob
+            }
+            appState.set({agob:ag})
 
           } 
 

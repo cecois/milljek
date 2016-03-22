@@ -173,8 +173,11 @@ var GeomsView = Backbone.View.extend({
                 // var eolidreal = the_props.mjid
                 var cvjekid = the_props.cvjek;
                 // var isinagobs = the_props.active
-                if(typeof appState.get("agobs")!== 'undefined' && appState.get("agobs").length>0){
-                    the_props.active = _.indexOf(appState.get("agobs").split(","),cvjekid)>-1 ? 1 : 0;}
+                // if(typeof appState.get("agobs")!== 'undefined' && appState.get("agobs").length>0){
+                //     the_props.active = _.indexOf(appState.get("agobs").split(","),cvjekid)>-1 ? 1 : 0;}
+                //     
+                if(typeof appState.get("agob")!== 'undefined'){
+                    the_props.active = appState.get("agob")==cvjekid ? 1 : 0;}
 
                     if(appState.get("gobseens") && appState.get("gobseens").length>0){the_props.seen = _.indexOf(appState.get("gobseens").split(","),cvjekid)>-1 ? 1 : 0;}else{the_props.seen=0};
                     the_props.exalted = appState.get("agob")==cvjekid ? 1 : 0;
@@ -254,8 +257,16 @@ var GeomsView = Backbone.View.extend({
             layer.bindPopup(popupContent).on("popupclose", function(p) {
                 // report to appState that the thing has been seen - permanent for the session
                 var gbseens = appState.get("gobseens")
+                
+
+                // var newgobs = _.reject(appState.get("agobs"), function(gob) {
+                //     return gob == p.target.feature.properties.cvjekid;
+                // });
+
+                // appState.set({agobs:_.unique(newgobs)})
+
+
                 gbseens.push(p.target.feature.properties.cvjekid)
-                console.log("gbseens:"); console.log(gbseens);
                 appState.set({gobseens:_.unique(gbseens)})
                 appState.set({agob:null})
 
@@ -297,7 +308,7 @@ var GeomsView = Backbone.View.extend({
             // }
         }).addTo(eolItems)
         .on("click", function(m) {
-            // console.info("m");console.log(m.target);
+            console.info("m");console.log(m);
 
             // m.target.eachLayer(function (layer) {
 
@@ -306,18 +317,29 @@ var GeomsView = Backbone.View.extend({
 
 
             if(m.layer.feature){var gtype=m.layer.feature.geometry.type
-                m.layer.setStyle(pullCVJEKStyle(gtype,1,0))
                 var nid = m.layer.feature.properties.cvjekid
-            } else {
-                m.layer.setStyle(pullCVJEKStyle("poly",1,0))
+                m.layer.setStyle(pullCVJEKStyle(gtype,1,0))
             }
+            else {
+                // m.layer.setStyle(pullCVJEKStyle("poly",1,0))
+                var nid = m.target.getLayers()[0].feature.properties.cvjekid
+                var gtype = m.target.getLayers()[0].feature.geometry.type
+                var astyle = pullCVJEKStyle(gtype,1,0)
+
+                m.target.eachLayer(function(f){
+                    if(f.feature.properties.cvjekid==nid){
+                        f.setStyle(astyle)}
+                    })
+
+            }
+            appState.set({agob:nid})
 
             // m.layer.setStyle(pullEOLStyle(m.layer.feature.geometry.type.toLowerCase(), "active"))
                     // report to appState that the thing is currently active - undone upon blur
-                    var agobs = appState.get("gobseens")
-                    agobs.push(nid)
-                    console.info("nid");console.log(nid);
-                    appState.set({agobs:_.unique(agobs)})
+                    // var agobs = appState.get("gobseens")
+                    // agobs.push(nid)
+                    // console.info("nid");console.log(nid);
+                    // appState.set({agobs:_.unique(agobs)})
             }) //.on
         // map.fitBounds(eolItems.getBounds())
             // appActivityView.stfu()

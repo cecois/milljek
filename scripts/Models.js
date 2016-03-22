@@ -15,9 +15,9 @@ var State = Backbone.Model.extend({
     initialize: function(options) {
         options || (options = {});
 
-        if( !this.get('agobs') ){ 
-            this.set({agobs: new Array()});
-        }
+        // if( !this.get('agobs') ){ 
+        //     this.set({agobs: new Array()});
+        // }
 
         if( !this.get('gobseens') ){ 
             this.set({gobseens: new Array()});
@@ -28,8 +28,8 @@ var State = Backbone.Model.extend({
         this.on('change:slug', this.update, this)
         this.on('change:panestate', this.update, this)
         this.on('change:bbox', this.update, this)
-        // this.on('change:agob', this.up_gobs, this)
-        this.on('change:agobs', this.up_gobs, this)
+        this.on('change:agob', this.up_gob, this)
+        // this.on('change:agobs', this.up_gob, this)
         //             this.on('change:agobs', this.upGobs, this)
         return this
     },
@@ -42,6 +42,27 @@ var State = Backbone.Model.extend({
         cxPosts.activate(this.get("slug"))
         appRoute.navigate(this.pullurl());
         return this
+    },
+    up_gob: function() {
+
+        // var agobs = this.get("agobs")
+        
+        // if agobs is an array, we can really only have one be THE active one
+        // we could let users pass this in (or web app logic) but for now we'll just choose...kinda randomly
+        
+        // if(agobs.indexOf(",")>-1){
+        //     var agobsa = agobs.split(",")
+        //     this.set({agob:agobsa[0]})
+        // } else {
+        //     // it's just one coming in, so that's agob
+        //     this.set({agobs})
+        // }
+
+
+
+        return this
+        .update()
+
     },
     up_gobs: function() {
 
@@ -126,12 +147,12 @@ var State = Backbone.Model.extend({
                 var aslug = this.get("slug")
                 var abbox = this.get("bbox")
                 var apanestate = this.get("panestate")
-                var agobs = this.getAgobString()
+                // var agobs = this.getAgobString()
                 var apane = this.get("pane")
                 var abase = this.get("basemap")
                 var atab = this.get("tab")
             // var state = "#" + aslug + "/" + abbox + "/" + atab + "/" + apanestate + "/" + agobs
-            var state = "#" + aslug+"/"+apanestate+ "/" + agobs+"/"+abbox
+            var state = "#" + aslug+"/"+apanestate+ "/" + this.get("agob")+"/"+abbox
             return state
         }
     });

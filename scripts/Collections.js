@@ -6,19 +6,24 @@ var GeomsCollection = Backbone.Collection.extend({
     initialize: function(options) {
 
         options || (options = {});
-        this.listenTo(appState, 'change:agobs', this.deactivate)
+        // this.listenTo(appState, 'change:agobs', this.deactivate)
+        // this.listenTo(appState, 'change:agob', this.deactivate)
         return this
     },
     activate: function(){
 
         // this.deactivate()
 
-        var ags = appState.get("agob")
+        // var ags = appState.get("agob")
 
         _.each(this.models,function(m){
-            if(_.indexOf(appState.get("agobs"), m.get("cvjekid"))>=0){
-                    m.properties.active=1
-            } 
+            // if(_.indexOf(appState.get("agobs"), m.get("cvjekid"))>=0){
+            //         m.properties.active=1
+            // } 
+            console.info("m in activate loop");console.log(m);
+            if(m.get("cvjekid")==appState.get("agob")){
+                m.properties.active=1
+            }
             
         })
 

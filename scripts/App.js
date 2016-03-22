@@ -52,7 +52,8 @@ if(gtype.toLowerCase()=='linestring'){var gtypa='line';}
 
 var fill = "#384754";
 var filla = "#C7E048";
-var fills = "#E0E0E0";
+// var fills = "#E0E0E0";
+var fills = "black";
 var bord = "#C7E048";
 var borda = "#C7E048";
 switch (gtypa) {

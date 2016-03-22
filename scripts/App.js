@@ -9,7 +9,6 @@ window.gpre_point = "g."
 window.gpre_poly = "gD"
 window.gpre_line = "g|"
 
-if(verbose==true){console.log("appjs in da house");}
 
 {% capture posts %}
 [
@@ -50,28 +49,20 @@ if(gtype.toLowerCase()=='linestring'){var gtypa='line';}
 
 // 
 
-console.log("in pull:");
-
-console.log("gtypa:")
-console.log(gtypa);
-console.log("active:")
-console.log(active);
-console.log("seen:")
-console.log(seen);
 
 var fill = "#384754";
 var filla = "#C7E048";
-var fillb = "#50667A";
+var fills = "#E0E0E0";
 var bord = "#C7E048";
-var borda = "#384754";
+var borda = "#C7E048";
 switch (gtypa) {
 	case 'point':
 	if (seen==1) {
 		var style = {
 			radius: 8,
 			fillColor: fill,
-			color: fillb,
-			weight: 1,
+			color: fills,
+			weight: 10,
 			opacity: .6,
 			fillOpacity: 0.2,
 		};
@@ -80,7 +71,7 @@ switch (gtypa) {
 			radius: 18,
 			fillColor: filla,
 			color: borda,
-			weight: 1,
+			weight: 13,
 			opacity: 1,
 			fillOpacity: 0.8,
 		};
@@ -88,8 +79,8 @@ switch (gtypa) {
 		var style = {
 			radius: 8,
 			fillColor: fill,
-			color: fillb,
-			weight: 1,
+			color: fills,
+			weight: 10,
 			opacity: 1,
 			fillOpacity: 0.8,
 		};
@@ -99,22 +90,22 @@ switch (gtypa) {
 	if (seen==1) {
 		var style = {
 			fillColor: fill,
-			color: fillb,
-			weight: 6,
+			color: fills,
+			weight: 10,
 			opacity: .2,
 		};
 	} else if (active==1) {
 		var style = {
 			fillColor: filla,
 			color: borda,
-			weight: 8,
+			weight: 13,
 			opacity: 1,
 		};
 	} else {
 		var style = {
 			fillColor: fill,
-			color: fillb,
-			weight: 6,
+			color: fills,
+			weight: 10,
 			opacity: .8,
 		};
 	}
@@ -123,22 +114,22 @@ switch (gtypa) {
 	if (seen==1) {
 		var style = {
 			fillColor: fill,
-			color: fillb,
-			weight: 6,
+			color: fills,
+			weight: 10,
 			opacity: .2,
 		};
 	} else if (active==1) {
 		var style = {
 			fillColor: filla,
 			color: borda,
-			weight: 8,
+			weight: 13,
 			opacity: 1,
 		};
 	} else {
 		var style = {
 			fillColor: fill,
-			color: fillb,
-			weight: 6,
+			color: fills,
+			weight: 10,
 			opacity: .8,
 		};
 	}
@@ -163,7 +154,7 @@ return style
 //         **/
 //         var fill = "#384754";
 //         var filla = "#C7E048";
-//         var fillb = "#50667A";
+//         var fills = "#50667A";
 //         var bord = "#C7E048";
 //         var borda = "#384754";
 //         switch (gtype.toLowerCase()) {
@@ -172,7 +163,7 @@ return style
 //         		var style = {
 //         			radius: 8,
 //         			fillColor: fill,
-//         			color: fillb,
+//         			color: fills,
 //         			weight: 1,
 //         			opacity: .6,
 //         			fillOpacity: 0.2,
@@ -190,7 +181,7 @@ return style
 //         		var style = {
 //         			radius: 8,
 //         			fillColor: fill,
-//         			color: fillb,
+//         			color: fills,
 //         			weight: 1,
 //         			opacity: 1,
 //         			fillOpacity: 0.8,
@@ -201,8 +192,8 @@ return style
 //         	if (gstate == "seen") {
 //         		var style = {
 //         			fillColor: fill,
-//         			color: fillb,
-//         			weight: 6,
+//         			color: fills,
+//         			weight: 10,
 //         			opacity: .2,
 //         		};
 //         	} else if (gstate == "active") {
@@ -215,8 +206,8 @@ return style
 //         	} else {
 //         		var style = {
 //         			fillColor: fill,
-//         			color: fillb,
-//         			weight: 6,
+//         			color: fills,
+//         			weight: 10,
 //         			opacity: .8,
 //         		};
 //         	}
@@ -225,8 +216,8 @@ return style
 //         	if (gstate == "seen") {
 //         		var style = {
 //         			fillColor: fill,
-//         			color: fillb,
-//         			weight: 6,
+//         			color: fills,
+//         			weight: 10,
 //         			opacity: .2,
 //         		};
 //         	} else if (gstate == "active") {
@@ -239,8 +230,8 @@ return style
 //         	} else {
 //         		var style = {
 //         			fillColor: fill,
-//         			color: fillb,
-//         			weight: 6,
+//         			color: fills,
+//         			weight: 10,
 //         			opacity: .8,
 //         		};
 //         	}
@@ -249,8 +240,8 @@ return style
 //         	if (gstate == "seen") {
 //         		var style = {
 //         			fillColor: fill,
-//         			color: fillb,
-//         			weight: 6,
+//         			color: fills,
+//         			weight: 10,
 //         			opacity: .2,
 //         		};
 //         	} else if (gstate == "active") {
@@ -263,8 +254,8 @@ return style
 //         	} else {
 //         		var style = {
 //         			fillColor: fill,
-//         			color: fillb,
-//         			weight: 6,
+//         			color: fills,
+//         			weight: 10,
 //         			opacity: .8,
 //         		};
 //         	}
@@ -273,8 +264,8 @@ return style
 //         	if (gstate == "seen") {
 //         		var style = {
 //         			fillColor: fill,
-//         			color: fillb,
-//         			weight: 6,
+//         			color: fills,
+//         			weight: 10,
 //         			opacity: .2,
 //         		};
 //         	} else if (gstate == "active") {
@@ -287,8 +278,8 @@ return style
 //         	} else {
 //         		var style = {
 //         			fillColor: fill,
-//         			color: fillb,
-//         			weight: 6,
+//         			color: fills,
+//         			weight: 10,
 //         			opacity: .8,
 //         		};
 //         	}
@@ -297,8 +288,8 @@ return style
 //         	if (gstate == "seen") {
 //         		var style = {
 //         			fillColor: fill,
-//         			color: fillb,
-//         			weight: 6,
+//         			color: fills,
+//         			weight: 10,
 //         			opacity: .2,
 //         		};
 //         	} else if (gstate == "active") {
@@ -311,8 +302,8 @@ return style
 //         	} else {
 //         		var style = {
 //         			fillColor: fill,
-//         			color: fillb,
-//         			weight: 6,
+//         			color: fills,
+//         			weight: 10,
 //         			opacity: .8,
 //         		};
 //         	}
@@ -321,8 +312,8 @@ return style
 //         	if (gstate == "seen") {
 //         		var style = {
 //         			fillColor: fill,
-//         			color: fillb,
-//         			weight: 6,
+//         			color: fills,
+//         			weight: 10,
 //         			opacity: .2,
 //         		};
 //         	} else if (gstate == "active") {
@@ -336,7 +327,7 @@ return style
 //         		var style = {
 //         			fillColor: fill,
 //         			color: bord,
-//         			weight: 6,
+//         			weight: 10,
 //         			opacity: .8,
 //         		};
 //         	}

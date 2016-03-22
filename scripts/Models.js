@@ -23,7 +23,6 @@ var State = Backbone.Model.extend({
             this.set({gobseens: new Array()});
         }
 
-        if(verbose==true){ console.log("initing State");}
         //         this.listenTo(appBaseLayers, 'change', this.update_b),
         // this.up_slug()
         this.on('change:slug', this.update, this)
@@ -40,7 +39,6 @@ var State = Backbone.Model.extend({
         this.set({
             tab: this.get("slug").split("-")[0]
         })
-        if(verbose==true){ console.log("up_slug, manually activating cxp...");}
         cxPosts.activate(this.get("slug"))
         appRoute.navigate(this.pullurl());
         return this
@@ -61,30 +59,12 @@ var State = Backbone.Model.extend({
         }
 
 
-        // if(this.get("agobs").length<2){
-        //     this.set({agobs:[this.get("agob")]})
-        // } else {
-
-        //     var agbs = this.get("agobs")
-
-        //     console.log("agbs type:");
-        //     console.log(typeof agbs);
-        //     if(typeof agbs == 'object'){
-        //         agbs.push(this.get("agob"))
-
-        //         this.set({agobs:_.uniq(agbs)})
-        //     } else {
-        //         this.set({agobs:this.get("agob")})
-        //     }
-
-        // }
 
         return this
         .update()
 
     },
     up_gobsAGOB: function() {
-        console.log("up_gobs fire ona change to agobs?");
         // if agobs is an array, we can really only have one be THE active one
         // we could let users pass this in (or web app logic) but for now we'll just choose...kinda randomly
         
@@ -94,8 +74,6 @@ var State = Backbone.Model.extend({
 
             var agbs = this.get("agobs")
 
-            console.log("agbs type:");
-            console.log(typeof agbs);
             if(typeof agbs == 'object'){
                 agbs.push(this.get("agob"))
 
@@ -126,8 +104,7 @@ var State = Backbone.Model.extend({
         return this
     }, //update_b
     update: function() {
-        if(verbose==true){console.log("update in appState")}
-            appRoute.navigate(this.pullurl());
+        appRoute.navigate(this.pullurl());
         return this
         } //update
         ,
@@ -138,7 +115,6 @@ var State = Backbone.Model.extend({
         ,
         getAgobString: function() {
             var str = this.get("agobs")
-            console.log("str type in getagobstring:");console.log(typeof str);
             if (str.length == 0 || typeof str == 'undefined') {
                 return "null"
             } else if(typeof str == 'object'){

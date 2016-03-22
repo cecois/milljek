@@ -11,7 +11,6 @@ var PostsMenuView = Backbone.View.extend({
         return this
     },
     log: function(e) {
-        if(verbose==true){ console.log("in log of PV, e.target:"); console.log($(e.currentTarget)); }
         e.preventDefault()
         var di = $(e.currentTarget).attr("data-id")
 
@@ -29,7 +28,6 @@ var PostsMenuView = Backbone.View.extend({
         } //activate
         ,
         render: function() {
-            if(verbose==true){ console.log("rendering PmenuV");}
             $(this.el).html(this.template({
                 count: this.collection.models.length,
                 rows: this.collection.toJSON()
@@ -117,7 +115,6 @@ var PostsView = Backbone.View.extend({
         return this
     },
     log: function(e) {
-        if(verbose==true){ console.log("in log of PV, e.target:"); console.log($(e.currentTarget)); }
         e.preventDefault()
         var di = $(e.currentTarget).attr("data-id")
 
@@ -136,7 +133,6 @@ var PostsView = Backbone.View.extend({
         } //activate
         ,
         render: function() {
-            if(verbose==true){ console.log("rendering PV");}
             // $(this.el).html(this.template({
             //     count: this.collection.models.length,
             //     rows: this.collection.toJSON()
@@ -177,9 +173,11 @@ var GeomsView = Backbone.View.extend({
                 // var eolidreal = the_props.mjid
                 var cvjekid = the_props.cvjek;
                 // var isinagobs = the_props.active
-                the_props.active = _.indexOf(appState.get("agobs").split(","),cvjekid)>-1 ? 1 : 0;
-                if(appState.get("gobseens") && appState.get("gobseens").length>0){the_props.seen = _.indexOf(appState.get("gobseens").split(","),cvjekid)>-1 ? 1 : 0;}else{the_props.seen=0};
-                the_props.exalted = appState.get("agob")==cvjekid ? 1 : 0;
+                if(typeof appState.get("agobs")!== 'undefined' && appState.get("agobs").length>0){
+                    the_props.active = _.indexOf(appState.get("agobs").split(","),cvjekid)>-1 ? 1 : 0;}
+
+                    if(appState.get("gobseens") && appState.get("gobseens").length>0){the_props.seen = _.indexOf(appState.get("gobseens").split(","),cvjekid)>-1 ? 1 : 0;}else{the_props.seen=0};
+                    the_props.exalted = appState.get("agob")==cvjekid ? 1 : 0;
 
                 // var isagob = the_props.active
                 // var eolseen = the_props.seen
@@ -212,21 +210,23 @@ var GeomsView = Backbone.View.extend({
                     },
                     "geometry": the_geom
                 };
-                console.log("recon:");console.log(recon);
                 cg.push(recon)
             }) //collection.each
             return cg
         },
         pop: function() {
             var e = _.each(eolItems.getLayers(), function(fx) {
-                console.log("this fx is :");console.log(fx);
                 var ex = _.each(fx.getLayers(), function(fxe) {
                     if (fxe.feature.properties.active == 1) {
                         map.fitBounds(fxe.getBounds());
                         fxe.openPopup()
                     }
+
                     return fxe.feature.properties.active == 1;
                 })
+
+
+
                 return ex
             });
             return this
@@ -245,19 +245,20 @@ var GeomsView = Backbone.View.extend({
             //         "agob": layer._leaflet_id
             //     })
             // }
-            // var popupContent = feature.properties.name + " (" + feature.properties.eolid + ")";
-            // if (feature.properties && feature.properties.popupContent) {
-            //     popupContent += feature.properties.popupContent;
-            // }
-            // layer.bindPopup(popupContent).on("popupclose", function(p) {
-            //     // report to appState that the thing has been seen - permanent for the session
-            //     var gbseens = appState.get("gobseens")
-            //     gbseens.push(p.target.feature.properties.eolid)
-            //     appState.set({gobseens:_.unique(gbseens)})
-            //     appState.set({agob:null})
+            var popupContent = feature.properties.name + " (" + feature.properties.cvjekid + ")";
+            if (feature.properties && feature.properties.popupContent) {
+                popupContent += feature.properties.popupContent;
+            }
+            layer.bindPopup(popupContent).on("popupclose", function(p) {
+                // report to appState that the thing has been seen - permanent for the session
+                var gbseens = appState.get("gobseens")
+                gbseens.push(p.target.feature.properties.cvjekid)
+                appState.set({gobseens:_.unique(gbseens)})
+                appState.set({agob:null})
+                p.target.setStyle(pullCVJEKStyle(p.target.feature.geometry.type,0,"seen"))
                 // p.target.setStyle(pullEOLStyle(p.target.feature.geometry.type.toLowerCase(), "seen"))
                 //     // also shuffle it behind - jic there's another one nearby that obstructs when zoomed out
-                //     p.target.bringToBack()
+                p.target.bringToBack()
                 //     var newgobs = _.reject(appState.get("agobs"), function(gob) {
                 //         return gob == p.target.feature.properties.eolid;
                 //     });
@@ -265,22 +266,21 @@ var GeomsView = Backbone.View.extend({
                 //         "agobs": newgobs,
                 //         "agob":null
                 //     })
-            // })
-
-        //     console.log("how about here - access to active?");
-        //     console.log(layer);
+            })
 
         } //oneachfeature
         L.geoJson(notcampus, {
             // style: function(feature) {
             //     return feature.properties && feature.properties.style;
             // },
+            style: function(feature){return feature.properties.style;},
+            // style: pullCVJEKStyle(feature.geom_type,feature.properties.active,feature.properties.seen),
             // style: function(){
 
             //     return pullEOLStyle("line", "new")
 
             // },
-            // onEachFeature: onEachFeature,
+            onEachFeature: onEachFeature,
             // pointToLayer: function(feature, latlng) {
             //     return L.circleMarker(latlng, {
             //         radius: 8,
@@ -292,13 +292,25 @@ var GeomsView = Backbone.View.extend({
             //     });
             // }
         }).addTo(eolItems)
-        // .on("click", function(m) {
-        //     m.layer.setStyle(pullEOLStyle(m.layer.feature.geometry.type.toLowerCase(), "active"))
-        //             // report to appState that the thing is currently active - undone upon blur
-        //             appState.set({agob:m.layer.feature.properties.eolid})
-        //     }) //.on
-        map.fitBounds(eolItems.getBounds())
+        .on("click", function(m) {
+            console.info("m");console.log(m);
+            
+            if(m.layer.feature){var gtype=m.layer.feature.geometry.type
+                m.layer.setStyle(pullCVJEKStyle(gtype,1,0))
+                var nid = m.layer.feature.properties.cvjekid
+            } else {
+                m.layer.setStyle(pullCVJEKStyle("poly",1,0))
+            }
+
+            // m.layer.setStyle(pullEOLStyle(m.layer.feature.geometry.type.toLowerCase(), "active"))
+                    // report to appState that the thing is currently active - undone upon blur
+                    var agobs = appState.get("gobseens")
+                    agobs.push(nid)
+                    console.info("nid");console.log(nid);
+                    appState.set({agobs:_.unique(agobs)})
+            }) //.on
+        // map.fitBounds(eolItems.getBounds())
             // appActivityView.stfu()
-            // return this.pop()
+            return this.pop()
         }
     });

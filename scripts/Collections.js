@@ -16,13 +16,10 @@ var GeomsCollection = Backbone.Collection.extend({
         var ags = appState.get("agob")
 
         _.each(this.models,function(m){
-            console.log("m:");console.log(m);
             if(_.indexOf(appState.get("agobs"), m.get("cvjekid"))>=0){
-                if(verbose==true){console.log("this one is in appstate's arr, setting to active")}
                     m.properties.active=1
             } 
             
-            console.log("156 m: "+m.get("cvjekid"));console.log(m);
         })
 
         return this
@@ -90,7 +87,6 @@ var PostsCollection = Backbone.Collection.extend({
         return "api/jekyllfetcher.php?cb=cwmccallback&solrstring="
     },
     initialize: function(options) {
-        if(verbose==true){ console.log("initing PostsCollection");}
         // this.on('change', this.activate, this);
         options || (options = {});
         // this.activate(appState.get("slug"));
@@ -98,9 +94,6 @@ var PostsCollection = Backbone.Collection.extend({
     },
     activate: function() {
 
-        if (verbose == true) {
-            console.log("DEactivating Posts...")
-        }
 
         this.each(function(d, index) {
             d.set({
@@ -114,29 +107,13 @@ var PostsCollection = Backbone.Collection.extend({
     },
     actually: function(slug) {
         var act = slug
-        if (verbose == true) {
-            console.log("activating Posts with: " + act)
-        }
+        
 
-        // _.every(this.models),function(m){
 
-        //     if(verbose==true){ console.log("setting (silently) to false:");console.log(m.get("slug"))}
-        //     m.set({active:false},{silent:true})
-
-        // }
-
-        // var tat = cxPosts.findWhere({slug:"im-this-first-thing"})
         var tat = this.findWhere({slug:appState.get("slug")})
-        if(verbose==true){ console.log("setting (loudly) to true:");console.log(tat.get("slug"))}
         tat.set({active:true})
 
- //        _.each(this.models,function(m){
 
- //            if(m.get("slug")!==appState.get("slug"))
- //                {m.set({active:false},{silent:true});}
-
-
- // }); //each
 
         // var ive = this.findWhere({
         //     slug: act

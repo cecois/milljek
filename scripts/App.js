@@ -33,8 +33,8 @@ var appState = new State({});
 
 function pullCVJEKStyle(gtype,active,seen){
   /**
-        in here we nudge the style definitions a little bc it's not always a 1:1 match between 
-        geomtype and the name of the style applies (e.g. linestring vs. multilinestring 
+        in here we nudge the style definitions a little bc it's not always a 1:1 match between
+        geomtype and the name of the style applies (e.g. linestring vs. multilinestring
         or the fact that polys get line styles, too)
         **/
 
@@ -47,7 +47,7 @@ if(gtype.toLowerCase()=='line'){var gtypa=gtype.toLowerCase();}
 if(gtype.toLowerCase()=='multilinestring'){var gtypa='line';}
 if(gtype.toLowerCase()=='linestring'){var gtypa='line';}
 
-// 
+//
 
 
 var fill = "#384754";
@@ -104,7 +104,7 @@ switch (gtypa) {
 	} else {
 		var style = {
 			fillColor: fill,
-			color: fills,
+			color: fill,
 			weight: 10,
 			opacity: .8,
 		};
@@ -128,7 +128,7 @@ switch (gtypa) {
 	} else {
 		var style = {
 			fillColor: fill,
-			color: fills,
+			color: fill,
 			weight: 10,
 			opacity: .8,
 		};
@@ -148,8 +148,8 @@ return style
 
 // function pullEOLStyle(gtype, gstate) {
 //     /**
-//         in here we nudge the style definitions a little bc it's not always a 1:1 match between 
-//         geomtype and the name of the style applies (e.g. linestring vs. multilinestring 
+//         in here we nudge the style definitions a little bc it's not always a 1:1 match between
+//         geomtype and the name of the style applies (e.g. linestring vs. multilinestring
 //         or the fact that polys get line styles, too)
 //         **/
 //         var fill = "#384754";

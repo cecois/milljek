@@ -182,7 +182,9 @@ var GeomsView = Backbone.View.extend({
                 // var isagob = the_props.active
                 // var eolseen = the_props.seen
                 // var eolid = pullEOLID(eolidreal);
+
                 var geomtype = the_geom.type
+
                     // default
                     // var eolstyle = pullEOLStyle(geomtype, "new")
                     // if we've seen this one, style it so
@@ -253,9 +255,11 @@ var GeomsView = Backbone.View.extend({
                 // report to appState that the thing has been seen - permanent for the session
                 var gbseens = appState.get("gobseens")
                 gbseens.push(p.target.feature.properties.cvjekid)
+                console.log("gbseens:"); console.log(gbseens);
                 appState.set({gobseens:_.unique(gbseens)})
                 appState.set({agob:null})
-                p.target.setStyle(pullCVJEKStyle(p.target.feature.geometry.type,0,"seen"))
+
+                p.target.setStyle(pullCVJEKStyle(p.target.feature.geometry.type,0,1))
                 // p.target.setStyle(pullEOLStyle(p.target.feature.geometry.type.toLowerCase(), "seen"))
                 //     // also shuffle it behind - jic there's another one nearby that obstructs when zoomed out
                 p.target.bringToBack()
@@ -293,8 +297,14 @@ var GeomsView = Backbone.View.extend({
             // }
         }).addTo(eolItems)
         .on("click", function(m) {
-            console.info("m");console.log(m);
-            
+            // console.info("m");console.log(m.target);
+
+            // m.target.eachLayer(function (layer) {
+
+            //     console.log("agob"); console.log(appState.get("agob"))
+            //     console.log("layer.feature.properties in eachlayer:"); console.log(layer.feature.properties.cvjekid);
+
+
             if(m.layer.feature){var gtype=m.layer.feature.geometry.type
                 m.layer.setStyle(pullCVJEKStyle(gtype,1,0))
                 var nid = m.layer.feature.properties.cvjekid

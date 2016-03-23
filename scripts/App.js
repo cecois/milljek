@@ -402,12 +402,28 @@ var mapGeomsView = new GeomsView({
 });
 mapGeoms.fetch()
 
-/* -------------------------------------------------- HANDLEBARS START -----------------------  */
+/* -------------------------------------------------- HANDLEBARS -----------------------  */
 Handlebars.registerHelper('debug', function(options) {
 	console.log("this in HB debug:");
 	console.log(this);
 
 	return new Handlebars.SafeString("check console");
+});
+
+Handlebars.registerHelper('groupem', function(slug) {
+
+	console.log("groupem stuff:");
+	console.log("slug");console.log(slug)
+	
+	// var group = this.split("-")[0]
+	var grop = slug.split("-")[0]
+	return new Handlebars.SafeString(grop);
+});
+
+Handlebars.registerHelper('time-year-month', function(object) {
+	var timeobj = new Time(object);
+	var t = timeobj.format('Y' + " " + 'M');
+	return new Handlebars.SafeString(t);
 });
 
 /* -------------------------------------------------- FUNCS -----------------------  */

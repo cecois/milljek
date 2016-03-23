@@ -13,17 +13,22 @@ templates['postsActiveViewTpl'] = template({"1":function(depth0,helpers,partials
     + "\n</li>\n";
 },"useData":true});
 templates['postsMenuViewTpl'] = template({"1":function(depth0,helpers,partials,data) {
-  var stack1, lambda=this.lambda, escapeExpression=this.escapeExpression, buffer = "<a data-id=\""
+  var stack1, lambda=this.lambda, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing, buffer = "<a data-id=\""
     + escapeExpression(lambda((depth0 != null ? depth0.slug : depth0), depth0))
     + "\" href=\"#\" class=\"list-group-item text-center ";
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.active : depth0), {"name":"if","hash":{},"fn":this.program(2, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
+  buffer += " ";
+  stack1 = ((helpers.groupem || (depth0 && depth0.groupem) || helperMissing).call(depth0, (depth0 != null ? depth0.slug : depth0), {"name":"groupem","hash":{},"fn":this.program(4, data),"inverse":this.noop,"data":data}));
+  if (stack1 != null) { buffer += stack1; }
   return buffer + "\">\n	<br/>\n	"
-    + escapeExpression(lambda((depth0 != null ? depth0.slug : depth0), depth0))
+    + escapeExpression(lambda((depth0 != null ? depth0.title : depth0), depth0))
     + "\n</a>\n";
 },"2":function(depth0,helpers,partials,data) {
   return "active";
-  },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+  },"4":function(depth0,helpers,partials,data) {
+  return "";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var stack1;
   stack1 = helpers.each.call(depth0, (depth0 != null ? depth0.rows : depth0), {"name":"each","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { return stack1; }

@@ -12,6 +12,7 @@ var Route = Backbone.Router.extend({
       default: function(slug, panestate, agob, bbox){
 
 
+        console.info("slug in route");console.log(slug);
 
          /**
           * if there's an incoming slug and it's not the same that state has (i.e. it's not what state SET for itself...

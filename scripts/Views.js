@@ -2,11 +2,10 @@ var PostsMenuView = Backbone.View.extend({
     el: "#posts-menu",
     template: Handlebars.templates['postsMenuViewTpl'],
     events: {
-        // "click li": "log",
         "click a": "activate"
     },
     initialize: function() {
-        // this.render()
+        console.log("init of PMV");
         this.listenTo(this.collection, 'change:active', this.render);
         return this
     },
@@ -15,26 +14,28 @@ var PostsMenuView = Backbone.View.extend({
         var di = $(e.currentTarget).attr("data-id")
 
         return this
-        } //log
-        ,
-        activate: function(e) {
-            e.preventDefault()
+    }
+    ,
+    activate: function(e) {
 
-            var ds = $(e.currentTarget).attr("data-id")
+        e.preventDefault()
+        console.log("in activate");
+        var ds = $(e.currentTarget).attr("data-id")
 
-            appState.set({"slug":ds})
+        appState.set({"slug":ds})
 
-            return this
-        } //activate
-        ,
-        render: function() {
-            $(this.el).html(this.template({
-                count: this.collection.models.length,
-                rows: this.collection.toJSON()
-            }));
-            return this
-        }
-    });
+        return this
+    }
+    ,
+    render: function() {
+        console.log("render of PMV");
+        $(this.el).html(this.template({
+            count: this.collection.models.length,
+            rows: this.collection.toJSON()
+        }));
+        return this
+    }
+});
 
 var BaseLayersView = Backbone.View.extend({
     id: 'map',
@@ -133,21 +134,16 @@ var PostsView = Backbone.View.extend({
         } //activate
         ,
         render: function() {
-            // $(this.el).html(this.template({
-            //     count: this.collection.models.length,
-            //     rows: this.collection.toJSON()
-            // }));
+
             var ap = this.collection.findWhere({active:true})
 
             var fpath = ap.get("url").substr(1, ap.get("url").length);
 
             //
-            // $(this.el).html(this.template(ap.toJSON()))
             $(this.el).html(
                 _.unescape(ap.get("content"))
                 )
 
-            // $(this.el).load( fpath )
 
             return this
             // .downout()
@@ -170,34 +166,18 @@ var GeomsView = Backbone.View.extend({
 
                 var the_geom = hit.get("geometry")
                 var the_props = hit.get("properties")
-                // var eolidreal = the_props.mjid
                 var cvjekid = the_props.cvjek;
-                // var isinagobs = the_props.active
-                // if(typeof appState.get("agobs")!== 'undefined' && appState.get("agobs").length>0){
-                //     the_props.active = _.indexOf(appState.get("agobs").split(","),cvjekid)>-1 ? 1 : 0;}
-                //     
+                
                 if(typeof appState.get("agob")!== 'undefined'){
                     the_props.active = appState.get("agob")==cvjekid ? 1 : 0;}
 
                     if(appState.get("gobseens") && appState.get("gobseens").length>0){the_props.seen = _.indexOf(appState.get("gobseens").split(","),cvjekid)>-1 ? 1 : 0;}else{the_props.seen=0};
                     the_props.exalted = appState.get("agob")==cvjekid ? 1 : 0;
 
-                // var isagob = the_props.active
-                // var eolseen = the_props.seen
-                // var eolid = pullEOLID(eolidreal);
 
-                var geomtype = the_geom.type
+                    var geomtype = the_geom.type
 
-                    // default
-                    // var eolstyle = pullEOLStyle(geomtype, "new")
-                    // if we've seen this one, style it so
-                    // if (eolseen == 1) {
-                    //     eolstyle = pullEOLStyle(geomtype, "seen")
-                    // }
-                // but this will always be trumped by active
-                // if (isagob == 1) {
-                //     eolstyle = pullEOLStyle(geomtype, "active")
-                // }
+                    
                 // here we reconstruct the geoJSON for map display
                 var recon = {
                     "type": "Feature",
@@ -244,12 +224,7 @@ var GeomsView = Backbone.View.extend({
 
             function onEachFeature(feature, layer) {
             // only one at a time - Leaflet rule, so we can just let this clobber whatever came before
-            // if (feature.properties.active == 1) {
-            //     console.log("layer leaflet id in oneachfeature of render:");console.log(layer);
-            //     appState.set({
-            //         "agob": layer._leaflet_id
-            //     })
-            // }
+            
             var popupContent = feature.properties.name + " (" + feature.properties.cvjekid + ")";
             if (feature.properties && feature.properties.popupContent) {
                 popupContent += feature.properties.popupContent;
@@ -259,69 +234,31 @@ var GeomsView = Backbone.View.extend({
                 var gbseens = appState.get("gobseens")
                 
 
-                // var newgobs = _.reject(appState.get("agobs"), function(gob) {
-                //     return gob == p.target.feature.properties.cvjekid;
-                // });
-
-                // appState.set({agobs:_.unique(newgobs)})
-
-
                 gbseens.push(p.target.feature.properties.cvjekid)
                 appState.set({gobseens:_.unique(gbseens)})
                 appState.set({agob:null})
 
                 p.target.setStyle(pullCVJEKStyle(p.target.feature.geometry.type,0,1))
-                // p.target.setStyle(pullEOLStyle(p.target.feature.geometry.type.toLowerCase(), "seen"))
-                //     // also shuffle it behind - jic there's another one nearby that obstructs when zoomed out
+                
                 p.target.bringToBack()
-                //     var newgobs = _.reject(appState.get("agobs"), function(gob) {
-                //         return gob == p.target.feature.properties.eolid;
-                //     });
-                //     appState.set({
-                //         "agobs": newgobs,
-                //         "agob":null
-                //     })
+                
             })
 
         } //oneachfeature
         L.geoJson(notcampus, {
-            // style: function(feature) {
-            //     return feature.properties && feature.properties.style;
-            // },
+
             style: function(feature){return feature.properties.style;},
-            // style: pullCVJEKStyle(feature.geom_type,feature.properties.active,feature.properties.seen),
-            // style: function(){
-
-            //     return pullEOLStyle("line", "new")
-
-            // },
+            
             onEachFeature: onEachFeature,
-            // pointToLayer: function(feature, latlng) {
-            //     return L.circleMarker(latlng, {
-            //         radius: 8,
-            //         fillColor: "#ff7800",
-            //         color: "#000",
-            //         weight: 1,
-            //         opacity: 1,
-            //         fillOpacity: 0.8
-            //     });
-            // }
+            
         }).addTo(eolItems)
         .on("click", function(m) {
-            console.info("m");console.log(m);
-
-            // m.target.eachLayer(function (layer) {
-
-            //     console.log("agob"); console.log(appState.get("agob"))
-            //     console.log("layer.feature.properties in eachlayer:"); console.log(layer.feature.properties.cvjekid);
-
 
             if(m.layer.feature){var gtype=m.layer.feature.geometry.type
                 var nid = m.layer.feature.properties.cvjekid
                 m.layer.setStyle(pullCVJEKStyle(gtype,1,0))
             }
             else {
-                // m.layer.setStyle(pullCVJEKStyle("poly",1,0))
                 var nid = m.target.getLayers()[0].feature.properties.cvjekid
                 var gtype = m.target.getLayers()[0].feature.geometry.type
                 var astyle = pullCVJEKStyle(gtype,1,0)
@@ -334,15 +271,9 @@ var GeomsView = Backbone.View.extend({
             }
             appState.set({agob:nid})
 
-            // m.layer.setStyle(pullEOLStyle(m.layer.feature.geometry.type.toLowerCase(), "active"))
-                    // report to appState that the thing is currently active - undone upon blur
-                    // var agobs = appState.get("gobseens")
-                    // agobs.push(nid)
-                    // console.info("nid");console.log(nid);
-                    // appState.set({agobs:_.unique(agobs)})
+            
             }) //.on
-        // map.fitBounds(eolItems.getBounds())
-            // appActivityView.stfu()
-            return this.pop()
-        }
-    });
+        
+        return this.pop()
+    }
+});

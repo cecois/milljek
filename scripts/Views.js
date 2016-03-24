@@ -92,7 +92,7 @@ var PostsView = Backbone.View.extend({
     template: Handlebars.templates['postsActiveViewTpl'],
     events: {
         // "click li": "log",
-        "click li": "activate"
+        "click .copy-trigger": "activate"
     },
     initialize: function() {
         // this.render()
@@ -118,19 +118,35 @@ var PostsView = Backbone.View.extend({
     log: function(e) {
         e.preventDefault()
         var di = $(e.currentTarget).attr("data-id")
+        var dt = $(e.currentTarget).attr("data-type")
+
+        console.info("in log (frm click), di and dt:");console.log(di);console.log(dt);
 
         return this
-        } //log
-        ,
-        activate: function(e) {
-            e.preventDefault()
+    }
+    ,
+    activate: function(e) {
+        e.preventDefault()
 
 
-            var ds = $(e.currentTarget).attr("data-id")
+        var di = $(e.currentTarget).attr("data-id")
+        var dt = $(e.currentTarget).attr("data-type")
 
-            appState.set({"slug":ds})
 
-            return this
+        switch (dt) {
+            case 'slug':
+            appState.set({"slug":di})
+            break;
+            case 'gob':
+            appState.set({"agob":di})
+            break;
+            default:
+            var id = null
+        }
+
+
+
+        return this
         } //activate
         ,
         render: function() {

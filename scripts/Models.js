@@ -17,7 +17,7 @@ var State = Backbone.Model.extend({
         this.on('change:slug', this.update, this)
         this.on('change:panestate', this.update, this)
         this.on('change:bbox', this.update, this)
-        this.on('change:agob', this.up_gob, this)
+        this.on('change:agob', this.update, this)
 
         return this
     },

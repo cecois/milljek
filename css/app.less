@@ -48,7 +48,8 @@
 
 body{
   .copy-trigger{color: @eolprimary;cursor:pointer;
-    &:hover{color:@eolyellow;}
+    text-shadow: @eolyellow 0px 0px 4px;
+    &:hover{color:@seen;}
   }
 
   .copy-trigger.seen{
@@ -61,7 +62,7 @@ body{
   /*font-family: 'PT Serif', serif;*/
   /*font-family: 'Roboto', sans-serif;*/
   font-family: @font-main;
-  font-size: .62em;
+  font-size: 10px;
   color:@bodycopy;
 
   ::selection {
@@ -72,8 +73,8 @@ body{
   }
 
   a{
-      // color:@alink;
-      color:@eolprimary;
+    color:@alink;
+      // color:@eolprimary;
 
       &:visited{
         color:@seen;

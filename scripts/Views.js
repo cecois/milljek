@@ -174,6 +174,7 @@ var GeomsView = Backbone.View.extend({
         /* -------------------------------------------------- MAP CONTENT -----------------------  */
             // a group for all of the post-specific geoms
             eolItems = L.geoJson().addTo(map);
+            // this.listenTo(appState, 'change:agob', this.render);
             return this
         },
         asgeojson: function() {
@@ -187,7 +188,9 @@ var GeomsView = Backbone.View.extend({
                 if(typeof appState.get("agob")!== 'undefined'){
                     the_props.active = appState.get("agob")==cvjekid ? 1 : 0;}
 
-                    if(appState.get("gobseens") && appState.get("gobseens").length>0){the_props.seen = _.indexOf(appState.get("gobseens").split(","),cvjekid)>-1 ? 1 : 0;}else{the_props.seen=0};
+                    if(appState.get("gobseens") && typeof appState.get("gobseens") == "object"){
+                        the_props.seen = _.indexOf(appState.get("gobseens"),cvjekid)>-1 ? 1 : 0;
+                    }else{the_props.seen=0};
                     the_props.exalted = appState.get("agob")==cvjekid ? 1 : 0;
 
 
@@ -252,7 +255,7 @@ var GeomsView = Backbone.View.extend({
 
                 gbseens.push(p.target.feature.properties.cvjekid)
                 appState.set({gobseens:_.unique(gbseens)})
-                appState.set({agob:null})
+                // appState.set({agob:null})
 
                 p.target.setStyle(pullCVJEKStyle(p.target.feature.geometry.type,0,1))
                 

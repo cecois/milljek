@@ -9,13 +9,14 @@
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
-  
-  <link rel="icon" 
-  type="image/png" 
+
+  <link rel="icon"
+  type="image/png"
   href="{{ "/assets/noun_176247_cc.png" | prepend: site.baseurl }}" />
-  
+
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
   <link rel="stylesheet" href="{{ "/css/lib/leaflet/leaflet.css" | prepend: site.baseurl }}" />
+  <link rel="stylesheet" href="{{ "/scripts/lib/leaflet.js" | prepend: site.baseurl }}" />
   <link rel="stylesheet" href="{{ "/css/lib/bootstrap-3.3.5-dist/css/bootstrap.min.css" | prepend: site.baseurl }}"/>
   <link rel="stylesheet/less" type="text/css" href="{{ "/css/app.less" | prepend: site.baseurl }}" />
 

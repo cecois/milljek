@@ -184,7 +184,7 @@ var GeomsView = Backbone.View.extend({
                 var the_geom = hit.get("geometry")
                 var the_props = hit.get("properties")
                 var cvjekid = the_props.cvjek;
-                
+
                 if(typeof appState.get("agob")!== 'undefined'){
                     the_props.active = appState.get("agob")==cvjekid ? 1 : 0;}
 
@@ -196,7 +196,7 @@ var GeomsView = Backbone.View.extend({
 
                     var geomtype = the_geom.type
 
-                    
+
                 // here we reconstruct the geoJSON for map display
                 var recon = {
                     "type": "Feature",
@@ -240,10 +240,12 @@ var GeomsView = Backbone.View.extend({
             // var notcampus = this.collection.models;
             var notcampus = this.asgeojson();
 
-
             function onEachFeature(feature, layer) {
             // only one at a time - Leaflet rule, so we can just let this clobber whatever came before
-            
+
+console.log("feature:"); console.log(feature);
+console.log("layer:"); console.log(layer);
+
             var popupContent = feature.properties.name + " (" + feature.properties.cvjekid + ")";
             if (feature.properties && feature.properties.popupContent) {
                 popupContent += feature.properties.popupContent;
@@ -251,33 +253,40 @@ var GeomsView = Backbone.View.extend({
             layer.bindPopup(popupContent).on("popupclose", function(p) {
                 // report to appState that the thing has been seen - permanent for the session
                 var gbseens = appState.get("gobseens")
-                
+
 
                 gbseens.push(p.target.feature.properties.cvjekid)
                 appState.set({gobseens:_.unique(gbseens)})
                 // appState.set({agob:null})
 
                 p.target.setStyle(pullCVJEKStyle(p.target.feature.geometry.type,0,1))
-                
+
                 p.target.bringToBack()
-                
+
             })
 
         } //oneachfeature
         L.geoJson(notcampus, {
 
             style: function(feature){return feature.properties.style;},
-            
+
             onEachFeature: onEachFeature,
-            
+
         }).addTo(eolItems)
         .on("click", function(m) {
 
-            if(m.layer.feature){var gtype=m.layer.feature.geometry.type
+            console.log("in click, m:")
+            console.log(m)
+
+            if(m.layer.feature){
+                console.log("layer.feature yes:");
+                var gtype=m.layer.feature.geometry.type
                 var nid = m.layer.feature.properties.cvjekid
                 m.layer.setStyle(pullCVJEKStyle(gtype,1,0))
             }
             else {
+                console.log("layer.feature NO:");
+                console.log("m.target:"); console.log(m.target);
                 var nid = m.target.getLayers()[0].feature.properties.cvjekid
                 var gtype = m.target.getLayers()[0].feature.geometry.type
                 var astyle = pullCVJEKStyle(gtype,1,0)
@@ -290,9 +299,9 @@ var GeomsView = Backbone.View.extend({
             }
             appState.set({agob:nid})
 
-            
+
             }) //.on
-        
+
         return this.pop()
     }
 });

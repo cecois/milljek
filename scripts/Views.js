@@ -243,8 +243,26 @@ var GeomsView = Backbone.View.extend({
             function onEachFeature(feature, layer) {
             // only one at a time - Leaflet rule, so we can just let this clobber whatever came before
 
-console.log("feature:"); console.log(feature);
-console.log("layer:"); console.log(layer);
+
+            layer.on("click", function(m) {
+
+
+                console.log("m");
+                console.log(m);
+
+                if(m){
+                    console.log("layer.feature yes:");
+                    var gtype=m.target.feature.geometry.type
+                    console.info("gtype");console.log(gtype);
+                    var nid = m.target.feature.properties.cvjekid
+                    console.info("nid");console.log(nid);
+                    m.target.setStyle(pullCVJEKStyle(gtype,1,0))
+                }
+                appState.set({agob:nid})
+
+
+            }) //.on
+
 
             var popupContent = feature.properties.name + " (" + feature.properties.cvjekid + ")";
             if (feature.properties && feature.properties.popupContent) {
@@ -273,34 +291,33 @@ console.log("layer:"); console.log(layer);
             onEachFeature: onEachFeature,
 
         }).addTo(eolItems)
-        .on("click", function(m) {
-
-            console.log("in click, m:")
-            console.log(m)
-
-            if(m.layer.feature){
-                console.log("layer.feature yes:");
-                var gtype=m.layer.feature.geometry.type
-                var nid = m.layer.feature.properties.cvjekid
-                m.layer.setStyle(pullCVJEKStyle(gtype,1,0))
-            }
-            else {
-                console.log("layer.feature NO:");
-                console.log("m.target:"); console.log(m.target);
-                var nid = m.target.getLayers()[0].feature.properties.cvjekid
-                var gtype = m.target.getLayers()[0].feature.geometry.type
-                var astyle = pullCVJEKStyle(gtype,1,0)
-
-                m.target.eachLayer(function(f){
-                    if(f.feature.properties.cvjekid==nid){
-                        f.setStyle(astyle)}
-                    })
-
-            }
-            appState.set({agob:nid})
+        // .on("click", function(m) {
 
 
-            }) //.on
+
+        //     if(m.layer.feature){
+        //         console.log("layer.feature yes:");
+        //         var gtype=m.layer.feature.geometry.type
+        //         var nid = m.layer.feature.properties.cvjekid
+        //         m.layer.setStyle(pullCVJEKStyle(gtype,1,0))
+        //     }
+        //     else {
+        //         console.log("layer.feature NO:");
+        //         console.log("m.target:"); console.log(m.target);
+        //         var nid = m.target.getLayers()[0].feature.properties.cvjekid
+        //         var gtype = m.target.getLayers()[0].feature.geometry.type
+        //         var astyle = pullCVJEKStyle(gtype,1,0)
+
+        //         m.target.eachLayer(function(f){
+        //             if(f.feature.properties.cvjekid==nid){
+        //                 f.setStyle(astyle)}
+        //             })
+
+        //     }
+        //     appState.set({agob:nid})
+
+
+        //     }) //.on
 
         return this.pop()
     }

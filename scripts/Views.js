@@ -170,11 +170,12 @@ var GeomsView = Backbone.View.extend({
     el: null,
     events: {},
     initialize: function() {
-        this.listenTo(this.collection, 'sync', this.render)
+        this.listenTo(this.collection, 'sync', this.paint)
         /* -------------------------------------------------- MAP CONTENT -----------------------  */
             // a group for all of the post-specific geoms
             eolItems = L.geoJson().addTo(map);
-            // this.listenTo(appState, 'change:agob', this.render);
+
+            this.listenTo(appState, 'change:agob', this.repaint);
             return this
         },
         asgeojson: function() {
@@ -235,8 +236,50 @@ var GeomsView = Backbone.View.extend({
             });
             return this
         },
-        render: function() {
-            eolItems.clearLayers();
+        repaint: function(as,a){
+
+// as is appState
+// a is agob (the changing value)
+console.info("-------------------------------");
+console.info("gobseens where i want it:");console.log(appState.get("gobseens"));
+
+eolItems.eachLayer(function(ei){
+    if(ei._layers){
+        _.each(ei._layers,function(LA){
+
+            var id = LA.feature.properties.cvjekid
+            var gtype = LA.feature.geometry.type
+
+            var styleactive = (id==a) ? 1 : 0;
+            var styleseen = (_.indexOf(appState.get("gobseens"), id)>=0) ? 1 : 0;
+
+            console.log("id,gtype,active,seen");
+            console.log(id,gtype,styleactive,styleseen);
+            
+
+// the style func has some internal logic for sorting this out
+LA.setStyle(pullCVJEKStyle(gtype,styleactive,styleseen))
+
+            // if(id==a){var styleactive=1
+
+            // } else if(_.indexOf(appState.get("gobseens"), a)>-1)
+
+            // else {
+            //     L.setStyle(pullCVJEKStyle(gtype,0,0))
+
+            // }
+        }); //each
+    } //if
+}); //eachlayer
+
+return this
+// .pop()
+
+
+},
+paint: function() {
+    eolItems.clearLayers();
+    eolItems.clearAllEventListeners();
             // var notcampus = this.collection.models;
             var notcampus = this.asgeojson();
 
@@ -247,16 +290,13 @@ var GeomsView = Backbone.View.extend({
             layer.on("click", function(m) {
 
 
-                console.log("m");
-                console.log(m);
-
                 if(m){
                     console.log("layer.feature yes:");
                     var gtype=m.target.feature.geometry.type
                     console.info("gtype");console.log(gtype);
                     var nid = m.target.feature.properties.cvjekid
                     console.info("nid");console.log(nid);
-                    m.target.setStyle(pullCVJEKStyle(gtype,1,0))
+                    // m.target.setStyle(pullCVJEKStyle(gtype,1,0))
                 }
                 appState.set({agob:nid})
 
@@ -270,16 +310,18 @@ var GeomsView = Backbone.View.extend({
             }
             layer.bindPopup(popupContent).on("popupclose", function(p) {
                 // report to appState that the thing has been seen - permanent for the session
-                var gbseens = appState.get("gobseens")
+                // var gbseens = appState.get("gobseens")
 
 
-                gbseens.push(p.target.feature.properties.cvjekid)
-                appState.set({gobseens:_.unique(gbseens)})
-                // appState.set({agob:null})
+                // gbseens.push(p.target.feature.properties.cvjekid)
+                // appState.set({gobseens:_.unique(gbseens)})
 
-                p.target.setStyle(pullCVJEKStyle(p.target.feature.geometry.type,0,1))
+                if(appState.get("agob")==p.target.feature.properties.cvjekid){
+                    appState.set({agob:null})}
 
-                p.target.bringToBack()
+                // p.target.setStyle(pullCVJEKStyle(p.target.feature.geometry.type,0,1))
+
+                // p.target.bringToBack()
 
             })
 
@@ -291,33 +333,6 @@ var GeomsView = Backbone.View.extend({
             onEachFeature: onEachFeature,
 
         }).addTo(eolItems)
-        // .on("click", function(m) {
-
-
-
-        //     if(m.layer.feature){
-        //         console.log("layer.feature yes:");
-        //         var gtype=m.layer.feature.geometry.type
-        //         var nid = m.layer.feature.properties.cvjekid
-        //         m.layer.setStyle(pullCVJEKStyle(gtype,1,0))
-        //     }
-        //     else {
-        //         console.log("layer.feature NO:");
-        //         console.log("m.target:"); console.log(m.target);
-        //         var nid = m.target.getLayers()[0].feature.properties.cvjekid
-        //         var gtype = m.target.getLayers()[0].feature.geometry.type
-        //         var astyle = pullCVJEKStyle(gtype,1,0)
-
-        //         m.target.eachLayer(function(f){
-        //             if(f.feature.properties.cvjekid==nid){
-        //                 f.setStyle(astyle)}
-        //             })
-
-        //     }
-        //     appState.set({agob:nid})
-
-
-        //     }) //.on
 
         return this.pop()
     }

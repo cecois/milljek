@@ -17,18 +17,31 @@ var State = Backbone.Model.extend({
         this.on('change:slug', this.update, this)
         this.on('change:panestate', this.update, this)
         this.on('change:bbox', this.update, this)
-        this.on('change:agob', this.update, this)
+        this.on('change:agob', this.up_gob, this)
 
         return this
     },
     up_gob: function() {
 
+        var gbseens = this.get("gobseens")
+
+        console.info("gobseens prev:");console.log(this.get("gobseens"));
+
+        gbseens.push(this.previousAttributes().agob)
+        this.set({gobseens:_.unique(gbseens)})
+                // 
+        // this.get("gobseens").push(this.previousAttributes().agob)
+
+        console.info("gobseens now:");console.log(this.get("gobseens"));
 
         return this
         .update()
 
     },
     update: function() {
+
+
+
         appRoute.navigate(this.pullurl());
         return this
         } //update

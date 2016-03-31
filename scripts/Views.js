@@ -130,15 +130,17 @@ var PostsView = Backbone.View.extend({
 
 
         var di = $(e.currentTarget).attr("data-id")
+        console.info("di");console.log(di);
         var dt = $(e.currentTarget).attr("data-type")
-
+        console.info("dt");console.log(dt);
 
         switch (dt) {
             case 'slug':
             appState.set({"slug":di})
             break;
             case 'gob':
-            appState.set({"agob":di})
+            appState.set({"agob":di,"gogob":true})
+
             break;
             default:
             var id = null
@@ -223,56 +225,49 @@ var GeomsView = Backbone.View.extend({
             var e = _.each(eolItems.getLayers(), function(fx) {
                 var ex = _.each(fx.getLayers(), function(fxe) {
                     if (fxe.feature.properties.active == 1) {
+                        console.info("current feature whose props are active:");console.log(fxe.feature.properties);
                         map.fitBounds(fxe.getBounds());
                         fxe.openPopup()
                     }
 
                     return fxe.feature.properties.active == 1;
                 })
-
-
-
                 return ex
             });
+            
+            // 
             return this
         },
         repaint: function(as,a){
 
-// as is appState
-// a is agob (the changing value)
-console.info("-------------------------------");
-console.info("gobseens where i want it:");console.log(appState.get("gobseens"));
+            eolItems.eachLayer(function(ei){
+                if(ei._layers){
+                    _.each(ei._layers,function(LA){
 
-eolItems.eachLayer(function(ei){
-    if(ei._layers){
-        _.each(ei._layers,function(LA){
+                        var id = LA.feature.properties.cvjekid
+                        var gtype = LA.feature.geometry.type
 
-            var id = LA.feature.properties.cvjekid
-            var gtype = LA.feature.geometry.type
+                        if(appState.get("gogob")==true && appState.get("agob")==id){
 
-            var styleactive = (id==a) ? 1 : 0;
-            var styleseen = (_.indexOf(appState.get("gobseens"), id)>=0) ? 1 : 0;
+                            LA.openPopup()
+                            map.fitBounds(LA.getBounds());
+                        }
 
-            console.log("id,gtype,active,seen");
-            console.log(id,gtype,styleactive,styleseen);
-            
+                        var styleactive = (id==a) ? 1 : 0;
+                        var styleseen = (_.indexOf(appState.get("gobseens"), id)>=0) ? 1 : 0;
+
 
 // the style func has some internal logic for sorting this out
+console.log("type,active,seen");
+console.log(gtype,styleactive,styleseen);
 LA.setStyle(pullCVJEKStyle(gtype,styleactive,styleseen))
 
-            // if(id==a){var styleactive=1
 
-            // } else if(_.indexOf(appState.get("gobseens"), a)>-1)
-
-            // else {
-            //     L.setStyle(pullCVJEKStyle(gtype,0,0))
-
-            // }
         }); //each
     } //if
 }); //eachlayer
-
-return this
+            appState.set({gogob:false},{silent:true})
+            return this
 // .pop()
 
 
@@ -316,13 +311,21 @@ paint: function() {
                 // gbseens.push(p.target.feature.properties.cvjekid)
                 // appState.set({gobseens:_.unique(gbseens)})
 
-                if(appState.get("agob")==p.target.feature.properties.cvjekid){
-                    appState.set({agob:null})}
+                // if(appState.get("agob")==p.target.feature.properties.cvjekid){
+                //     appState.set({agob:null})}
 
                 // p.target.setStyle(pullCVJEKStyle(p.target.feature.geometry.type,0,1))
 
                 // p.target.bringToBack()
 
+            })
+
+            layer.on("popupopen",function(p){
+
+                console.info("p in open");console.log(p);
+                p.target.bringToFront()
+
+                // open
             })
 
         } //oneachfeature
@@ -334,6 +337,7 @@ paint: function() {
 
         }).addTo(eolItems)
 
-        return this.pop()
+        return this
+        .pop()
     }
 });

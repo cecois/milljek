@@ -54,20 +54,12 @@ var fill = "#384754";
 var filla = "#C7E048";
 // var fills = "#E0E0E0";
 var fills = "black";
+var pipeseen = "#929292";
 var bord = "#C7E048";
 var borda = "#C7E048";
 switch (gtypa) {
 	case 'point':
-	if (seen==1) {
-		var style = {
-			radius: 8,
-			fillColor: fill,
-			color: fills,
-			weight: 10,
-			opacity: .6,
-			fillOpacity: 0.2,
-		};
-	} else if (active==1) {
+	if (active==1) {
 		var style = {
 			radius: 18,
 			fillColor: filla,
@@ -77,75 +69,87 @@ switch (gtypa) {
 			fillOpacity: 0.8,
 		};
 	} else {
-		var style = {
-			radius: 8,
-			fillColor: fill,
-			color: fills,
-			weight: 10,
-			opacity: 1,
-			fillOpacity: 0.8,
-		};
-	}
-	break;
-	case 'poly':
-	if (seen==1) {
-		var style = {
-			fillColor: fill,
-			color: fills,
-			weight: 10,
-			opacity: .2,
-		};
-	} else if (active==1) {
-		var style = {
-			fillColor: filla,
-			color: borda,
-			weight: 13,
-			opacity: 1,
-		};
-	} else {
-		var style = {
-			fillColor: fill,
-			color: fill,
-			weight: 10,
-			opacity: .8,
-		};
-	}
-	break;
-	case 'line':
-	if (seen==1) {
-		var style = {
-			fillColor: fill,
-			color: fills,
-			weight: 10,
-			opacity: .2,
-		};
-	} else if (active==1) {
-		var style = {
-			fillColor: filla,
-			color: borda,
-			weight: 13,
-			opacity: 1,
-		};
-	} else {
-		var style = {
-			fillColor: fill,
-			color: fill,
-			weight: 10,
-			opacity: .8,
-		};
-	}
-	break;
-	default:
-	var style = {
-		fillColor: "gray",
-		color: "gray",
-		weight: 3,
-		opacity: .3
-	};
-}
-return style
+		if (seen==1) {
+			var style = {
+				radius: 8,
+				fillColor: fill,
+				color: fills,
+				weight: 10,
+				opacity: .6,
+				fillOpacity: 0.2,
+			};
+		} else {
+			var style = {
+				radius: 8,
+				fillColor: fill,
+				color: fills,
+				weight: 10,
+				opacity: 1,
+				fillOpacity: 0.8,
+			};
+		}}
+		break;
+		case 'poly':
+		if (active==1) {
+			var style = {
+				fillColor: filla,
+				color: borda,
+				weight: 13,
+				opacity: 1,
+			};
+		} else {
+			if (seen==1) {
+				var style = {
+					fillColor: fill,
+					color: fills,
+					weight: 10,
+					opacity: .2,
+				};
+			} else {
+				var style = {
+					fillColor: fill,
+					color: fill,
+					weight: 10,
+					opacity: .8,
+				};
+			}}
+			break;
+			case 'line':
+			if (active==1) {
+				var style = {
+					fillColor: filla,
+					color: borda,
+					weight: 13,
+					opacity: 1,
+				};
+			} else {
+				if (seen==1) {
+					var style = {
+						fillColor: fills,
+						color: pipeseen,
+						weight: 10,
+						opacity: 1,
+					};
+				} else {
+					var style = {
+						fillColor: fill,
+						color: fill,
+						weight: 10,
+						opacity: .8,
+					};
+				}}
+				break;
+				default:
+				var style = {
+					fillColor: "gray",
+					color: "gray",
+					weight: 3,
+					opacity: .3
+				};
+			}
+			return style
 
-}
+		}
 
 // function pullEOLStyle(gtype, gstate) {
 //     /**

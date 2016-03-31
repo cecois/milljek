@@ -6,6 +6,7 @@ var State = Backbone.Model.extend({
         "bbox": null,
         "basemap": null,
         "agob": null,
+        "gogob":false
     },
     initialize: function(options) {
         options || (options = {});
@@ -55,6 +56,35 @@ var State = Backbone.Model.extend({
             } else {
                 return str}
             },
+            // pushurl: function(PAIR){
+
+            //     // for some reason (laziness) i thought it might be easier to once in a while let some other entity to all this
+
+            //     console.info("PAIR:");console.log(PAIR);
+
+            //     console.info("PAIRkey");console.log(PAIR.key);
+            //     console.info("PAIRvalue");console.log(PAIR.value);
+
+            //     switch (PAIR.key) {
+            //         case 'slug':
+            //         var state = "#" + PAIR.value +"/"+this.get("panestate")+ "/" + this.get("agob")+"/"+this.get("bbox")                
+            //         break;
+            //         case 'agob':
+            //         var state = "#" + this.get("slug")+"/"+this.get("panestate")+ "/" + PAIR.value 
+            //         // +"/-86.98794364929199,40.41205832879732,-86.86709403991699,40.45178039961496"
+            //         // 
+            //         // +this.get("bbox")
+            //         break;
+            //         default:
+            //         var id = null
+            //     }
+
+            //     console.info("state");console.log(state);
+            //     appRoute.navigate(state,{trigger:true});
+
+            //     return this
+
+            // },
             pullurl: function() {
 
                 var state = "#" + this.get("slug")+"/"+this.get("panestate")+ "/" + this.get("agob")+"/"+this.get("bbox")

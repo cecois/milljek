@@ -37,9 +37,11 @@ var Route = Backbone.Router.extend({
             } else {
               var ag=agob
             }
+            // appState.set({agob:ag,gogob:true})
             appState.set({agob:ag})
 
           } 
+
 
           if (typeof bbox !== 'undefined' && bbox !== null && bbox !== "null") {
 

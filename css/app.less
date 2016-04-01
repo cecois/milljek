@@ -44,11 +44,49 @@
 
 
 
+/* --------------------------------------- MISC REUSABLES -------------- */
+
+.rotate-90 {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+
+  /* also accepts left, right, top, bottom coordinates; not required, but a good idea for styling */
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+
+  /* Should be unset in IE9+ I think. */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+.rotate-45 {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+
+  /* also accepts left, right, top, bottom coordinates; not required, but a good idea for styling */
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+
+  /* Should be unset in IE9+ I think. */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
 /* --------------------------------------- TITLES/HEADERS -------------- */
 
 body{
   .copy-trigger{color: @eolprimary;cursor:pointer;
-    text-shadow: @eolyellow 0px 0px 4px;
+    // text-shadow: @eolyellow 0px 0px 4px;
     &:hover{color:@seen;}
   }
 
@@ -67,9 +105,11 @@ body{
 
   ::selection {
     background: @eolprimary; /* WebKit/Blink Browsers */
+    color:white;
   }
   ::-moz-selection {
     background: @eolprimary; /* Gecko Browsers */
+    color:white;
   }
 
   a{
@@ -178,6 +218,27 @@ h3,h4,h5{
 }
 
 /* --------------------------------------- TITLES/HEADERS -------------- */
+
+#paneToggler{
+  padding-top:12px;
+  color:lighten(@anno,10%);
+  font-size:2.2em;
+  &:active{
+    color:white;
+  }
+  &:hover{
+    cursor:pointer;
+    color:darken(@anno,1%);
+  }
+}
+
+#paneToggler.collapsed{
+  .rotate-45;
+  color:darken(@anno,10%);
+  &:hover{
+    color:lighten(@anno,10%);
+  }
+}
 
 #footer{
   height:12px;
@@ -314,7 +375,8 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 }
 
 #active-container.collapsed{
-  right:-850px;
+  // right:-850px;
+  right:-55%;
   } //collapsed
 
   /* ------------------------------------------------------------------------------------ BHOECHIE OVERRIDES -- */

@@ -408,13 +408,13 @@ mapGeoms.fetch()
 
 /* -------------------------------------------------- HANDLEBARS -----------------------  */
 Handlebars.registerHelper('debug', function(options) {
-	
+
 	return new Handlebars.SafeString("check console");
 });
 
 Handlebars.registerHelper('groupem', function(slug) {
 
-	
+
 	// var group = this.split("-")[0]
 	var grop = slug.split("-")[0]
 	return new Handlebars.SafeString(grop);
@@ -468,8 +468,19 @@ $(document).ready(function() {
 	// 	$("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
  //    }); //click
 
+ $("#paneToggler").click(function(e){
+
+ 	if(appState.get("panestate")=="down"){
+ 		$(this).removeClass("collapsed")
+ 		appState.set({panestate:"out"});
+ 	} else {
+ 		appState.set({panestate:"down"});
+ 		$(this).addClass("collapsed")
+ 	}
+ })
+
  $(document).keydown(function(e){
- 	if(e.keyCode == 17){
+ 	if(e.keyCode == 18){
  		if(appState.get("panestate")=="down"){
  			appState.set({panestate:"out"});
  		} else {

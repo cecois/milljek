@@ -46,8 +46,9 @@ var Route = Backbone.Router.extend({
           if (typeof bbox !== 'undefined' && bbox !== null && bbox !== "null") {
 
             if(bbox !== appState.get("bbox")){
+              console.info("setting bbox for appstate in route");console.log(bbox);
               appState.set({bbox:bbox})
-              map.fitBounds(leafletize_Bbox(bbox))
+              // map.fitBounds(leafletize_Bbox(bbox))
             }
           } 
 

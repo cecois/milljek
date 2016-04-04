@@ -19,11 +19,11 @@
 
 
 @anno: #ABABA1;
-@bodycopy: #ABABA1;
+@bodycopy: #707070;
 @bodycopy-light: #D5D4D5;
 
 
-@alink: #919191;
+@alink: @eolprimary;
 @seen:#919191;
 
 @hovercolor: @eolprimary;
@@ -85,7 +85,7 @@
 /* --------------------------------------- TITLES/HEADERS -------------- */
 
 body{
-  .copy-trigger{color: @eolprimary;cursor:pointer;
+  .copy-trigger{color: @alink;cursor:pointer;font-weight:500;
     // text-shadow: @eolyellow 0px 0px 4px;
     &:hover{color:@seen;}
   }
@@ -114,6 +114,7 @@ body{
 
   a{
     color:@alink;
+    font-weight:500;
       // color:@eolprimary;
 
       &:visited{
@@ -155,7 +156,7 @@ h3,h4,h5{
   font-family: 'PT Sans Narrow', sans-serif;
   z-index: 10;
   font-weight:800;
-  font-variant: small-caps;
+  // font-variant: small-caps;
   background-color: #ffffff;
   padding: 0 !important;
   border-radius: 4px;
@@ -388,13 +389,13 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 
 // here we apply moderate viz style per groups of cv entries
 .list-group-item.im {
-  border-right: 3px solid @group-im;
+  border-right: 8px solid @group-im;
 }
 .list-group-item.about {
-  border-right: 3px solid @group-about;
+  border-right: 8px solid @group-about;
 }
 .list-group-item.cv {
-  border-right: 3px solid @group-cv;
+  border-right: 8px solid @group-cv;
 }
 
 .list-group-item:first-child {

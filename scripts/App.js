@@ -458,6 +458,9 @@ function leafletize_Bbox(bboxstring){
 
 /* -------------------------------------------------- READY -----------------------  */
 $(document).ready(function() {
+
+	$('[data-toggle="tooltip"]').tooltip()
+
 	// $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
 	// 	e.preventDefault();
 	// 	var tid = $(e.currentTarget).attr('id').split("-")[2]
@@ -471,11 +474,11 @@ $(document).ready(function() {
  $("#paneToggler").click(function(e){
 
  	if(appState.get("panestate")=="down"){
- 		$(this).removeClass("collapsed")
+ 		// $(this).removeClass("collapsed")
  		appState.set({panestate:"out"});
  	} else {
  		appState.set({panestate:"down"});
- 		$(this).addClass("collapsed")
+ 		// $(this).addClass("collapsed")
  	}
  })
 

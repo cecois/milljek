@@ -105,9 +105,11 @@ var PostsView = Backbone.View.extend({
         switch(appState.get("panestate")) {
                 case "down":
             $("#active-container").addClass('collapsed')
+            $("#paneToggler").addClass("collapsed")
                     break;
                 case "out":
             $("#active-container").removeClass('collapsed')
+            $("#paneToggler").removeClass("collapsed")
                     break;
                 default:
             $("#active-container").removeClass('collapsed')
@@ -251,6 +253,8 @@ var GeomsView = Backbone.View.extend({
 
                             LA.openPopup()
                             map.fitBounds(LA.getBounds());
+                            // mm, not so tight
+                            map.setZoom(map.getZoom()-2)
                         }
 
                         var styleactive = (id==a) ? 1 : 0;
@@ -258,8 +262,6 @@ var GeomsView = Backbone.View.extend({
 
 
 // the style func has some internal logic for sorting this out
-console.log("type,active,seen");
-console.log(gtype,styleactive,styleseen);
 LA.setStyle(pullCVJEKStyle(gtype,styleactive,styleseen))
 
 
@@ -299,7 +301,8 @@ paint: function() {
             }) //.on
 
 
-            var popupContent = feature.properties.name + " (" + feature.properties.cvjekid + ")";
+            var popupContent = feature.properties.name 
+            // + " (" + feature.properties.cvjekid + ")";
             if (feature.properties && feature.properties.popupContent) {
                 popupContent += feature.properties.popupContent;
             }

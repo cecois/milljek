@@ -185,8 +185,6 @@ var GeomsView = Backbone.View.extend({
         },
         zoomy: function(){
 
-            console.info("bbox prev in zoomy, then appstate");
-
             if((appState.previousAttributes().bbox==null) || (typeof appState.previousAttributes().bbox == 'undefined')){
 
                 map.fitBounds(leafletize_Bbox(appState.get("bbox")))}

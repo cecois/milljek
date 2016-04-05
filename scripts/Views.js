@@ -180,26 +180,38 @@ var GeomsView = Backbone.View.extend({
             eolItems = L.geoJson().addTo(map);
 
             this.listenTo(appState, 'change:agob', this.repaint);
+            this.listenTo(appState, 'change:bbox', this.zoomy);
             return this
         },
-        asgeojson: function() {
-            cg = []
-            this.collection.each(function(hit, i) {
+        zoomy: function(){
 
-                var the_geom = hit.get("geometry")
-                var the_props = hit.get("properties")
-                var cvjekid = the_props.cvjek;
+            console.info("bbox prev in zoomy, then appstate");
 
-                if(typeof appState.get("agob")!== 'undefined'){
-                    the_props.active = appState.get("agob")==cvjekid ? 1 : 0;}
+            if((appState.previousAttributes().bbox==null) || (typeof appState.previousAttributes().bbox == 'undefined')){
 
-                    if(appState.get("gobseens") && typeof appState.get("gobseens") == "object"){
-                        the_props.seen = _.indexOf(appState.get("gobseens"),cvjekid)>-1 ? 1 : 0;
-                    }else{the_props.seen=0};
-                    the_props.exalted = appState.get("agob")==cvjekid ? 1 : 0;
+                map.fitBounds(leafletize_Bbox(appState.get("bbox")))}
+
+                return this
+
+            },
+            asgeojson: function() {
+                cg = []
+                this.collection.each(function(hit, i) {
+
+                    var the_geom = hit.get("geometry")
+                    var the_props = hit.get("properties")
+                    var cvjekid = the_props.cvjek;
+
+                    if(typeof appState.get("agob")!== 'undefined'){
+                        the_props.active = appState.get("agob")==cvjekid ? 1 : 0;}
+
+                        if(appState.get("gobseens") && typeof appState.get("gobseens") == "object"){
+                            the_props.seen = _.indexOf(appState.get("gobseens"),cvjekid)>-1 ? 1 : 0;
+                        }else{the_props.seen=0};
+                        the_props.exalted = appState.get("agob")==cvjekid ? 1 : 0;
 
 
-                    var geomtype = the_geom.type
+                        var geomtype = the_geom.type
 
 
                 // here we reconstruct the geoJSON for map display
@@ -221,22 +233,22 @@ var GeomsView = Backbone.View.extend({
                 };
                 cg.push(recon)
             }) //collection.each
-            return cg
-        },
-        pop: function() {
-            var e = _.each(eolItems.getLayers(), function(fx) {
-                var ex = _.each(fx.getLayers(), function(fxe) {
-                    if (fxe.feature.properties.active == 1) {
-                        console.info("current feature whose props are active:");console.log(fxe.feature.properties);
-                        map.fitBounds(fxe.getBounds());
-                        fxe.openPopup()
-                    }
+                return cg
+            },
+            pop: function() {
+                var e = _.each(eolItems.getLayers(), function(fx) {
+                    var ex = _.each(fx.getLayers(), function(fxe) {
+                        if (fxe.feature.properties.active == 1) {
+                            console.info("current feature whose props are active:");console.log(fxe.feature.properties);
+                            map.fitBounds(fxe.getBounds());
+                            fxe.openPopup()
+                        }
 
-                    return fxe.feature.properties.active == 1;
-                })
-                return ex
-            });
-            
+                        return fxe.feature.properties.active == 1;
+                    })
+                    return ex
+                });
+
             // 
             return this
         },

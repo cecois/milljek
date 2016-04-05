@@ -450,10 +450,12 @@ function pullEOLID(idin) {
 function leafletize_Bbox(bboxstring){
 	// what we could do in here is add some validation, fix the syntax for ppl who don't send form West,South,East,North but get with it yo!
 	var ba = bboxstring.split(",")
-	return [
-	[ba[1], ba[0]],
-	[ba[2], ba[3]]
-	]
+
+	var southWest = L.latLng(ba[1], ba[0]),
+	northEast = L.latLng(ba[3], ba[2]),
+	bounds = L.latLngBounds(southWest, northEast);
+
+	return bounds
 }
 
 /* -------------------------------------------------- READY -----------------------  */

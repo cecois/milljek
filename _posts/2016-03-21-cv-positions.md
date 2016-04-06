@@ -1,4 +1,4 @@
----
+er ---
 layout: post
 title: 'Current & Past Positions'
 date: 2016-03-21 02:18:42.000000000 -04:00
@@ -29,13 +29,13 @@ Knowledge Services Sector
 
 ##### Associate Professor of Library Science/GIS Specialist, 2012
 
-<span class="copy-trigger" data-type="gob" data-id="gD19">Purdue University Libraries</span>
+<span class="copy-trigger" data-type="gob" data-id="gD16">Purdue University Libraries</span>
 504 West State Street
 West Lafayette, IN 47907-2058
 
 ##### Assistant Professor of Library Science/GIS Specialist, 2006-2012
 
-<span class="copy-trigger" data-type="gob" data-id="gD19">Purdue University Libraries</span>
+<span class="copy-trigger" data-type="gob" data-id="gD16">Purdue University Libraries</span>
 504 West State Street
 West Lafayette, IN 47907-2058
 

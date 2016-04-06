@@ -21,7 +21,7 @@ last_name: Miller
 * 2015 June – MIT Lincoln Laboratory Special Recognition Award
 * 2015 January – (nomination only) MIT Excellence Award
 * 2012 July – granted tenure - promotion to associate professor, Purdue University
-* 2009 Spring – John H. Moriarty Award for Excellence in Library Service
+* 2009 Spring – John H. Moriarty Award for Excellence in Library Service, Purdue University
 
 #### Recognition
 

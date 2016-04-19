@@ -7,8 +7,8 @@ var PostsMenuView = Backbone.View.extend({
     initialize: function() {
         console.log("init of PMV");
         this.listenTo(this.collection, 'change', this.render);
+        this.render()
         return this
-        .render()
     },
     log: function(e) {
         e.preventDefault()
@@ -18,11 +18,23 @@ var PostsMenuView = Backbone.View.extend({
     }
     ,
     render: function() {
-       console.log("in render of PMV");
+     console.log("in render of PMV");
+
+     console.info("this.collection");console.log(this.collection);
+
+    //    var akrowsOG = this.collection.partition(function(m){ 
+    //     console.info("m in partition");console.log(m);
+    //     var mt = m.get("title").toLowerCase()
+    //     var mtr = (mt.indexOf("the ")> -1) ? mt.split("the ")[1] : mt;
+    //     var regx = /[a-k]+$/;
+    //     var mtrregx = mtr[0].match(regx);
+    //     if(mtrregx !== null){
+    //         return m;
+    //     }
+    // });
 
 
-       console.info("mtr");console.log(mtr);
-       var akrows = this.collection.partition(function(m){ 
+    var akrows = _.partition(this.collection.models,function(m){ 
         console.info("m in partition");console.log(m);
         var mt = m.get("title").toLowerCase()
         var mtr = (mt.indexOf("the ")> -1) ? mt.split("the ")[1] : mt;
@@ -33,40 +45,42 @@ var PostsMenuView = Backbone.View.extend({
         }
     });
 
-       var lsrows = this.collection.partition(function(m){ 
-        console.info("m in partition");console.log(m);
-        var mt = m.get("title").toLowerCase()
-        var mtr = (mt.indexOf("the ")> -1) ? mt.split("the ")[1] : mt;
-        var regx = /[l-s]+$/;
-        var mtrregx = mtr[0].match(regx);
-        if(mtrregx !== null){
-            return m;
-        }
-    });
-       var tzrows = this.collection.partition(function(m){ 
-        console.info("m in partition");console.log(m);
-        var mt = m.get("title").toLowerCase()
-        var mtr = (mt.indexOf("the ")> -1) ? mt.split("the ")[1] : mt;
-        var regx = /[t-z]+$/;
-        var mtrregx = mtr[0].match(regx);
-        if(mtrregx !== null){
-            return m;
-        }
-    });
+    //  var lsrows = this.collection.partition(function(m){ 
+    //     console.info("m in partition");console.log(m);
+    //     var mt = m.get("title").toLowerCase()
+    //     var mtr = (mt.indexOf("the ")> -1) ? mt.split("the ")[1] : mt;
+    //     var regx = /[l-s]+$/;
+    //     var mtrregx = mtr[0].match(regx);
+    //     if(mtrregx !== null){
+    //         return m;
+    //     }
+    // });
+    //  var tzrows = this.collection.partition(function(m){ 
+    //     console.info("m in partition");console.log(m);
+    //     var mt = m.get("title").toLowerCase()
+    //     var mtr = (mt.indexOf("the ")> -1) ? mt.split("the ")[1] : mt;
+    //     var regx = /[t-z]+$/;
+    //     var mtrregx = mtr[0].match(regx);
+    //     if(mtrregx !== null){
+    //         return m;
+    //     }
+    // });
 
 
-       console.info("a-k");console.log(akrows[0].length);
-       console.info("l-s");console.log(lsrows[0].length);
-       console.info("t-z");console.log(tzrows[0].length);
+    console.info("a-k");console.log(akrows[0].length);
+     // console.info("l-s");console.log(lsrows[0].length);
+     // console.info("t-z");console.log(tzrows[0].length);
 
-       $(this.el).html(this.template({
-        count: this.collection.models.length,
-        akrows: akrows.toJSON(),
-        lsrows: lsrows.toJSON(),
-        tzrows: tzrows.toJSON()
-    }));
-       return this
-   }
+    //  $(this.el).html(this.template({
+    //     count: this.collection.models.length,
+    //     akrows: akrows.toJSON(),
+    //     lsrows: lsrows.toJSON(),
+    //     tzrows: tzrows.toJSON()
+    // }));
+
+    $(this.el).html(this.template());
+    return this
+}
 });
 
 var BaseLayersView = Backbone.View.extend({
@@ -206,13 +220,13 @@ var GeomsView = Backbone.View.extend({
     el: null,
     events: {},
     initialize: function() {
-        this.listenTo(this.collection, 'sync', this.paint)
+        // this.listenTo(this.collection, 'sync', this.paint)
         /* -------------------------------------------------- MAP CONTENT -----------------------  */
             // a group for all of the post-specific geoms
             eolItems = L.geoJson().addTo(map);
 
-            this.listenTo(appState, 'change:agob', this.repaint);
-            this.listenTo(appState, 'change:bbox', this.zoomy);
+            // this.listenTo(appState, 'change:agob', this.repaint);
+            // this.listenTo(appState, 'change:bbox', this.zoomy);
             return this
         },
         zoomy: function(){

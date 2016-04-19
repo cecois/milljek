@@ -18,9 +18,9 @@ var PostsMenuView = Backbone.View.extend({
     }
     ,
     render: function() {
-     console.log("in render of PMV");
+       console.log("in render of PMV");
 
-     console.info("this.collection");console.log(this.collection);
+       console.info("this.collection");console.log(this.collection);
 
     //    var akrowsOG = this.collection.partition(function(m){ 
     //     console.info("m in partition");console.log(m);
@@ -45,6 +45,8 @@ var PostsMenuView = Backbone.View.extend({
         }
     });
 
+
+    console.info("akrows");console.log(akrows);
     //  var lsrows = this.collection.partition(function(m){ 
     //     console.info("m in partition");console.log(m);
     //     var mt = m.get("title").toLowerCase()
@@ -71,14 +73,11 @@ var PostsMenuView = Backbone.View.extend({
      // console.info("l-s");console.log(lsrows[0].length);
      // console.info("t-z");console.log(tzrows[0].length);
 
-    //  $(this.el).html(this.template({
-    //     count: this.collection.models.length,
-    //     akrows: akrows.toJSON(),
-    //     lsrows: lsrows.toJSON(),
-    //     tzrows: tzrows.toJSON()
-    // }));
+     $(this.el).html(this.template({
+        akrows: akrows.toJSON()
+    }));
 
-    $(this.el).html(this.template());
+    // $(this.el).html(this.template());
     return this
 }
 });

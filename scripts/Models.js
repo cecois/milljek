@@ -1,8 +1,9 @@
 var State = Backbone.Model.extend({
     defaults: {
         "q": null,
-        "slug": "about-cover-letter-gloss",
+        "slug": null,
         "panestate": "out", // or 0 for collapsed
+        "pane":null,
         "bbox": null,
         "basemap": null,
         "agob": null,
@@ -87,7 +88,7 @@ var State = Backbone.Model.extend({
             // },
             pullurl: function() {
 
-                var state = "#" + this.get("slug")+"/"+this.get("panestate")+ "/" + this.get("agob")+"/"+this.get("bbox")
+                var state = "#" + this.get("slug")+"/"+this.get("pane")+ "/" +this.get("panestate")+ "/" + this.get("agob")+"/"+this.get("bbox")
                 return state
             }
         });

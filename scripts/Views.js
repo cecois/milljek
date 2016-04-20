@@ -2,7 +2,7 @@ var PostsMenuView = Backbone.View.extend({
     el: "#posts-menu",
     template: Handlebars.templates['postsMenuViewTpl'],
     events: {
-        // "click a": "activate"
+        // "click a": "activatepane"
     },
     initialize: function() {
         console.log("init of PMV");
@@ -10,76 +10,46 @@ var PostsMenuView = Backbone.View.extend({
         this.render()
         return this
     },
+    activatepane: function(e){
+
+        var di = $(e.currentTarget).attr("data-id")
+
+        console.log("in activatepane, di:");
+        console.log(di);
+
+        if(appState.get("pane")!==di){
+            appState.set({pane:di})
+        }
+
+        return this
+
+
+    },
     log: function(e) {
         e.preventDefault()
         var di = $(e.currentTarget).attr("data-id")
 
         return this
-    }
-    ,
+    },
     render: function() {
-       console.log("in render of PMV");
 
-       console.info("this.collection");console.log(this.collection);
+     var ap = this.collection.findWhere({active:true})
 
-    //    var akrowsOG = this.collection.partition(function(m){ 
-    //     console.info("m in partition");console.log(m);
-    //     var mt = m.get("title").toLowerCase()
-    //     var mtr = (mt.indexOf("the ")> -1) ? mt.split("the ")[1] : mt;
-    //     var regx = /[a-k]+$/;
-    //     var mtrregx = mtr[0].match(regx);
-    //     if(mtrregx !== null){
-    //         return m;
-    //     }
-    // });
-
-
-    var akrows = _.partition(this.collection.models,function(m){ 
-        console.info("m in partition");console.log(m);
-        var mt = m.get("title").toLowerCase()
-        var mtr = (mt.indexOf("the ")> -1) ? mt.split("the ")[1] : mt;
-        var regx = /[a-k]+$/;
-        var mtrregx = mtr[0].match(regx);
-        if(mtrregx !== null){
-            return m;
-        }
-    });
-
-
-    console.info("akrows");console.log(akrows);
-    //  var lsrows = this.collection.partition(function(m){ 
-    //     console.info("m in partition");console.log(m);
-    //     var mt = m.get("title").toLowerCase()
-    //     var mtr = (mt.indexOf("the ")> -1) ? mt.split("the ")[1] : mt;
-    //     var regx = /[l-s]+$/;
-    //     var mtrregx = mtr[0].match(regx);
-    //     if(mtrregx !== null){
-    //         return m;
-    //     }
-    // });
-    //  var tzrows = this.collection.partition(function(m){ 
-    //     console.info("m in partition");console.log(m);
-    //     var mt = m.get("title").toLowerCase()
-    //     var mtr = (mt.indexOf("the ")> -1) ? mt.split("the ")[1] : mt;
-    //     var regx = /[t-z]+$/;
-    //     var mtrregx = mtr[0].match(regx);
-    //     if(mtrregx !== null){
-    //         return m;
-    //     }
-    // });
-
-
-    console.info("a-k");console.log(akrows[0].length);
-     // console.info("l-s");console.log(lsrows[0].length);
-     // console.info("t-z");console.log(tzrows[0].length);
+     var akrowsno = {"length":this.collection.subdivide('ak').length,"active":false}
+     var lsrowsno = {"length":this.collection.subdivide('ls').length,"active":false}
+     var tzrowsno = {"length":this.collection.subdivide('tz').length,"active":false}
 
      $(this.el).html(this.template({
-        akrows: akrows.toJSON()
+        // akrowsno: this.collection.subdivide('ak').length,
+        akrowsno: akrowsno,
+        lsrowsno: lsrowsno,
+        tzrowsno: tzrowsno,
+        ap: ap.toJSON()
     }));
 
-    // $(this.el).html(this.template());
-    return this
-}
+     return this
+     .choose()
+ }
 });
 
 var BaseLayersView = Backbone.View.extend({
@@ -177,9 +147,7 @@ var PostsView = Backbone.View.extend({
 
 
         var di = $(e.currentTarget).attr("data-id")
-        console.info("di");console.log(di);
         var dt = $(e.currentTarget).attr("data-type")
-        console.info("dt");console.log(dt);
 
         switch (dt) {
             case 'slug':

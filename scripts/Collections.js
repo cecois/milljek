@@ -80,15 +80,34 @@ var PostsCollection = Backbone.Collection.extend({
             })
             }) // every
         return this
-        // .actually()
+        .actually()
+    },
+    subdivide: function(wich){
+
+
+
+        var rows = _.partition(this.models,function(m){ 
+            var mt = m.get("title").toLowerCase()
+            var mtr = (mt.indexOf("the ")> -1) ? mt.split("the ")[1] : mt;
+            var regx = /[wich[0]-wich[1]]+$/;
+            var mtrregx = mtr[0].match(regx);
+            if(mtrregx !== null){
+                return m;
+            }
+        });
+
+        return rows
+
     },
     actually: function(slug) {
         // var act = slug
 
         var tat = this.findWhere({slug:appState.get("slug")})
-        tat.set({active:true})
+        if(typeof tat !== 'undefined'){
+            
+            tat.set({active:true})}
 
-        
-        return this
+
+            return this
         } //actxivate
     });

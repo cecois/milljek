@@ -14,6 +14,8 @@
 
 @group-about:@eolyellow;
 @group-cv:@eolprimary;
+
+@group-az:@eolprimary;
 @group-im:#BE090D;
 
 
@@ -387,14 +389,26 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     padding: 3px 5px;
   }
 
+  .list-group-item.true {
+    background-color:@bodycopy-light;
+  }
+
+
+  .subtitle{
+    color:@eolyellow;
+    font-size: .7em;
+  }
 // here we apply moderate viz style per groups of cv entries
-.list-group-item.im {
-  border-right: 8px solid @group-im;
-}
-.list-group-item.about {
-  border-right: 8px solid @group-about;
-}
-.list-group-item.cv {
+// .list-group-item.im {
+//   border-right: 8px solid @group-im;
+// }
+// .list-group-item.about {
+//   border-right: 8px solid @group-about;
+// }
+// .list-group-item.cv {
+//   border-right: 8px solid @group-cv;
+// }
+.list-group-item.az {
   border-right: 8px solid @group-cv;
 }
 
@@ -403,7 +417,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
   border-top-right-radius: 0px;
 }
 
-#active-a{
+#active-track{
   padding-left:0;
   padding-top:0;
   padding-right:0;

@@ -2,14 +2,14 @@ var Route = Backbone.Router.extend({
   routes: {
         // "(:slug)(/:panestate)(/:agobs)(/:bbox)(/)": "default",
         // "(:slug)(/:panestate)(/:agobs)(/:bbox)(/)": "default",
-        "(:slug)(/:panestate)(/:agob)(/:bbox)(/)": "default",
+        "(:slug)(/:pane)(/:panestate)(/:agob)(/:bbox)(/)": "default",
         // "_site/(:cat)(/:year)(/:month)(/:day)(/:file)": "passthru",
       },
       initialize: function() {
         // this.report()
         // this.listenTo(appState, 'change', this.report)
       },
-      default: function(slug, panestate, agob, bbox){
+      default: function(slug, pane, panestate, agob, bbox){
 
 
         console.info("slug in route");console.log(slug);
@@ -23,7 +23,18 @@ var Route = Backbone.Router.extend({
           if (typeof slug !== 'undefined' && slug !== null && slug !== "null" && appState.get("slug")!==slug) {
 
             appState.set({slug:slug},{silent:true})
-          } 
+          } else if(appState.get("slug")==null) {
+
+            appState.set({slug:cxPosts.last().get("slug")},{silent:true})
+          }
+
+          if (typeof pane !== 'undefined' && pane !== null && pane !== "null" && appState.get("pane")!==pane) {
+
+            appState.set({pane:pane},{silent:true})
+          } else if(appState.get("pane")==null) {
+
+            appState.set({pane:"active-post"},{silent:true})
+          }
 
           if (typeof panestate !== 'undefined' && panestate !== null && panestate !== "null") {
 

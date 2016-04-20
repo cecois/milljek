@@ -1,23 +1,28 @@
-	{{!-- {{#each akrows}} --}}
-	<a class="list-group-item text-center active about" href="#" data-id="about-cover-letter-gloss">
-		<br>
-		A-K
-	</a>
-	{{!-- {{/each}} --}}
+{{!-- {{#each akrows}} --}}
+<a class="list-group-item text-center {{ap.active}}" href="#" id="active-post-menu-item" data-id="menu-active-post">
+	<br>
+	Active Post <div class="subtitle">{{ap.title}}</div>
+</a>
 
-	<a class="list-group-item text-center  about" href="#" data-id="about-portfolio">
-		<br>
-		Portfolio
-	</a>
-	<a class="list-group-item text-center  cv" href="#" data-id="cv-positions">
-		<br>
-		Cv Positions
-	</a>
-	<a class="list-group-item text-center  cv" href="#" data-id="cv-publications">
-		<br>
-		Publications &amp; Presentations
-	</a>
-	<a class="list-group-item text-center  cv" href="#" data-id="cv-awards-and-recognition">
-		<br>
-		Awards &amp; Recognition
-	</a>
+<a class="list-group-item text-center {{akrowsno.active}} az" href="#" data-id="menu-ak">
+	<br>
+	A-K ({{akrowsno.length}})
+</a>
+{{!-- {{/each}} --}}
+
+<a class="list-group-item text-center {{lsrowsno.active}} az" href="#" data-id="menu-ls">
+	<br>
+	L-S ({{lsrowsno.length}})
+</a>
+<a class="list-group-item text-center {{tzrowsno.active}} az" href="#" data-id="menu-tz">
+	<br>
+	T-Z ({{tzrowsno.length}})
+</a>
+<a class="list-group-item text-center" href="#" data-id="menu-search">
+	<br>
+	Search
+</a>
+<a class="list-group-item text-center" href="#" data-id="menu-about">
+	<br>
+	About
+</a>

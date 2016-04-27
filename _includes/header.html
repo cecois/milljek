@@ -1,13 +1,11 @@
 
-<header id="title-container" class="site-header col-lg-12">
-	<div id="title-copy" class="col-sm-11">
-		<span class="st-title">
-			CCM:
-		</span>
-		<span class="st-title-sub">
-			DCV
-		</span>
-	</div>
-	<div id="paneToggler" class="pull-right col-sm-1 glyphicon glyphicon-map-marker" data-toggle="tooltip" data-placement="left" title="click (or press alt/opt key) to toggle more/less map">
-	</div> <!-- ./ panetoggler -->
-</header>
+<div class="header">
+	<h1>{{ site.name }}</h1>
+	<ul>
+		{% for item in site.data.navigation %}
+		<li>
+			<a href="{{ item.url }}">{{ item.title }}</a>
+		</li>
+		{% endfor %}
+	</ul>
+</div>

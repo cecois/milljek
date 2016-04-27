@@ -1,12 +1,14 @@
 var GeomsCollection = Backbone.Collection.extend({
     model: Geom,
     url: function() {
-        return "assets/offline/cartodb-query.geojson";
+        return "/spatialtrack/assets/offline/cartodb-query.geojson";
     },
     initialize: function(options) {
 
         options || (options = {});
+        // this.listenTo(cxPosts,'reset',this.fetch)
         return this
+        .fetch()
     },
     activate: function(){
 
@@ -45,69 +47,33 @@ var GeomsCollection = Backbone.Collection.extend({
     },
 });
 
-var BaseLayersCollection = Backbone.Collection.extend({
-    model: BaseLayer,
-    url:function(){
+var PostsCollection = Backbone.Collection.extend({
+    model: Post,
+    url: function() {
         return null
     },
     initialize: function(options) {
         options || (options = {});
+        this.listenTo(this, 'reset', this.activate);
+        return this
+    },
+    activate: function(){
+
+        var slug = window.location.pathname.split("spatialtrack")[1]
+
+
+        var am = this.findWhere({url:slug}).set({active:true})
+
+        console.info("am");console.log(am);
+
+        return this
+
     }
 
 });
 
-var PostsCollection = Backbone.Collection.extend({
-    model: Post,
-    url: function() {
-        // return "api/jekyllfetcher.php?cb=cwmccallback&solrstring="
-        return null
-    },
-    initialize: function(options) {
-        // this.on('change', this.activate, this);
-        this.listenTo(appState, 'change:slug', this.activate);
-        options || (options = {});
-        // this.activate(appState.get("slug"));
-        return this
-    },
-    activate: function() {
-
-
-        this.each(function(d, index) {
-            d.set({
-                active: false
-            }, {
-                silent: true
-            })
-            }) // every
-        return this
-        .actually()
-    },
-    subdivide: function(wich){
-
-
-
-        var rows = _.partition(this.models,function(m){ 
-            var mt = m.get("title").toLowerCase()
-            var mtr = (mt.indexOf("the ")> -1) ? mt.split("the ")[1] : mt;
-            var regx = /[wich[0]-wich[1]]+$/;
-            var mtrregx = mtr[0].match(regx);
-            if(mtrregx !== null){
-                return m;
-            }
-        });
-
-        return rows
-
-    },
-    actually: function(slug) {
-        // var act = slug
-
-        var tat = this.findWhere({slug:appState.get("slug")})
-        if(typeof tat !== 'undefined'){
-            
-            tat.set({active:true})}
-
-
-            return this
-        } //actxivate
-    });
+var BaseLayersCollection = Backbone.Collection.extend({
+    model: BaseLayer,
+    url:function(){return null},
+    initialize: function(options) {options || (options = {});}
+});

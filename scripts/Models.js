@@ -20,7 +20,33 @@ var Util = Backbone.Model.extend({
 		options || (options = {});
 		return this
 	},
-	stylize: function(gtype,active,seen){
+	fromto: function(s,f){
+
+// 		switch(f) {
+//     case "jekyll": //from jekyll e.g. "poly:99" to gD99
+// var idina = s.split(":")
+// switch (idina[0]) {
+// 	case 'line':
+// 	var id = gpre_line + idina[1]
+// 	break;
+// 	case 'poly':
+// 	var id = gpre_poly + idina[1]
+// 	break;
+// 	case 'point':
+// 	var id = gpre_point + idina[1]
+// 	break;
+// 	default:
+// 	var id = null
+// }
+//         break;
+//     default:
+// var id = "bombed out"
+// }
+
+// return id
+
+},
+stylize: function(gtype,active,seen){
 
 
 

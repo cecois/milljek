@@ -17,6 +17,7 @@ window.gpre_line = "g|"
 	"title"    : "{{ post.title }}",
 	"url"      : "{{ post.url }}",
 	"slug"      : "{{ post.slug }}",
+	"location"      : "{{ post.location }}",
 	"date"     : "{{ post.date | date: "%B %d, %Y" }}",
 	"content"  : "{{ post.content | escape }}"
 } {% if forloop.last %}{% else %},{% endif %}

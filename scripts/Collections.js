@@ -54,16 +54,44 @@ var PostsCollection = Backbone.Collection.extend({
     },
     initialize: function(options) {
         options || (options = {});
-        this.listenTo(this, 'reset', this.activate);
+        // this.listenTo(this, 'change', this.activate);
         return this
+    },
+    sync: function(method, collection, options) {
+
+        console.log("sync of POSTS");
+        options.dataType = "jsonp";
+        options.jsonpCallback = 'cwmccallback';
+        return Backbone.sync(method, collection, options);
     },
     activate: function(){
 
-        var slug = window.location.pathname.split("spatialtrack")[1]
+        var slugall = window.location.pathname.split("spatialtrack")[1]
+        if(typeof slugall !== 'undefined'){
+            var slughtml = slugall.split(".html")[0]
+            if(typeof slughtml !== 'undefined'){
+                var slug = slughtml.split("/")[4]}}
 
+                console.info("window.location.pathname");console.log(window.location.pathname);
+                console.info("slugall");console.log(slugall);
+                console.info("slughtml");console.log(slughtml);
+                console.info("slug");console.log(slug);
 
-        var am = this.findWhere({url:slug}).set({active:true})
+                console.log("typeof");
+                console.log(typeof slug);
 
+                console.info("mods");console.log(this);
+
+                if(typeof slug == "string"){
+                    // var am = this.findWhere({slug:slug})
+                    var am = this.models[0]
+                } else {
+                    var am = this.models[0]
+                }
+                
+        // var am = (slug == "/") ? this.collection.models[0] : ;
+
+        // am.set({active:true})
         console.info("am");console.log(am);
 
         return this

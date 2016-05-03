@@ -10,30 +10,32 @@ var GeomsCollection = Backbone.Collection.extend({
         return this
         .fetch()
     },
-    activate: function(){
+//     activate: function(){
 
+// console.log("incoming slug in GEOMS");
+// console.log(slug);
 
-        _.each(this.models,function(m){
-            if(m.get("cvjekid")==appState.get("agob")){
-                m.properties.active=1
-            }
+//         _.each(this.models,function(m){
+//             if(m.get("cvjekid")==slug){
+//                 m.properties.active=1
+//             }
             
-        })
+//         })
 
-        return this
+//         return this
 
-    },
-    deactivate: function() {
+//     },
+    // deactivate: function() {
 
-        // i don't know about this silent thing - could bite later
-        this.invoke('set', {
-            "active": false
-        }, {
-            silent: true
-        });
-        return this
-        .activate()
-    },
+    //     // i don't know about this silent thing - could bite later
+    //     this.invoke('set', {
+    //         "active": false
+    //     }, {
+    //         silent: true
+    //     });
+    //     return this
+    //     .activate(slug)
+    // },
 
     parse: function(response) {
 
@@ -54,7 +56,7 @@ var PostsCollection = Backbone.Collection.extend({
     },
     initialize: function(options) {
         options || (options = {});
-        // this.listenTo(this, 'change', this.activate);
+        // this.listenTo(this, 'change', this.deactivate);
         return this
     },
     sync: function(method, collection, options) {
@@ -64,39 +66,51 @@ var PostsCollection = Backbone.Collection.extend({
         options.jsonpCallback = 'cwmccallback';
         return Backbone.sync(method, collection, options);
     },
-    activate: function(){
+//     deactivate: function() {
 
-        var slugall = window.location.pathname.split("spatialtrack")[1]
-        if(typeof slugall !== 'undefined'){
-            var slughtml = slugall.split(".html")[0]
-            if(typeof slughtml !== 'undefined'){
-                var slug = slughtml.split("/")[4]}}
+// console.log("deact of cxp");
+//         // i don't know about this silent thing - could bite later
+//         this.invoke('set', {
+//             "active": false
+//         }, {
+//             silent: true
+//         });
+//         return this
+//         .activate()
+//     },
+    // activate: function(){
 
-                console.info("window.location.pathname");console.log(window.location.pathname);
-                console.info("slugall");console.log(slugall);
-                console.info("slughtml");console.log(slughtml);
-                console.info("slug");console.log(slug);
+    //     var slugall = window.location.pathname.split("spatialtrack")[1]
+    //     if(typeof slugall !== 'undefined'){
+    //         var slughtml = slugall.split(".html")[0]
+    //         if(typeof slughtml !== 'undefined'){
+    //             var slug = slughtml.split("/")[4]}}
 
-                console.log("typeof");
-                console.log(typeof slug);
+    //             console.info("window.location.pathname");console.log(window.location.pathname);
+    //             console.info("slugall");console.log(slugall);
+    //             console.info("slughtml");console.log(slughtml);
+    //             console.info("slug");console.log(slug);
 
-                console.info("mods");console.log(this);
+    //             console.log("typeof");
+    //             console.log(typeof slug);
 
-                if(typeof slug == "string"){
-                    // var am = this.findWhere({slug:slug})
-                    var am = this.models[0]
-                } else {
-                    var am = this.models[0]
-                }
+    //             console.info("mods");console.log(this);
+
+    //             if(typeof slug == "string"){
+    //                 // var am = this.findWhere({slug:slug})
+    //                 var am = this.models[0]
+    //             } else {
+    //                 var am = this.models[0]
+    //             }
                 
-        // var am = (slug == "/") ? this.collection.models[0] : ;
+    //     // var am = (slug == "/") ? this.collection.models[0] : ;
 
-        // am.set({active:true})
-        console.info("am");console.log(am);
+    //     // am.set({active:true})
+    //     console.info("am");console.log(am);
 
-        return this
+    //     return this
 
-    }
+    // }
 
 });
 

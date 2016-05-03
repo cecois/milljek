@@ -77,6 +77,8 @@ var baselayers = {
 	]
 }
 
+var MILLERIA = new Util();
+
 var mapBaseLayers = new BaseLayersCollection(baselayers.layers);
 var mapBaseView = new BaseLayersView({
 	collection: mapBaseLayers
@@ -87,7 +89,6 @@ var mapGeomsView = new GeomsView({
 	collection: mapGeoms
 });
 
-var MILLERIA = new Util();
 
 /* -------------------------------------------------- READY -----------------------  */
 $(document).ready(function() {

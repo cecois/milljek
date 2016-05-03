@@ -22,33 +22,77 @@ var Util = Backbone.Model.extend({
 	},
 	fromto: function(s,f){
 
-// 		switch(f) {
-//     case "jekyll": //from jekyll e.g. "poly:99" to gD99
-// var idina = s.split(":")
-// switch (idina[0]) {
-// 	case 'line':
-// 	var id = gpre_line + idina[1]
-// 	break;
-// 	case 'poly':
-// 	var id = gpre_poly + idina[1]
-// 	break;
-// 	case 'point':
-// 	var id = gpre_point + idina[1]
-// 	break;
-// 	default:
-// 	var id = null
-// }
-//         break;
-//     default:
-// var id = "bombed out"
-// }
+console.log("is the problem fromto? here's s and f...");
+console.log(s);
+console.log(f);
 
-// return id
+		switch(f) {
+    case "jekyll": //from jekyll e.g. "poly:99" to gD99
+var idina = s.split(":")
+switch (idina[0]) {
+	case 'line':
+	var id = gpre_line + idina[1]
+	break;
+	case 'poly':
+	var id = gpre_poly + idina[1]
+	break;
+	case 'point':
+	var id = gpre_point + idina[1]
+	break;
+	default:
+	var id = null
+}
+        break;
+    default:
+var id = "bombed out"
+}
+
+return id
 
 },
-stylize: function(gtype,active,seen){
+testa: function(fea){
+
+var active = 0
+var slugall = window.location.pathname.split("spatialtrack")[2]
+        if (typeof slugall !== 'undefined') {
+            var slughtml = slugall.split(".html")[0]
+            if (typeof slughtml !== 'undefined') {
+                var slug = slughtml.split("/")[4]
+            }
+        }
+
+console.log("slug in testa");
+console.log(slug);
+
+console.log("fea.properties.mjid in testa");
+console.log(fea.properties.mjid);
+
+console.log("testing gid:");
+console.log(this.fromto(am.get("location"),"jekyll"));
+
+        var am = cxPosts.findWhere({slug:slug})
+        if(typeof am !== 'undefined'){
+                active = (fea.properties.mjid==this.fromto(am.get("location"),"jekyll"))?1:0;
+
+            }
+return active
+//         var gid = (typeof am !== 'undefined')?this.fromto(am.get("location"),"jekyll"):null;
+
+// if()
 
 
+},
+stylize: function(fea){
+
+// console.log("fea in stylize");
+// console.log(fea);
+
+var gtype= fea.geometry.type
+var active = this.testa(fea)
+
+console.log("active after testa");
+console.log(active);
+// return {radius: 18,fillColor: "pink",color: "white",weight: 13,opacity: 1,fillOpacity: 0.8}
 
 		 /**
         in here we nudge the style definitions a little bc it's not always a 1:1 match between

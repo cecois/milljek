@@ -1,15 +1,25 @@
 ---
 ---
 
-
 @import "reset";
 @import "config";
+
+/* -------------------------------------- VARS ----------- */
+
+// $milleria-bg: rgba(255,255,255,.78);
+$milleria-bg: rgba(255,255,255,.78);
+$milleria-copy-color: #001832;
+$milleria-copy-color-anno: #A5A5A1;
+$milleria-copy-color-a: #C36A01;
+$milleria-copy-color-a-visited: #50667A;
 
 /* -------------------------------------- OVERRIDES (RESET/CONFIG) ----------- */
 
 body {
-    color: $color-primary;
-    background: $color-background;
+    // color: $color-primary;
+    color:$milleria-copy-color;
+    // background: $color-background;
+    background: $milleria-bg;
     font-family: 'Inconsolata', ;
     font-size: 100%;
     font-weight: 400;
@@ -21,22 +31,7 @@ p {
     font-size: 1em;
     line-height: 150%;
 }
-a {
-  color: $color-link;
-  text-decoration: none;
-  &:visited {
-    color: $color-link;
-    text-decoration: none;
-}
-&:hover {
-    color: $color-link;
-    text-decoration: underline;
-}
-&:active {
-    color: $color-link;
-    text-decoration: none;
-}
-}
+
 ul {
     list-style: none;
     li {
@@ -196,6 +191,7 @@ ul {
 
 /* ---------------------- END STOCK ------------------ */
 
+
 #map {
   width: 100%;
   height: 100%;
@@ -207,15 +203,40 @@ ul {
   z-index:-10;
 }
 
+.date{
+    color:$milleria-copy-color-anno;
+}
+.anno{
+    color:$milleria-copy-color-anno;
+}
+
 .wrapper { // OVERRIDE
     max-width: 90%;
-    background-color:#abc;
-    color:#000;
+    background-color:$milleria-bg;
+    color:$milleria-copy-color;
     margin: auto;
     padding: 60px 30px 60px 30px;
     @media screen and (max-width: $br) {
         padding: 20px;
     }
+a {
+  color: $milleria-copy-color-a;
+  font-weight:600;
+  text-decoration: none;
+  &:visited {
+  font-weight:normal;
+  color: rgba( $milleria-copy-color-a, .2 );
+    text-decoration: none;
+}
+&:hover {
+    color: $milleria-copy-color;
+    // text-decoration: underline;
+}
+&:active {
+    color: $milleria-copy-color-a;
+    text-decoration: none;
+}
+}
 }
 
 

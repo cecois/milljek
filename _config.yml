@@ -1,5 +1,5 @@
 # My variables
-name: Spatial Track
+name: ST
 description: a mapped blog about mappable music
 
 # File management
@@ -12,6 +12,8 @@ sass:
   style: :compressed
   sass_dir: _sass
 
+# Outputting
+permalink:     pretty
 
 # Markdown
 markdown: kramdown

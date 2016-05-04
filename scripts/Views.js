@@ -1,12 +1,27 @@
+var PostView = Backbone.View.extend({  
+    el: '.wrapper',
+events: {
+        "click div": "process"
+    },
+    process: function(e){
+    console.log("e in process:");
+console.log(e);
+    }
+    });
+
+
+
 var GeomsView = Backbone.View.extend({
     el: null,
     events: {},
     initialize: function() {
-        this.listenTo(this.collection, 'reset', this.render)
-        this.listenTo(this.collection, 'change', this.render)
-        this.listenTo(this.collection, 'sync', this.render)
-            /* -------------------------------------------------- MAP CONTENT -----------------------  */
-            // a group for all of the post-specific geoms
+        // this.listenTo(this.collection, 'reset', this.render)
+        // this.listenTo(this.collection, 'change', this.render)
+        // this.listenTo(this.collection, 'sync', this.render)
+        this.listenTo(cxPosts, 'reset', this.render);
+        this.listenTo(cxPosts, 'change', this.render);
+        /* -------------------------------------------------- MAP CONTENT -----------------------  */
+        // a group for all of the post-specific geoms
         mjGeoms = L.geoJson().addTo(map);
         // this.listenTo(cxPosts, 'reset', this.render);
         // this.bind(this.collection,'change',this.render);
@@ -22,22 +37,17 @@ var GeomsView = Backbone.View.extend({
                 var slug = slughtml.split("/")[4]
             }
         }
-
-console.log("slug:");
-console.log(slug);
-
         if (typeof slug == "string") {
-
             cxPosts.deactivate()
-            // var am = this.findWhere({slug:slug})
-            // var am = cxPosts.models[0]
+                // var am = this.findWhere({slug:slug})
+                // var am = cxPosts.models[0]
         }
         // var am = (slug == "/") ? this.collection.models[0] : ;
         // am.set({
         //     active: true
         // })
         return this
-        // .render()
+            // .render()
     },
     zoomy: function() {
         // if((appState.previousAttributes().bbox==null) || (typeof appState.previousAttributes().bbox == 'undefined')){
@@ -59,32 +69,32 @@ console.log(slug);
             //     }
             //     appState.set({agob:nid})
             // }) //.on
-            // var popupContent = feature.properties.name 
-            // if (feature.properties && feature.properties.popupContent) {
-            //     popupContent += feature.properties.popupContent;
-            // }
-            // layer.bindPopup(popupContent).on("popupclose", function(p) {
-            // })
+            
+
+            var mjid = MILLERIA.fromto(feature.properties.mjid,"cartodb")
+
+            var corresp = cxPosts.findWhere({location:mjid})
+if(typeof corresp !== 'undefined'){
+    var tiedtitle = corresp.get("title")
+    var popupContent = '<h4>'+feature.properties.name+'</h4><div>associated with: <a href="spatialtrack/'+corresp.get("url")+'">'+tiedtitle+'</a></div>'} else {
+                var popupContent = "No posts key to this location - it...probably shouldn't even be here."
+            }
+            layer.bindPopup(popupContent).on("popupclose", function(p) {
+            })
             // layer.on("popupopen",function(p){
             //     p.target.bringToFront()
             // })
         } //oneachfeature
         L.geoJson(gjz, {
             style: function(fea, lay) {
-
-return MILLERIA.stylize(fea, 0, 0)
+                return MILLERIA.stylize(fea, 0, 0)
             },
             onEachFeature: on_each,
             pointToLayer: function(feature, latlng) {
-                return L.circleMarker(latlng, {
-                    radius: 8,
-                    fillColor: "#ff7800",
-                    color: "#000",
-                    weight: 1,
-                    opacity: 1,
-                    fillOpacity: 0.8
-                });
+                // return L.circleMarker(latlng, {radius: 8,fillColor: "#ff7800",color: "#000",weight: 1,opacity: 1,fillOpacity: 0.8});
+                return L.circleMarker(latlng);
             }
+                        
         }).addTo(mjGeoms)
         return this
             // .pop()

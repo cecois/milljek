@@ -1,8 +1,8 @@
-# - title: home
-#   url: /spatialtrack/
+- title: home
+  url: /
 
-#- title: about
-#  url: /me
+- title: about
+  url: /this
 
 #- title: contact
 #  url: mailto:micahcowell99@gmail.com

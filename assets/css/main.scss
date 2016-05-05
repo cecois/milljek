@@ -13,6 +13,10 @@ $milleria-copy-color-anno: #A5A5A1;
 $milleria-copy-color-a: #C36A01;
 $milleria-copy-color-a-visited: #50667A;
 
+$milleria-copy-color-trigger: #A50E1B;
+
+$milleria-copy-color-highlight: #864900;
+
 /* -------------------------------------- OVERRIDES (RESET/CONFIG) ----------- */
 
 body {
@@ -23,6 +27,16 @@ body {
     font-family: 'Inconsolata', ;
     font-size: 100%;
     font-weight: 400;
+
+ ::selection {
+  background: $milleria-copy-color-highlight; /* WebKit/Blink Browsers */
+  color:#fff;
+}
+::-moz-selection {
+  background: $milleria-copy-color-highlight; /* Gecko Browsers */
+  color:#fff;
+}
+
 }
 h1 {
     margin-bottom: 5px;
@@ -242,4 +256,9 @@ a {
 
 .wrapper.down{
     top:90%;
+}
+
+.trigger{
+    color: $milleria-copy-color-trigger;
+    cursor:pointer;
 }

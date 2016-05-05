@@ -1,11 +1,52 @@
 var PostView = Backbone.View.extend({  
     el: '.wrapper',
 events: {
-        "click div": "process"
+        "click .trigger": "process"
     },
     process: function(e){
-    console.log("e in process:");
-console.log(e);
+
+var type = $(e.currentTarget).attr("data-target")
+var did = $(e.currentTarget).attr("data-id")
+
+        switch(type) {
+                case "rando":
+
+            // rando case presuming coords right now - but later we could sniff out other types
+            var y = did.split(",")[0]
+            var x = did.split(",")[1]
+
+map.setView(L.latLng(x,y),8)
+
+                    break;
+                case null:
+            
+            console.log("case wz null");
+
+                    break;
+            case "milleria":
+var did = $(e.currentTarget).attr("data-id")
+
+mjGeoms.eachLayer(function(l){ l.eachLayer(function(m){
+
+if(m.feature.properties.mjid==did){
+
+map.fitBounds(m.getBounds());
+
+}
+})})
+
+            break;
+                default:
+            console.log("case reached default")
+        }
+
+console.log("did:");
+console.log(did);
+
+
+
+return this
+
     }
     });
 
@@ -76,7 +117,7 @@ var GeomsView = Backbone.View.extend({
             var corresp = cxPosts.findWhere({location:mjid})
 if(typeof corresp !== 'undefined'){
     var tiedtitle = corresp.get("title")
-    var popupContent = '<h4>'+feature.properties.name+'</h4><div>associated with: <a href="spatialtrack/'+corresp.get("url")+'">'+tiedtitle+'</a></div>'} else {
+    var popupContent = '<h4>'+feature.properties.name+'</h4><div>associated with: <a href="'+corresp.get("url")+'">'+tiedtitle+'</a></div>'} else {
                 var popupContent = "No posts key to this location - it...probably shouldn't even be here."
             }
             layer.bindPopup(popupContent).on("popupclose", function(p) {

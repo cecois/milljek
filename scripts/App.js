@@ -89,6 +89,8 @@ var mapGeomsView = new GeomsView({
 	collection: mapGeoms
 });
 
+var pActive = new PostView();
+
 
 /* -------------------------------------------------- READY -----------------------  */
 $(document).ready(function() {

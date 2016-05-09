@@ -30,10 +30,10 @@ author:
 
 <p>As in *no one* to please. Even oneself. Maybe St. Paul is somehow charming in the dead of winter. But if every other city eventually becomes a bleak and featureless palette of dirty gray and dirty white (including Minneapolis) probably St. Paul does, too.</p>
 
-#### MAPPING IT
+# MAPPING IT
 The whole of St. Paul, MN. (Geom from <a href="http://www.openstreetmap.org/relation/136612">OSM</a>.)
 
-#### HEARING IT
+# HEARING IT
 The better version is <a href="http://www.daytrotter.com/#!/concert/casiotone-for-the-painfully-alone/20030216-111136">from a Daytrotter session</a>, but the studio version:
 
 <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A1MsCYcXzBwpZNNPx8gh9G3" width="400" height="180" frameborder="0" allowtransparency="true"></iframe>

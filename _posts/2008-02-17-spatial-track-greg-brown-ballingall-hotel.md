@@ -46,8 +46,8 @@ See? Time travel. Kind of a nice twist, but time travel just the same, which WIL
 
 Established. But Brown is from good ol' Iowa City, so he sets a lot of his sad regretscapes in the ratty, decaying small towns of Eastern Iowa. And it turns out the Ballingall is legit; is, in every likelihood, <a href="http://www.flickr.com/photos/34086110@N06/4498258908/">this one</a> (<a href="http://www.flickr.com/photos/34086110@N06/4497624499/">postcard view</a>) in Ottumwa, Iowa. Fair to assume it had perhaps atrophied a little by Brown's time, as <a href="http://books.google.com/books?id=7tAgAuOGN3oC&amp;pg=PA124&amp;lpg=PA124&amp;dq=ottumwa+%22ballingall+hotel%22&amp;source=web&amp;ots=grHuf-e9bo&amp;sig=mSvvDmn823MjPLT5pfKaDOaRA2A">this account</a> briefly timelines why it was razed in 1996.
 
-#### MAPPING IT
+# MAPPING IT
 [Off you go to Ottumwa, Iowa](http://www.openstreetmap.org/search?query=41.016234%2C-92.410389#map=19/41.01623/-92.41039), storied in poem and song. This one, anyway.
 
-#### HEARING IT
+# HEARING IT
 <!--<iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A2U0bIrPy0sbTTXQFDACflh" width="400" height="180" frameborder="0" allowtransparency="true"></iframe>-->

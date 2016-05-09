@@ -49,8 +49,8 @@ Actually, let's answer that: For starters, less killing. This album is a masterp
 
 [^1] Eh, <em>maybe</em>. Not infeasible, though.
 
-#### MAPPING IT
+# MAPPING IT
 Denver, but where? How about the site of Denver's Hotel Teatro, nodding Cowboy-style to a nice place to stay <em>and</em> the name of another ace Nelson album.
 
-#### HEARING IT
+# HEARING IT
 <!-- <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A6XA4JehIqXGF4Aqqcj5TBX" width="400" height="180" frameborder="0" allowtransparency="true"></iframe> -->

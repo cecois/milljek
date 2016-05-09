@@ -38,8 +38,8 @@ author:
 <p>Aw c'mon, Iowa. Jokes. Except you can legit probably find people who "lost two fingers in a chainsaw" and there's legit nothing to do there except "go downtown and watch haircuts" and my town had a legit Squealer Feed Store *and* a restaurant called "The Feed Bag" until it burned to the ground. McCall knows his (their) shit.</p>
 
 
-#### MAPPING IT
+# MAPPING IT
 Audubon is actually in SW Iowa - considerably more Dust Bowl, considerably west of metros *Deez Moinz* and Iowa City. So if you want the definitive description of most of Iowa - here's "Audubon" by C.W. McCall:
 
-#### HEARING IT
+# HEARING IT
 <!-- <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A6sBdzWRGfQBoBwnoSbcIPn" width="400" height="180" frameborder="0" allowtransparency="true"></iframe> -->

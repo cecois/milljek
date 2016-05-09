@@ -46,10 +46,10 @@ Put another way, John Wayne wouldn't last a minute in <em>McCabe</em>. He's too.
 
 Anyway, it just all seems so fitting: Altman's films (and <em>McCabe</em> in particular) basically play out like gloomy arpeggio folk guitar songs, with lots of busy sound that collectively texture the entire work. Cohen's song (the original recording, in particular) has this in spades and the cumulative effect makes serious weight. <em>McCabe</em> has plenty of charm from Beatty himself, the dialogue, and the landscape, but in the end what you're seeing is the frightening, sudden disappearance of a person, almost literally lost in the Western landscape. Likewise, "Stranger Song" is full of characters who are on this or that side of being lost themselves. On purpose, one has to presume.
 
-#### MAPPING IT
+# MAPPING IT
 It would be nice to position that exact spot where the snow blustered over a certain character's slumped body – beautiful! – but filming locations shouldn't count. Let's back out and just use the entirety of <span data-target="milleria" data-id="gD2" class="trigger">West Vancouver</span> (lifted from <a href="http://www.openstreetmap.org/relation/1524231#map=13/49.3597/-123.2074">OSM</a>).
 
-#### HEARING IT
+# HEARING IT
 So enjoy Cohen's "The Stranger Song" from Songs of Leonard Cohen, 1967. And then for additional exposition about Altman &amp; Vancouver: <a href="http://www.cinematheque.bc.ca/sept_oct_06/turner.html" target="">this essay</a> by Michael Turner about Altman's two Vancouver films (the other is <em>That Cold Day in the Park</em> (1969)).
 
 <!-- <div class="spotembed"><iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A5BeT7nwfURe9hldXRhBMKM&theme=white" width="400" height="180" frameborder="0" allowtransparency="true"></iframe></div> -->

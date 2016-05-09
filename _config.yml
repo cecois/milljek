@@ -4,7 +4,7 @@ description: a mapped blog about mappable music
 
 # File management
 include: [".htaccess"]
-exclude: ["README.md", "LICENSE"]
+exclude: ["README.md", "LICENSE", "templates"]
 baseurl: "http://localhost/spatialtrack"
 
 # Sass

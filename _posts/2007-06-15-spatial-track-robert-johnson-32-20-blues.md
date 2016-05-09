@@ -36,18 +36,18 @@ Let's wrap this up in a bulleted list:
 * Johnson probably meant "Hot Springs" when he said "Wisconsin"
 * we got a dead lady on our hands no matter how we slice it
 
-#### MAPPING IT
+# MAPPING IT
 It's tempting to put this one down at <a href="http://www.openstreetmap.org/search?query=43.388599%2C-87.868073#map=19/43.38860/-87.86807">the site of that old chair factory that housed Skip James' label, Paramount</a> - downtown Grafton, Wisconsin. But Hot Springs, maybe. Because that's where this was gonna happen:
 
 <ul class="screenbox">
-<li class="sceneheader">int. early-19th-century emergency room, yellowing walls; a woman on a table struggles for breath</li>
+<li class="sceneheader">int. early-20th-century emergency room, yellowing walls; a woman on a table struggles for breath</li>
 <li class="character">PHYSICIAN</li>
-<li class="action">looks up from a gutshot vicitm at blues singer Robert Johnson</li>
+<li class="action">looks up from a gutshot victim at blues singer Robert Johnson</li>
 <li class="character">ROBERT JOHNSON</li>
 <li class="action">shakes head menacingly at physician</li>
 <li class="character">PHYSICIAN</li>
 <li class="action">Turns to an imaginary sitcom camera, shrugs shoulders, twists face comically. Fin.</li>
 </ul>
 
-#### HEARING IT
+# HEARING IT
 <!-- <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A3bQAoAuhhIinrbPaaCqu80" width="400" height="180" frameborder="0" allowtransparency="true"></iframe> -->

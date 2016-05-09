@@ -35,8 +35,8 @@ But this week should really drop a pin on that little box on Michigan Ave, becau
 
 [^1] That should read "contracted an STD due to excessively sketchy fucking."
 
-#### MAPPING IT
+# MAPPING IT
 The definitive Chess location has to be the 2120 building. If for no other reason than its very address was <a href="https://open.spotify.com/track/4KoBKbnRh4BywqvY5VPkts">ripped dafuk off</a> by -- surprise! -- bluesmen The Rolling Stones <a href="https://open.spotify.com/track/78sLmeACzKnsCKz0dnWRHw">as well as by</a> –- well, whaddya know! -- George Thorogood. That little place in Chicago (technically one of several Chess locations) <a href="http://www.openstreetmap.org/way/210537820">still stands</a>.
 
-#### HEARING IT
+# HEARING IT
 <!-- <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A3awQZ1E2H96rnpZAS4YMNe" width="400" height="180" frameborder="0" allowtransparency="true"></iframe> -->

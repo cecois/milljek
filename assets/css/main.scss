@@ -7,15 +7,23 @@
 /* -------------------------------------- VARS ----------- */
 
 // $milleria-bg: rgba(255,255,255,.78);
-$milleria-bg: rgba(255,255,255,.78);
+$milleria-bg: rgba(255,255,255,.88);
 $milleria-copy-color: #001832;
 $milleria-copy-color-anno: #A5A5A1;
 $milleria-copy-color-a: #C36A01;
 $milleria-copy-color-a-visited: #50667A;
-
 $milleria-copy-color-trigger: #A50E1B;
-
 $milleria-copy-color-highlight: #864900;
+
+
+/* Coolors Exported Palette - coolors.co/592941-498467-170312-402e2a-9cd08f */
+
+// $milleria-copy-color-anno: #592941; //rgba(89, 41, 65, 100)
+$milleria-copy-color: #170312; //rgba(23, 3, 18, 100)
+// $milleria-copy-color-a: #402e2a; //rgba(64, 46, 42, 100)
+$milleria-copy-color-a: #498467; //rgba(64, 46, 42, 100)
+$milleria-copy-color-trigger: #402e2a; //rgba(73, 132, 103, 100)
+$milleria-copy-color-highlight: #402e2a; //rgba(156, 208, 143, 100)
 
 /* -------------------------------------- OVERRIDES (RESET/CONFIG) ----------- */
 
@@ -41,6 +49,9 @@ body {
 h1 {
     margin-bottom: 5px;
 }
+// h4 {
+//     font-weight: 400;
+// }
 p {
     font-size: 1em;
     line-height: 150%;
@@ -115,7 +126,15 @@ ul {
 
 
 .post {
-    padding-bottom: 30px;
+    // padding-bottom: 30px; //og
+    padding: 15px 65px;
+    &__img__wrapper{
+        float: right; margin-top: 10px; width: 210px; height: 100%; margin: 15px;
+          // float: right;
+    //       padding:20px;
+    // position: relative;
+    // right: 5%;
+    }
     &__title {
         font-size: 1.6em;
         font-weight: 700;
@@ -177,6 +196,50 @@ ul {
                 margin: auto;
             }
         }
+
+
+/* --------------------------------------- LYRICS -------------- */
+
+.lyrics{
+  font-style: italic;
+  margin-top:20px;
+  margin-bottom:30px;
+padding: 25px;
+width: 90%;
+margin-left: 5%;
+  font-style: italic;
+  color:"gray";
+  background-color:"white";
+  border-radius:2px;
+}
+
+
+/* --------------------------------------- SCREENPLAY -------------- */
+.screenbox {
+    list-style: none;
+    width: 60%;
+    background: white;
+    border: 1px solid #333;
+    padding: 5px 14px;
+    margin-top:52px;
+    margin-bottom:52px;
+
+    li { font: 12px/14px Courier, fixed; list-style: outside none none;}
+
+    .sceneheader,.character{text-transform: uppercase;}
+.sceneheader, .action, .character { 
+    // padding-top: 1.5em;
+     }
+.action { padding-right: 5%; }
+.character { margin-left: 40%; margin-top:20px; }
+.dialogue { margin-left: 25%; padding-right: 25%; }
+.parenthetical { margin-left: 32%; padding-right: 30%; }
+/* special case: dialogue followed by a parenthetical; the extra line needs to be suppressed */
+.dialogue + .parenthetical { padding-bottom: 0; }
+.transition { padding-top: 3ex; margin-left: 65%; padding-bottom: 1.5ex; }
+
+}
+
     }
 }
 
@@ -187,6 +250,7 @@ ul {
         margin-top: 20px;
         margin-bottom: 10px;
     }
+
     &__content {
         margin-top: 20px;
         h1 {
@@ -243,7 +307,8 @@ a {
     text-decoration: none;
 }
 &:hover {
-    color: $milleria-copy-color;
+    // color: $milleria-copy-color;
+    color: $milleria-copy-color-highlight;
     // text-decoration: underline;
 }
 &:active {
@@ -261,4 +326,20 @@ a {
 .trigger{
     color: $milleria-copy-color-trigger;
     cursor:pointer;
+}
+
+#post-toolbar{
+text-align:center;
+ margin: 0;
+    padding: 0;
+    list-style: none;
+    .active-colorbar{
+        color:white;
+        cursor:pointer;
+        display: inline;
+        // margin-right:-8px;
+        // &:hover{
+        //     background-color: $milleria-copy-color-a-visited;
+        // }
+    }
 }

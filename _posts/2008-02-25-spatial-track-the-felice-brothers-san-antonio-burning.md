@@ -32,8 +32,8 @@ Oh well, what's one more face-down dame, eh, Dick Wolf?
 
 [^1] All citations needed, not forthcoming.
 
-#### MAPPING IT
+# MAPPING IT
 This one will go down plum on <a href="http://www.openstreetmap.org/way/78485919">The Tower of the Americas</a>, built for the fair and these days keeping the dreams of <a href="http://www.toweroftheamericas.com/">orbital dining</a> and <a href="http://wireless2.fcc.gov/UlsApp/AsrSearch/asrRegistration.jsp?regKey=2600109">FM radio</a> alive and well.
 
-#### HEARING IT
+# HEARING IT
 "Adventures..." isn't on Spotify. <a href="http://cl.ly/2R0c0515441D/download/13%20San%20Antonio%20Burning.mp3">File</a>.

@@ -23,10 +23,10 @@ author:
 
 There were at least a few attempts to acknowledge that Twin Towers business, though, and the best ones seemed to be the ones that were microscopic. Think Springsteen's "<a href="https://open.spotify.com/track/23zMvkiwXFOM7Y1bO954GA">You're Missing</a>," for example, where we're in somebody's apartment instead of looking down on the global politic. Another was from Elvis Perkins, well-known to be the son of Anthony Perkins and Berry Berenson, a photographer who died in the September 11th attack. In the sad, sadly-resolved, carefully-paced elegy "Ash Wednesday," Perkins draws images of "a black and white of the bride and groom" that smash hard against "the colorized bad dream" that ultimately, finally, empty out their home forever (Perkins' father died in 1992): "its king and queen sleep, both now, in the arms of Ash Wednesday."
 
-#### MAPPING IT
+# MAPPING IT
 It maps, obviously, to lower Manhattan, where the very thought of that hole in the ground was still making everybody spontaneously puke from sadness by the time this was released.
 
-#### HEARING IT
+# HEARING IT
 There's a <a href="http://www.daytrotter.com/#!/concert/elvis-perkins/20030065-110490">very good Daytrotter Session performance</a> of this, but here's the official release:
 
 <!-- <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A5echUMh3K7DmIlvAnIOksV" width="400" height="180" frameborder="0" allowtransparency="true"></iframe> -->

@@ -40,13 +40,72 @@ map.fitBounds(m.getBounds());
             console.log("case reached default")
         }
 
-console.log("did:");
-console.log(did);
+
+
+return this
+
+    }
+    });
+
+var PostImageView = Backbone.View.extend({  
+    el: '.post__img',
+   template: Handlebars.templates['postImageViewTpl'],
+events: {
+        "click .active-colorbar-0": "zoom"
+    },
+    initialize: function(){
+
+   this.listenTo(cxPosts, 'reset', this.render);
+   return this
+    },
+    zoom: function(){
 
 
 
 return this
 
+    },
+    render: function(){
+var urlall = window.location.pathname.split("/spatialtrack/")[1]
+var am = cxPosts.findWhere({url:"/"+urlall})
+
+        $(this.el).html(this.template(
+         am.toJSON()
+        ));
+
+        var img = document.createElement('img');
+        var iu = "/spatialtrack/assets/offline/jackets/"+am.get("slug")+".jpg"
+
+        img.setAttribute('src', iu)
+
+img.addEventListener('load', function() {
+    var vibrant = new Vibrant(img);
+    var swatches = vibrant.swatches()
+
+// there's a pointless color bar that we fill w/ post jacket swatches
+ 
+    $(".active-colorbar-0").css("background-color",swatches.Vibrant.getHex())
+            $(".active-colorbar-1").css("background-color",swatches.Muted.getHex()).hover(function(e) { 
+    $(this).css("background-color",e.type === "mouseenter"?swatches.LightVibrant.getHex():swatches.Muted.getHex()) 
+})
+            $(".active-colorbar-2").css("background-color",swatches.DarkVibrant.getHex()).hover(function(e) { 
+    $(this).css("background-color",e.type === "mouseenter"?swatches.LightVibrant.getHex():swatches.DarkVibrant.getHex()) 
+})
+            $(".active-colorbar-3").css("background-color",swatches.DarkMuted.getHex()).hover(function(e) { 
+    $(this).css("background-color",e.type === "mouseenter"?swatches.LightVibrant.getHex():swatches.DarkMuted.getHex()) 
+})
+            // $(".active-colorbar-1").css("color",swatches.Muted.getHex())
+            // $(".active-colorbar-2").css("color",swatches.DarkVibrant.getHex())
+            // $(".active-colorbar-3").css("color",swatches.DarkMuted.getHex())
+
+// color the buttons, too
+            $(".bt-post-bank-item").css("color",swatches.Muted.getHex());
+
+$("#posts-active > h3").css("color",swatches.DarkVibrant.getHex())
+
+});
+
+        return this
     }
     });
 

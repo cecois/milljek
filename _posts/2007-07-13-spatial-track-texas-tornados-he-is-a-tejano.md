@@ -32,8 +32,8 @@ But sure enough all the dust in the air between the U.S. and Mexico swirls into 
 
 Flaco's fun, though! Here's "He is a Tejano," off of The Texas Tornados' 1991 <em>A Zone of Our Own</em>.
 
-#### MAPPING IT
+# MAPPING IT
 Lake Chapala, the site of budding romance and, nearly, a murder in the street.
 
-#### HEARING IT
+# HEARING IT
 <!-- <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A2UiHNKhHZZ3Vn4giV030pm" width="400" height="180" frameborder="0" allowtransparency="true"></iframe> -->

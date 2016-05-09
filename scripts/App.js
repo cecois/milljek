@@ -89,6 +89,7 @@ var mapGeomsView = new GeomsView({
 	collection: mapGeoms
 });
 
+var pImage = new PostImageView({collection:cxPosts});
 var pActive = new PostView();
 
 

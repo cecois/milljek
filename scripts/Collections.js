@@ -59,13 +59,13 @@ var PostsCollection = Backbone.Collection.extend({
         // this.listenTo(this, 'change', this.deactivate);
         return this
     },
-    sync: function(method, collection, options) {
+    // sync: function(method, collection, options) {
 
-        console.log("sync of POSTS");
-        options.dataType = "jsonp";
-        options.jsonpCallback = 'cwmccallback';
-        return Backbone.sync(method, collection, options);
-    },
+    //     console.log("sync of POSTS");
+    //     options.dataType = "jsonp";
+    //     options.jsonpCallback = 'cwmccallback';
+    //     return Backbone.sync(method, collection, options);
+    // },
 //     deactivate: function() {
 
 // console.log("deact of cxp");

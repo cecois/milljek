@@ -45,8 +45,8 @@ That the little girl said<br />
 
 ...And so on. This version is so kickass, though. Deep, lumbering, and minor with maybe the most Koko Taylory chorus there ever was (Willie Dixon doing harmony, to boot). It kills! Blast it, fuck it - what if the love of <em>your</em> life went cuckoo and ended up marooned in insane asylum?! You never considered?!
 
-#### MAPPING IT
+# MAPPING IT
   Could put it at <a href="http://www.openstreetmap.org/node/368164994">that little museum</a> in dear, old, crazy, beautiful, Laredo, Texas. But Kenneth S. Goldstein <a href="http://media.smithsonianfolkways.org/liner_notes/folkways/FW03805.pdf">seems pretty certain</a> that the St. James Hospital in most iterations of this song is modern-day "St. James' Palace" in London.
 
-#### HEARING IT
+# HEARING IT
 <!-- <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A3fC84UOfPJGVoKF4bxB2M9" width="400" height="180" frameborder="0" allowtransparency="true"></iframe> -->

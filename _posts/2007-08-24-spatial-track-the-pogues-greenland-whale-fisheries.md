@@ -30,10 +30,10 @@ Anyway, one day a whale decides to fuck up a ship real goodlike, and the sailors
 
 So that's the book part. The song to go with it could be almost anything whale- or ocean-related, but how about the rollicking "Greenland Whale Fisheries" by The Pogues. It's good for imagining a bunch of dirty, grisled sailors losing their shits because a whale they didn't kill is coming for them.
 
-#### MAPPING IT
+# MAPPING IT
 Greenland can screw, though, agreed? This one belongs in the approximate location of where The Essex was rammed by that badass Dick: just below the equator and 120W.
 
-#### HEARING IT
+# HEARING IT
 There's a probably-better performance from the "Gin Lane, Beer Street" bootleg (Stockholm, 1995), but here's their official recording from <em>Red Roses for Me</em>:
 
 <!-- <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A7kAp9xBHBUni9n7O58c5Qx" width="400" height="180" frameborder="0" allowtransparency="true"></iframe> -->

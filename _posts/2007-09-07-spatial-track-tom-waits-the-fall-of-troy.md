@@ -40,8 +40,8 @@ But a little more about little Troy and Nick. Get this: Troy was "shot dead in M
 
 Well, Mrs. Mason is *underselling* it, friends. Hard. Lil' Nicholas Mason went bad, as it were, by "murdering a man who, the police said, came to the projects to buy drugs." Oh! Vigilantism, maybe - fighting the good fight against the element that perhaps was responsible for his brother's death. Oh also-in-the-previous-year-he-was-charged-with-13-other-crimes-including-assaults-plural-armed-robberies-plural-and-attempted-murder.
 
-#### MAPPING IT
+# MAPPING IT
 Google sez the official address of the Cooper projects is 3416 Earhart Blvd, New Orleans, LA 70125. But the *Times* article puts Nicholas' murder charge at Thalia, so this one is manually-placed a little up the street from 3416 Earhart.
 
-#### HEARING IT
+# HEARING IT
 <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A3ic8JN5L38VmdeS6QBX8Ya" width="400" height="180" frameborder="0" allowtransparency="true"></iframe>

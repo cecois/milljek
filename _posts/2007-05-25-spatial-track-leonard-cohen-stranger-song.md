@@ -15,7 +15,7 @@ tags:
 - warren beatty
 - sidebars
 - screenplays
-- sudden death
+- sudden death and/or murder
 location:
 - poly:2
 meta:
@@ -26,11 +26,11 @@ author:
   last_name: McGee
 ---
 
-Oh, this is still happening. Weird. The idea didn't choke on its own breath never to return. But here we are.
+Oh, this is still happening. Weird. The idea was probably supposed to choke on its own breath never to return. But here we are.
 
-This time it's Leonard Cohen, with arguably his best song <em>ever</em>. No, it's not "Hallelujah," you bonesacks, it's "Stranger Song." This masterpiece happens to also be attached to what some think is the best Robert Altman film ever, <em><a href="http://www.imdb.com/title/tt0067411/" target="_blank">McCabe &amp; Mrs. Miller</a></em> (1971). Snow falls lightly throughout most of <em>McCabe</em>, but it's oppressive en masse. It colors this film as in arguably no other Western (except maybe John Ford's <em><a href="http://www.imdb.com/title/tt0049730/" target="_blank">The Searchers</a></em> in 1956) and it helps the film remind you that there was a frontier of culture and commerce and violence in the NorthWest, too, that looked nothing like that gold and orange expanse that shows up in most films about Western America, even today. <em>McCabe</em> was filmed in West Vancouver, Canada, and the remoteness, sparseness, and starkness of this location is a major feature of Altman's film. Some film school hump might argue (or have argued back when he gave a single fuxk about such things) that <em>McCabe</em> holds up today in particular as an excellent alternative to the Western mythos - the idea of some macho, gunslinging hero type of which <em>certainly</em> there were fewer than there were squirrely, crafty McCabe types.
+This time it's Leonard Cohen, with arguably his best song <em>ever</em>. No, it's not "Hallelujah," you bonesacks, it's "Stranger Song." This masterpiece happens to also be attached to what some think is the best Robert Altman film ever, <em><a href="http://www.imdb.com/title/tt0067411/" target="_blank">McCabe &amp; Mrs. Miller</a></em> (1971). Snow falls lightly throughout most of <em>McCabe</em>, but it's oppressive en masse. It colors this film as in arguably no other Western (except maybe John Ford's <em><a href="http://www.imdb.com/title/tt0049730/" target="_blank">The Searchers</a></em> in 1956) and it helps the film remind you that there was a frontier of culture and commerce and violence in the NorthWest, too, that looked nothing like that gold-and-orange-scape that shows up in most films about Western America, even today. <em>McCabe</em> was filmed in West Vancouver, Canada, and the remoteness, sparseness, and starkness of this location is a major feature of Altman's film. Some film school hump might argue (or have argued back when he gave a single fuxk about such things) that <em>McCabe</em> holds up today in particular as an excellent alternative to the Western mythos - the idea of some macho, gunslinging hero type of which <em>certainly</em> there were fewer than there were squirrely, crafty McCabe types.
 
-Put another way, John Wayne wouldn't last a minute in <em>McCabe</em>. He's too...what's the word, here, full of shit? Too macho? Too brave? The first time he tried to drawl his way through a monologue with some cowering McCabe character they'd pill him in the gut before he could finish. 
+Put another way, John Wayne wouldn't last a minute in <em>McCabe</em>. He's too...what's the word, here...full of shit? Too macho? Too brave? The first time he tried to drawl his way through a monologue with some cowering McCabe character they'd pill him in the gut before he could finish. Mighta gone something like this:
 
 <ul class="screenbox">
 <li class="sceneheader">int. dark bar, much murmuring</li>

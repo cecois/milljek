@@ -19,6 +19,19 @@ var Util = Backbone.Model.extend({
         options || (options = {});
         return this
     },
+    get_tags: function(str){
+
+
+// first split on colon
+var tagsa = str.split(":")
+
+var tagstight = tagsa[0].replace(" ", "");
+
+return tagstight
+
+// 
+
+    },
     fromto: function(s, f) {
         switch (f) {   
             case "jekyll": //from jekyll e.g. "poly:99" to gD99

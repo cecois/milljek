@@ -98,6 +98,14 @@ $(document).ready(function() {
 
 	cxPosts.reset(posts)
 
+	$(".active-colorbar-2").click(function(e){
+		var urlall = window.location.pathname.split("/spatialtrack/")[1]
+var am = cxPosts.findWhere({url:"/"+urlall})
+var hashtz = MILLERIA.get_tags(am.get("title"));
+		var u="https://twitter.com/intent/tweet?url="+window.location+"&amp;text=&amp;hashtags="+MILLERIA.get_tags(hashtz)
+window.open(u,'_blank');
+	})
+
 	$(document).keydown(function(e){
 		if(e.keyCode == 18){
 			$(".wrapper").toggleClass("down")

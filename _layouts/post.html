@@ -6,13 +6,14 @@ layout: default
 	<a class="icon-arrow_back" href="/spatialtrack"></a>
 	<h1 class="post__title">{{ page.title }}</h1>
 	<p class="post__date">{{ page.date | date: '%Y.%b.%d' }}</p>
+
 	<div class="post__content"?>
 	<!-- <div style="float: right; margin-top: 10px; background-color: #ff0000; width: 200px; height: 200px; margin: 10px;">my div 1</div> -->
 	<div class="post__img__wrapper"><div class="post__img">
 		<!-- <img height="250px" width="250px" src="/spatialtrack/assets/offline/jackets/"{{post.slug}}".png"> -->
 		</div>
 		<ul id="post-toolbar">
-		<li class="active-colorbar active-colorbar-1 icon-zoom-in-outline"></li><li class="active-colorbar active-colorbar-2 icon-social-twitter-circular"></li><li class="active-colorbar active-colorbar-3 icon-spotify"></li>
+		<li title="zoom to this post's location" class="active-colorbar active-colorbar-1 icon-zoom-in-outline trigger"></li><li title="tweet this post" class="active-colorbar active-colorbar-2 icon-social-twitter-circular"></li><li title="jump to the audio" class="active-colorbar active-colorbar-3 icon-spotify"></li>
 		</ul></div>
 		{{ content }}
 	</div>

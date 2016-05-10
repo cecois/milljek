@@ -24,7 +24,7 @@ author:
 17th and Wazee is a hallowed place in Tom Waits lore. Here stood the Terminal Bar, referenced probably most famously (but not exclusively) in "Nighthawk Postcards (From Easy Street)," just one of the inebriational travelogues off of **Nighthawks at the Diner* (1975). The Terminal Bar is now a fish joint and this seedy pocket of Denver is pretty much the gentrified home of Coors Field, where the Colorado Rockies lose their games. There would be nothing for Waits to do there now - The Gap doesn't really do the P.T. Barnum bit; The Robischon Gallery doesn't really do their Texas Guinan routine anymore. Insert a third clean, modern business reference here. You get it. Maybe he could still walk out on the railroad tracks and find those two hoboes mis-telling Bible stories (see the *Live at Ebbets Field* bootleg from 1975, in which someone audibly appreciates the reference to 17th & Wazee). But it's doubtful. Denver is lovely. But not Nighthawks beautiful.
 
 # MAPPING IT
-17th & Wazee, Denver, CO
+<span data-target="milleria" data-id="g.7" class="trigger">17th & Wazee, Denver, CO</span>
 
 # HEARING IT
 <!--<iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A2jxpgXdzKry8l4UFkaK0Uy" width="400" height="180" frameborder="0" allowtransparency="true"></iframe>-->

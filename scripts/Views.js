@@ -51,15 +51,44 @@ var PostImageView = Backbone.View.extend({
     el: '.post__img',
    template: Handlebars.templates['postImageViewTpl'],
 events: {
-        "click .active-colorbar-0": "zoom"
+        // "click .active-colorbar-2": "tweet"
     },
     initialize: function(){
 
    this.listenTo(cxPosts, 'reset', this.render);
    return this
     },
-    zoom: function(){
+    tweet: function(e){
 
+        console.log(e);
+
+// var urlall = window.location.pathname.split("/spatialtrack/")[1]
+// var am = cxPosts.findWhere({url:"/"+urlall})
+// var hashtz = MILLERIA.get_tags(am.get("title"));
+// var u="https://twitter.com/intent/tweet?url="+window.location+"&amp;text=&amp;hashtags="+MILLERIA.get_tags(hashtz)
+
+// window.open(u,'_blank');
+
+return this
+
+    },
+    zoom: function(e){
+
+// built this already, re-use:
+pActive.process(e)
+
+
+return this
+
+    },
+    rewire: function(){
+
+$(".active-colorbar-3").click(function(e){
+
+var scrollTo = $('#hearing-it');
+$('html,body').animate({scrollTop: scrollTo.offset().top});
+
+})
 
 
 return this
@@ -82,22 +111,21 @@ img.addEventListener('load', function() {
     var vibrant = new Vibrant(img);
     var swatches = vibrant.swatches()
 
-// there's a pointless color bar that we fill w/ post jacket swatches
- 
-    $(".active-colorbar-0").css("background-color",swatches.Vibrant.getHex())
+
+var hashtz = MILLERIA.get_tags(am.get("title"));
+    
+
             $(".active-colorbar-1").css("background-color",swatches.Muted.getHex()).hover(function(e) { 
     $(this).css("background-color",e.type === "mouseenter"?swatches.LightVibrant.getHex():swatches.Muted.getHex()) 
-})
+}).attr("data-id",MILLERIA.fromto(am.get("location"),"jekyll")).attr("data-target","milleria")
             $(".active-colorbar-2").css("background-color",swatches.DarkVibrant.getHex()).hover(function(e) { 
     $(this).css("background-color",e.type === "mouseenter"?swatches.LightVibrant.getHex():swatches.DarkVibrant.getHex()) 
 })
+            // .html('<a target="_blank" class="twitter-share-button" href="https://twitter.com/intent/tweet?url='+window.location+'&amp;text=&amp;hashtags='+MILLERIA.get_tags(hashtz)+'" data-size="small"></a>')
             $(".active-colorbar-3").css("background-color",swatches.DarkMuted.getHex()).hover(function(e) { 
     $(this).css("background-color",e.type === "mouseenter"?swatches.LightVibrant.getHex():swatches.DarkMuted.getHex()) 
 })
-            // $(".active-colorbar-1").css("color",swatches.Muted.getHex())
-            // $(".active-colorbar-2").css("color",swatches.DarkVibrant.getHex())
-            // $(".active-colorbar-3").css("color",swatches.DarkMuted.getHex())
-
+            
 // color the buttons, too
             $(".bt-post-bank-item").css("color",swatches.Muted.getHex());
 
@@ -106,6 +134,7 @@ $("#posts-active > h3").css("color",swatches.DarkVibrant.getHex())
 });
 
         return this
+        .rewire()
     }
     });
 

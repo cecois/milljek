@@ -13,6 +13,7 @@ tags:
 - london
 - ray davies
 - the kinks
+- prison
 meta:
   audio_source: http://cl.ly/3r3r332A1k3o/download/09%20-%20Holloway%20Jail.mp3
 author:
@@ -21,7 +22,7 @@ author:
   last_name: McGee
 ---
 
-Seems a little like ol' Ray Davies buried the leed in "Holloway Jail." It's ostensibly about <a href="http://www.justice.gov.uk/contacts/prison-finder/holloway">HM Prison Holloway</a> (<a href="https://en.wikipedia.org/wiki/HM_Prison_Holloway">Wikipedia</a>), right? Which still exists in London and has in various iterations since 1852. So, okay, you've got a lady there, have you?
+Seems a little like ol' Ray Davies buried the leed in "Holloway Jail." It's ostensibly about <a href="http://www.justice.gov.uk/contacts/prison-finder/holloway">HM Prison Holloway</a> (<a href="https://en.wikipedia.org/wiki/HM_Prison_Holloway">Wikipedia</a>), right? Which still exists in London and has in various iterations since 1852. And, okay, you've got a lady there, have you?
 
 <div class="lyrics">They took my baby to Holloway jail.<br />
 They took my baby down Holloway jail.<br />
@@ -38,10 +39,10 @@ and then he went and turned her in.<br />
 She went and took the rap for him.<br />
 Now she's impaled in Holloway jail</div>
 
-...Uh-huh, uh-huh. And who is "Frankie"? A spiv, is he? Not sure how to say this, mate, but it sounds like <em>Frankie's</em> baby is in Holloway Jail. Because "you" are nowhere to be found in this tale except in its telling, and your baby is living a hell by her own account because "she went and took the rap" for this dude. Hate the player, not the game?
+...Uh-huh, uh-huh. And who is "Frankie"? A spiv, is he? Not sure how to say this, mate, but it sounds like <em>Frankie's</em> baby is in Holloway Jail. Because "you" are nowhere to be found in this tale except in its telling, and your baby is living a hell because "she went and took the rap" for this dude. Hate the player, not the game?
 
 # MAPPING IT
-HM Prison Holloway, London. Still standing, sounds like it's still a nightmare.
+<span data-target="milleria" data-id="gD4" class="trigger">HM Prison Holloway, London</span>. Still standing, sounds like it's still a nightmare.
 
 # HEARING IT
 "Holloway Jail," from the excellent, excellent 1971 <em><a href="https://open.spotify.com/album/1M0S5V7Vw0DIwPP8AeCXfJ">Muswell Hillbillies</a></em>

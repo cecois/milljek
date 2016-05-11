@@ -12,7 +12,7 @@ $milleria-copy-color: #001832;
 $milleria-copy-color-anno: #A5A5A1;
 $milleria-copy-color-a: #C36A01;
 $milleria-copy-color-a-visited: #50667A;
-$milleria-copy-color-trigger: #A50E1B;
+// $milleria-copy-color-trigger: #A50E1B;
 $milleria-copy-color-highlight: #864900;
 
 
@@ -22,7 +22,7 @@ $milleria-copy-color-highlight: #864900;
 $milleria-copy-color: #170312; //rgba(23, 3, 18, 100)
 // $milleria-copy-color-a: #402e2a; //rgba(64, 46, 42, 100)
 $milleria-copy-color-a: #498467; //rgba(64, 46, 42, 100)
-$milleria-copy-color-trigger: #402e2a; //rgba(73, 132, 103, 100)
+$milleria-copy-color-trigger: #498467; //rgba(73, 132, 103, 100)
 $milleria-copy-color-highlight: #402e2a; //rgba(156, 208, 143, 100)
 
 /* -------------------------------------- OVERRIDES (RESET/CONFIG) ----------- */
@@ -320,7 +320,8 @@ a {
 
 
 .wrapper.down{
-    top:90%;
+    // top:90%;
+    left:99%;
 }
 
 .trigger{

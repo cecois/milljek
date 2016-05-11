@@ -92,9 +92,11 @@ return tagstight
             return 0
         }
     },
-    stylize: function(fea) {
+    stylize: function(fea,active,seen) {
         var gtype = fea.geometry.type
-        var active = this.testa(fea)
+
+        if(typeof active == 'undefined'){
+                active = this.testa(fea)}
             /**
         in here we nudge the style definitions a little bc it's not always a 1:1 match between
         geomtype and the name of the style applies (e.g. linestring vs. multilinestring
@@ -177,7 +179,7 @@ return tagstight
                         fillOpacity: fillo,
                         color: borda,
                         weight: 13,
-                        opacity: 1,
+                        opacity: .5,
                     };
                 } else {
                     if (seen == 1) {
@@ -194,7 +196,7 @@ return tagstight
                             fillOpacity: fillo,
                             color: fill,
                             weight: 10,
-                            opacity: .8,
+                            opacity: .7,
                         };
                     }
                 }

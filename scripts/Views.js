@@ -28,9 +28,16 @@ var did = $(e.currentTarget).attr("data-id")
 
 mjGeoms.eachLayer(function(l){ l.eachLayer(function(m){
 
+
+// m.openPopup()
 if(m.feature.properties.mjid==did){
 
-map.fitBounds(m.getBounds());
+
+m.openPopup()
+if(m.feature.geometry.type !== "Point"){
+map.fitBounds(m.getBounds());} else {
+    map.setView(m.getLatLng(),9)
+}
 
 }
 })})
@@ -114,22 +121,27 @@ img.addEventListener('load', function() {
 
 var hashtz = MILLERIA.get_tags(am.get("title"));
     
+    var muted = (typeof swatches.Muted.getHex() !== 'undefined') ? swatches.Muted.getHex() : "#592941";
+    var lightvibrant = (typeof swatches.LightVibrant.getHex() !== 'undefined') ? swatches.LightVibrant.getHex() : "#498467";
+    var darkvibrant = (typeof swatches.DarkVibrant.getHex() !== 'undefined') ? swatches.DarkVibrant.getHex() : "#170312";
+    var darkmuted = (typeof swatches.DarkMuted.getHex() !== 'undefined') ? swatches.DarkMuted.getHex() : "#170312";
 
-            $(".active-colorbar-1").css("background-color",swatches.Muted.getHex()).hover(function(e) { 
-    $(this).css("background-color",e.type === "mouseenter"?swatches.LightVibrant.getHex():swatches.Muted.getHex()) 
+
+            $(".active-colorbar-1").css("background-color",muted).hover(function(e) { 
+    $(this).css("background-color",e.type === "mouseenter"?lightvibrant:muted) 
 }).attr("data-id",MILLERIA.fromto(am.get("location"),"jekyll")).attr("data-target","milleria")
-            $(".active-colorbar-2").css("background-color",swatches.DarkVibrant.getHex()).hover(function(e) { 
-    $(this).css("background-color",e.type === "mouseenter"?swatches.LightVibrant.getHex():swatches.DarkVibrant.getHex()) 
+            $(".active-colorbar-2").css("background-color",darkvibrant).hover(function(e) { 
+    $(this).css("background-color",e.type === "mouseenter"?lightvibrant:darkvibrant) 
 })
             // .html('<a target="_blank" class="twitter-share-button" href="https://twitter.com/intent/tweet?url='+window.location+'&amp;text=&amp;hashtags='+MILLERIA.get_tags(hashtz)+'" data-size="small"></a>')
-            $(".active-colorbar-3").css("background-color",swatches.DarkMuted.getHex()).hover(function(e) { 
-    $(this).css("background-color",e.type === "mouseenter"?swatches.LightVibrant.getHex():swatches.DarkMuted.getHex()) 
+            $(".active-colorbar-3").css("background-color",darkmuted).hover(function(e) { 
+    $(this).css("background-color",e.type === "mouseenter"?lightvibrant:darkmuted) 
 })
             
 // color the buttons, too
-            $(".bt-post-bank-item").css("color",swatches.Muted.getHex());
+            $(".bt-post-bank-item").css("color",muted);
 
-$("#posts-active > h3").css("color",swatches.DarkVibrant.getHex())
+$("#posts-active > h3").css("color",darkvibrant)
 
 });
 
@@ -208,7 +220,10 @@ if(typeof corresp !== 'undefined'){
     var popupContent = '<h4>'+feature.properties.name+'</h4><div>associated with: <a href="'+corresp.get("url")+'">'+tiedtitle+'</a></div>'} else {
                 var popupContent = "No posts key to this location - it...probably shouldn't even be here."
             }
-            layer.bindPopup(popupContent).on("popupclose", function(p) {
+            layer.bindPopup(popupContent).on("popupopen", function(p) {
+                    p.target.setStyle(MILLERIA.stylize(p.target.feature,1,0))
+            }).on("popupclose", function(p) {
+                    p.target.setStyle(MILLERIA.stylize(p.target.feature,0,0))
             })
             // layer.on("popupopen",function(p){
             //     p.target.bringToFront()

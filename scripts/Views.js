@@ -201,23 +201,13 @@ var GeomsView = Backbone.View.extend({
         var gjz = this.collection.toJSON();
 
         function on_each(feature, layer) {
-            // layer.on("click", function(m) {
-            //     if(m){
-            //         console.info("m");console.log(m);
-            //         console.log("layer.feature yes:");
-            //         var gtype=m.target.feature.geometry.type
-            //         m.target.setStyle(MILLERIA.stylize(gtype,1,0))
-            //     }
-            //     appState.set({agob:nid})
-            // }) //.on
-            
 
             var mjid = MILLERIA.fromto(feature.properties.mjid,"cartodb")
 
             var corresp = cxPosts.findWhere({location:mjid})
 if(typeof corresp !== 'undefined'){
     var tiedtitle = corresp.get("title")
-    var popupContent = '<h4>'+feature.properties.name+'</h4><div>associated with: <a href="'+corresp.get("url")+'">'+tiedtitle+'</a></div>'} else {
+    var popupContent = '<h4>'+feature.properties.name+'</h4><div>associated with: <a href="/spatialtrack/'+corresp.get("url")+'">'+tiedtitle+'</a></div>'} else {
                 var popupContent = "No posts key to this location - it...probably shouldn't even be here."
             }
             layer.bindPopup(popupContent).on("popupopen", function(p) {
@@ -244,6 +234,27 @@ if(typeof corresp !== 'undefined'){
             // .pop()
     }
 });
+var ConsoleView = Backbone.View.extend({
+el:"#console",
+template: Handlebars.templates['consoleViewTpl'],
+initialize: function(){
+            this.model.bind("change", this.render, this);
+
+    return this
+    .render()
+},
+render: function(){
+
+console.log("model");
+console.log(this.model);
+
+        $(this.el).html(this.template(this.model.toJSON()))
+        
+return this
+}
+
+});
+
 var BaseLayersView = Backbone.View.extend({
     id: 'map',
     events: {

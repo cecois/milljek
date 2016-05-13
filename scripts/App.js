@@ -14,6 +14,7 @@ window.gpre_line = "g|"
 [
 {% for post in site.posts %}
 {
+	"masturl" : "{{ site.url }}",
 	"title"    : "{{ post.title }}",
 	"url"      : "{{ post.url }}",
 	"slug"      : "{{ post.slug }}",
@@ -27,6 +28,7 @@ window.gpre_line = "g|"
 
 var posts = {{posts | strip_newlines}}
 
+
 /* -------------------------------------------------- POSTS -----------------------  */
 
 var cxPosts = new PostsCollection();
@@ -36,7 +38,7 @@ var cxPosts = new PostsCollection();
 var baselayers = {
 	"layers": [{
 		"name": "mapquest",
-		"active": false,
+		"active": true,
 		"source": "mapquest",
 		"nom": "MapQuest OSM",
 		"thumb": "http://otile1.mqcdn.com/tiles/1.0.0/osm/3/4/2.png",
@@ -49,7 +51,7 @@ var baselayers = {
 		}
 	}, {
 		"name": "dummy",
-		"active": true,
+		"active": false,
 		"source": "localhost",
 		"nom": "A Real Dummy",
 		"thumb": "/spatialtrack/assets/offline/thumb-dummy.png",
@@ -89,8 +91,14 @@ var mapGeomsView = new GeomsView({
 	collection: mapGeoms
 });
 
+var appConsole = new Console();
+var appConsoleView = new ConsoleView({
+	model: appConsole
+});
+
 var pImage = new PostImageView({collection:cxPosts});
 var pActive = new PostView();
+
 
 
 /* -------------------------------------------------- READY -----------------------  */
@@ -109,6 +117,8 @@ window.open(u,'_blank');
 	$(document).keydown(function(e){
 		if(e.keyCode == 18){
 			$(".wrapper").toggleClass("down")
+			appConsole.set({message:"press the alt/option key to bring back the main content"})
+			$("#console").toggleClass("down")
 		}
 	})
 

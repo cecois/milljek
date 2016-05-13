@@ -13,6 +13,7 @@ var BaseLayer = Backbone.Model.extend({
     },
     initialize: function() {}
 }); //BaseLayer
+var Console = Backbone.Model.extend({}); //Console
 var Geom = Backbone.Model.extend({}); //Geom
 var Util = Backbone.Model.extend({
     initialize: function(options) {
@@ -146,7 +147,7 @@ return tagstight
                         radius: 18,
                         fillColor: filla,
                         color: borda,
-                        weight: 13,
+                        weight: 10,
                         opacity: 1,
                         fillOpacity: 0.8,
                     };
@@ -156,7 +157,7 @@ return tagstight
                             radius: 8,
                             fillColor: fill,
                             color: fills,
-                            weight: 10,
+                            weight: 3,
                             opacity: .6,
                             fillOpacity: 0.2,
                         };
@@ -165,7 +166,7 @@ return tagstight
                             radius: 8,
                             fillColor: fill,
                             color: fills,
-                            weight: 10,
+                            weight: 3,
                             opacity: 1,
                             fillOpacity: 0.8,
                         };
@@ -194,7 +195,7 @@ return tagstight
                         var style = {
                             fillColor: fill,
                             fillOpacity: fillo,
-                            color: fill,
+                            color: fills,
                             weight: 10,
                             opacity: .7,
                         };

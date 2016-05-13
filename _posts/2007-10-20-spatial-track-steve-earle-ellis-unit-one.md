@@ -6,7 +6,7 @@ type: post
 published: true
 status: publish
 location:
-- point:12
+- poly:12
 categories:
 - SpatialTrack
 tags:
@@ -41,7 +41,7 @@ Now, and things're goin' good<br />
 But then they transferred me to Ellis Unit One<br />
 </div>
 
-See? Anyway, when Milleria interviewed Steve Earle about the song (not true), it went something...like...this:
+See? Anyway, when Milleria interviewed Steve Earle about the song,[^1] it went something...like...this:
 
 <strong>Milleria:</strong> <span class="anno">Steve, "Ellis Unit One" is a very stark and level song. Despite the "swing low" chorus and the notion that even Jesus "don't live on Ellis Unit One," there's a heavy inevitability that lays over the whole track that makes all of the different perspectives on execution basically point to the same, sad, end, and not some exalted romantic vision of the story. Did you intend something that was less political and more – let's say <em>humanist</em>, perhaps – or did it just happen that way?</span>
 
@@ -51,8 +51,10 @@ See? Anyway, when Milleria interviewed Steve Earle about the song (not true), it
 
 Anyway, it really is a good one.
 
+[^1]: Not true.
+
 # MAPPING IT
-This one <span data-target="milleria" data-id="g.12" class="trigger">maps fairly easily at Ellis Unit, north of Huntsville, Texas on FM-980</span>.
+This one <span data-target="milleria" data-id="gD12" class="trigger">maps fairly easily at Ellis Unit, north of Huntsville, Texas on FM-980</span>.
 
 # HEARING IT
 <!-- <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A7LnTorRUIh2n8Rhgm6euMW" width="400" height="180" frameborder="0" allowtransparency="true"></iframe> -->

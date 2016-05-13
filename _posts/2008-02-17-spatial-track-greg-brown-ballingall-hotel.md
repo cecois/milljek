@@ -34,7 +34,7 @@ This one has everything you expect from a dirty, Greg Brown crawler:
 * time travel
 * Bo Ramsey
 
-So there's not really that much more to s-- woa, woa, woa - stop the clock. That bullet says *time travel*. Here's why: near the end of this dingy, lugubrious tryst, Brown says:
+So as you can see there's not really that much more to sa-- woa, woa, woa - stop the clock. That bullet says *time travel*. Here's why: near the end of this dingy, lugubrious tryst, Brown says:
 <div class="lyrics"><br />
 One night I knocked on the wrong door<br />
 One night I knocked on the wrong door<br />

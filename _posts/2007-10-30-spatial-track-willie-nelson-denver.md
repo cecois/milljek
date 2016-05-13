@@ -23,14 +23,9 @@ author:
 ---
 
 
-<ol>
-<li>Willie Nelson digs pot. Mark that established and we move along.</li>
-<li>We should be much more concerned that Willie Nelson also seems to dig not giving a fuxk. Similar to, say, Ani DiFranco and maybe Prince, if there are >10 tracks that on average reach past 3:00 this dude is going to put it on an album and that album is going <em>out</em>. No questions entertained or answered.</li>
-<li>Willie Nelson will collaborate with anybody. Name your ASCAP or BMI artist and they are on a Willie track. Toby Keith? Check. Snoop Dogg? Check. A secondary or tertiary deBarge brother? Check.[^1]</li>
-<li><em>Red Headed Stranger</em> is to be consumed whole, in order. Presenting even one piece of it out of context is a great disservice.</li>
-</ol>
+Some truths of life: Willie Nelson will collaborate with anybody. Name your ASCAP or BMI artist and they are on a Willie track. Toby Keith? Check. Snoop Dogg? Check. A secondary or tertiary deBarge brother?[^1] Check. Willie also digs pot. Established and we move along. We should be much more concerned that Willie Nelson also seems to dig not giving a fuxk. Similar to, say, Ani DiFranco and maybe Prince, if there are >=10 tracks that on average reach past 3:00 this dude is going to put it on an album and that album is going <em>out</em>. No questions entertained or answered. Finally, [Red Headed Stranger](https://open.spotify.com/album/5aEtg4dxdBk4pj6SJ3hNsM) is to be consumed whole, in order. Presenting even one piece of it out of context is a great disservice.
 
-So let's take <em>Red Headed Stranger</em> out of context and consider "Denver" here:
+So let's take *Red Headed Stranger* out of context and consider "Denver" here:
 
 <div class="lyrics">The bright lights of Denver are shinin' like diamonds<br />
 Like ten thousand jewels in the sky<br />
@@ -48,7 +43,7 @@ Pretty short. But it's got little pieces of most of the album's tropes and could
 
 Actually, let's answer that: For starters, less killing. This album is a masterpiece, but let's not forget that the protag murders two women in it. Innocent women, really. Ethically sketchy but technically not criminal and certainly not deserving of murder death. Having said that: you really shouldn't try to steal someone's horse. Rude. Pow.
 
-[^1] Eh, <em>maybe</em>. Not infeasible, though.
+[^1]: Eh, *maybe*. Not infeasible, though.
 
 # MAPPING IT
 Denver, but where? How about the site of <span data-target="milleria" data-id="g.6" class="trigger">Denver's Hotel Teatro</span>, nodding Cowboy-style to a nice place to stay <em>and</em> the name of another ace Nelson album.

@@ -35,14 +35,12 @@ Put another way, John Wayne wouldn't last a minute in <em>McCabe</em>. He's too.
 <ul class="screenbox">
 <li class="sceneheader">int. dark bar, much murmuring</li>
 <li class="character">Jake Baggett</li>
-<li class="dialogue">Listen here, Pilgrim,* if you wanna slither in the sand like a –</li>
+<li class="dialogue">Listen here, Pilgrim,[^1] if you wanna slither in the sand like a –</li>
 <li class="action">a shot is fired into Baggett's throat. Fin.</li>
 </ul>
 
 
-<p>* Sidebar? Did John Wayne ever actually call people "Pilgrim" or is that just part of that stupid Robin Williams bit?</p>
-
-<p>** EDIT: Ok, sounds like maybe he did. But who gives a fuxk. What a waste of two minutes, that was.</p>
+[^1]: Sidebar? Did John Wayne ever actually call people "Pilgrim" or is that just part of that stupid Robin Williams bit? ** EDIT: Ok, sounds like maybe he did. But who gives a fuxk. What a waste of two minutes, that was.
 
 Anyway, it just all seems so fitting: Altman's films (and <em>McCabe</em> in particular) basically play out like gloomy arpeggio folk guitar songs, with lots of busy sound that collectively texture the entire work. Cohen's song (the original recording, in particular) has this in spades and the cumulative effect makes serious weight. <em>McCabe</em> has plenty of charm from Beatty himself, the dialogue, and the landscape, but in the end what you're seeing is the frightening, sudden disappearance of a person, almost literally lost in the Western landscape. Likewise, "Stranger Song" is full of characters who are on this or that side of being lost themselves. On purpose, one has to presume.
 

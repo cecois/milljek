@@ -27,7 +27,7 @@ There's a problem in Rhymin(apostrophe)'s "The Late, Great Johnny Ace." It's not
 
 So poignancy begets poignancy (who uses the word 'poignancy' this much?) when Simon medleys together "Pledging My Love" with his own "Late, Great..." and makes us all get a little rueful about people who were killed for being important. 
 
-Ooh, but wait - Ace was dumber than a bag of jars.* To wit:
+Ooh, but wait - Ace was dumber than a bag of jars.[^1] To wit:
 
 Ace was a good singer, man. His [original 1955 recording](https://open.spotify.com/track/70Xt4jSqmMpdrpO5P6ypvC) of this Ferdinand Washington and Don Robey 1954 composition became (posthumously) a well-known, big-time hit and is often suggested to have influenced the way Elvis Presley sang songs. Good going? Presley even <a href="https://open.spotify.com/track/12wgf01fxaVdmfViuo67fw">covered it</a> on the last album before he died in 1977, <em><a href="https://open.spotify.com/album/08bROKoMarHS0jRzZOEv08">Moody Blue</a></em>. But since Simon brought it up, let's map Ace's death - the current site of Houston's Jesse Jones Hall and the former site of City Auditorium. There, backstage on Christmas Day 1954 (not New Year's Eve, as Simon sings), Johnny Ace did what all thoughtful, tender, amorous balladeers do: he went ahead and put a bullet in his brain. Various accounts (<a href="http://en.wikipedia.org/wiki/Johnny_ace">Wikipedia</a> and <a href="http://www.press.uillinois.edu/books/catalog/84xmb9fx9780252069697.html">scholarly works</a> alike) offer different reasons for said brains-blowing-out: Was it Russian Roullette? Was it from waving the gun around, pointing it at the ladies and bragging about knowing which chamber was golden? A deposition given by – wait, <em>those</em> are the two options?!! He was either playing Russian Roullette OR randomly waving a gun around pulling the trigger?! 
 
@@ -43,7 +43,7 @@ Not that it matters *at all* but James Salem, <a href="http://www.jstor.org/stab
 
 Ok, so after removing points from Salem for shoehorning a Marshall McLuhan citation into his article, where are we? Oh, right: this Paul Simon live recording at Auditorium Theatre in Chicago in 2000, where he contrasts the beautifully dreamy "Pledging My Love" with his own dreary retelling of learning about various unnecessary murders. Unnecessary <em>murders</em>, we can agree? Because it seems obvious that one torpedoes the poignancy of this juxtaposition when one introduces some boozed bully who slumped to the floor from .22 calibers of stupidity.
 
-  * Sidebar? Lennon isn't <em>not</em> problematic, check. But he didn't accidentally kill himself, so he'll have to wait. This one's about self-death.
+[^1]: Sidebar? Lennon isn't <em>not</em> problematic, check. But he didn't accidentally kill himself, so he'll have to wait. This one's about self-death.
 
 # MAPPING IT
 City Auditorium has evidently been through some shit. To the point that it's dead. <a href="http://scottymoore.net/houstonAud.html">ScottyMoore.net</a> (noted historian?) and <a href="http://blog.chron.com/bayoucityhistory/2014/07/a-rare-look-inside-an-old-houston-auditorium/">The Houston Chronicle</a> both reference what it was and what it became. This track goes down on what's there now - Jones Hall.

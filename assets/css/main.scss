@@ -23,6 +23,7 @@ $milleria-copy-color: #170312; //rgba(23, 3, 18, 100)
 // $milleria-copy-color-a: #402e2a; //rgba(64, 46, 42, 100)
 $milleria-copy-color-a: #498467; //rgba(64, 46, 42, 100)
 $milleria-copy-color-trigger: #498467; //rgba(73, 132, 103, 100)
+$milleria-copy-color-trigger-hover: #592941;
 $milleria-copy-color-highlight: #402e2a; //rgba(156, 208, 143, 100)
 
 /* -------------------------------------- OVERRIDES (RESET/CONFIG) ----------- */
@@ -68,6 +69,20 @@ ul {
     }
 }
 
+#console{
+       background-color: $milleria-copy-color-a;
+    color: white;
+    font-weight: 800;
+    
+    padding: 5px 20px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 33%;
+}
+#console.down{
+        display:none;
+    }
 
 .wrapper {
     max-width: 600px;
@@ -78,6 +93,12 @@ ul {
     left:5%;
     @media screen and (max-width: $br) {
         padding: 20px;
+    }
+
+    a.footnote{
+        vertical-align: super;
+    font-size: smaller;
+    font-weight:800;
     }
 }
 
@@ -208,8 +229,8 @@ padding: 25px;
 width: 90%;
 margin-left: 5%;
   font-style: italic;
-  color:"gray";
-  background-color:"white";
+  color:$milleria-copy-color-anno;
+  // background-color:"white";
   border-radius:2px;
 }
 
@@ -327,6 +348,9 @@ a {
 .trigger{
     color: $milleria-copy-color-trigger;
     cursor:pointer;
+    &:hover{
+        color: $milleria-copy-color-trigger-hover;
+    }
 }
 
 #post-toolbar{

@@ -7,6 +7,8 @@ published: true
 status: publish
 categories:
 - SpatialTrack
+location:
+- poly:20
 tags:
 - Aerospatiale Squirrel
 - Argentina

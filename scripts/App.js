@@ -38,7 +38,7 @@ var cxPosts = new PostsCollection();
 var baselayers = {
 	"layers": [{
 		"name": "mapquest",
-		"active": true,
+		"active": false,
 		"source": "mapquest",
 		"nom": "MapQuest OSM",
 		"thumb": "http://otile1.mqcdn.com/tiles/1.0.0/osm/3/4/2.png",
@@ -51,7 +51,7 @@ var baselayers = {
 		}
 	}, {
 		"name": "dummy",
-		"active": false,
+		"active": true,
 		"source": "localhost",
 		"nom": "A Real Dummy",
 		"thumb": "/spatialtrack/assets/offline/thumb-dummy.png",

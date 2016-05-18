@@ -121,10 +121,10 @@ img.addEventListener('load', function() {
 
 var hashtz = MILLERIA.get_tags(am.get("title"));
     
-    var muted = (typeof swatches.Muted.getHex() !== 'undefined') ? swatches.Muted.getHex() : "#592941";
-    var lightvibrant = (typeof swatches.LightVibrant.getHex() !== 'undefined') ? swatches.LightVibrant.getHex() : "#498467";
-    var darkvibrant = (typeof swatches.DarkVibrant.getHex() !== 'undefined') ? swatches.DarkVibrant.getHex() : "#170312";
-    var darkmuted = (typeof swatches.DarkMuted.getHex() !== 'undefined') ? swatches.DarkMuted.getHex() : "#170312";
+    var muted = (typeof swatches.Muted !== 'undefined') ? swatches.Muted.getHex() : "#592941";
+    var lightvibrant = (typeof swatches.LightVibrant !== 'undefined') ? swatches.LightVibrant.getHex() : "#498467";
+    var darkvibrant = (typeof swatches.DarkVibrant !== 'undefined') ? swatches.DarkVibrant.getHex() : "#170312";
+    var darkmuted = (typeof swatches.DarkMuted !== 'undefined') ? swatches.DarkMuted.getHex() : "#170312";
 
 
             $(".active-colorbar-1").css("background-color",muted).hover(function(e) { 
@@ -244,9 +244,6 @@ initialize: function(){
     .render()
 },
 render: function(){
-
-console.log("model");
-console.log(this.model);
 
         $(this.el).html(this.template(this.model.toJSON()))
         

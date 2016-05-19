@@ -46,7 +46,7 @@ Ok, so after removing points from Salem for shoehorning a Marshall McLuhan citat
 [^1]: Sidebar? Lennon isn't <em>not</em> problematic, check. But he didn't accidentally kill himself, so he'll have to wait. This one's about self-death.
 
 # MAPPING IT
-City Auditorium has evidently been through some shit. To the point that it's dead. <a href="http://scottymoore.net/houstonAud.html">ScottyMoore.net</a> (noted historian?) and <a href="http://blog.chron.com/bayoucityhistory/2014/07/a-rare-look-inside-an-old-houston-auditorium/">The Houston Chronicle</a> both reference what it was and what it became. This track goes down on what's there now - Jones Hall.
+City Auditorium has evidently been through some shit. To the point that it's dead. <a href="http://scottymoore.net/houstonAud.html">ScottyMoore.net</a> (noted historian?) and <a href="http://blog.chron.com/bayoucityhistory/2014/07/a-rare-look-inside-an-old-houston-auditorium/">The Houston Chronicle</a> both reference what it was and what it became. This track goes down on what's there now - <span data-target="milleria" data-id="gD9" class="trigger">Jones Hall</span>.
 
 # HEARING IT
 This track is from a bootleg, so Spotify doesn't have it. You'll have to [download it](http://cl.ly/0J1t1h0i2k35/download/2-02%20Pledging%20My%20Love%201.m4a) like we did in the old days.

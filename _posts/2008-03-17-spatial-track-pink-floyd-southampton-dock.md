@@ -8,7 +8,7 @@ status: publish
 categories:
 - SpatialTrack
 location:
-- poly:20
+- poly:17
 tags:
 - Aerospatiale Squirrel
 - Argentina
@@ -71,7 +71,7 @@ Anyway, there's a strain of misogyny in this one, so listen critically (how many
 
 
 # MAPPING IT
-Not sure which specific dock, <span data-target="milleria" data-id="gD20" class="trigger">so all of em</span> in Southampton.
+Not sure which specific dock, <span data-target="milleria" data-id="gD17" class="trigger">so all of em</span> in Southampton.
 
 # HEARING IT
 <!-- <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A1e6P6S42qX7vFT0u14S5jm" width="400" height="180" frameborder="0" allowtransparency="true"></iframe> -->

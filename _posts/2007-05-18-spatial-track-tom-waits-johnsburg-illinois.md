@@ -26,7 +26,7 @@ The first week is one of Tom Waits' best straight-up love songs, "Johnsburg, Ill
 "Johnsburg, Illinois" is a spare, spare, romantic ballad. Straight up. No pretense, even. I don't even think it's ~exploring~ some potpourri of musical influence like a lotta these asshole musicians try to pull off when we're not looking. The song aggrandizes <span data-target="milleria" data-id="gD1" class="trigger">the town in which his wife, Kathleen Brennan, grew up</span>. The end. The place is [probably?] kinda ordinary and pedestrian -- you might notice Waits doesn't bother with a ton of, or any, detail about the joint -- but it gets a song because he loves this woman it produced. Waits actually says (according to Pieter Hartmans's 1983 interview posted at <a href="http://www.tomwaitslibrary.com/quotes-kathleen.html">TomWaitsLibrary.com</a> at least) that Brennan was raised up "by the Ching-a-Lings" on a farm that was situated "outside McHenry" near the Wisconsin border. Which is maybe less or more romantic than "You see I just can't live without her, and I'm her only boy," depending on taste, but still seems to be about the right sentiment.
 
 # MAPPING IT
-Easy. Johnsburg is <a href="http://www.openstreetmap.org/relation/126051">fully-formed in the OpenStreetMap set</a>.
+Easy. Johnsburg is fully-formed in the OpenStreetMap set, <span data-target="milleria" data-id="gD1" class="trigger">copied</span>.
 
 # HEARING IT
 <!-- <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A4iyHsFZsLECwTIdsF39Dkn" width="400" height="180" frameborder="0" allowtransparency="true"></iframe> -->

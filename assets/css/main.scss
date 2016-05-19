@@ -85,6 +85,18 @@ ul {
     }
 
 .wrapper {
+
+    .list-tags{
+    width:40%;
+    position:relative;
+    float:right;
+}
+//     .blog{
+//     width:60%;
+//     position:relative;
+//     float:left;
+// }
+
     max-width: 600px;
     margin: auto;
     padding: 60px 30px 60px 30px;
@@ -137,7 +149,11 @@ ul {
 
 
 
+
 .blog {
+    width:60%;
+    position:relative;
+    float:left;
     padding-bottom: 30px;
     h1 {
         font-size: 1.4em;

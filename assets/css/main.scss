@@ -248,6 +248,7 @@ margin-left: 5%;
   color:$milleria-copy-color-anno;
   // background-color:"white";
   border-radius:2px;
+  white-space: pre;
 }
 
 
@@ -383,4 +384,41 @@ text-align:center;
         //     background-color: $milleria-copy-color-a-visited;
         // }
     }
+}
+
+.post-tags-wrapper{
+    margin-top:25px;
+    font-size:.8em;
+}
+// for tag cloud and archives
+.tag-cloud {
+  list-style: none;
+  padding: 0;
+  text-align: justify; 
+  // font-size: 16px;
+  li {
+    display: inline-block;
+    margin: 0 12px 12px 0; 
+  }
+}
+#archives {
+  padding: 5px;
+}
+.archive-group {
+  margin: 5px;
+  border-top: 1px solid #ddd;
+}
+.archive-item {
+  margin-left: 5px;
+}
+.post-tags {
+  text-align: right;
+}
+
+.tags-archive-tag{
+    font-size:1.3em;
+    text-transform: uppercase;
+    margin-top:18px;
+    font-weight:800;
+    margin-bottom:12px;
 }

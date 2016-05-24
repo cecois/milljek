@@ -5,6 +5,7 @@ layout: default
 <div class="post">
 	<a class="icon-arrow_back" href="/spatialtrack"></a>
 	<h1 class="post__title">{{ page.title }}</h1>
+
 	<p class="post__date">{{ page.date | date: '%Y.%b.%d' }}</p>
 
 	<div class="post__content"?>
@@ -14,11 +15,11 @@ layout: default
 		</div>
 		<ul id="post-toolbar">
 		<li title="zoom to this post's location" class="active-colorbar active-colorbar-1 icon-zoom-in-outline trigger"></li><li title="tweet this post" class="active-colorbar active-colorbar-2 icon-social-twitter-circular"></li><li title="jump to the audio" class="active-colorbar active-colorbar-3 icon-spotify"></li>
-		</ul></div>
+		</ul>
+<div class="post-tags-wrapper">
+{% include post-tags.html %}
+	</div>
+		</div>
 		{{ content }}
 	</div>
 </div>
-
-<div class="post-footer">
-{{ page.tags }}
-	</div>

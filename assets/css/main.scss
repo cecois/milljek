@@ -6,6 +6,14 @@
 
 /* -------------------------------------- VARS ----------- */
 
+$chocolate: #170312;
+$mint: #498467;
+$mint-light: #9cd08f; 
+$plum: #592941;
+$mocha: #402e2a;
+$anno: #A5A5A1;
+$effectiveblack: #001832;
+
 // $milleria-bg: rgba(255,255,255,.78);
 $milleria-bg: rgba(255,255,255,.88);
 $milleria-copy-color: #001832;
@@ -18,13 +26,12 @@ $milleria-copy-color-highlight: #864900;
 
 /* Coolors Exported Palette - coolors.co/592941-498467-170312-402e2a-9cd08f */
 
-// $milleria-copy-color-anno: #592941; //rgba(89, 41, 65, 100)
-$milleria-copy-color: #170312; //rgba(23, 3, 18, 100)
-// $milleria-copy-color-a: #402e2a; //rgba(64, 46, 42, 100)
-$milleria-copy-color-a: #498467; //rgba(64, 46, 42, 100)
-$milleria-copy-color-trigger: #498467; //rgba(73, 132, 103, 100)
-$milleria-copy-color-trigger-hover: #592941;
-$milleria-copy-color-highlight: #402e2a; //rgba(156, 208, 143, 100)
+$milleria-copy-color: $effectiveblack;
+$milleria-copy-color-a: $chocolate;
+$milleria-copy-color-trigger: $mint;
+$milleria-copy-color-trigger-hover: $mint-light;
+$milleria-copy-color-highlight: $plum;
+
 
 /* -------------------------------------- OVERRIDES (RESET/CONFIG) ----------- */
 
@@ -68,6 +75,28 @@ ul {
         }
     }
 }
+
+.filter-wrapper{
+    text-align:center;
+    padding-left:25%;
+    width:100%;
+    margin-bottom:22px;
+input[type="text"] {
+    color: gray;
+  display: block;
+  margin: 0;
+  padding:6px;
+  width: 50%;
+  font-family: sans-serif;
+  font-size: 18px;
+  appearance: none;
+  box-shadow: none;
+  border:none;
+  border-radius: 2px;
+}
+input[type="text"]:focus {
+  outline: none;
+}}
 
 #console{
        background-color: $milleria-copy-color-a;
@@ -118,6 +147,8 @@ ul {
 
 .header {
     display: flex;
+    color: $milleria-copy-color-trigger;
+    font-weight: 800;
     justify-content: space-between;
     align-items: baseline;
     padding-bottom: 50px;
@@ -307,6 +338,9 @@ margin-left: 5%;
 
 /* ---------------------- END STOCK ------------------ */
 
+.st_back{
+    font-size:1.6em;
+}
 
 #map {
   width: 100%;
@@ -364,6 +398,7 @@ a {
 
 .trigger{
     color: $milleria-copy-color-trigger;
+    font-weight:800;
     cursor:pointer;
     &:hover{
         color: $milleria-copy-color-trigger-hover;
@@ -391,10 +426,11 @@ text-align:center;
     font-size:.8em;
 }
 // for tag cloud and archives
-.tag-cloud {
+#archives-tag-cloud {
   list-style: none;
   padding: 0;
   text-align: justify; 
+  margin-bottom:33px;
   // font-size: 16px;
   li {
     display: inline-block;
@@ -403,6 +439,7 @@ text-align:center;
 }
 #archives {
   padding: 5px;
+  padding-left:5%;
 }
 .archive-group {
   margin: 5px;

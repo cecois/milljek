@@ -7,6 +7,8 @@ published: true
 status: publish
 categories:
 - SpatialTrack
+location:
+- point:22
 tags:
 - ramblin' jack elliot
 - lillian bos ross
@@ -66,7 +68,7 @@ Whoopsie daisy. Or, maybe, an unavoidable conclusion to living domestically wher
 
 
 # MAPPING IT
-"Down the hills" when returning to Monterey from Jolon suggests that de Castro and his new daughterbride might have ridden the Nacimiento Trail - now kinda sorta the Nacimiento-Fergusson Rd. but actually more like Big Sur's (first of two) [Mill Creek Trails](http://www.hikinginbigsur.com/hikes_millcreek.html), but why start out "to the south"? Nacimiento goes east-west, not very north-south at all and leading south is opposite of Monterey anyway. So this one is a little tricky to map. To the rescue a little comes William Reynolds, writing in *[Ranch and Reata Magazine](http://wcreynolds.com/images/writings/Southcoast.pdf)*. Tying together Lillian Bos Ross' _The Stranger_ and her "South Coast" poem, Reynolds basically tells us exactly where this song goes - a ranch somewhere in Big Sur *between* Monterey and Jolon that had originally inspired Ross to write de Castro's narrative. Trouble is...where the fuxk is that?! Based on the crudely-drawn map Reynolds reproduces in that article, how about ~40m north of Jolon near Barlow Flat. K?
+"Down the hills" when returning to Monterey from Jolon suggests that de Castro and his new daughterbride might have ridden the Nacimiento Trail - now kinda sorta the Nacimiento-Fergusson Rd. but actually more like Big Sur's (first of two) [Mill Creek Trails](http://www.hikinginbigsur.com/hikes_millcreek.html), but why start out "to the south"? Nacimiento goes east-west, not very north-south at all and leading south is opposite of Monterey anyway. So this one is a little tricky to map. To the rescue a little comes William Reynolds, writing in *[Ranch and Reata Magazine](http://wcreynolds.com/images/writings/Southcoast.pdf)*. Tying together Lillian Bos Ross' _The Stranger_ and her "South Coast" poem, Reynolds basically tells us exactly where this song goes - a ranch somewhere in Big Sur *between* Monterey and Jolon that had originally inspired Ross to write de Castro's narrative. Trouble is...where the fuxk is that?! Based on the crudely-drawn map Reynolds reproduces in that article, how about <span data-target="milleria" data-id="g.22" class="trigger">~40m north of Jolon near Barlow Flat</span>. K?
 
 # HEARING IT
 There's a [subdued, ballady version of this on an official Elliot album](https://open.spotify.com/track/3VEF1CzUt9cOuJpgsR3fNS), but his performance at Whelan's in Dublin is so good you gotta [download it like a caveperson](http://cl.ly/43340K3R1j2z/download/15%20The%20South%20Coast%20is%20a%20Wild%20Coast.mp3).

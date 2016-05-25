@@ -133,13 +133,13 @@ return tagstight
         if (gtype.toLowerCase() == 'linestring') {
             var gtypa = 'line';
         }
-        var fill = "#384754";
-        var filla = "#C7E048";
+        var fill = "#402e2a";
+        var filla = "#9cd08f";
         var fills = "black";
         var fillo = 1;
         var pipeseen = "#929292";
-        var bord = "#C7E048";
-        var borda = "#C7E048";
+        var bord = "#498467";
+        var borda = "#498467";
         switch (gtypa) {
             case 'point':
                 if (active == 1) {

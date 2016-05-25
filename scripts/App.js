@@ -122,4 +122,11 @@ window.open(u,'_blank');
 		}
 	})
 
+$('#archives-tag-cloud').liveFilter('#livefilter-input', 'li', {
+  filterChildSelector: 'a'
+});
+$('#archives').liveFilter('#livefilter-input', '.archive-group', {
+  // filterChildSelector: 'a'
+});
+
 });

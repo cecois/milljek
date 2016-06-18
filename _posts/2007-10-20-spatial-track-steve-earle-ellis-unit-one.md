@@ -24,7 +24,7 @@ author:
 
 Back in 1995 Steve Earle recorded "Ellis Unit One" for the <em>Dead Man Walking</em> soundtrack. "Ellis Unit One" refers to <a href="https://en.wikipedia.org/wiki/Ellis_Unit">O.B. Ellis Unit</a>, the <a href="http://www.tdcj.state.tx.us/death_row/dr_facts.html">Texas male death row from 1965 to 1999</a>. And it's really a good song. <em>Dead Man Walking</em> is famously about the death penalty, so Earle had to be like "Gotcha. Wun day-eth pyenuhlty folker cumin' raht up!" Oh, does he not sound exactly like that? Because he does.
 
-And the song: let's see...is it unfair to say that if you locked every Bruce Springsteen song in a room and set them to fucking, this is what would ooze from under the door after a few hours? Even though that seems a little unfair.
+And the song: let's see...is it unfair to say that if you locked every Bruce Springsteen song in a room and set them to fuxking, this is what would ooze from under the door after a few hours? Even though that seems a little unfair.
 
 <div class="lyrics"><br />
 I was fresh out of the service, it was back in '82<br />
@@ -57,4 +57,4 @@ Anyway, it really is a good one.
 This one <span data-target="milleria" data-id="gD12" class="trigger">maps fairly easily at Ellis Unit, north of Huntsville, Texas on FM-980</span>.
 
 # HEARING IT
-<!-- <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A7LnTorRUIh2n8Rhgm6euMW" width="400" height="180" frameborder="0" allowtransparency="true"></iframe> -->
+<iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A7LnTorRUIh2n8Rhgm6euMW" width="400" height="180" frameborder="0" allowtransparency="true"></iframe>

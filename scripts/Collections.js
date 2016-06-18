@@ -1,7 +1,7 @@
 var GeomsCollection = Backbone.Collection.extend({
     model: Geom,
     url: function() {
-        return "/spatialtrack/assets/offline/cartodb-query.geojson";
+        return "/assets/offline/cartodb-query.geojson";
     },
     initialize: function(options) {
 

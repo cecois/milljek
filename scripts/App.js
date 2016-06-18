@@ -51,22 +51,22 @@ var baselayers = {
 		}
 	}, {
 		"name": "dummy",
-		"active": true,
+		"active": false,
 		"source": "localhost",
 		"nom": "A Real Dummy",
-		"thumb": "/spatialtrack/assets/offline/thumb-dummy.png",
+		"thumb": "/assets/offline/thumb-dummy.png",
 		"mapis": "dark",
 		"definition": {
 			"maxZoom": 18,
-			"url": "/spatialtrack/assets/offline/thumb-pencil.png",
+			"url": "/assets/offline/thumb-pencil.png",
 			"noWrap": true
 		}
 	},{
 		"name": "pencil",
-		"active": false	,
+		"active": true,
 		"source": "mapbox",
 		"nom": "Aj Ashton's Pencil Map",
-		"thumb": "/spatialtrack/assets/offline/thumb-pencil.png",
+		"thumb": "/assets/offline/thumb-pencil.png",
 		"mapis": "dark",
 		"definition": {
 			"subdomains": ["a", "b", "c"],
@@ -106,21 +106,15 @@ $(document).ready(function() {
 
 	cxPosts.reset(posts)
 
-	$(".active-colorbar-2").click(function(e){
-		var urlall = window.location.pathname.split("/spatialtrack/")[1]
-var am = cxPosts.findWhere({url:"/"+urlall})
-var hashtz = MILLERIA.get_tags(am.get("title"));
-		var u="https://twitter.com/intent/tweet?url="+window.location+"&amp;text=&amp;hashtags="+MILLERIA.get_tags(hashtz)
-window.open(u,'_blank');
-	})
+// 	$(".active-colorbar-2").click(function(e){
+// 		var urlall = window.location.pathname.split(".org/")[1]
+// var am = cxPosts.findWhere({url:"/"+urlall})
+// var hashtz = MILLERIA.get_tags(am.get("title"));
+// 		var u="https://twitter.com/intent/tweet?url="+window.location+"&amp;text=&amp;hashtags="+MILLERIA.get_tags(hashtz)
+// window.open(u,'_blank');
+// 	})
 
-	$(document).keydown(function(e){
-		if(e.keyCode == 18){
-			$(".wrapper").toggleClass("down")
-			appConsole.set({message:"press the alt/option key to bring back the main content"})
-			$("#console").toggleClass("down")
-		}
-	})
+	
 
 $('#archives-tag-cloud').liveFilter('#livefilter-input', 'li', {
   filterChildSelector: 'a'
@@ -130,3 +124,11 @@ $('#archives').liveFilter('#livefilter-input', '.archive-group', {
 });
 
 });
+
+$(document).keydown(function(e){
+		if(e.keyCode == 18){
+			$(".wrapper").toggleClass("down")
+			appConsole.set({message:"press the alt/option key to bring back the main content"})
+			$("#console").toggleClass("down")
+		}
+	})

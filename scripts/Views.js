@@ -103,14 +103,21 @@ return this
     },
     render: function(){
 var urlall = window.location.pathname.split("/spatialtrack/")[1]
-var am = cxPosts.findWhere({url:"/"+urlall})
+// var am = cxPosts.findWhere({url:"/"+urlall})
+var am = cxPosts.findWhere({url:"/spatialtrack/"+urlall})
 
         $(this.el).html(this.template(
          am.toJSON()
         ));
 
         var img = document.createElement('img');
-        var iu = "/spatialtrack/assets/offline/jackets/"+am.get("slug")+".jpg"
+
+
+
+        var iu = "/assets/offline/jackets/"+am.get("slug")+".jpg"
+
+var hashtz = MILLERIA.get_tags(am.get("title"));
+        
 
         img.setAttribute('src', iu)
 
@@ -119,7 +126,6 @@ img.addEventListener('load', function() {
     var swatches = vibrant.swatches()
 
 
-var hashtz = MILLERIA.get_tags(am.get("title"));
     
     var muted = (typeof swatches.Muted !== 'undefined') ? swatches.Muted.getHex() : "#592941";
     var lightvibrant = (typeof swatches.LightVibrant !== 'undefined') ? swatches.LightVibrant.getHex() : "#498467";
@@ -133,7 +139,9 @@ var hashtz = MILLERIA.get_tags(am.get("title"));
             $(".active-colorbar-2").css("background-color",darkvibrant).hover(function(e) { 
     $(this).css("background-color",e.type === "mouseenter"?lightvibrant:darkvibrant) 
 })
-            // .html('<a target="_blank" class="twitter-share-button" href="https://twitter.com/intent/tweet?url='+window.location+'&amp;text=&amp;hashtags='+MILLERIA.get_tags(hashtz)+'" data-size="small"></a>')
+            // .html('<a target="_blank" class="twitter-share-button" href="https://twitter.com/intent/tweet?url='+window.location+'&amp;text=&amp;hashtags='+hashtz+'" data-size="small"></a>')
+            // .html('<a target="_blank" class="" href="https://twitter.com/intent/tweet?url='+window.location+'&amp;text=&amp;hashtags='+hashtz+'" data-size="small"></a>')
+
             $(".active-colorbar-3").css("background-color",darkmuted).hover(function(e) { 
     $(this).css("background-color",e.type === "mouseenter"?lightvibrant:darkmuted) 
 })
@@ -158,20 +166,22 @@ var GeomsView = Backbone.View.extend({
     initialize: function() {
         // this.listenTo(this.collection, 'reset', this.render)
         // this.listenTo(this.collection, 'change', this.render)
-        // this.listenTo(this.collection, 'sync', this.render)
+        this.listenTo(this.collection, 'sync', this.render)
         this.listenTo(cxPosts, 'reset', this.render);
         this.listenTo(cxPosts, 'change', this.render);
         /* -------------------------------------------------- MAP CONTENT -----------------------  */
         // a group for all of the post-specific geoms
         mjGeoms = L.geoJson().addTo(map);
         // this.listenTo(cxPosts, 'reset', this.render);
+        // this.bind(this.collection,'fetch',this.render);
         // this.bind(this.collection,'change',this.render);
         // this.listenTo(appState, 'change:bbox', this.zoomy);
         // this.render()
         return this
+        // .render()
     },
     activate: function() {
-        var slugall = window.location.pathname.split("spatialtrack")[2]
+        var slugall = window.location.pathname.split("spatialtrack")[1]
         if (typeof slugall !== 'undefined') {
             var slughtml = slugall.split(".html")[0]
             if (typeof slughtml !== 'undefined') {
@@ -207,7 +217,7 @@ var GeomsView = Backbone.View.extend({
             var corresp = cxPosts.findWhere({location:mjid})
 if(typeof corresp !== 'undefined'){
     var tiedtitle = corresp.get("title")
-    var popupContent = '<h4>'+feature.properties.name+'</h4><div>associated with: <a href="/spatialtrack/'+corresp.get("url")+'">'+tiedtitle+'</a></div>'} else {
+    var popupContent = '<h4>'+feature.properties.name+'</h4><div>associated with: <a href="http://map.milleria.org/'+corresp.get("url")+'">'+tiedtitle+'</a></div>'} else {
                 var popupContent = "No posts key to this location - it...probably shouldn't even be here."
             }
             layer.bindPopup(popupContent).on("popupopen", function(p) {

@@ -75,7 +75,7 @@ return tagstight
     },
     testa: function(fea) {
         var active = 0
-        var slugall = window.location.pathname.split("spatialtrack")[2]
+        var slugall = window.location.pathname.split("spatialtrack")[1]
         if (typeof slugall !== 'undefined') {
             var slughtml = slugall.split(".html")[0]
             if (typeof slughtml !== 'undefined') {

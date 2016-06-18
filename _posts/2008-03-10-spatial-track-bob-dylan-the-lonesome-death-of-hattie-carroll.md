@@ -52,4 +52,4 @@ So there you have it. What have we learned?
 A little <span data-target="milleria" data-id="g.10" class="trigger">dot that used to be the Emerson Hotel</span> in Baltimore, MD.
 
 # HEARING IT
-<!-- <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A6j1fiAG1NFBqPDRfJY19Yv" width="400" height="180" frameborder="0" allowtransparency="true"></iframe> -->
+<iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A6j1fiAG1NFBqPDRfJY19Yv" width="400" height="180" frameborder="0" allowtransparency="true"></iframe>

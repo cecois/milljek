@@ -1,11 +1,11 @@
 # My variables
-name: ST
+name: Spatial Track
 description: a mapped blog about mappable music
 
 # File management
 include: [".htaccess"]
 exclude: ["README.md", "LICENSE", "templates"]
-baseurl: "http://localhost/spatialtrack"
+baseurl: "http://map.milleria.org"
 
 # Sass
 sass:

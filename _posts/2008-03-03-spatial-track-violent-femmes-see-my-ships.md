@@ -41,4 +41,4 @@ So enjoy, if at all possible, what is actually a pretty good, dirgy ode to famil
 At <span data-target="milleria" data-id="g.9" class="trigger">2101 S. Gramercy Place</span>, a modest home where some ruff shiz went down (where "ruff shiz" is a euphemism for "extreme domestic violence).
 
 # HEARING IT
-<!-- <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A48LjxuALWXyfsx9Duol6Xt" width="400" height="180" frameborder="0" allowtransparency="true"></iframe> -->
+<iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A48LjxuALWXyfsx9Duol6Xt" width="400" height="180" frameborder="0" allowtransparency="true"></iframe>

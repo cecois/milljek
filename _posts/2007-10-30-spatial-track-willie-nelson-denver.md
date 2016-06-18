@@ -49,4 +49,4 @@ Actually, let's answer that: For starters, less killing. This album is a masterp
 Denver, but where? How about the site of <span data-target="milleria" data-id="g.6" class="trigger">Denver's Hotel Teatro</span>, nodding Cowboy-style to a nice place to stay <em>and</em> the name of another ace Nelson album.
 
 # HEARING IT
-<!-- <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A6XA4JehIqXGF4Aqqcj5TBX" width="400" height="180" frameborder="0" allowtransparency="true"></iframe> -->
+<iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A6XA4JehIqXGF4Aqqcj5TBX" width="400" height="180" frameborder="0" allowtransparency="true"></iframe>

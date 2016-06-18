@@ -51,4 +51,4 @@ It's tempting to put this one down at <span data-target="rando" data-id="-87.868
 </ul>
 
 # HEARING IT
-<!-- <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A3bQAoAuhhIinrbPaaCqu80" width="400" height="180" frameborder="0" allowtransparency="true"></iframe> -->
+<iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A3bQAoAuhhIinrbPaaCqu80" width="400" height="180" frameborder="0" allowtransparency="true"></iframe>

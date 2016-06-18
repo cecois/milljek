@@ -46,4 +46,4 @@ Now she's impaled in Holloway jail</div>
 
 # HEARING IT
 "Holloway Jail," from the excellent, excellent 1971 <em><a href="https://open.spotify.com/album/1M0S5V7Vw0DIwPP8AeCXfJ">Muswell Hillbillies</a></em>
-<!-- <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A2Dr5fxonbviYAWJqy87OF8" width="400" height="180" frameborder="0" allowtransparency="true"></iframe> -->
+<iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A2Dr5fxonbviYAWJqy87OF8" width="400" height="180" frameborder="0" allowtransparency="true"></iframe>

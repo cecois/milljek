@@ -29,4 +29,4 @@ It maps, obviously, to <span data-target="milleria" data-id="gD8" class="trigger
 
 # HEARING IT
 There's a <a href="http://www.daytrotter.com/#!/concert/elvis-perkins/20030065-110490">very good Daytrotter Session performance</a> of this, but here's the official release:
-<!-- <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A5echUMh3K7DmIlvAnIOksV" width="400" height="180" frameborder="0" allowtransparency="true"></iframe> -->
+<iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A5echUMh3K7DmIlvAnIOksV" width="400" height="180" frameborder="0" allowtransparency="true"></iframe>

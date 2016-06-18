@@ -33,4 +33,4 @@ Well, Mrs. Mason is *underselling* it, friends. Hard. Lil' Nicholas Mason went b
 Google sez the official address of the Cooper projects is 3416 Earhart Blvd, New Orleans, LA 70125. But the *Times* article puts Nicholas' murder charge at Thalia, so this one is manually-placed <span data-target="milleria" data-id="g.5" class="trigger">a little up the street from 3416 Earhart</span>.
 
 # HEARING IT
-<!-- <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A3ic8JN5L38VmdeS6QBX8Ya" width="400" height="180" frameborder="0" allowtransparency="true"></iframe> -->
+<iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A3ic8JN5L38VmdeS6QBX8Ya" width="400" height="180" frameborder="0" allowtransparency="true"></iframe>

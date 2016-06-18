@@ -36,4 +36,4 @@ As in *no one* to please. Even oneself. Maybe St. Paul is somehow charming in th
 
 # HEARING IT
 The better version is <a href="http://www.daytrotter.com/#!/concert/casiotone-for-the-painfully-alone/20030216-111136">from a Daytrotter session</a>, but the studio version:
-<!-- <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A1MsCYcXzBwpZNNPx8gh9G3" width="400" height="180" frameborder="0" allowtransparency="true"></iframe> -->
+<iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A1MsCYcXzBwpZNNPx8gh9G3" width="400" height="180" frameborder="0" allowtransparency="true"></iframe>

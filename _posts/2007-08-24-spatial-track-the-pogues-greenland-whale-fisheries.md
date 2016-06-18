@@ -36,4 +36,4 @@ Greenland can screw, though, agreed? This one belongs in the approximate locatio
 # HEARING IT
 There's a [probably-better performance](http://cl.ly/2w3D26251i2y/download/fisheries.mp3) from the "Gin Lane, Beer Street" bootleg (Stockholm, 1995), but here's their official recording from <em>Red Roses for Me</em>:
 
-<!-- <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A7kAp9xBHBUni9n7O58c5Qx" width="400" height="180" frameborder="0" allowtransparency="true"></iframe> -->
+<iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A7kAp9xBHBUni9n7O58c5Qx" width="400" height="180" frameborder="0" allowtransparency="true"></iframe>
